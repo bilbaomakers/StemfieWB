@@ -67,7 +67,7 @@ class STR_STD_ERR:
             #  ---- Creo la cara con el contorno
             F = Part.Face(W)
             #  ---- Le doy Volumen a la cara
-            P = F.extrude (FreeCAD.Vector(0,0,3.25))
+            P = F.extrude (FreeCAD.Vector(0,0,3.125))
             #  ---- Bucle para agujeros
             for x in range(obj.N_Agujeros):
                 Agujero = Part.makeCylinder(3.5, 5, FreeCAD.Vector( x*12.5, 0, -1), FreeCAD.Vector(0, 0, 1))
@@ -123,7 +123,7 @@ class STR_STD_BRD_AZ:
         #  ---- Creo la cara con el contorno
         F = Part.Face(W)
         #  ---- Le doy Volumen a la cara
-        PX = F.extrude (FreeCAD.Vector(0,0,3.25))
+        PX = F.extrude (FreeCAD.Vector(0,0,3.125))
         #  ---- Bucle para agujeros
         for x in range(obj.N_Agujeros_X):
             Agujero = Part.makeCylinder(3.5, 5, FreeCAD.Vector( x*12.5, 0, -1), FreeCAD.Vector(0, 0, 1))
@@ -152,7 +152,7 @@ class STR_STD_BRD_AZ:
         #  ---- Creo la cara con el contorno
         F = Part.Face(W)
         #  ---- Le doy Volumen a la cara
-        PY = F.extrude (FreeCAD.Vector(0,0,3.25))
+        PY = F.extrude (FreeCAD.Vector(0,0,3.125))
         #  ---- Bucle para agujeros
         for x in range(obj.N_Agujeros_Y):
             Agujero = Part.makeCylinder(3.5, 5, FreeCAD.Vector(x*12.5, 0, -1), FreeCAD.Vector(0, 0, 1))
@@ -212,7 +212,7 @@ class CRN_ERR_ASYM:
         #  ---- Creo la cara con el contorno
         F = Part.Face(W)
         #  ---- Le doy Volumen a la cara
-        PX = F.extrude (FreeCAD.Vector(0,0,3.25))
+        PX = F.extrude (FreeCAD.Vector(0,0,3.125))
         #  ---- Bucle para agujeros
         for x in range(obj.N_Agujeros_X):
             Agujero = Part.makeCylinder(3.5, 5, FreeCAD.Vector( x*12.5, 0, -1), FreeCAD.Vector(0, 0, 1))
@@ -241,7 +241,7 @@ class CRN_ERR_ASYM:
         #  ---- Creo la cara con el contorno
         F = Part.Face(W)
         #  ---- Le doy Volumen a la cara
-        PY = F.extrude (FreeCAD.Vector(0,0,3.25))
+        PY = F.extrude (FreeCAD.Vector(0,0,3.125))
         #  ---- Bucle para agujeros
         for x in range(obj.N_Agujeros_Y):
             Agujero = Part.makeCylinder(3.5, 5, FreeCAD.Vector( x*12.5, 0, -1), FreeCAD.Vector(0, 0, 1))
@@ -316,7 +316,7 @@ class STR_STD_BRM:
             #  ---- Creo la cara con el contorno
             F = Part.Face(W)
             #  ---- Le doy Volumen a la cara
-            P = F.extrude (FreeCAD.Vector(0,0,3.25))
+            P = F.extrude (FreeCAD.Vector(0,0,3.125))
             #  ---- Bucle para agujeros
             for x in range(obj.N_Agujeros_X):
                 for y in range(obj.N_Agujeros_Y):
@@ -373,7 +373,7 @@ class STR_SLT_BE_SYM_ERR:
         #  ---- Creo la cara con el contorno
         F = Part.Face(W)
         #  ---- Le doy Volumen a la cara
-        P = F.extrude (FreeCAD.Vector(0,0,3.25))
+        P = F.extrude (FreeCAD.Vector(0,0,3.125))
         #  -----------------------------
         #  ---- Genero Cuerpos a restar 
         #  -----------------------------
@@ -462,7 +462,7 @@ class STR_SLT_CNT_ERR:
         #  ---- Creo la cara con el contorno
         F = Part.Face(W)
         #  ---- Le doy Volumen a la cara
-        P = F.extrude (FreeCAD.Vector(0,0,3.25))
+        P = F.extrude (FreeCAD.Vector(0,0,3.125))
         #  -----------------------------
         #  ---- Genero Cuerpos a restar 
         #  -----------------------------
@@ -542,7 +542,7 @@ class STR_SLT_FL_ERR:
         #  ---- Creo la cara con el contorno
         F = Part.Face(W)
         #  ---- Le doy Volumen a la cara
-        P = F.extrude (FreeCAD.Vector(0,0,3.25))
+        P = F.extrude (FreeCAD.Vector(0,0,3.125))
         
         #  ---- Genero el Cuerpo Interior a restar 
         #  -----------------------------
@@ -611,7 +611,7 @@ class STR_SLT_SE_ERR:
         #  ---- Creo la cara con el contorno
         F = Part.Face(W)
         #  ---- Le doy Volumen a la cara
-        P = F.extrude (FreeCAD.Vector(0,0,3.25))
+        P = F.extrude (FreeCAD.Vector(0,0,3.125))
         #  -----------------------------
         #  ---- Genero Cuerpos a restar 
         #  -----------------------------
@@ -691,7 +691,7 @@ class STR_STD_BRD_AY:
         #  ---- Creo la cara con el contorno
         F = Part.Face(W)
         #  ---- Le doy Volumen a la cara
-        P = F.extrude (FreeCAD.Vector(0,0,-3.25))
+        P = F.extrude (FreeCAD.Vector(0,0,-3.125))
         # Hago los Agujeros de X
         for x in range(obj.N_Agujeros_X):
             Agujero = Part.makeCylinder(3.5, 5, FreeCAD.Vector( (x*12.5)+6.25, 0, -5), FreeCAD.Vector(0, 0, 1))
@@ -705,7 +705,7 @@ class STR_STD_BRD_AY:
             # Tengo que meter un cuarto de cilindro y unirlo a P
             # Añado condicional para que sea en funcion del angulo
             Ang = (180 - int(obj.Angulo)) / 2
-            Curva = Part.makeCylinder(3.25, 12.5, FreeCAD.Vector(0, -6.25, 0), FreeCAD.Vector(0, 1, 0),Ang)
+            Curva = Part.makeCylinder(3.125, 12.5, FreeCAD.Vector(0, -6.25, 0), FreeCAD.Vector(0, 1, 0),Ang)
             Curva.rotate(FreeCAD.Vector(0,0,0),FreeCAD.Vector(0,1,0),180)
             P = P.fuse (Curva)
         #  ---- Genero Cuerpo Inclinado
@@ -725,7 +725,7 @@ class STR_STD_BRD_AY:
         #  ---- Creo la cara con el contorno
         FInc = Part.Face(WInc)
         #  ---- Le doy Volumen a la cara
-        PInc = FInc.extrude (FreeCAD.Vector(0,0,3.25))
+        PInc = FInc.extrude (FreeCAD.Vector(0,0,3.125))
         # Hago los Agujeros en el cuerpo inclinado
         for x in range(obj.N_Agujeros_Inclinado):
             Agujero = Part.makeCylinder(3.5, 5, FreeCAD.Vector( (x*12.5)+6.25, 0, -1), FreeCAD.Vector(0, 0, 1))
@@ -736,7 +736,7 @@ class STR_STD_BRD_AY:
         PInc = PInc.cut (Agujeros)
         # Condicional para angulo 180 no generar cilindros
         if obj.Angulo != 180 :
-            Curva = Part.makeCylinder(3.25, 12.5, FreeCAD.Vector(0, -6.25, 0), FreeCAD.Vector(0, 1, 0),Ang)
+            Curva = Part.makeCylinder(3.125, 12.5, FreeCAD.Vector(0, -6.25, 0), FreeCAD.Vector(0, 1, 0),Ang)
             Curva.rotate(FreeCAD.Vector(0,0,0),FreeCAD.Vector(0,1,0),-Ang)
             PInc = PInc.fuse (Curva)
         # Giro en Y
@@ -799,7 +799,7 @@ class STR_STD_BRT_AZ:
         #  ---- Creo la cara con el contorno
         F = Part.Face(W)
         #  ---- Le doy Volumen a la cara
-        PX = F.extrude (FreeCAD.Vector(0,0,3.25))
+        PX = F.extrude (FreeCAD.Vector(0,0,3.125))
         #  ---- Bucle para agujeros
         for x in range(obj.N_Agujeros_X):
             Agujero = Part.makeCylinder(3.5, 5, FreeCAD.Vector( x*12.5, 0, -1), FreeCAD.Vector(0, 0, 1))
@@ -829,7 +829,7 @@ class STR_STD_BRT_AZ:
         #  ---- Creo la cara con el contorno
         F = Part.Face(W)
         #  ---- Le doy Volumen a la cara
-        PY1 = F.extrude (FreeCAD.Vector(0,0,3.25))
+        PY1 = F.extrude (FreeCAD.Vector(0,0,3.125))
         #  ---- Bucle para agujeros
         for x in range(obj.N_Agujeros_Y1+1):
             Agujero = Part.makeCylinder(3.5, 5, FreeCAD.Vector(x*12.5, 0, -1), FreeCAD.Vector(0, 0, 1))
@@ -864,7 +864,7 @@ class STR_STD_BRT_AZ:
         #  ---- Creo la cara con el contorno
         F = Part.Face(W)
         #  ---- Le doy Volumen a la cara
-        PY2 = F.extrude (FreeCAD.Vector(0,0,3.25))
+        PY2 = F.extrude (FreeCAD.Vector(0,0,3.125))
         #  ---- Bucle para agujeros
         for x in range(obj.N_Agujeros_Y2+1):
             Agujero = Part.makeCylinder(3.5, 5, FreeCAD.Vector(x*12.5+Desp, 0, -1), FreeCAD.Vector(0, 0, 1))
@@ -932,7 +932,7 @@ class STR_STD_BRT_AY:
         #  ---- Creo la cara con el contorno
         F = Part.Face(W)
         #  ---- Le doy Volumen a la cara
-        P = F.extrude (FreeCAD.Vector(0,0,-3.25))
+        P = F.extrude (FreeCAD.Vector(0,0,-3.125))
         # Hago los Agujeros de X
         for x in range(obj.N_Agujeros_X):
             Agujero = Part.makeCylinder(3.5, 5, FreeCAD.Vector( (x*12.5)+6.25, 0, -5), FreeCAD.Vector(0, 0, 1))
@@ -948,11 +948,11 @@ class STR_STD_BRT_AY:
             # Añado condicional para que sea en funcion del angulo
             #  ---- Primer Cilindro
             Ang = (180 - int(obj.Angulo)) / 2
-            Curva1 = Part.makeCylinder(3.25, 12.5, FreeCAD.Vector(0, -6.25, 0), FreeCAD.Vector(0, 1, 0),Ang)
+            Curva1 = Part.makeCylinder(3.125, 12.5, FreeCAD.Vector(0, -6.25, 0), FreeCAD.Vector(0, 1, 0),Ang)
             Curva1.rotate(FreeCAD.Vector(0,0,0),FreeCAD.Vector(0,1,0),180)
             P = P.fuse (Curva1)
             #  ---- Segundo Cilindro
-            Curva2 = Part.makeCylinder(3.25, 12.5, FreeCAD.Vector(obj.N_Agujeros_X * 12.5, -6.25, 0), FreeCAD.Vector(0, 1, 0),Ang)
+            Curva2 = Part.makeCylinder(3.125, 12.5, FreeCAD.Vector(obj.N_Agujeros_X * 12.5, -6.25, 0), FreeCAD.Vector(0, 1, 0),Ang)
             Curva2.rotate(FreeCAD.Vector(obj.N_Agujeros_X * 12.5,0,0),FreeCAD.Vector(0,1,0),180-Ang)
             P = P.fuse (Curva2)
 
@@ -974,7 +974,7 @@ class STR_STD_BRT_AY:
         #  ---- Creo la cara con el contorno
         FInc = Part.Face(WInc)
         #  ---- Le doy Volumen a la cara
-        PInc = FInc.extrude (FreeCAD.Vector(0,0,3.25))
+        PInc = FInc.extrude (FreeCAD.Vector(0,0,3.125))
         # Hago los Agujeros en el cuerpo inclinado
         for x in range(obj.N_Agujeros_Inclinado_1):
             Agujero = Part.makeCylinder(3.5, 5, FreeCAD.Vector( (x*12.5)+6.25, 0, -1), FreeCAD.Vector(0, 0, 1))
@@ -986,7 +986,7 @@ class STR_STD_BRT_AY:
         # Condicional para angulo 180 no generar cilindros
         if obj.Angulo != 180 :
             # Curva
-            Curva = Part.makeCylinder(3.25, 12.5, FreeCAD.Vector(0, -6.25, 0), FreeCAD.Vector(0, 1, 0),Ang)
+            Curva = Part.makeCylinder(3.125, 12.5, FreeCAD.Vector(0, -6.25, 0), FreeCAD.Vector(0, 1, 0),Ang)
             Curva.rotate(FreeCAD.Vector(0,0,0),FreeCAD.Vector(0,1,0),-Ang)
             PInc = PInc.fuse (Curva)
         # Giro en Y
@@ -1012,7 +1012,7 @@ class STR_STD_BRT_AY:
         #  ---- Creo la cara con el contorno
         FInc = Part.Face(WInc)
         #  ---- Le doy Volumen a la cara
-        PInc = FInc.extrude (FreeCAD.Vector(0,0,-3.25))
+        PInc = FInc.extrude (FreeCAD.Vector(0,0,-3.125))
         # Hago los Agujeros en el cuerpo inclinado
         for x in range(obj.N_Agujeros_Inclinado_2):
             Agujero = Part.makeCylinder(3.5, 5, FreeCAD.Vector( (x*12.5)+6.25+Desp, 0, -4), FreeCAD.Vector(0, 0, 1))
@@ -1024,7 +1024,7 @@ class STR_STD_BRT_AY:
         # Condicional para angulo 180 no generar cilindros
         if obj.Angulo != 180 :
             # Curva
-            Curva = Part.makeCylinder(3.25, 12.5, FreeCAD.Vector(Desp, -6.25, 0), FreeCAD.Vector(0, 1, 0),Ang)
+            Curva = Part.makeCylinder(3.125, 12.5, FreeCAD.Vector(Desp, -6.25, 0), FreeCAD.Vector(0, 1, 0),Ang)
             Curva.rotate(FreeCAD.Vector(Desp,0,0),FreeCAD.Vector(0,1,0),180)
             PInc = PInc.fuse (Curva)
         # Giro en Y
@@ -1083,7 +1083,7 @@ class STR_STD_CR:
         #  ---- Creo la cara con el contorno
         F = Part.Face(W)
         #  ---- Le doy Volumen a la cara
-        PX = F.extrude (FreeCAD.Vector(0,0,3.25))
+        PX = F.extrude (FreeCAD.Vector(0,0,3.125))
         #  ---- Bucle para agujeros
         for x in range(obj.N_Agujeros_X_Positivo+1):
             Agujero = Part.makeCylinder(3.5, 5, FreeCAD.Vector( x*12.5, 0, -1), FreeCAD.Vector(0, 0, 1))
@@ -1112,7 +1112,7 @@ class STR_STD_CR:
         #  ---- Creo la cara con el contorno
         F = Part.Face(W)
         #  ---- Le doy Volumen a la cara
-        PX = F.extrude (FreeCAD.Vector(0,0,3.25))
+        PX = F.extrude (FreeCAD.Vector(0,0,3.125))
         #  ---- Bucle para agujeros
         for x in range(obj.N_Agujeros_X_Negativo+1):
             Agujero = Part.makeCylinder(3.5, 5, FreeCAD.Vector( x*12.5, 0, -1), FreeCAD.Vector(0, 0, 1))
@@ -1142,7 +1142,7 @@ class STR_STD_CR:
         #  ---- Creo la cara con el contorno
         F = Part.Face(W)
         #  ---- Le doy Volumen a la cara
-        PY = F.extrude (FreeCAD.Vector(0,0,3.25))
+        PY = F.extrude (FreeCAD.Vector(0,0,3.125))
         #  ---- Bucle para agujeros
         for x in range(obj.N_Agujeros_Y_Positivo+1):
             Agujero = Part.makeCylinder(3.5, 5, FreeCAD.Vector( x*12.5, 0, -1), FreeCAD.Vector(0, 0, 1))
@@ -1172,7 +1172,7 @@ class STR_STD_CR:
         #  ---- Creo la cara con el contorno
         F = Part.Face(W)
         #  ---- Le doy Volumen a la cara
-        PY = F.extrude (FreeCAD.Vector(0,0,3.25))
+        PY = F.extrude (FreeCAD.Vector(0,0,3.125))
         #  ---- Bucle para agujeros
         for x in range(obj.N_Agujeros_Y_Negativo+1):
             Agujero = Part.makeCylinder(3.5, 5, FreeCAD.Vector( x*12.5, 0, -1), FreeCAD.Vector(0, 0, 1))
