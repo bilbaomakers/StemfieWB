@@ -18,7 +18,7 @@ class StemfieWorkbench (Workbench):
 
         #  Lista Brazos
         self.ListaBrazos = [
-            "Brace_STR_STD_ERR","Brace_STR_STD_BRD_AZ","Brace_CRN_ERR_ASYM","Brace_STR_STD_BRM",
+            "Brace_STR_STD_ERR","Brace_STR_STD_BRD_AZ","Brace_CRN_ERR_ASYM","Brace_STR_STD_BRM","Brace_STR_STD_BRM_AY",
             "Brace_STR_SLT_BE_SYM_ERR","Brace_STR_SLT_CNT_ERR","Brace_STR_SLT_FL_ERR","Brace_STR_SLT_SE_ERR",
             "Brace_STR_STD_BRD_AY","Brace_STR_STD_BRT_AZ","Brace_STR_STD_BRT_AY","Brace_STR_STD_CR"
             ]                

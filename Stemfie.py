@@ -63,6 +63,20 @@ class STR_STD_BRM_Icon:
     def GetResources(self): 
         return {'Pixmap' : (StemfieWB_icons_path +'/Brace STR STD BRM_icon.png'), 'MenuText': 'STR STD BRM', 'ToolTip': 'Brace STR STD BRM'} 
     
+class STR_STD_BRM_AY_Icon:
+
+    def Activated(self):
+        import Piezas
+        myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython","STR_STD_BRM_AY")
+        Piezas.STR_STD_BRM_AY(myObj)
+        myObj.ViewObject.Proxy = 0 # this is mandatory unless we code the ViewProvider too
+       
+        FreeCAD.ActiveDocument.recompute()
+   
+    def GetResources(self): 
+        return {'Pixmap' : (StemfieWB_icons_path +'/Brace STR STD BRM AY_icon.png'), 'MenuText': 'STR STD BRM_AY', 'ToolTip': 'Brace STR STD BRM_AY'} 
+
+
 class STR_SLT_BE_SYM_ERR_Icon:
     
     def Activated(self):
@@ -356,6 +370,7 @@ FreeCADGui.addCommand('Brace_STR_STD_ERR', STR_STD_ERR_Icon())
 FreeCADGui.addCommand('Brace_STR_STD_BRD_AZ', STR_STD_BRD_AZ_Icon())
 FreeCADGui.addCommand('Brace_CRN_ERR_ASYM', CRN_ERR_ASYM_Icon())
 FreeCADGui.addCommand('Brace_STR_STD_BRM', STR_STD_BRM_Icon())
+FreeCADGui.addCommand('Brace_STR_STD_BRM_AY', STR_STD_BRM_AY_Icon())
 FreeCADGui.addCommand('Brace_STR_SLT_BE_SYM_ERR', STR_SLT_BE_SYM_ERR_Icon())
 FreeCADGui.addCommand('Brace_STR_SLT_CNT_ERR', STR_SLT_CNT_ERR_Icon())
 FreeCADGui.addCommand('Brace_STR_SLT_FL_ERR', STR_SLT_FL_ERR_Icon())

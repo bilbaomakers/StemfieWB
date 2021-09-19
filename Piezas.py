@@ -332,6 +332,149 @@ class STR_STD_BRM:
         P.Placement = obj.Placement
         obj.Shape = P
 
+class STR_STD_BRM_AY:
+    ''' Plancha Cuadrada Stemfie con angulo en Y'''
+
+    def __init__(self,obj):
+        obj.Proxy = self
+        obj.addProperty("App::PropertyString","Codigo","Denominacion","Código Pieza")
+        obj.setEditorMode("Codigo", 1)
+        obj.addProperty("App::PropertyInteger","N_Agujeros_X","Valores Pieza","Número Agujeros en X\nMínimo = 2").N_Agujeros_X=4
+        obj.addProperty("App::PropertyInteger","N_Agujeros_Y","Valores Pieza","Número Agujeros en Y\nMínimo = 2").N_Agujeros_Y=3
+        obj.addProperty("App::PropertyInteger","N_Agujeros_Inclinado","Valores Pieza","Nº Agujeros en parte inclinada\nMínimo 1").N_Agujeros_Inclinado = 2
+        obj.addProperty("App::PropertyAngle","Angulo","Valores Pieza","Ángulo\nMínimo = 0\nMáximo = 180").Angulo = 135
+ 
+    def execute(self,obj):
+        import Part,FreeCAD
+        import math
+
+        # Compruebo que Numero_Agujeros mayor de 1
+        if (obj.N_Agujeros_X < 2) or (obj.N_Agujeros_Y < 2) or (obj.N_Agujeros_Inclinado < 1) or (obj.Angulo < 0) or (obj.Angulo > 180):
+            if (obj.N_Agujeros_X < 2) : obj.N_Agujeros_X = 2
+            if (obj.N_Agujeros_Y < 2) : obj.N_Agujeros_Y = 2
+            if (obj.N_Agujeros_Inclinado < 1) : obj.N_Agujeros_Inclinado = 1
+            if (obj.Angulo < 0) : obj.Angulo = 0
+            if (obj.Angulo > 180) : obj.Angulo = 180
+        # ----------------------------
+        #  ---- Genero Cuerpo Horizontal
+        Pto1 = FreeCAD.Vector(-6.25,-6.25,0)
+        Pto2 = FreeCAD.Vector((obj.N_Agujeros_X-1)*12.5,-6.25,0)
+
+        Pto3 = FreeCAD.Vector(((obj.N_Agujeros_X-1)*12.5)+6.25,0,0)
+        Pto4 = FreeCAD.Vector(((obj.N_Agujeros_X-1)*12.5)+6.25,(obj.N_Agujeros_Y-1)*12.5,0)
+
+        Pto5 = FreeCAD.Vector((obj.N_Agujeros_X-1)*12.5,((obj.N_Agujeros_Y-1)*12.5)+6.25,0)
+        Pto6 = FreeCAD.Vector(-6.25,((obj.N_Agujeros_Y-1)*12.5)+6.25,0)
+
+        #Pto7 = FreeCAD.Vector(-6.25,((obj.N_Agujeros_Y-1)*12.5),0)
+        #Pto8 = FreeCAD.Vector(-6.25,0,0)
+        #  ---- Genero puntos para circulos
+        PtoC1 = FreeCAD.Vector(((obj.N_Agujeros_X-1)*12.5)+(math.sin(0.7854)*6.25),math.sin(0.7854)*-6.25,0)
+        PtoC2 = FreeCAD.Vector(((obj.N_Agujeros_X-1)*12.5)+(math.sin(0.7854)*6.25),((obj.N_Agujeros_Y-1)*12.5)+(math.sin(0.7854)*6.25),0)
+        #PtoC3 = FreeCAD.Vector((math.sin(0.7854)*6.25)*-1,((obj.N_Agujeros_Y-1)*12.5)+(math.sin(0.7854)*6.25),0)
+        #PtoC4 = FreeCAD.Vector((math.sin(0.7854)*6.25)*-1,(math.sin(0.7854)*6.25)*-1,0) 
+        #  ---- Creamos lineas y arcos
+        L1 = Part.LineSegment(Pto1,Pto2) 
+        C1 = Part.Arc(Pto2,PtoC1,Pto3)  
+        L2 = Part.LineSegment(Pto3,Pto4)
+        C2 = Part.Arc(Pto4,PtoC2,Pto5)
+        L3 = Part.LineSegment(Pto5,Pto6)
+        #C3 = Part.Arc(Pto6,PtoC3,Pto7)
+        L4 = Part.LineSegment(Pto6,Pto1)
+        #C4 = Part.Arc(Pto8,PtoC4,Pto1)
+        #  ---- Creo el contorno
+        S = Part.Shape([L1,C1,L2,C2,L3,L4])
+        W = Part.Wire(S.Edges)
+        #  ---- Creo la cara con el contorno
+        F = Part.Face(W)
+        #  ---- Le doy Volumen a la cara
+        P = F.extrude (FreeCAD.Vector(0,0,-3.125))
+        #  ---- Bucle para agujeros
+        for x in range(obj.N_Agujeros_X):
+            for y in range(obj.N_Agujeros_Y):
+                Agujero = Part.makeCylinder(3.5, 5, FreeCAD.Vector( x*12.5, y*12.5, -5), FreeCAD.Vector(0, 0, 1))
+                if (x == 0) and (y == 0):
+                    Agujeros = Agujero
+                else:
+                    Agujeros = Agujeros.fuse(Agujero)
+        P = P.cut (Agujeros)
+
+        # Condicional para angulo 180 no generar cilindros
+        if obj.Angulo != 180 :
+            # Tengo que meter un cuarto de cilindro y unirlo a P
+            # Añado condicional para que sea en funcion del angulo
+            Ang = (180 - int(obj.Angulo)) / 2
+            Curva = Part.makeCylinder(3.125, obj.N_Agujeros_Y*12.5, FreeCAD.Vector(6.25, -6.25, 0), FreeCAD.Vector(0, 1, 0),Ang)
+            Curva.rotate(FreeCAD.Vector(0,0,0),FreeCAD.Vector(0,1,0),180)
+            P = P.fuse (Curva)
+
+
+        #  ---- Genero Cuerpo Inclinado
+        #  ---- Genero puntos de los contornos
+        Pto1 = FreeCAD.Vector(-6.25,-6.25,0)
+        Pto2 = FreeCAD.Vector((obj.N_Agujeros_Inclinado-1)*12.5,-6.25,0)
+
+        Pto3 = FreeCAD.Vector(((obj.N_Agujeros_Inclinado-1)*12.5)+6.25,0,0)
+        Pto4 = FreeCAD.Vector(((obj.N_Agujeros_Inclinado-1)*12.5)+6.25,(obj.N_Agujeros_Y-1)*12.5,0)
+
+        Pto5 = FreeCAD.Vector((obj.N_Agujeros_Inclinado-1)*12.5,((obj.N_Agujeros_Y-1)*12.5)+6.25,0)
+        Pto6 = FreeCAD.Vector(-6.25,((obj.N_Agujeros_Y-1)*12.5)+6.25,0)
+
+        #Pto7 = FreeCAD.Vector(-6.25,((obj.N_Agujeros_Y-1)*12.5),0)
+        #Pto8 = FreeCAD.Vector(-6.25,0,0)
+        #  ---- Genero puntos para circulos
+        PtoC1 = FreeCAD.Vector(((obj.N_Agujeros_Inclinado-1)*12.5)+(math.sin(0.7854)*6.25),math.sin(0.7854)*-6.25,0)
+        PtoC2 = FreeCAD.Vector(((obj.N_Agujeros_Inclinado-1)*12.5)+(math.sin(0.7854)*6.25),((obj.N_Agujeros_Y-1)*12.5)+(math.sin(0.7854)*6.25),0)
+        #PtoC3 = FreeCAD.Vector((math.sin(0.7854)*6.25)*-1,((obj.N_Agujeros_Y-1)*12.5)+(math.sin(0.7854)*6.25),0)
+        #PtoC4 = FreeCAD.Vector((math.sin(0.7854)*6.25)*-1,(math.sin(0.7854)*6.25)*-1,0) 
+        #  ---- Creamos lineas y arcos
+        LInc1 = Part.LineSegment(Pto1,Pto2) 
+        CInc1 = Part.Arc(Pto2,PtoC1,Pto3)   
+        LInc2 = Part.LineSegment(Pto3,Pto4)
+        CInc2 = Part.Arc(Pto4,PtoC2,Pto5)
+        LInc3 = Part.LineSegment(Pto5,Pto6)
+        #CInc3 = Part.Arc(Pto6,PtoC3,Pto7)
+        LInc4 = Part.LineSegment(Pto6,Pto1)
+        #CInc4 = Part.Arc(Pto8,PtoC4,Pto1)
+        #  ---- Creo el contorno
+        SInc = Part.Shape([LInc1,CInc1,LInc2,CInc2,LInc3,LInc4])
+        WInc = Part.Wire(SInc.Edges)
+            
+        #  ---- Creo la cara con el contorno
+        FInc = Part.Face(WInc)
+        #  ---- Le doy Volumen a la cara
+        PInc = FInc.extrude (FreeCAD.Vector(0,0,3.125))
+        #  ---- Bucle para agujeros
+        for x in range(obj.N_Agujeros_Inclinado):
+            for y in range(obj.N_Agujeros_Y):
+                Agujero = Part.makeCylinder(3.5, 10, FreeCAD.Vector( x*12.5, y*12.5, -5), FreeCAD.Vector(0, 0, 1))
+                if (x == 0) and (y == 0):
+                    Agujeros = Agujero
+                else:
+                    Agujeros = Agujeros.fuse(Agujero)
+        PInc = PInc.cut (Agujeros)
+        # Condicional para angulo 180 no generar cilindros
+        if obj.Angulo != 180 :
+            Curva = Part.makeCylinder(3.125, obj.N_Agujeros_Y*12.5, FreeCAD.Vector(-6.25,-6.25,0), FreeCAD.Vector(0, 1, 0),Ang)
+            Curva.rotate(FreeCAD.Vector(-6.25,-6.25,0),FreeCAD.Vector(0,1,0),-Ang)
+            PInc = PInc.fuse (Curva)
+        # Giro en Y
+        PInc.rotate(FreeCAD.Vector(-6.25,0,0),FreeCAD.Vector(0,1,0),obj.Angulo*-1)
+        # Junto los dos cuerpos 
+        P = P.fuse(PInc)
+        # Refinamos el cuerpo
+        P = P.removeSplitter()
+        
+
+
+
+        #  ---- Ponemos Nombre a la pieza con las variables de la misma
+        obj.Codigo = "STR STD BRM AY-" + str(obj.N_Agujeros_X) + "x" + str(obj.N_Agujeros_Y)
+
+        
+        P.Placement = obj.Placement
+        obj.Shape = P
+
 class STR_SLT_BE_SYM_ERR:
     ''' Brazo Stemfie con agujeros rasgados en extremos y simples en el centro '''
 
