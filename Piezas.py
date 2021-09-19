@@ -469,7 +469,7 @@ class STR_STD_BRM_AY:
 
 
         #  ---- Ponemos Nombre a la pieza con las variables de la misma
-        obj.Codigo = "STR STD BRM AY-" + str(obj.N_Agujeros_X) + "x" + str(obj.N_Agujeros_Y)
+        obj.Codigo = "STR STD BRM AY-" + str(obj.N_Agujeros_X) + "x" + str(obj.N_Agujeros_Y) + "x" + str(obj.N_Agujeros_Inclinado) + " " + str(obj.Angulo)
 
         
         P.Placement = obj.Placement
