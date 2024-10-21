@@ -8,13 +8,14 @@ StemfieWB_icons_path = os.path.join( StemfieWBpath, 'Icons')
 #global main_StemfieWB_Icon
 #main_StemfieWB_Icon = os.path.join( StemfieWB_icons_path , 'Stemfie_-_Logo_48x48.png')
 
-class StemfieWorkbench (Workbench): 
+
+class StemfieWorkbench(Workbench):
     MenuText = "STEMFIE"
     ToolTip = "Banco trabajo para Stemfie"
     Icon = ( StemfieWB_icons_path + "/Stemfie_-_Logo_48x48.png")
 
     def Initialize(self):
-        import Stemfie                                  # Carga el modulo 'Stemfie.py'
+        from freecad.stemfie import Stemfie
 
         #  Lista Brazos
         self.ListaBrazos = [
@@ -59,23 +60,28 @@ class StemfieWorkbench (Workbench):
             "STEMFIE_Conector_THR_H_BEM_SFT_3W",
             "STEMFIE_Conector_THR_H_BEM_SFT_4W",
         ]
+        self.appendToolbar(
+            "Stemfie Conector", self.ListaConectores
+        )  # crea una barra de herramientas 'Stemfie Conectores' con los iconos de los comandos
 
         #   Lista Comandos
         self.ListaComandos = ["Cmd_Listado"]
-        self.appendToolbar("Comandos",self.ListaComandos)  # crea una barra de herramientas 'Stemfie Comandos' con los iconos de los comandos
+        self.appendToolbar(
+            "Comandos", self.ListaComandos
+        )  # crea una barra de herramientas 'Stemfie Comandos' con los iconos de los comandos
 
-
-        # Creamos menu 
-        self.appendMenu("Stemfie",self.ListaComandos)
+        # Creamos menu
+        self.appendMenu("Stemfie", self.ListaComandos)
         # Creo submenus
-        self.appendMenu(["Stemfie","Braces"],self.ListaBrazos)
-        self.appendMenu(['Stemfie','Beams'],self.ListaVigas)
-        self.appendMenu(['Stemfie','Connectors'],self.ListaConectores)
+        self.appendMenu(["Stemfie", "Braces"], self.ListaBrazos)
+        self.appendMenu(["Stemfie", "Beams"], self.ListaVigas)
+        self.appendMenu(["Stemfie", "Connectors"], self.ListaConectores)
+
 
 """    def ContextMenu(self, recipient):
-       
+
        self.appendContextMenu("Stemfie",self.ListaBrazos)
-       
+
        import FreeCAD, FreeCADGui
         selection = [s  for s in FreeCADGui.Selection.getSelection() if s.Document == FreeCAD.ActiveDocument ]
         if len(selection) == 1:
@@ -86,4 +92,4 @@ class StemfieWorkbench (Workbench):
 """
 
 
-Gui.addWorkbench(StemfieWorkbench())                # Carga las barras de herramientas que se denominen
+Gui.addWorkbench(StemfieWorkbench())  # Carga las barras de herramientas que se denominen
