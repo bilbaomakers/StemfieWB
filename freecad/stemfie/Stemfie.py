@@ -8,6 +8,14 @@ from freecad.stemfie import ICONPATH, Piezas
 QT_TRANSLATE_NOOP = FreeCAD.Qt.QT_TRANSLATE_NOOP
 
 
+class ViewProvider:
+    def __init__(self, obj):
+        obj.Proxy = self
+
+    def getIcon(self):
+        return os.path.join(ICONPATH, "STEMFIE.svg")
+
+
 class BaseCommand:
     """Make commands unavailable when there is no active document"""
 
@@ -23,7 +31,7 @@ class STR_STD_ERR(BaseCommand):
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_STD_ERR")
         Piezas.STR_STD_ERR(myObj)
-        myObj.ViewObject.Proxy = 0  # this is mandatory unless we code the ViewProvider too
+        ViewProvider(myObj.ViewObject)
         myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
 
         FreeCAD.ActiveDocument.recompute()
@@ -44,7 +52,7 @@ class STR_STD_BRD_AZ(BaseCommand):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_STD_BRD_AZ")
         # myObj = FreeCAD.ActiveDocument.addObject("Part::Refine","STR_STD_BRD_AZ")
         Piezas.STR_STD_BRD_AZ(myObj)
-        myObj.ViewObject.Proxy = 0
+        ViewProvider(myObj.ViewObject)
         myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
 
         FreeCAD.ActiveDocument.recompute()
@@ -62,7 +70,7 @@ class CRN_ERR_ASYM(BaseCommand):
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "CRN_ERR_ASYM")
         Piezas.CRN_ERR_ASYM(myObj)
-        myObj.ViewObject.Proxy = 0  # this is mandatory unless we code the ViewProvider too
+        ViewProvider(myObj.ViewObject)
         myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
 
         FreeCAD.ActiveDocument.recompute()
@@ -80,7 +88,7 @@ class STR_STD_BRM(BaseCommand):
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_STD_BRM")
         Piezas.STR_STD_BRM(myObj)
-        myObj.ViewObject.Proxy = 0  # this is mandatory unless we code the ViewProvider too
+        ViewProvider(myObj.ViewObject)
         myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
 
         FreeCAD.ActiveDocument.recompute()
@@ -98,7 +106,7 @@ class STR_STD_BRM_AY(BaseCommand):
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_STD_BRM_AY")
         Piezas.STR_STD_BRM_AY(myObj)
-        myObj.ViewObject.Proxy = 0  # this is mandatory unless we code the ViewProvider too
+        ViewProvider(myObj.ViewObject)
         myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
 
         FreeCAD.ActiveDocument.recompute()
@@ -116,7 +124,7 @@ class STR_SLT_BE_SYM_ERR(BaseCommand):
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_SLT_BE_SYM_ERR")
         Piezas.STR_SLT_BE_SYM_ERR(myObj)
-        myObj.ViewObject.Proxy = 0  # this is mandatory unless we code the ViewProvider too
+        ViewProvider(myObj.ViewObject)
         myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
 
         FreeCAD.ActiveDocument.recompute()
@@ -136,7 +144,7 @@ class STR_SLT_CNT_ERR(BaseCommand):
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_SLT_CNT_ERR")
         Piezas.STR_SLT_CNT_ERR(myObj)
-        myObj.ViewObject.Proxy = 0  # this is mandatory unless we code the ViewProvider too
+        ViewProvider(myObj.ViewObject)
         myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
 
         FreeCAD.ActiveDocument.recompute()
@@ -154,7 +162,7 @@ class STR_SLT_FL_ERR(BaseCommand):
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_SLT_FL_ERR")
         Piezas.STR_SLT_FL_ERR(myObj)
-        myObj.ViewObject.Proxy = 0  # this is mandatory unless we code the ViewProvider too
+        ViewProvider(myObj.ViewObject)
         myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
 
         FreeCAD.ActiveDocument.recompute()
@@ -175,7 +183,7 @@ class STR_SLT_SE_ERR(BaseCommand):
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_SLT_SE_ERR")
         Piezas.STR_SLT_SE_ERR(myObj)
-        myObj.ViewObject.Proxy = 0  # this is mandatory unless we code the ViewProvider too
+        ViewProvider(myObj.ViewObject)
         myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
 
         FreeCAD.ActiveDocument.recompute()
@@ -196,7 +204,7 @@ class STR_STD_BRD_AY(BaseCommand):
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_STD_BRD_AY")
         Piezas.STR_STD_BRD_AY(myObj)
-        myObj.ViewObject.Proxy = 0  # this is mandatory unless we code the ViewProvider too
+        ViewProvider(myObj.ViewObject)
         myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
 
         FreeCAD.ActiveDocument.recompute()
@@ -214,7 +222,7 @@ class STR_STD_BRT_AZ(BaseCommand):
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_STD_BRT_AZ")
         Piezas.STR_STD_BRT_AZ(myObj)
-        myObj.ViewObject.Proxy = 0  # this is mandatory unless we code the ViewProvider too
+        ViewProvider(myObj.ViewObject)
         myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
 
         FreeCAD.ActiveDocument.recompute()
@@ -232,7 +240,7 @@ class STR_STD_BRT_AY(BaseCommand):
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_STD_BRT_AY")
         Piezas.STR_STD_BRT_AY(myObj)
-        myObj.ViewObject.Proxy = 0  # this is mandatory unless we code the ViewProvider too
+        ViewProvider(myObj.ViewObject)
         myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
 
         FreeCAD.ActiveDocument.recompute()
@@ -250,7 +258,7 @@ class STR_STD_CR(BaseCommand):
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_STD_CR")
         Piezas.STR_STD_CR(myObj)
-        myObj.ViewObject.Proxy = 0  # this is mandatory unless we code the ViewProvider too
+        ViewProvider(myObj.ViewObject)
         myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
 
         FreeCAD.ActiveDocument.recompute()
@@ -269,7 +277,7 @@ class STR_ESS(BaseCommand):
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_ESS")
         Piezas.STR_ESS(myObj)
-        myObj.ViewObject.Proxy = 0  # this is mandatory unless we code the ViewProvider too
+        ViewProvider(myObj.ViewObject)
         myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
 
         FreeCAD.ActiveDocument.recompute()
@@ -289,7 +297,7 @@ class STR_ERR(BaseCommand):
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_ERR")
         Piezas.STR_ERR(myObj)
-        myObj.ViewObject.Proxy = 0  # this is mandatory unless we code the ViewProvider too
+        ViewProvider(myObj.ViewObject)
         myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
 
         FreeCAD.ActiveDocument.recompute()
@@ -309,7 +317,7 @@ class STR_BEM(BaseCommand):
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_BEM")
         Piezas.STR_BEM(myObj)
-        myObj.ViewObject.Proxy = 0  # this is mandatory unless we code the ViewProvider too
+        ViewProvider(myObj.ViewObject)
         myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
 
         FreeCAD.ActiveDocument.recompute()
@@ -327,7 +335,7 @@ class AGD_ESS_USH_SYM(BaseCommand):
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "AGD_ESS_USH_SYM")
         Piezas.AGD_ESS_USH_SYM(myObj)
-        myObj.ViewObject.Proxy = 0  # this is mandatory unless we code the ViewProvider too
+        ViewProvider(myObj.ViewObject)
         myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
 
         FreeCAD.ActiveDocument.recompute()
@@ -345,7 +353,7 @@ class STR_BED(BaseCommand):
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_BED")
         Piezas.STR_BED(myObj)
-        myObj.ViewObject.Proxy = 0  # this is mandatory unless we code the ViewProvider too
+        ViewProvider(myObj.ViewObject)
         myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
 
         FreeCAD.ActiveDocument.recompute()
@@ -363,7 +371,7 @@ class STR_BET(BaseCommand):
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_BET")
         Piezas.STR_BET(myObj)
-        myObj.ViewObject.Proxy = 0  # this is mandatory unless we code the ViewProvider too
+        ViewProvider(myObj.ViewObject)
         myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
 
         FreeCAD.ActiveDocument.recompute()
@@ -381,7 +389,7 @@ class STR_BXS_ESS_H(BaseCommand):
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_BXS_ESS_H")
         Piezas.STR_BXS_ESS_H(myObj)
-        myObj.ViewObject.Proxy = 0  # this is mandatory unless we code the ViewProvider too
+        ViewProvider(myObj.ViewObject)
         myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
 
         FreeCAD.ActiveDocument.recompute()
@@ -399,7 +407,7 @@ class STR_BXS_ESS_C(BaseCommand):
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_BXS_ESS_C")
         Piezas.STR_BXS_ESS_C(myObj)
-        myObj.ViewObject.Proxy = 0  # this is mandatory unless we code the ViewProvider too
+        ViewProvider(myObj.ViewObject)
         myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
 
         FreeCAD.ActiveDocument.recompute()
@@ -418,7 +426,7 @@ class THR_H_BEM_SFT_1W(BaseCommand):
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "THR_H_BEM_SFT_1W")
         Piezas.THR_H_BEM_SFT_1W(myObj)
-        myObj.ViewObject.Proxy = 0  # this is mandatory unless we code the ViewProvider too
+        ViewProvider(myObj.ViewObject)
         myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
 
         FreeCAD.ActiveDocument.recompute()
@@ -438,7 +446,7 @@ class THR_H_BEM_SFT_2W_180(BaseCommand):
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "THR_H_BEM_SFT_2W_180")
         Piezas.THR_H_BEM_SFT_2W_180(myObj)
-        myObj.ViewObject.Proxy = 0  # this is mandatory unless we code the ViewProvider too
+        ViewProvider(myObj.ViewObject)
         myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
 
         FreeCAD.ActiveDocument.recompute()
@@ -458,7 +466,7 @@ class THR_H_BEM_SFT_2W_90(BaseCommand):
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "THR_H_BEM_SFT_2W_90")
         Piezas.THR_H_BEM_SFT_2W_90(myObj)
-        myObj.ViewObject.Proxy = 0  # this is mandatory unless we code the ViewProvider too
+        ViewProvider(myObj.ViewObject)
         myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
 
         FreeCAD.ActiveDocument.recompute()
@@ -478,7 +486,7 @@ class THR_H_BEM_SFT_3W(BaseCommand):
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "THR_H_BEM_SFT_3W")
         Piezas.THR_H_BEM_SFT_3W(myObj)
-        myObj.ViewObject.Proxy = 0  # this is mandatory unless we code the ViewProvider too
+        ViewProvider(myObj.ViewObject)
 
         FreeCAD.ActiveDocument.recompute()
 
@@ -496,7 +504,7 @@ class THR_H_BEM_SFT_4W(BaseCommand):
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "THR_H_BEM_SFT_4W")
         Piezas.THR_H_BEM_SFT_4W(myObj)
-        myObj.ViewObject.Proxy = 0  # this is mandatory unless we code the ViewProvider too
+        ViewProvider(myObj.ViewObject)
         myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
 
         FreeCAD.ActiveDocument.recompute()
