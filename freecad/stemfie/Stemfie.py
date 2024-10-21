@@ -7,7 +7,7 @@ from freecad.stemfie import ICONPATH, Piezas
 
 
 # Brazos
-class STR_STD_ERR_Icon:
+class STR_STD_ERR:
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_STD_ERR")
         Piezas.STR_STD_ERR(myObj)
@@ -23,7 +23,7 @@ class STR_STD_ERR_Icon:
         }
 
 
-class STR_STD_BRD_AZ_Icon:
+class STR_STD_BRD_AZ:
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_STD_BRD_AZ")
         # myObj = FreeCAD.ActiveDocument.addObject("Part::Refine","STR_STD_BRD_AZ")
@@ -40,7 +40,7 @@ class STR_STD_BRD_AZ_Icon:
         }
 
 
-class CRN_ERR_ASYM_Icon:
+class CRN_ERR_ASYM:
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "CRN_ERR_ASYM")
         Piezas.CRN_ERR_ASYM(myObj)
@@ -56,7 +56,7 @@ class CRN_ERR_ASYM_Icon:
         }
 
 
-class STR_STD_BRM_Icon:
+class STR_STD_BRM:
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_STD_BRM")
         Piezas.STR_STD_BRM(myObj)
@@ -72,7 +72,7 @@ class STR_STD_BRM_Icon:
         }
 
 
-class STR_STD_BRM_AY_Icon:
+class STR_STD_BRM_AY:
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_STD_BRM_AY")
         Piezas.STR_STD_BRM_AY(myObj)
@@ -88,7 +88,7 @@ class STR_STD_BRM_AY_Icon:
         }
 
 
-class STR_SLT_BE_SYM_ERR_Icon:
+class STR_SLT_BE_SYM_ERR:
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_SLT_BE_SYM_ERR")
         Piezas.STR_SLT_BE_SYM_ERR(myObj)
@@ -104,7 +104,7 @@ class STR_SLT_BE_SYM_ERR_Icon:
         }
 
 
-class STR_SLT_CNT_ERR_Icon:
+class STR_SLT_CNT_ERR:
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_SLT_CNT_ERR")
         Piezas.STR_SLT_CNT_ERR(myObj)
@@ -120,7 +120,7 @@ class STR_SLT_CNT_ERR_Icon:
         }
 
 
-class STR_SLT_FL_ERR_Icon:
+class STR_SLT_FL_ERR:
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_SLT_FL_ERR")
         Piezas.STR_SLT_FL_ERR(myObj)
@@ -136,7 +136,7 @@ class STR_SLT_FL_ERR_Icon:
         }
 
 
-class STR_SLT_SE_ERR_Icon:
+class STR_SLT_SE_ERR:
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_SLT_SE_ERR")
         Piezas.STR_SLT_SE_ERR(myObj)
@@ -152,7 +152,7 @@ class STR_SLT_SE_ERR_Icon:
         }
 
 
-class STR_STD_BRD_AY_Icon:
+class STR_STD_BRD_AY:
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_STD_BRD_AY")
         Piezas.STR_STD_BRD_AY(myObj)
@@ -168,7 +168,7 @@ class STR_STD_BRD_AY_Icon:
         }
 
 
-class STR_STD_BRT_AZ_Icon:
+class STR_STD_BRT_AZ:
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_STD_BRT_AZ")
         Piezas.STR_STD_BRT_AZ(myObj)
@@ -184,7 +184,7 @@ class STR_STD_BRT_AZ_Icon:
         }
 
 
-class STR_STD_BRT_AY_Icon:
+class STR_STD_BRT_AY:
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_STD_BRT_AY")
         Piezas.STR_STD_BRT_AY(myObj)
@@ -200,7 +200,7 @@ class STR_STD_BRT_AY_Icon:
         }
 
 
-class STR_STD_CR_Icon:
+class STR_STD_CR:
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_STD_CR")
         Piezas.STR_STD_CR(myObj)
@@ -217,7 +217,7 @@ class STR_STD_CR_Icon:
 
 
 # Vigas
-class STR_ESS_Icon:
+class STR_ESS:
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_ESS")
         Piezas.STR_ESS(myObj)
@@ -233,7 +233,7 @@ class STR_ESS_Icon:
         }
 
 
-class STR_ERR_Icon:
+class STR_ERR:
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_ERR")
         Piezas.STR_ERR(myObj)
@@ -249,7 +249,7 @@ class STR_ERR_Icon:
         }
 
 
-class STR_BEM_Icon:
+class STR_BEM:
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_BEM")
         Piezas.STR_BEM(myObj)
@@ -265,7 +265,7 @@ class STR_BEM_Icon:
         }
 
 
-class AGD_ESS_USH_SYM_Icon:
+class AGD_ESS_USH_SYM:
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "AGD_ESS_USH_SYM")
         Piezas.AGD_ESS_USH_SYM(myObj)
@@ -281,7 +281,7 @@ class AGD_ESS_USH_SYM_Icon:
         }
 
 
-class STR_BED_Icon:
+class STR_BED:
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_BED")
         Piezas.STR_BED(myObj)
@@ -297,7 +297,7 @@ class STR_BED_Icon:
         }
 
 
-class STR_BET_Icon:
+class STR_BET:
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_BET")
         Piezas.STR_BET(myObj)
@@ -313,7 +313,7 @@ class STR_BET_Icon:
         }
 
 
-class STR_BXS_ESS_H_Icon:
+class STR_BXS_ESS_H:
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_BXS_ESS_H")
         Piezas.STR_BXS_ESS_H(myObj)
@@ -329,7 +329,7 @@ class STR_BXS_ESS_H_Icon:
         }
 
 
-class STR_BXS_ESS_C_Icon:
+class STR_BXS_ESS_C:
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_BXS_ESS_C")
         Piezas.STR_BXS_ESS_C(myObj)
@@ -346,7 +346,7 @@ class STR_BXS_ESS_C_Icon:
 
 
 #  Conectores
-class THR_H_BEM_SFT_1W_Icon:
+class THR_H_BEM_SFT_1W:
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "THR_H_BEM_SFT_1W")
         Piezas.THR_H_BEM_SFT_1W(myObj)
@@ -362,7 +362,7 @@ class THR_H_BEM_SFT_1W_Icon:
         }
 
 
-class THR_H_BEM_SFT_2W_180_Icon:
+class THR_H_BEM_SFT_2W_180:
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "THR_H_BEM_SFT_2W_180")
         Piezas.THR_H_BEM_SFT_2W_180(myObj)
@@ -378,7 +378,7 @@ class THR_H_BEM_SFT_2W_180_Icon:
         }
 
 
-class THR_H_BEM_SFT_2W_90_Icon:
+class THR_H_BEM_SFT_2W_90:
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "THR_H_BEM_SFT_2W_90")
         Piezas.THR_H_BEM_SFT_2W_90(myObj)
@@ -394,7 +394,7 @@ class THR_H_BEM_SFT_2W_90_Icon:
         }
 
 
-class THR_H_BEM_SFT_3W_Icon:
+class THR_H_BEM_SFT_3W:
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "THR_H_BEM_SFT_3W")
         Piezas.THR_H_BEM_SFT_3W(myObj)
@@ -410,7 +410,7 @@ class THR_H_BEM_SFT_3W_Icon:
         }
 
 
-class THR_H_BEM_SFT_4W_Icon:
+class THR_H_BEM_SFT_4W:
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "THR_H_BEM_SFT_4W")
         Piezas.THR_H_BEM_SFT_4W(myObj)
@@ -427,7 +427,7 @@ class THR_H_BEM_SFT_4W_Icon:
 
 
 #  Comandos
-class Cmd_Listado_Icon:
+class Cmd_Listado:
     def Activated(self):
         import Comandos
 
@@ -442,36 +442,36 @@ class Cmd_Listado_Icon:
 
 
 # Brazos
-FreeCADGui.addCommand("STEMFIE_Brace_STR_STD_ERR", STR_STD_ERR_Icon())
-FreeCADGui.addCommand("STEMFIE_Brace_STR_STD_BRD_AZ", STR_STD_BRD_AZ_Icon())
-FreeCADGui.addCommand("STEMFIE_Brace_CRN_ERR_ASYM", CRN_ERR_ASYM_Icon())
-FreeCADGui.addCommand("STEMFIE_Brace_STR_STD_BRM", STR_STD_BRM_Icon())
-FreeCADGui.addCommand("STEMFIE_Brace_STR_STD_BRM_AY", STR_STD_BRM_AY_Icon())
-FreeCADGui.addCommand("STEMFIE_Brace_STR_SLT_BE_SYM_ERR", STR_SLT_BE_SYM_ERR_Icon())
-FreeCADGui.addCommand("STEMFIE_Brace_STR_SLT_CNT_ERR", STR_SLT_CNT_ERR_Icon())
-FreeCADGui.addCommand("STEMFIE_Brace_STR_SLT_FL_ERR", STR_SLT_FL_ERR_Icon())
-FreeCADGui.addCommand("STEMFIE_Brace_STR_SLT_SE_ERR", STR_SLT_SE_ERR_Icon())
-FreeCADGui.addCommand("STEMFIE_Brace_STR_STD_BRD_AY", STR_STD_BRD_AY_Icon())
-FreeCADGui.addCommand("STEMFIE_Brace_STR_STD_BRT_AZ", STR_STD_BRT_AZ_Icon())
-FreeCADGui.addCommand("STEMFIE_Brace_STR_STD_BRT_AY", STR_STD_BRT_AY_Icon())
-FreeCADGui.addCommand("STEMFIE_Brace_STR_STD_CR", STR_STD_CR_Icon())
+FreeCADGui.addCommand("STEMFIE_Brace_STR_STD_ERR", STR_STD_ERR())
+FreeCADGui.addCommand("STEMFIE_Brace_STR_STD_BRD_AZ", STR_STD_BRD_AZ())
+FreeCADGui.addCommand("STEMFIE_Brace_CRN_ERR_ASYM", CRN_ERR_ASYM())
+FreeCADGui.addCommand("STEMFIE_Brace_STR_STD_BRM", STR_STD_BRM())
+FreeCADGui.addCommand("STEMFIE_Brace_STR_STD_BRM_AY", STR_STD_BRM_AY())
+FreeCADGui.addCommand("STEMFIE_Brace_STR_SLT_BE_SYM_ERR", STR_SLT_BE_SYM_ERR())
+FreeCADGui.addCommand("STEMFIE_Brace_STR_SLT_CNT_ERR", STR_SLT_CNT_ERR())
+FreeCADGui.addCommand("STEMFIE_Brace_STR_SLT_FL_ERR", STR_SLT_FL_ERR())
+FreeCADGui.addCommand("STEMFIE_Brace_STR_SLT_SE_ERR", STR_SLT_SE_ERR())
+FreeCADGui.addCommand("STEMFIE_Brace_STR_STD_BRD_AY", STR_STD_BRD_AY())
+FreeCADGui.addCommand("STEMFIE_Brace_STR_STD_BRT_AZ", STR_STD_BRT_AZ())
+FreeCADGui.addCommand("STEMFIE_Brace_STR_STD_BRT_AY", STR_STD_BRT_AY())
+FreeCADGui.addCommand("STEMFIE_Brace_STR_STD_CR", STR_STD_CR())
 # Vigas
-FreeCADGui.addCommand("STEMFIE_Beam_STR_ESS", STR_ESS_Icon())
-FreeCADGui.addCommand("STEMFIE_Beam_STR_ERR", STR_ERR_Icon())
-FreeCADGui.addCommand("STEMFIE_Beam_STR_BEM", STR_BEM_Icon())
-FreeCADGui.addCommand("STEMFIE_Beam_AGD_ESS_USH_SYM", AGD_ESS_USH_SYM_Icon())
-FreeCADGui.addCommand("STEMFIE_Beam_STR_BED", STR_BED_Icon())
-FreeCADGui.addCommand("STEMFIE_Beam_STR_BET", STR_BET_Icon())
-FreeCADGui.addCommand("STEMFIE_Beam_STR_BXS_ESS_H", STR_BXS_ESS_H_Icon())
-FreeCADGui.addCommand("STEMFIE_Beam_STR_BXS_ESS_C", STR_BXS_ESS_C_Icon())
+FreeCADGui.addCommand("STEMFIE_Beam_STR_ESS", STR_ESS())
+FreeCADGui.addCommand("STEMFIE_Beam_STR_ERR", STR_ERR())
+FreeCADGui.addCommand("STEMFIE_Beam_STR_BEM", STR_BEM())
+FreeCADGui.addCommand("STEMFIE_Beam_AGD_ESS_USH_SYM", AGD_ESS_USH_SYM())
+FreeCADGui.addCommand("STEMFIE_Beam_STR_BED", STR_BED())
+FreeCADGui.addCommand("STEMFIE_Beam_STR_BET", STR_BET())
+FreeCADGui.addCommand("STEMFIE_Beam_STR_BXS_ESS_H", STR_BXS_ESS_H())
+FreeCADGui.addCommand("STEMFIE_Beam_STR_BXS_ESS_C", STR_BXS_ESS_C())
 # Conectores
-FreeCADGui.addCommand("STEMFIE_Conector_THR_H_BEM_SFT_1W", THR_H_BEM_SFT_1W_Icon())
-FreeCADGui.addCommand("STEMFIE_Conector_THR_H_BEM_SFT_2W_180", THR_H_BEM_SFT_2W_180_Icon())
-FreeCADGui.addCommand("STEMFIE_Conector_THR_H_BEM_SFT_2W_90", THR_H_BEM_SFT_2W_90_Icon())
-FreeCADGui.addCommand("STEMFIE_Conector_THR_H_BEM_SFT_3W", THR_H_BEM_SFT_3W_Icon())
-FreeCADGui.addCommand("STEMFIE_Conector_THR_H_BEM_SFT_4W", THR_H_BEM_SFT_4W_Icon())
+FreeCADGui.addCommand("STEMFIE_Conector_THR_H_BEM_SFT_1W", THR_H_BEM_SFT_1W())
+FreeCADGui.addCommand("STEMFIE_Conector_THR_H_BEM_SFT_2W_180", THR_H_BEM_SFT_2W_180())
+FreeCADGui.addCommand("STEMFIE_Conector_THR_H_BEM_SFT_2W_90", THR_H_BEM_SFT_2W_90())
+FreeCADGui.addCommand("STEMFIE_Conector_THR_H_BEM_SFT_3W", THR_H_BEM_SFT_3W())
+FreeCADGui.addCommand("STEMFIE_Conector_THR_H_BEM_SFT_4W", THR_H_BEM_SFT_4W())
 # Comandos
-FreeCADGui.addCommand("STEMFIE_Cmd_Listado", Cmd_Listado_Icon())
+FreeCADGui.addCommand("STEMFIE_Cmd_Listado", Cmd_Listado())
 
 
 Icon = os.path.join(ICONPATH, "STEMFIE.svg")
