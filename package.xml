@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<package format="1" xmlns="https://wiki.freecad.org/Package_Metadata">
+
+  <name>StemfieWB</name>
+
+  <description>A simple workbench for generating STEMFIE system components.</description>
+
+  <version>1.0.0</version>
+
+  <date>2024-10-21</date>
+
+  <license file="LICENSE">GPL-2.0-or-later</license>
+
+  <url type="website">https://stemfie.org</url>
+
+  <url branch="main" type="repository">https://github.com/bilbaomakers/StemfieWB.git</url>
+
+  <url type="bugtracker">https://github.com/bilbaomakers/StemfieWB/issues</url>
+
+  <url type="readme">https://github.com/bilbaomakers/StemfieWB/blob/main/README.md</url>
+
+  <tag>stem</tag>
+
+  <tag>construction</tag>
+
+  <tag>toy</tag>
+
+  <tag>parametric</tag>
+
+  <tag>3dprinting</tag>
+
+  <content>
+    <workbench>
+      <classname>StemfieWorkbench</classname>
+      <icon>freecad/stemfie/resources/icons/STEMFIE.svg</icon>
+    </workbench>
+  </content>
+
+</package>
