@@ -2,7 +2,7 @@ import FreeCAD
 import FreeCADGui
 
 import os
-
+import random
 from freecad.stemfie import ICONPATH, Piezas
 
 
@@ -22,8 +22,10 @@ class STR_STD_ERR(BaseCommand):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_STD_ERR")
         Piezas.STR_STD_ERR(myObj)
         myObj.ViewObject.Proxy = 0  # this is mandatory unless we code the ViewProvider too
+        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
 
         FreeCAD.ActiveDocument.recompute()
+        FreeCADGui.SendMsgToActiveView("ViewFit")
 
     def GetResources(self):
         return {
@@ -39,8 +41,10 @@ class STR_STD_BRD_AZ(BaseCommand):
         # myObj = FreeCAD.ActiveDocument.addObject("Part::Refine","STR_STD_BRD_AZ")
         Piezas.STR_STD_BRD_AZ(myObj)
         myObj.ViewObject.Proxy = 0
+        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
 
         FreeCAD.ActiveDocument.recompute()
+        FreeCADGui.SendMsgToActiveView("ViewFit")
 
     def GetResources(self):
         return {
@@ -55,8 +59,10 @@ class CRN_ERR_ASYM(BaseCommand):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "CRN_ERR_ASYM")
         Piezas.CRN_ERR_ASYM(myObj)
         myObj.ViewObject.Proxy = 0  # this is mandatory unless we code the ViewProvider too
+        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
 
         FreeCAD.ActiveDocument.recompute()
+        FreeCADGui.SendMsgToActiveView("ViewFit")
 
     def GetResources(self):
         return {
@@ -71,8 +77,10 @@ class STR_STD_BRM(BaseCommand):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_STD_BRM")
         Piezas.STR_STD_BRM(myObj)
         myObj.ViewObject.Proxy = 0  # this is mandatory unless we code the ViewProvider too
+        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
 
         FreeCAD.ActiveDocument.recompute()
+        FreeCADGui.SendMsgToActiveView("ViewFit")
 
     def GetResources(self):
         return {
@@ -87,8 +95,10 @@ class STR_STD_BRM_AY(BaseCommand):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_STD_BRM_AY")
         Piezas.STR_STD_BRM_AY(myObj)
         myObj.ViewObject.Proxy = 0  # this is mandatory unless we code the ViewProvider too
+        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
 
         FreeCAD.ActiveDocument.recompute()
+        FreeCADGui.SendMsgToActiveView("ViewFit")
 
     def GetResources(self):
         return {
@@ -103,8 +113,10 @@ class STR_SLT_BE_SYM_ERR(BaseCommand):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_SLT_BE_SYM_ERR")
         Piezas.STR_SLT_BE_SYM_ERR(myObj)
         myObj.ViewObject.Proxy = 0  # this is mandatory unless we code the ViewProvider too
+        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
 
         FreeCAD.ActiveDocument.recompute()
+        FreeCADGui.SendMsgToActiveView("ViewFit")
 
     def GetResources(self):
         return {
@@ -119,8 +131,10 @@ class STR_SLT_CNT_ERR(BaseCommand):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_SLT_CNT_ERR")
         Piezas.STR_SLT_CNT_ERR(myObj)
         myObj.ViewObject.Proxy = 0  # this is mandatory unless we code the ViewProvider too
+        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
 
         FreeCAD.ActiveDocument.recompute()
+        FreeCADGui.SendMsgToActiveView("ViewFit")
 
     def GetResources(self):
         return {
@@ -135,8 +149,10 @@ class STR_SLT_FL_ERR(BaseCommand):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_SLT_FL_ERR")
         Piezas.STR_SLT_FL_ERR(myObj)
         myObj.ViewObject.Proxy = 0  # this is mandatory unless we code the ViewProvider too
+        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
 
         FreeCAD.ActiveDocument.recompute()
+        FreeCADGui.SendMsgToActiveView("ViewFit")
 
     def GetResources(self):
         return {
@@ -151,8 +167,10 @@ class STR_SLT_SE_ERR(BaseCommand):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_SLT_SE_ERR")
         Piezas.STR_SLT_SE_ERR(myObj)
         myObj.ViewObject.Proxy = 0  # this is mandatory unless we code the ViewProvider too
+        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
 
         FreeCAD.ActiveDocument.recompute()
+        FreeCADGui.SendMsgToActiveView("ViewFit")
 
     def GetResources(self):
         return {
@@ -167,8 +185,10 @@ class STR_STD_BRD_AY(BaseCommand):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_STD_BRD_AY")
         Piezas.STR_STD_BRD_AY(myObj)
         myObj.ViewObject.Proxy = 0  # this is mandatory unless we code the ViewProvider too
+        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
 
         FreeCAD.ActiveDocument.recompute()
+        FreeCADGui.SendMsgToActiveView("ViewFit")
 
     def GetResources(self):
         return {
@@ -183,8 +203,10 @@ class STR_STD_BRT_AZ(BaseCommand):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_STD_BRT_AZ")
         Piezas.STR_STD_BRT_AZ(myObj)
         myObj.ViewObject.Proxy = 0  # this is mandatory unless we code the ViewProvider too
+        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
 
         FreeCAD.ActiveDocument.recompute()
+        FreeCADGui.SendMsgToActiveView("ViewFit")
 
     def GetResources(self):
         return {
@@ -199,8 +221,10 @@ class STR_STD_BRT_AY(BaseCommand):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_STD_BRT_AY")
         Piezas.STR_STD_BRT_AY(myObj)
         myObj.ViewObject.Proxy = 0  # this is mandatory unless we code the ViewProvider too
+        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
 
         FreeCAD.ActiveDocument.recompute()
+        FreeCADGui.SendMsgToActiveView("ViewFit")
 
     def GetResources(self):
         return {
@@ -215,8 +239,10 @@ class STR_STD_CR(BaseCommand):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_STD_CR")
         Piezas.STR_STD_CR(myObj)
         myObj.ViewObject.Proxy = 0  # this is mandatory unless we code the ViewProvider too
+        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
 
         FreeCAD.ActiveDocument.recompute()
+        FreeCADGui.SendMsgToActiveView("ViewFit")
 
     def GetResources(self):
         return {
@@ -232,8 +258,10 @@ class STR_ESS(BaseCommand):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_ESS")
         Piezas.STR_ESS(myObj)
         myObj.ViewObject.Proxy = 0  # this is mandatory unless we code the ViewProvider too
+        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
 
         FreeCAD.ActiveDocument.recompute()
+        FreeCADGui.SendMsgToActiveView("ViewFit")
 
     def GetResources(self):
         return {
@@ -248,8 +276,10 @@ class STR_ERR(BaseCommand):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_ERR")
         Piezas.STR_ERR(myObj)
         myObj.ViewObject.Proxy = 0  # this is mandatory unless we code the ViewProvider too
+        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
 
         FreeCAD.ActiveDocument.recompute()
+        FreeCADGui.SendMsgToActiveView("ViewFit")
 
     def GetResources(self):
         return {
@@ -264,8 +294,10 @@ class STR_BEM(BaseCommand):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_BEM")
         Piezas.STR_BEM(myObj)
         myObj.ViewObject.Proxy = 0  # this is mandatory unless we code the ViewProvider too
+        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
 
         FreeCAD.ActiveDocument.recompute()
+        FreeCADGui.SendMsgToActiveView("ViewFit")
 
     def GetResources(self):
         return {
@@ -280,8 +312,10 @@ class AGD_ESS_USH_SYM(BaseCommand):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "AGD_ESS_USH_SYM")
         Piezas.AGD_ESS_USH_SYM(myObj)
         myObj.ViewObject.Proxy = 0  # this is mandatory unless we code the ViewProvider too
+        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
 
         FreeCAD.ActiveDocument.recompute()
+        FreeCADGui.SendMsgToActiveView("ViewFit")
 
     def GetResources(self):
         return {
@@ -296,8 +330,10 @@ class STR_BED(BaseCommand):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_BED")
         Piezas.STR_BED(myObj)
         myObj.ViewObject.Proxy = 0  # this is mandatory unless we code the ViewProvider too
+        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
 
         FreeCAD.ActiveDocument.recompute()
+        FreeCADGui.SendMsgToActiveView("ViewFit")
 
     def GetResources(self):
         return {
@@ -312,8 +348,10 @@ class STR_BET(BaseCommand):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_BET")
         Piezas.STR_BET(myObj)
         myObj.ViewObject.Proxy = 0  # this is mandatory unless we code the ViewProvider too
+        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
 
         FreeCAD.ActiveDocument.recompute()
+        FreeCADGui.SendMsgToActiveView("ViewFit")
 
     def GetResources(self):
         return {
@@ -328,8 +366,10 @@ class STR_BXS_ESS_H(BaseCommand):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_BXS_ESS_H")
         Piezas.STR_BXS_ESS_H(myObj)
         myObj.ViewObject.Proxy = 0  # this is mandatory unless we code the ViewProvider too
+        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
 
         FreeCAD.ActiveDocument.recompute()
+        FreeCADGui.SendMsgToActiveView("ViewFit")
 
     def GetResources(self):
         return {
@@ -344,8 +384,10 @@ class STR_BXS_ESS_C(BaseCommand):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_BXS_ESS_C")
         Piezas.STR_BXS_ESS_C(myObj)
         myObj.ViewObject.Proxy = 0  # this is mandatory unless we code the ViewProvider too
+        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
 
         FreeCAD.ActiveDocument.recompute()
+        FreeCADGui.SendMsgToActiveView("ViewFit")
 
     def GetResources(self):
         return {
@@ -361,8 +403,10 @@ class THR_H_BEM_SFT_1W(BaseCommand):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "THR_H_BEM_SFT_1W")
         Piezas.THR_H_BEM_SFT_1W(myObj)
         myObj.ViewObject.Proxy = 0  # this is mandatory unless we code the ViewProvider too
+        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
 
         FreeCAD.ActiveDocument.recompute()
+        FreeCADGui.SendMsgToActiveView("ViewFit")
 
     def GetResources(self):
         return {
@@ -377,8 +421,10 @@ class THR_H_BEM_SFT_2W_180(BaseCommand):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "THR_H_BEM_SFT_2W_180")
         Piezas.THR_H_BEM_SFT_2W_180(myObj)
         myObj.ViewObject.Proxy = 0  # this is mandatory unless we code the ViewProvider too
+        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
 
         FreeCAD.ActiveDocument.recompute()
+        FreeCADGui.SendMsgToActiveView("ViewFit")
 
     def GetResources(self):
         return {
@@ -393,8 +439,10 @@ class THR_H_BEM_SFT_2W_90(BaseCommand):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "THR_H_BEM_SFT_2W_90")
         Piezas.THR_H_BEM_SFT_2W_90(myObj)
         myObj.ViewObject.Proxy = 0  # this is mandatory unless we code the ViewProvider too
+        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
 
         FreeCAD.ActiveDocument.recompute()
+        FreeCADGui.SendMsgToActiveView("ViewFit")
 
     def GetResources(self):
         return {
@@ -425,8 +473,10 @@ class THR_H_BEM_SFT_4W(BaseCommand):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "THR_H_BEM_SFT_4W")
         Piezas.THR_H_BEM_SFT_4W(myObj)
         myObj.ViewObject.Proxy = 0  # this is mandatory unless we code the ViewProvider too
+        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
 
         FreeCAD.ActiveDocument.recompute()
+        FreeCADGui.SendMsgToActiveView("ViewFit")
 
     def GetResources(self):
         return {
