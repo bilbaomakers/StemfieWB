@@ -6,8 +6,18 @@ import os
 from freecad.stemfie import ICONPATH, Piezas
 
 
+class BaseCommand:
+    """Make commands unavailable when there is no active document"""
+
+    def IsActive(self):
+        if FreeCAD.ActiveDocument is None:
+            return False
+        else:
+            return True
+
+
 # Brazos
-class STR_STD_ERR:
+class STR_STD_ERR(BaseCommand):
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_STD_ERR")
         Piezas.STR_STD_ERR(myObj)
@@ -23,7 +33,7 @@ class STR_STD_ERR:
         }
 
 
-class STR_STD_BRD_AZ:
+class STR_STD_BRD_AZ(BaseCommand):
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_STD_BRD_AZ")
         # myObj = FreeCAD.ActiveDocument.addObject("Part::Refine","STR_STD_BRD_AZ")
@@ -40,7 +50,7 @@ class STR_STD_BRD_AZ:
         }
 
 
-class CRN_ERR_ASYM:
+class CRN_ERR_ASYM(BaseCommand):
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "CRN_ERR_ASYM")
         Piezas.CRN_ERR_ASYM(myObj)
@@ -56,7 +66,7 @@ class CRN_ERR_ASYM:
         }
 
 
-class STR_STD_BRM:
+class STR_STD_BRM(BaseCommand):
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_STD_BRM")
         Piezas.STR_STD_BRM(myObj)
@@ -72,7 +82,7 @@ class STR_STD_BRM:
         }
 
 
-class STR_STD_BRM_AY:
+class STR_STD_BRM_AY(BaseCommand):
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_STD_BRM_AY")
         Piezas.STR_STD_BRM_AY(myObj)
@@ -88,7 +98,7 @@ class STR_STD_BRM_AY:
         }
 
 
-class STR_SLT_BE_SYM_ERR:
+class STR_SLT_BE_SYM_ERR(BaseCommand):
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_SLT_BE_SYM_ERR")
         Piezas.STR_SLT_BE_SYM_ERR(myObj)
@@ -104,7 +114,7 @@ class STR_SLT_BE_SYM_ERR:
         }
 
 
-class STR_SLT_CNT_ERR:
+class STR_SLT_CNT_ERR(BaseCommand):
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_SLT_CNT_ERR")
         Piezas.STR_SLT_CNT_ERR(myObj)
@@ -120,7 +130,7 @@ class STR_SLT_CNT_ERR:
         }
 
 
-class STR_SLT_FL_ERR:
+class STR_SLT_FL_ERR(BaseCommand):
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_SLT_FL_ERR")
         Piezas.STR_SLT_FL_ERR(myObj)
@@ -136,7 +146,7 @@ class STR_SLT_FL_ERR:
         }
 
 
-class STR_SLT_SE_ERR:
+class STR_SLT_SE_ERR(BaseCommand):
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_SLT_SE_ERR")
         Piezas.STR_SLT_SE_ERR(myObj)
@@ -152,7 +162,7 @@ class STR_SLT_SE_ERR:
         }
 
 
-class STR_STD_BRD_AY:
+class STR_STD_BRD_AY(BaseCommand):
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_STD_BRD_AY")
         Piezas.STR_STD_BRD_AY(myObj)
@@ -168,7 +178,7 @@ class STR_STD_BRD_AY:
         }
 
 
-class STR_STD_BRT_AZ:
+class STR_STD_BRT_AZ(BaseCommand):
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_STD_BRT_AZ")
         Piezas.STR_STD_BRT_AZ(myObj)
@@ -184,7 +194,7 @@ class STR_STD_BRT_AZ:
         }
 
 
-class STR_STD_BRT_AY:
+class STR_STD_BRT_AY(BaseCommand):
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_STD_BRT_AY")
         Piezas.STR_STD_BRT_AY(myObj)
@@ -200,7 +210,7 @@ class STR_STD_BRT_AY:
         }
 
 
-class STR_STD_CR:
+class STR_STD_CR(BaseCommand):
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_STD_CR")
         Piezas.STR_STD_CR(myObj)
@@ -217,7 +227,7 @@ class STR_STD_CR:
 
 
 # Vigas
-class STR_ESS:
+class STR_ESS(BaseCommand):
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_ESS")
         Piezas.STR_ESS(myObj)
@@ -233,7 +243,7 @@ class STR_ESS:
         }
 
 
-class STR_ERR:
+class STR_ERR(BaseCommand):
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_ERR")
         Piezas.STR_ERR(myObj)
@@ -249,7 +259,7 @@ class STR_ERR:
         }
 
 
-class STR_BEM:
+class STR_BEM(BaseCommand):
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_BEM")
         Piezas.STR_BEM(myObj)
@@ -265,7 +275,7 @@ class STR_BEM:
         }
 
 
-class AGD_ESS_USH_SYM:
+class AGD_ESS_USH_SYM(BaseCommand):
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "AGD_ESS_USH_SYM")
         Piezas.AGD_ESS_USH_SYM(myObj)
@@ -281,7 +291,7 @@ class AGD_ESS_USH_SYM:
         }
 
 
-class STR_BED:
+class STR_BED(BaseCommand):
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_BED")
         Piezas.STR_BED(myObj)
@@ -297,7 +307,7 @@ class STR_BED:
         }
 
 
-class STR_BET:
+class STR_BET(BaseCommand):
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_BET")
         Piezas.STR_BET(myObj)
@@ -313,7 +323,7 @@ class STR_BET:
         }
 
 
-class STR_BXS_ESS_H:
+class STR_BXS_ESS_H(BaseCommand):
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_BXS_ESS_H")
         Piezas.STR_BXS_ESS_H(myObj)
@@ -329,7 +339,7 @@ class STR_BXS_ESS_H:
         }
 
 
-class STR_BXS_ESS_C:
+class STR_BXS_ESS_C(BaseCommand):
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_BXS_ESS_C")
         Piezas.STR_BXS_ESS_C(myObj)
@@ -346,7 +356,7 @@ class STR_BXS_ESS_C:
 
 
 #  Conectores
-class THR_H_BEM_SFT_1W:
+class THR_H_BEM_SFT_1W(BaseCommand):
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "THR_H_BEM_SFT_1W")
         Piezas.THR_H_BEM_SFT_1W(myObj)
@@ -362,7 +372,7 @@ class THR_H_BEM_SFT_1W:
         }
 
 
-class THR_H_BEM_SFT_2W_180:
+class THR_H_BEM_SFT_2W_180(BaseCommand):
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "THR_H_BEM_SFT_2W_180")
         Piezas.THR_H_BEM_SFT_2W_180(myObj)
@@ -378,7 +388,7 @@ class THR_H_BEM_SFT_2W_180:
         }
 
 
-class THR_H_BEM_SFT_2W_90:
+class THR_H_BEM_SFT_2W_90(BaseCommand):
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "THR_H_BEM_SFT_2W_90")
         Piezas.THR_H_BEM_SFT_2W_90(myObj)
@@ -394,7 +404,7 @@ class THR_H_BEM_SFT_2W_90:
         }
 
 
-class THR_H_BEM_SFT_3W:
+class THR_H_BEM_SFT_3W(BaseCommand):
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "THR_H_BEM_SFT_3W")
         Piezas.THR_H_BEM_SFT_3W(myObj)
@@ -410,7 +420,7 @@ class THR_H_BEM_SFT_3W:
         }
 
 
-class THR_H_BEM_SFT_4W:
+class THR_H_BEM_SFT_4W(BaseCommand):
     def Activated(self):
         myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "THR_H_BEM_SFT_4W")
         Piezas.THR_H_BEM_SFT_4W(myObj)
@@ -427,9 +437,9 @@ class THR_H_BEM_SFT_4W:
 
 
 #  Comandos
-class Cmd_Listado:
+class Cmd_Listado(BaseCommand):
     def Activated(self):
-        import Comandos
+        from freecad.stemfie import Comandos
 
         Comandos.ListadoPiezas()
 

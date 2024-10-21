@@ -3,7 +3,7 @@ import os
 import FreeCAD
 import FreeCADGui as Gui
 from FreeCADGui import Workbench
-from freecad.stemfie import ICONPATH, TRANSLATIONSPATH, UIPATH, __version__
+from freecad.stemfie import ICONPATH, TRANSLATIONSPATH
 
 translate = FreeCAD.Qt.translate
 QT_TRANSLATE_NOOP = FreeCAD.Qt.QT_TRANSLATE_NOOP
@@ -69,7 +69,7 @@ class StemfieWorkbench(Workbench):
         )  # crea una barra de herramientas 'Stemfie Conectores' con los iconos de los comandos
 
         #   Lista Comandos
-        self.ListaComandos = ["Cmd_Listado"]
+        self.ListaComandos = ["STEMFIE_Cmd_Listado"]
         self.appendToolbar(
             QT_TRANSLATE_NOOP("Workbench", "Stemfie Tools"), self.ListaComandos
         )  # crea una barra de herramientas 'Stemfie Comandos' con los iconos de los comandos
