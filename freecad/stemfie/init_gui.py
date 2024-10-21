@@ -14,7 +14,7 @@ Gui.updateLocale()
 
 
 class StemfieWorkbench(Workbench):
-    MenuText = "Stemfie"
+    MenuText = "STEMFIE"
     ToolTip = translate("Workbench", "Workbench for Stemfie")
     Icon = os.path.join(ICONPATH, "STEMFIE.svg")
 
@@ -58,11 +58,11 @@ class StemfieWorkbench(Workbench):
 
         #   Lista Conectores
         self.ListaConectores = [
-            "STEMFIE_Conector_THR_H_BEM_SFT_1W",
-            "STEMFIE_Conector_THR_H_BEM_SFT_2W_180",
-            "STEMFIE_Conector_THR_H_BEM_SFT_2W_90",
-            "STEMFIE_Conector_THR_H_BEM_SFT_3W",
-            "STEMFIE_Conector_THR_H_BEM_SFT_4W",
+            "STEMFIE_Connector_THR_H_BEM_SFT_1W",
+            "STEMFIE_Connector_THR_H_BEM_SFT_2W_180",
+            "STEMFIE_Connector_THR_H_BEM_SFT_2W_90",
+            "STEMFIE_Connector_THR_H_BEM_SFT_3W",
+            "STEMFIE_Connector_THR_H_BEM_SFT_4W",
         ]
         self.appendToolbar(
             QT_TRANSLATE_NOOP("Workbench", "Stemfie Conectors"), self.ListaConectores

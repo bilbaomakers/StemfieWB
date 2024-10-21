@@ -553,11 +553,11 @@ FreeCADGui.addCommand("STEMFIE_Beam_STR_BET", STR_BET())
 FreeCADGui.addCommand("STEMFIE_Beam_STR_BXS_ESS_H", STR_BXS_ESS_H())
 FreeCADGui.addCommand("STEMFIE_Beam_STR_BXS_ESS_C", STR_BXS_ESS_C())
 # Conectores
-FreeCADGui.addCommand("STEMFIE_Conector_THR_H_BEM_SFT_1W", THR_H_BEM_SFT_1W())
-FreeCADGui.addCommand("STEMFIE_Conector_THR_H_BEM_SFT_2W_180", THR_H_BEM_SFT_2W_180())
-FreeCADGui.addCommand("STEMFIE_Conector_THR_H_BEM_SFT_2W_90", THR_H_BEM_SFT_2W_90())
-FreeCADGui.addCommand("STEMFIE_Conector_THR_H_BEM_SFT_3W", THR_H_BEM_SFT_3W())
-FreeCADGui.addCommand("STEMFIE_Conector_THR_H_BEM_SFT_4W", THR_H_BEM_SFT_4W())
+FreeCADGui.addCommand("STEMFIE_Connector_THR_H_BEM_SFT_1W", THR_H_BEM_SFT_1W())
+FreeCADGui.addCommand("STEMFIE_Connector_THR_H_BEM_SFT_2W_180", THR_H_BEM_SFT_2W_180())
+FreeCADGui.addCommand("STEMFIE_Connector_THR_H_BEM_SFT_2W_90", THR_H_BEM_SFT_2W_90())
+FreeCADGui.addCommand("STEMFIE_Connector_THR_H_BEM_SFT_3W", THR_H_BEM_SFT_3W())
+FreeCADGui.addCommand("STEMFIE_Connector_THR_H_BEM_SFT_4W", THR_H_BEM_SFT_4W())
 # Comandos
 FreeCADGui.addCommand("STEMFIE_Cmd_Listado", Cmd_Listado())
 
