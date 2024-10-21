@@ -1,13 +1,21 @@
 import os
 
+import FreeCAD
 import FreeCADGui as Gui
 from FreeCADGui import Workbench
 from freecad.stemfie import ICONPATH, TRANSLATIONSPATH, UIPATH, __version__
 
+translate = FreeCAD.Qt.translate
+QT_TRANSLATE_NOOP = FreeCAD.Qt.QT_TRANSLATE_NOOP
+
+# Add translations path
+Gui.addLanguagePath(TRANSLATIONSPATH)
+Gui.updateLocale()
+
 
 class StemfieWorkbench(Workbench):
-    MenuText = "STEMFIE"
-    ToolTip = "Banco trabajo para Stemfie"
+    MenuText = "Stemfie"
+    ToolTip = translate("Workbench", "Workbench for Stemfie")
     Icon = os.path.join(ICONPATH, "STEMFIE.svg")
 
     def Initialize(self):
@@ -30,7 +38,7 @@ class StemfieWorkbench(Workbench):
             "STEMFIE_Brace_STR_STD_CR",
         ]
         self.appendToolbar(
-            "Stemfie Brace", self.ListaBrazos
+            QT_TRANSLATE_NOOP("Workbench", "Stemfie Braces"), self.ListaBrazos
         )  # crea una barra de herramientas 'Stemfie Brace' con los iconos de los comandos
 
         #   Lista Vigas
@@ -45,7 +53,7 @@ class StemfieWorkbench(Workbench):
             "STEMFIE_Beam_STR_BXS_ESS_C",
         ]
         self.appendToolbar(
-            "Stemfie Beam", self.ListaVigas
+            QT_TRANSLATE_NOOP("Workbench", "Stemfie Beams"), self.ListaVigas
         )  # crea una barra de herramientas 'Stemfie Beam' con los iconos de los comandos
 
         #   Lista Conectores
@@ -57,35 +65,55 @@ class StemfieWorkbench(Workbench):
             "STEMFIE_Conector_THR_H_BEM_SFT_4W",
         ]
         self.appendToolbar(
-            "Stemfie Conector", self.ListaConectores
+            QT_TRANSLATE_NOOP("Workbench", "Stemfie Conectors"), self.ListaConectores
         )  # crea una barra de herramientas 'Stemfie Conectores' con los iconos de los comandos
 
         #   Lista Comandos
         self.ListaComandos = ["Cmd_Listado"]
         self.appendToolbar(
-            "Comandos", self.ListaComandos
+            QT_TRANSLATE_NOOP("Workbench", "Stemfie Tools"), self.ListaComandos
         )  # crea una barra de herramientas 'Stemfie Comandos' con los iconos de los comandos
 
         # Creamos menu
         self.appendMenu("Stemfie", self.ListaComandos)
         # Creo submenus
-        self.appendMenu(["Stemfie", "Braces"], self.ListaBrazos)
-        self.appendMenu(["Stemfie", "Beams"], self.ListaVigas)
-        self.appendMenu(["Stemfie", "Connectors"], self.ListaConectores)
+        self.appendMenu(["Stemfie", QT_TRANSLATE_NOOP("Workbench", "Braces")], self.ListaBrazos)
+        self.appendMenu(["Stemfie", QT_TRANSLATE_NOOP("Workbench", "Beams")], self.ListaVigas)
+        self.appendMenu(
+            ["Stemfie", QT_TRANSLATE_NOOP("Workbench", "Connectors")], self.ListaConectores
+        )
 
+    def Activated(self):
+        """
+        Code which should be computed when a user switch to this workbench.
+        """
+        # FreeCAD.Console.PrintMessage("Hola\n")
+        pass
 
-"""    def ContextMenu(self, recipient):
+    def Deactivated(self):
+        """
+        Code which should be computed when this workbench is deactivated.
+        """
+        # FreeCAD.Console.PrintMessage("Adiós\n")
+        pass
 
-       self.appendContextMenu("Stemfie",self.ListaBrazos)
+    def GetClassName(self):
+        return "Gui::PythonWorkbench"
 
-       import FreeCAD, FreeCADGui
-        selection = [s  for s in FreeCADGui.Selection.getSelection() if s.Document == FreeCAD.ActiveDocument ]
-        if len(selection) == 1:
-            obj = selection[0]
-            if 'sourceFile' in  obj.Content:
-                self.appendContextMenu("Stemfie", self.ListaBrazos )
-
-"""
+    # def ContextMenu(self, recipient):
+    #     """
+    #     This is executed whenever the user right-clicks on screen
+    #     "recipient" will be either "view" or "tree".
+    #     """
+    #
+    #    self.appendContextMenu("Stemfie",self.ListaBrazos)
+    #
+    #    import FreeCAD, FreeCADGui
+    #     selection = [s  for s in FreeCADGui.Selection.getSelection() if s.Document == FreeCAD.ActiveDocument ]
+    #     if len(selection) == 1:
+    #         obj = selection[0]
+    #         if 'sourceFile' in  obj.Content:
+    #             self.appendContextMenu("Stemfie", self.ListaBrazos )
 
 
 Gui.addWorkbench(StemfieWorkbench())  # Carga las barras de herramientas que se denominen
