@@ -5,6 +5,8 @@ import os
 import random
 from freecad.stemfie import ICONPATH, Piezas
 
+QT_TRANSLATE_NOOP = FreeCAD.Qt.QT_TRANSLATE_NOOP
+
 
 class BaseCommand:
     """Make commands unavailable when there is no active document"""
@@ -31,7 +33,9 @@ class STR_STD_ERR(BaseCommand):
         return {
             "Pixmap": os.path.join(ICONPATH, "Brace STR STD ERR_icon.png"),
             "MenuText": "STR STD ERR",
-            "ToolTip": "Brace - Straight - Ending Round Round",
+            "ToolTip": QT_TRANSLATE_NOOP(
+                "STEMFIE_Brace_STR_STD_ERR", "Brace - Straight - Ending Round Round"
+            ),
         }
 
 
@@ -50,7 +54,7 @@ class STR_STD_BRD_AZ(BaseCommand):
         return {
             "Pixmap": os.path.join(ICONPATH, "Brace STR STD BRD AZ_icon.png"),
             "MenuText": "STR STD BRD AZ",
-            "ToolTip": "Brace STR STD BRD AZ",
+            "ToolTip": QT_TRANSLATE_NOOP("STEMFIE_Brace_STR_STD_BRD_AZ", "Brace STR STD BRD AZ"),
         }
 
 
@@ -68,7 +72,7 @@ class CRN_ERR_ASYM(BaseCommand):
         return {
             "Pixmap": os.path.join(ICONPATH, "Brace CRN ERR ASYM_icon.png"),
             "MenuText": "CRN ERR ASYM",
-            "ToolTip": "Brace CRN ERR ASYM",
+            "ToolTip": QT_TRANSLATE_NOOP("STEMFIE_Brace_CRN_ERR_ASYM", "Brace CRN ERR ASYM"),
         }
 
 
@@ -86,7 +90,7 @@ class STR_STD_BRM(BaseCommand):
         return {
             "Pixmap": os.path.join(ICONPATH, "Brace STR STD BRM_icon.png"),
             "MenuText": "STR STD BRM",
-            "ToolTip": "Brace STR STD BRM",
+            "ToolTip": QT_TRANSLATE_NOOP("STEMFIE_Brace_STR_STD_BRM", "Brace STR STD BRM"),
         }
 
 
@@ -104,7 +108,7 @@ class STR_STD_BRM_AY(BaseCommand):
         return {
             "Pixmap": os.path.join(ICONPATH, "Brace STR STD BRM AY_icon.png"),
             "MenuText": "STR STD BRM_AY",
-            "ToolTip": "Brace STR STD BRM_AY",
+            "ToolTip": QT_TRANSLATE_NOOP("STEMFIE_Brace_STR_STD_BRM_AY", "Brace STR STD BRM_AY"),
         }
 
 
@@ -122,7 +126,9 @@ class STR_SLT_BE_SYM_ERR(BaseCommand):
         return {
             "Pixmap": os.path.join(ICONPATH, "Brace STR SLT BE SYM ERR_icon.png"),
             "MenuText": "STR SLT BE SYM ERR",
-            "ToolTip": "Brace STR SLT BE SYM ERR",
+            "ToolTip": QT_TRANSLATE_NOOP(
+                "STEMFIE_Brace_STR_SLT_BE_SYM_ERR", "Brace STR SLT BE SYM ERR"
+            ),
         }
 
 
@@ -140,7 +146,7 @@ class STR_SLT_CNT_ERR(BaseCommand):
         return {
             "Pixmap": os.path.join(ICONPATH, "Brace STR SLT CNT ERR_icon.png"),
             "MenuText": "STR SLT CNT ERR",
-            "ToolTip": "Brace STR SLT CNT ERR",
+            "ToolTip": QT_TRANSLATE_NOOP("STEMFIE_Brace_STR_SLT_CNT_ERR", "Brace STR SLT CNT ERR"),
         }
 
 
@@ -158,7 +164,10 @@ class STR_SLT_FL_ERR(BaseCommand):
         return {
             "Pixmap": os.path.join(ICONPATH, "Brace STR SLT FL ERR_icon.png"),
             "MenuText": "STR SLT FL ERR",
-            "ToolTip": "Brace - Straight - Slotted - Full Length - Ending Round Round",
+            "ToolTip": QT_TRANSLATE_NOOP(
+                "STEMFIE_Brace_STR_SLT_FL_ERR",
+                "Brace - Straight - Slotted - Full Length - Ending Round Round",
+            ),
         }
 
 
@@ -176,7 +185,10 @@ class STR_SLT_SE_ERR(BaseCommand):
         return {
             "Pixmap": os.path.join(ICONPATH, "Brace STR SLT SE ERR_icon.png"),
             "MenuText": "STR SLT SE ERR",
-            "ToolTip": "Brace - Straight - Slotted - Single End - Ending Round Round",
+            "ToolTip": QT_TRANSLATE_NOOP(
+                "STEMFIE_Brace_STR_SLT_SE_ERR",
+                "Brace - Straight - Slotted - Single End - Ending Round Round",
+            ),
         }
 
 
@@ -194,7 +206,7 @@ class STR_STD_BRD_AY(BaseCommand):
         return {
             "Pixmap": os.path.join(ICONPATH, "Brace STR STD BRD AY_icon.png"),
             "MenuText": "STR STD BRD AY",
-            "ToolTip": "Brace STR STD BRD AY",
+            "ToolTip": QT_TRANSLATE_NOOP("STEMFIE_Brace_STR_STD_BRD_AY", "Brace STR STD BRD AY"),
         }
 
 
@@ -212,7 +224,7 @@ class STR_STD_BRT_AZ(BaseCommand):
         return {
             "Pixmap": os.path.join(ICONPATH, "Brace STR STD BRT AZ_icon.png"),
             "MenuText": "STR STD BRT AZ",
-            "ToolTip": "Brace STR STD BRT AZ",
+            "ToolTip": QT_TRANSLATE_NOOP("STEMFIE_Brace_STR_STD_BRT_AZ", "Brace STR STD BRT AZ"),
         }
 
 
@@ -230,7 +242,7 @@ class STR_STD_BRT_AY(BaseCommand):
         return {
             "Pixmap": os.path.join(ICONPATH, "Brace STR STD BRT AY_icon.png"),
             "MenuText": "STR STD BRT AY",
-            "ToolTip": "Brace STR STD BRT AY",
+            "ToolTip": QT_TRANSLATE_NOOP("STEMFIE_Brace_STR_STD_BRT_AY", "Brace STR STD BRT AY"),
         }
 
 
@@ -248,7 +260,7 @@ class STR_STD_CR(BaseCommand):
         return {
             "Pixmap": os.path.join(ICONPATH, "Brace STR STD CR_icon.png"),
             "MenuText": "STR STD CR",
-            "ToolTip": "Brace STR STD CR",
+            "ToolTip": QT_TRANSLATE_NOOP("STEMFIE_Brace_STR_STD_CR", "Brace STR STD CR"),
         }
 
 
@@ -267,7 +279,9 @@ class STR_ESS(BaseCommand):
         return {
             "Pixmap": os.path.join(ICONPATH, "Beam STR ESS_icon.png"),
             "MenuText": "STR ESS",
-            "ToolTip": "Beam - Straight - Ending Square/Square",
+            "ToolTip": QT_TRANSLATE_NOOP(
+                "STEMFIE_Beam_STR_ESS", "Beam - Straight - Ending Square/Square"
+            ),
         }
 
 
@@ -285,7 +299,9 @@ class STR_ERR(BaseCommand):
         return {
             "Pixmap": os.path.join(ICONPATH, "Beam STR ERR_icon.png"),
             "MenuText": "STR ERR",
-            "ToolTip": "Beam - Straight - Ending Round/Round",
+            "ToolTip": QT_TRANSLATE_NOOP(
+                "STEMFIE_Beam_STR_ERR", "Beam - Straight - Ending Round/Round"
+            ),
         }
 
 
@@ -303,7 +319,7 @@ class STR_BEM(BaseCommand):
         return {
             "Pixmap": os.path.join(ICONPATH, "Beam STR BEM_icon.png"),
             "MenuText": "STR BEM",
-            "ToolTip": "Beam STR BEM",
+            "ToolTip": QT_TRANSLATE_NOOP("STEMFIE_Beam_STR_BEM", "Beam STR BEM"),
         }
 
 
@@ -321,7 +337,7 @@ class AGD_ESS_USH_SYM(BaseCommand):
         return {
             "Pixmap": os.path.join(ICONPATH, "Beam AGD ESS USH SYM_icon.png"),
             "MenuText": "AGD ESS USH SYM",
-            "ToolTip": "Beam AGD ESS USH SYM",
+            "ToolTip": QT_TRANSLATE_NOOP("STEMFIE_Beam_AGD_ESS_USH_SYM", "Beam AGD ESS USH SYM"),
         }
 
 
@@ -339,7 +355,7 @@ class STR_BED(BaseCommand):
         return {
             "Pixmap": os.path.join(ICONPATH, "Beam STR BED_icon.png"),
             "MenuText": "STR BED",
-            "ToolTip": "Beam STR_BED",
+            "ToolTip": QT_TRANSLATE_NOOP("STEMFIE_Beam_STR_BED", "Beam STR_BED"),
         }
 
 
@@ -357,7 +373,7 @@ class STR_BET(BaseCommand):
         return {
             "Pixmap": os.path.join(ICONPATH, "Beam STR BET_icon.png"),
             "MenuText": "STR BET",
-            "ToolTip": "Beam STR_BET",
+            "ToolTip": QT_TRANSLATE_NOOP("STEMFIE_Beam_STR_BET", "Beam STR_BET"),
         }
 
 
@@ -375,7 +391,7 @@ class STR_BXS_ESS_H(BaseCommand):
         return {
             "Pixmap": os.path.join(ICONPATH, "Beam STR BXS ESS H_icon.png"),
             "MenuText": "STR BXS ESS H",
-            "ToolTip": "Beam STR BXS ESS H",
+            "ToolTip": QT_TRANSLATE_NOOP("STEMFIE_Beam_STR_BXS_ESS_H", "Beam STR BXS ESS H"),
         }
 
 
@@ -393,7 +409,7 @@ class STR_BXS_ESS_C(BaseCommand):
         return {
             "Pixmap": os.path.join(ICONPATH, "Beam STR BXS ESS C_icon.png"),
             "MenuText": "STR BXS ESS C",
-            "ToolTip": "Beam STR BXS ESS C",
+            "ToolTip": QT_TRANSLATE_NOOP("STEMFIE_Beam_STR_BXS_ESS_C", "Beam STR BXS ESS C"),
         }
 
 
@@ -412,7 +428,9 @@ class THR_H_BEM_SFT_1W(BaseCommand):
         return {
             "Pixmap": os.path.join(ICONPATH, "Conector THR H BEM SFT 1W_icon.png"),
             "MenuText": "THR H BEM SFT 1W",
-            "ToolTip": "Conector THR H BEM SFT 1W",
+            "ToolTip": QT_TRANSLATE_NOOP(
+                "STEMFIE_Connector_THR_H_BEM_SFT_1W", "Connector THR H BEM SFT 1W"
+            ),
         }
 
 
@@ -430,7 +448,9 @@ class THR_H_BEM_SFT_2W_180(BaseCommand):
         return {
             "Pixmap": os.path.join(ICONPATH, "Conector THR H BEM SFT 2W 180_icon.png"),
             "MenuText": "THR H BEM SFT 2W 180º",
-            "ToolTip": "Conector THR H BEM SFT 2W 180º",
+            "ToolTip": QT_TRANSLATE_NOOP(
+                "STEMFIE_Connector_THR_H_BEM_SFT_2W_180", "Connector THR H BEM SFT 2W 180º"
+            ),
         }
 
 
@@ -448,7 +468,9 @@ class THR_H_BEM_SFT_2W_90(BaseCommand):
         return {
             "Pixmap": os.path.join(ICONPATH, "Conector THR H BEM SFT 2W 90_icon.png"),
             "MenuText": "THR H BEM SFT 2W 90º",
-            "ToolTip": "Conector THR H BEM SFT 2W 90º",
+            "ToolTip": QT_TRANSLATE_NOOP(
+                "STEMFIE_Connector_THR_H_BEM_SFT_2W_90", "Connector THR H BEM SFT 2W 90º"
+            ),
         }
 
 
@@ -464,7 +486,9 @@ class THR_H_BEM_SFT_3W(BaseCommand):
         return {
             "Pixmap": os.path.join(ICONPATH, "Conector THR H BEM SFT 3W_icon.png"),
             "MenuText": "THR H BEM SFT 3W",
-            "ToolTip": "Conector THR H BEM SFT 3W",
+            "ToolTip": QT_TRANSLATE_NOOP(
+                "STEMFIE_Connector_THR_H_BEM_SFT_3W", "Connector THR H BEM SFT 3W"
+            ),
         }
 
 
@@ -482,7 +506,9 @@ class THR_H_BEM_SFT_4W(BaseCommand):
         return {
             "Pixmap": os.path.join(ICONPATH, "Conector THR H BEM SFT 4W_icon.png"),
             "MenuText": "THR H BEM SFT 4W",
-            "ToolTip": "Conector THR H BEM SFT 4W",
+            "ToolTip": QT_TRANSLATE_NOOP(
+                "STEMFIE_Connector_THR_H_BEM_SFT_4W", "Connector THR H BEM SFT 4W"
+            ),
         }
 
 
@@ -496,8 +522,10 @@ class Cmd_Listado(BaseCommand):
     def GetResources(self):
         return {
             "Pixmap": os.path.join(ICONPATH, "Cmd_Listado_icon.png"),
-            "MenuText": "Listado Piezas",
-            "ToolTip": "Listado Piezas",
+            "MenuText": QT_TRANSLATE_NOOP("STEMFIE_Cmd_Listado", "Part list"),
+            "ToolTip": QT_TRANSLATE_NOOP(
+                "STEMFIE_Cmd_Listado", "Print a list of the STEMFIE parts on the tree"
+            ),
         }
 
 
