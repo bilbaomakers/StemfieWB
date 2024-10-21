@@ -474,4 +474,4 @@ FreeCADGui.addCommand("STEMFIE_Conector_THR_H_BEM_SFT_4W", THR_H_BEM_SFT_4W_Icon
 FreeCADGui.addCommand("STEMFIE_Cmd_Listado", Cmd_Listado_Icon())
 
 
-Icon = os.path.join(StemfieWB_icons_path, "Stemfie_-_Logo_48x48.png")
+Icon = os.path.join(ICONPATH, "STEMFIE.svg")

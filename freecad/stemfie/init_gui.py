@@ -1,12 +1,14 @@
 import os
 
+import FreeCADGui as Gui
+from FreeCADGui import Workbench
 from freecad.stemfie import ICONPATH, TRANSLATIONSPATH, UIPATH, __version__
 
 
 class StemfieWorkbench(Workbench):
     MenuText = "STEMFIE"
     ToolTip = "Banco trabajo para Stemfie"
-    Icon = os.path.join(ICONPATH, "Stemfie_-_Logo_48x48.png")
+    Icon = os.path.join(ICONPATH, "STEMFIE.svg")
 
     def Initialize(self):
         from freecad.stemfie import Stemfie
