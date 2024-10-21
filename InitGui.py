@@ -18,25 +18,47 @@ class StemfieWorkbench (Workbench):
 
         #  Lista Brazos
         self.ListaBrazos = [
-            "Brace_STR_STD_ERR","Brace_STR_STD_BRD_AZ","Brace_CRN_ERR_ASYM","Brace_STR_STD_BRM","Brace_STR_STD_BRM_AY",
-            "Brace_STR_SLT_BE_SYM_ERR","Brace_STR_SLT_CNT_ERR","Brace_STR_SLT_FL_ERR","Brace_STR_SLT_SE_ERR",
-            "Brace_STR_STD_BRD_AY","Brace_STR_STD_BRT_AZ","Brace_STR_STD_BRT_AY","Brace_STR_STD_CR"
-            ]                
-        self.appendToolbar("Stemfie Brace",self.ListaBrazos) # crea una barra de herramientas 'Stemfie Brace' con los iconos de los comandos
+            "STEMFIE_Brace_STR_STD_ERR",
+            "STEMFIE_Brace_STR_STD_BRD_AZ",
+            "STEMFIE_Brace_CRN_ERR_ASYM",
+            "STEMFIE_Brace_STR_STD_BRM",
+            "STEMFIE_Brace_STR_STD_BRM_AY",
+            "STEMFIE_Brace_STR_SLT_BE_SYM_ERR",
+            "STEMFIE_Brace_STR_SLT_CNT_ERR",
+            "STEMFIE_Brace_STR_SLT_FL_ERR",
+            "STEMFIE_Brace_STR_SLT_SE_ERR",
+            "STEMFIE_Brace_STR_STD_BRD_AY",
+            "STEMFIE_Brace_STR_STD_BRT_AZ",
+            "STEMFIE_Brace_STR_STD_BRT_AY",
+            "STEMFIE_Brace_STR_STD_CR",
+        ]
+        self.appendToolbar(
+            "Stemfie Brace", self.ListaBrazos
+        )  # crea una barra de herramientas 'Stemfie Brace' con los iconos de los comandos
 
         #   Lista Vigas
         self.ListaVigas = [
-            "Beam_STR_ESS","Beam_STR_ERR","Beam_STR_BEM","Beam_AGD_ESS_USH_SYM","Beam_STR_BED","Beam_STR_BET",
-            "Beam_STR_BXS_ESS_H","Beam_STR_BXS_ESS_C"
-            ]                  
-        self.appendToolbar("Stemfie Beam",self.ListaVigas)   # crea una barra de herramientas 'Stemfie Beam' con los iconos de los comandos
-        
+            "STEMFIE_Beam_STR_ESS",
+            "STEMFIE_Beam_STR_ERR",
+            "STEMFIE_Beam_STR_BEM",
+            "STEMFIE_Beam_AGD_ESS_USH_SYM",
+            "STEMFIE_Beam_STR_BED",
+            "STEMFIE_Beam_STR_BET",
+            "STEMFIE_Beam_STR_BXS_ESS_H",
+            "STEMFIE_Beam_STR_BXS_ESS_C",
+        ]
+        self.appendToolbar(
+            "Stemfie Beam", self.ListaVigas
+        )  # crea una barra de herramientas 'Stemfie Beam' con los iconos de los comandos
+
         #   Lista Conectores
         self.ListaConectores = [
-            "Conector_THR_H_BEM_SFT_1W","Conector_THR_H_BEM_SFT_2W_180","Conector_THR_H_BEM_SFT_2W_90",
-            "Conector_THR_H_BEM_SFT_3W","Conector_THR_H_BEM_SFT_4W"
-            ]                 
-        self.appendToolbar("Stemfie Conector",self.ListaConectores)  # crea una barra de herramientas 'Stemfie Conectores' con los iconos de los comandos
+            "STEMFIE_Conector_THR_H_BEM_SFT_1W",
+            "STEMFIE_Conector_THR_H_BEM_SFT_2W_180",
+            "STEMFIE_Conector_THR_H_BEM_SFT_2W_90",
+            "STEMFIE_Conector_THR_H_BEM_SFT_3W",
+            "STEMFIE_Conector_THR_H_BEM_SFT_4W",
+        ]
 
         #   Lista Comandos
         self.ListaComandos = ["Cmd_Listado"]
