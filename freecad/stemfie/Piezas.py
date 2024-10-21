@@ -12,6 +12,7 @@
 import FreeCAD
 import Part
 
+
 translate = FreeCAD.Qt.translate
 QT_TRANSLATE_NOOP = FreeCAD.Qt.QT_TRANSLATE_NOOP
 
@@ -27,11 +28,11 @@ class STR_STD_ERR:
 
          1     2     3
           --------->
-           N_Agujeros
+           HolesNumber
 
       Variables:
           Codigo          'Demoninacion'
-          N_Agujeros      'Numero Agujeros que contiene la pieza
+          HolesNumber      'Numero Agujeros que contiene la pieza
 
     """
 
@@ -39,24 +40,24 @@ class STR_STD_ERR:
         obj.Proxy = self
         obj.addProperty(
             "App::PropertyString",
-            QT_TRANSLATE_NOOP("App::Property", "Codigo"),
-            QT_TRANSLATE_NOOP("App::Property", "Denominacion"),
-            QT_TRANSLATE_NOOP("App::Property", "Código Pieza"),
+            QT_TRANSLATE_NOOP("App::Property", "Code"),
+            QT_TRANSLATE_NOOP("App::Property", "Designation"),
+            QT_TRANSLATE_NOOP("App::Property", "STEMFIE part number"),
         )
-        obj.setEditorMode("Codigo", 1)
+        obj.setEditorMode("Code", 1)
         obj.addProperty(
             "App::PropertyInteger",
-            QT_TRANSLATE_NOOP("App::Property", "N_Agujeros"),
-            QT_TRANSLATE_NOOP("App::Property", "Valores Pieza"),
-            QT_TRANSLATE_NOOP("App::Property", "Nº Agujeros Pieza Simple\nMínimo = 1"),
-        ).N_Agujeros = 3
+            QT_TRANSLATE_NOOP("App::Property", "HolesNumber"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
+            QT_TRANSLATE_NOOP("App::Property", "Holes number for simple part\nMinimum = 1"),
+        ).HolesNumber = 3
 
     def execute(self, obj):
-        # Compruebo que N_Agujeros mayor de 1
-        if obj.N_Agujeros < 1:
-            obj.N_Agujeros = 1
+        # Compruebo que HolesNumber mayor de 1
+        if obj.HolesNumber < 1:
+            obj.HolesNumber = 1
         # En caso de 1 agujero seria una arandela y no tendria rectas
-        elif obj.N_Agujeros == 1:
+        elif obj.HolesNumber == 1:
             P = Part.makeCylinder(6.25, 3.5, FreeCAD.Vector(0, 0, 0), FreeCAD.Vector(0, 0, 1))
             Agujero = Part.makeCylinder(3.5, 5, FreeCAD.Vector(0, 0, -1), FreeCAD.Vector(0, 0, 1))
             P = P.cut(Agujero)
@@ -64,11 +65,11 @@ class STR_STD_ERR:
             # Numero de agujeros mayor de 1
             #  ---- Genero puntos de los contornos
             P1 = FreeCAD.Vector(0, -6.25, 0)
-            P2 = FreeCAD.Vector((obj.N_Agujeros - 1) * 12.5, -6.25, 0)
-            P3 = FreeCAD.Vector((obj.N_Agujeros - 1) * 12.5, 6.25, 0)
+            P2 = FreeCAD.Vector((obj.HolesNumber - 1) * 12.5, -6.25, 0)
+            P3 = FreeCAD.Vector((obj.HolesNumber - 1) * 12.5, 6.25, 0)
             P4 = FreeCAD.Vector(0, 6.25, 0)
             #  ---- Genero puntos para circulos
-            PC2 = FreeCAD.Vector(((obj.N_Agujeros - 1) * 12.5) + 6.25, 0, 0)
+            PC2 = FreeCAD.Vector(((obj.HolesNumber - 1) * 12.5) + 6.25, 0, 0)
             PC4 = FreeCAD.Vector(-6.25, 0, 0)
             #  ---- Creamos lineas y arcos
             L1 = Part.LineSegment(P1, P2)
@@ -83,7 +84,7 @@ class STR_STD_ERR:
             #  ---- Le doy Volumen a la cara
             P = F.extrude(FreeCAD.Vector(0, 0, 3.125))
             #  ---- Bucle para agujeros
-            for x in range(obj.N_Agujeros):
+            for x in range(obj.HolesNumber):
                 Agujero = Part.makeCylinder(
                     3.5, 5, FreeCAD.Vector(x * 12.5, 0, -1), FreeCAD.Vector(0, 0, 1)
                 )
@@ -93,7 +94,7 @@ class STR_STD_ERR:
                     Agujeros = Agujeros.fuse(Agujero)
             P = P.cut(Agujeros)
         #  ---- Ponemos Nombre a la pieza con las variables de la misma
-        obj.Codigo = "STR STD ERR-BU" + str(obj.N_Agujeros) + "x01x00.25"
+        obj.Code = "STR STD ERR-BU" + str(obj.HolesNumber) + "x01x00.25"
 
         P.Placement = obj.Placement
         obj.Shape = P
@@ -106,55 +107,55 @@ class STR_STD_BRD_AZ:
         obj.Proxy = self
         obj.addProperty(
             "App::PropertyString",
-            QT_TRANSLATE_NOOP("App::Property", "Codigo"),
-            QT_TRANSLATE_NOOP("App::Property", "Denominacion"),
-            QT_TRANSLATE_NOOP("App::Property", "Código Piezas"),
+            QT_TRANSLATE_NOOP("App::Property", "Code"),
+            QT_TRANSLATE_NOOP("App::Property", "Designation"),
+            QT_TRANSLATE_NOOP("App::Property", "STEMFIE part number"),
         )
-        obj.setEditorMode("Codigo", 1)
+        obj.setEditorMode("Code", 1)
         obj.addProperty(
             "App::PropertyInteger",
-            QT_TRANSLATE_NOOP("App::Property", "N_Agujeros_X"),
-            QT_TRANSLATE_NOOP("App::Property", "Valores Pieza"),
-            QT_TRANSLATE_NOOP("App::Property", "Número Agujeros en X\nMínimo = 2"),
-        ).N_Agujeros_X = 3
+            QT_TRANSLATE_NOOP("App::Property", "HolesNumberX"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
+            QT_TRANSLATE_NOOP("App::Property", "Holes number in X\nMinimum = 2"),
+        ).HolesNumberX = 3
         obj.addProperty(
             "App::PropertyInteger",
-            QT_TRANSLATE_NOOP("App::Property", "N_Agujeros_Y"),
-            QT_TRANSLATE_NOOP("App::Property", "Valores Pieza"),
-            QT_TRANSLATE_NOOP("App::Property", "Número Agujeros en Y\nMínimo = 2"),
-        ).N_Agujeros_Y = 2
+            QT_TRANSLATE_NOOP("App::Property", "HolesNumberY"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
+            QT_TRANSLATE_NOOP("App::Property", "Holes number in Y\nMinimum = 2"),
+        ).HolesNumberY = 2
         obj.addProperty(
             "App::PropertyAngle",
-            QT_TRANSLATE_NOOP("App::Property", "Angulo"),
-            QT_TRANSLATE_NOOP("App::Property", "Valores Pieza"),
-            QT_TRANSLATE_NOOP("App::Property", "Ángulo\nMínimo = 60\nMáximo = 180"),
-        ).Angulo = 60
+            QT_TRANSLATE_NOOP("App::Property", "Angle"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
+            QT_TRANSLATE_NOOP("App::Property", "Angle\nMinimum = 60°\nMaximum = 180°"),
+        ).Angle = 60
 
     def execute(self, obj):
         # Compruebo que Numero_Agujeros mayor de 2 y Angulo en 60 y 180
         if (
-            (obj.N_Agujeros_X < 2)
-            or (obj.N_Agujeros_Y < 2)
-            or (obj.Angulo < 60)
-            or (obj.Angulo > 180)
+            (obj.HolesNumberX < 2)
+            or (obj.HolesNumberY < 2)
+            or (obj.Angle < 60)
+            or (obj.Angle > 180)
         ):
-            if obj.N_Agujeros_X < 2:
-                obj.N_Agujeros_X = 2
-            if obj.N_Agujeros_Y < 2:
-                obj.N_Agujeros_Y = 2
-            if obj.Angulo < 60:
-                obj.Angulo = 60
-            if obj.Angulo > 180:
-                obj.Angulo = 180
+            if obj.HolesNumberX < 2:
+                obj.HolesNumberX = 2
+            if obj.HolesNumberY < 2:
+                obj.HolesNumberY = 2
+            if obj.Angle < 60:
+                obj.Angle = 60
+            if obj.Angle > 180:
+                obj.Angle = 180
 
         # Genero Pieza en X
         #  ---- Genero puntos de los contornos
         P1 = FreeCAD.Vector(0, -6.25, 0)
-        P2 = FreeCAD.Vector((obj.N_Agujeros_X - 1) * 12.5, -6.25, 0)
-        P3 = FreeCAD.Vector((obj.N_Agujeros_X - 1) * 12.5, 6.25, 0)
+        P2 = FreeCAD.Vector((obj.HolesNumberX - 1) * 12.5, -6.25, 0)
+        P3 = FreeCAD.Vector((obj.HolesNumberX - 1) * 12.5, 6.25, 0)
         P4 = FreeCAD.Vector(0, 6.25, 0)
         #  ---- Genero puntos para circulos
-        PC2 = FreeCAD.Vector(((obj.N_Agujeros_X - 1) * 12.5) + 6.25, 0, 0)
+        PC2 = FreeCAD.Vector(((obj.HolesNumberX - 1) * 12.5) + 6.25, 0, 0)
         PC4 = FreeCAD.Vector(-6.25, 0, 0)
         #  ---- Creamos lineas y arcos
         L1 = Part.LineSegment(P1, P2)
@@ -169,7 +170,7 @@ class STR_STD_BRD_AZ:
         #  ---- Le doy Volumen a la cara
         PX = F.extrude(FreeCAD.Vector(0, 0, 3.125))
         #  ---- Bucle para agujeros
-        for x in range(obj.N_Agujeros_X):
+        for x in range(obj.HolesNumberX):
             Agujero = Part.makeCylinder(
                 3.5, 5, FreeCAD.Vector(x * 12.5, 0, -1), FreeCAD.Vector(0, 0, 1)
             )
@@ -181,11 +182,11 @@ class STR_STD_BRD_AZ:
         # Genero Pieza en Y
         #  ---- Genero puntos de los contornos
         P1 = FreeCAD.Vector(0, -6.25, 0)
-        P2 = FreeCAD.Vector((obj.N_Agujeros_Y - 1) * 12.5, -6.25, 0)
-        P3 = FreeCAD.Vector((obj.N_Agujeros_Y - 1) * 12.5, 6.25, 0)
+        P2 = FreeCAD.Vector((obj.HolesNumberY - 1) * 12.5, -6.25, 0)
+        P3 = FreeCAD.Vector((obj.HolesNumberY - 1) * 12.5, 6.25, 0)
         P4 = FreeCAD.Vector(0, 6.25, 0)
         #  ---- Genero puntos para circulos
-        PC2 = FreeCAD.Vector(((obj.N_Agujeros_Y - 1) * 12.5) + 6.25, 0, 0)
+        PC2 = FreeCAD.Vector(((obj.HolesNumberY - 1) * 12.5) + 6.25, 0, 0)
         PC4 = FreeCAD.Vector(-6.25, 0, 0)
         #  ---- Creamos lineas y arcos
         L1 = Part.LineSegment(P1, P2)
@@ -200,7 +201,7 @@ class STR_STD_BRD_AZ:
         #  ---- Le doy Volumen a la cara
         PY = F.extrude(FreeCAD.Vector(0, 0, 3.125))
         #  ---- Bucle para agujeros
-        for x in range(obj.N_Agujeros_Y):
+        for x in range(obj.HolesNumberY):
             Agujero = Part.makeCylinder(
                 3.5, 5, FreeCAD.Vector(x * 12.5, 0, -1), FreeCAD.Vector(0, 0, 1)
             )
@@ -210,20 +211,20 @@ class STR_STD_BRD_AZ:
                 Agujeros = Agujeros.fuse(Agujero)
         PY = PY.cut(Agujeros)
         #  ---- Roto el brado inclinado
-        PY.rotate(FreeCAD.Vector(0, 0, 0), FreeCAD.Vector(0, 0, 1), obj.Angulo)
+        PY.rotate(FreeCAD.Vector(0, 0, 0), FreeCAD.Vector(0, 0, 1), obj.Angle)
         #  ---- Uno las piezas
         P = PX.fuse(PY)
         #  ---- Refino la pieza
         P = P.removeSplitter()
 
         #  ---- Ponemos Nombre a la pieza con las variables de la misma
-        obj.Codigo = (
+        obj.Code = (
             "STR STD BRD AZ-BU"
-            + str(obj.N_Agujeros_X)
+            + str(obj.HolesNumberX)
             + "x"
-            + str(obj.N_Agujeros_Y)
+            + str(obj.HolesNumberY)
             + " "
-            + str(obj.Angulo)
+            + str(obj.Angle)
         )
 
         P.Placement = obj.Placement
@@ -237,40 +238,40 @@ class CRN_ERR_ASYM:
         obj.Proxy = self
         obj.addProperty(
             "App::PropertyString",
-            QT_TRANSLATE_NOOP("App::Property", "Codigo"),
-            QT_TRANSLATE_NOOP("App::Property", "Denominacion"),
-            QT_TRANSLATE_NOOP("App::Property", "Código Pieza"),
+            QT_TRANSLATE_NOOP("App::Property", "Code"),
+            QT_TRANSLATE_NOOP("App::Property", "Designation"),
+            QT_TRANSLATE_NOOP("App::Property", "STEMFIE part number"),
         )
-        obj.setEditorMode("Codigo", 1)
+        obj.setEditorMode("Code", 1)
         obj.addProperty(
             "App::PropertyInteger",
-            QT_TRANSLATE_NOOP("App::Property", "N_Agujeros_X"),
-            QT_TRANSLATE_NOOP("App::Property", "Valores Pieza"),
-            QT_TRANSLATE_NOOP("App::Property", "Número Agujeros en X\nMínimo = 2"),
-        ).N_Agujeros_X = 3
+            QT_TRANSLATE_NOOP("App::Property", "HolesNumberX"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
+            QT_TRANSLATE_NOOP("App::Property", "Holes number in X\nMinimum = 2"),
+        ).HolesNumberX = 3
         obj.addProperty(
             "App::PropertyInteger",
-            QT_TRANSLATE_NOOP("App::Property", "N_Agujeros_Y"),
-            QT_TRANSLATE_NOOP("App::Property", "Valores Pieza"),
-            QT_TRANSLATE_NOOP("App::Property", "Número Agujeros en Y\nMínimo = 2"),
-        ).N_Agujeros_Y = 2
+            QT_TRANSLATE_NOOP("App::Property", "HolesNumberY"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
+            QT_TRANSLATE_NOOP("App::Property", "Holes number in Y\nMinimum = 2"),
+        ).HolesNumberY = 2
 
     def execute(self, obj):
         # Compruebo que Numero_Agujeros mayor de 2
-        if (obj.N_Agujeros_X < 2) or (obj.N_Agujeros_Y < 2):
-            if obj.N_Agujeros_X < 2:
-                obj.N_Agujeros_X = 2
-            if obj.N_Agujeros_Y < 2:
-                obj.N_Agujeros_Y = 2
+        if (obj.HolesNumberX < 2) or (obj.HolesNumberY < 2):
+            if obj.HolesNumberX < 2:
+                obj.HolesNumberX = 2
+            if obj.HolesNumberY < 2:
+                obj.HolesNumberY = 2
 
         # Genero Pieza en X
         #  ---- Genero puntos de los contornos
         P1 = FreeCAD.Vector(0, -6.25, 0)
-        P2 = FreeCAD.Vector((obj.N_Agujeros_X - 1) * 12.5, -6.25, 0)
-        P3 = FreeCAD.Vector((obj.N_Agujeros_X - 1) * 12.5, 6.25, 0)
+        P2 = FreeCAD.Vector((obj.HolesNumberX - 1) * 12.5, -6.25, 0)
+        P3 = FreeCAD.Vector((obj.HolesNumberX - 1) * 12.5, 6.25, 0)
         P4 = FreeCAD.Vector(0, 6.25, 0)
         #  ---- Genero puntos para circulos
-        PC2 = FreeCAD.Vector(((obj.N_Agujeros_X - 1) * 12.5) + 6.25, 0, 0)
+        PC2 = FreeCAD.Vector(((obj.HolesNumberX - 1) * 12.5) + 6.25, 0, 0)
         PC4 = FreeCAD.Vector(-6.25, 0, 0)
         #  ---- Creamos lineas y arcos
         L1 = Part.LineSegment(P1, P2)
@@ -285,7 +286,7 @@ class CRN_ERR_ASYM:
         #  ---- Le doy Volumen a la cara
         PX = F.extrude(FreeCAD.Vector(0, 0, 3.125))
         #  ---- Bucle para agujeros
-        for x in range(obj.N_Agujeros_X):
+        for x in range(obj.HolesNumberX):
             Agujero = Part.makeCylinder(
                 3.5, 5, FreeCAD.Vector(x * 12.5, 0, -1), FreeCAD.Vector(0, 0, 1)
             )
@@ -297,11 +298,11 @@ class CRN_ERR_ASYM:
         # Genero Pieza en Y
         #  ---- Genero puntos de los contornos
         P1 = FreeCAD.Vector(0, -6.25, 0)
-        P2 = FreeCAD.Vector((obj.N_Agujeros_Y - 1) * 12.5, -6.25, 0)
-        P3 = FreeCAD.Vector((obj.N_Agujeros_Y - 1) * 12.5, 6.25, 0)
+        P2 = FreeCAD.Vector((obj.HolesNumberY - 1) * 12.5, -6.25, 0)
+        P3 = FreeCAD.Vector((obj.HolesNumberY - 1) * 12.5, 6.25, 0)
         P4 = FreeCAD.Vector(0, 6.25, 0)
         #  ---- Genero puntos para circulos
-        PC2 = FreeCAD.Vector(((obj.N_Agujeros_Y - 1) * 12.5) + 6.25, 0, 0)
+        PC2 = FreeCAD.Vector(((obj.HolesNumberY - 1) * 12.5) + 6.25, 0, 0)
         PC4 = FreeCAD.Vector(-6.25, 0, 0)
         #  ---- Creamos lineas y arcos
         L1 = Part.LineSegment(P1, P2)
@@ -316,7 +317,7 @@ class CRN_ERR_ASYM:
         #  ---- Le doy Volumen a la cara
         PY = F.extrude(FreeCAD.Vector(0, 0, 3.125))
         #  ---- Bucle para agujeros
-        for x in range(obj.N_Agujeros_Y):
+        for x in range(obj.HolesNumberY):
             Agujero = Part.makeCylinder(
                 3.5, 5, FreeCAD.Vector(x * 12.5, 0, -1), FreeCAD.Vector(0, 0, 1)
             )
@@ -331,9 +332,7 @@ class CRN_ERR_ASYM:
         P = PX.fuse(PY)
         P = P.removeSplitter()
         #  ---- Ponemos Nombre a la pieza con las variables de la misma
-        obj.Codigo = (
-            "CRN ERR ASYM-BU" + str(obj.N_Agujeros_X) + "x" + str(obj.N_Agujeros_Y) + "x0.25"
-        )
+        obj.Code = "CRN ERR ASYM-BU" + str(obj.HolesNumberX) + "x" + str(obj.HolesNumberY) + "x0.25"
 
         P.Placement = obj.Placement
         obj.Shape = P
@@ -346,65 +345,65 @@ class STR_STD_BRM:
         obj.Proxy = self
         obj.addProperty(
             "App::PropertyString",
-            QT_TRANSLATE_NOOP("App::Property", "Codigo"),
-            QT_TRANSLATE_NOOP("App::Property", "Denominacion"),
-            QT_TRANSLATE_NOOP("App::Property", "Código Pieza"),
+            QT_TRANSLATE_NOOP("App::Property", "Code"),
+            QT_TRANSLATE_NOOP("App::Property", "Designation"),
+            QT_TRANSLATE_NOOP("App::Property", "STEMFIE part number"),
         )
-        obj.setEditorMode("Codigo", 1)
+        obj.setEditorMode("Code", 1)
         obj.addProperty(
             "App::PropertyInteger",
-            QT_TRANSLATE_NOOP("App::Property", "N_Agujeros_X"),
-            QT_TRANSLATE_NOOP("App::Property", "Valores Pieza"),
-            QT_TRANSLATE_NOOP("App::Property", "Número Agujeros en X\nMínimo = 2"),
-        ).N_Agujeros_X = 4
+            QT_TRANSLATE_NOOP("App::Property", "HolesNumberX"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
+            QT_TRANSLATE_NOOP("App::Property", "Holes number in X\nMinimum = 2"),
+        ).HolesNumberX = 4
         obj.addProperty(
             "App::PropertyInteger",
-            QT_TRANSLATE_NOOP("App::Property", "N_Agujeros_Y"),
-            QT_TRANSLATE_NOOP("App::Property", "Valores Pieza"),
-            QT_TRANSLATE_NOOP("App::Property", "Número Agujeros en Y\nMínimo = 2"),
-        ).N_Agujeros_Y = 3
+            QT_TRANSLATE_NOOP("App::Property", "HolesNumberY"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
+            QT_TRANSLATE_NOOP("App::Property", "Holes number in Y\nMinimum = 2"),
+        ).HolesNumberY = 3
 
     def execute(self, obj):
         import math
 
         # Compruebo que Numero_Agujeros mayor de 1
-        if (obj.N_Agujeros_X < 2) or (obj.N_Agujeros_Y < 2):
-            if obj.N_Agujeros_X < 2:
-                obj.N_Agujeros_X = 2
-            if obj.N_Agujeros_Y < 2:
-                obj.N_Agujeros_Y = 2
+        if (obj.HolesNumberX < 2) or (obj.HolesNumberY < 2):
+            if obj.HolesNumberX < 2:
+                obj.HolesNumberX = 2
+            if obj.HolesNumberY < 2:
+                obj.HolesNumberY = 2
         else:
             # Numero de agujeros mayor de 2
             #  ---- Genero puntos de los contornos
             Pto1 = FreeCAD.Vector(0, -6.25, 0)
-            Pto2 = FreeCAD.Vector((obj.N_Agujeros_X - 1) * 12.5, -6.25, 0)
+            Pto2 = FreeCAD.Vector((obj.HolesNumberX - 1) * 12.5, -6.25, 0)
 
-            Pto3 = FreeCAD.Vector(((obj.N_Agujeros_X - 1) * 12.5) + 6.25, 0, 0)
+            Pto3 = FreeCAD.Vector(((obj.HolesNumberX - 1) * 12.5) + 6.25, 0, 0)
             Pto4 = FreeCAD.Vector(
-                ((obj.N_Agujeros_X - 1) * 12.5) + 6.25, (obj.N_Agujeros_Y - 1) * 12.5, 0
+                ((obj.HolesNumberX - 1) * 12.5) + 6.25, (obj.HolesNumberY - 1) * 12.5, 0
             )
 
             Pto5 = FreeCAD.Vector(
-                (obj.N_Agujeros_X - 1) * 12.5, ((obj.N_Agujeros_Y - 1) * 12.5) + 6.25, 0
+                (obj.HolesNumberX - 1) * 12.5, ((obj.HolesNumberY - 1) * 12.5) + 6.25, 0
             )
-            Pto6 = FreeCAD.Vector(0, ((obj.N_Agujeros_Y - 1) * 12.5) + 6.25, 0)
+            Pto6 = FreeCAD.Vector(0, ((obj.HolesNumberY - 1) * 12.5) + 6.25, 0)
 
-            Pto7 = FreeCAD.Vector(-6.25, ((obj.N_Agujeros_Y - 1) * 12.5), 0)
+            Pto7 = FreeCAD.Vector(-6.25, ((obj.HolesNumberY - 1) * 12.5), 0)
             Pto8 = FreeCAD.Vector(-6.25, 0, 0)
             #  ---- Genero puntos para circulos
             PtoC1 = FreeCAD.Vector(
-                ((obj.N_Agujeros_X - 1) * 12.5) + (math.sin(0.7854) * 6.25),
+                ((obj.HolesNumberX - 1) * 12.5) + (math.sin(0.7854) * 6.25),
                 math.sin(0.7854) * -6.25,
                 0,
             )
             PtoC2 = FreeCAD.Vector(
-                ((obj.N_Agujeros_X - 1) * 12.5) + (math.sin(0.7854) * 6.25),
-                ((obj.N_Agujeros_Y - 1) * 12.5) + (math.sin(0.7854) * 6.25),
+                ((obj.HolesNumberX - 1) * 12.5) + (math.sin(0.7854) * 6.25),
+                ((obj.HolesNumberY - 1) * 12.5) + (math.sin(0.7854) * 6.25),
                 0,
             )
             PtoC3 = FreeCAD.Vector(
                 (math.sin(0.7854) * 6.25) * -1,
-                ((obj.N_Agujeros_Y - 1) * 12.5) + (math.sin(0.7854) * 6.25),
+                ((obj.HolesNumberY - 1) * 12.5) + (math.sin(0.7854) * 6.25),
                 0,
             )
             PtoC4 = FreeCAD.Vector(
@@ -430,8 +429,8 @@ class STR_STD_BRM:
             #  ---- Le doy Volumen a la cara
             P = F.extrude(FreeCAD.Vector(0, 0, 3.125))
             #  ---- Bucle para agujeros
-            for x in range(obj.N_Agujeros_X):
-                for y in range(obj.N_Agujeros_Y):
+            for x in range(obj.HolesNumberX):
+                for y in range(obj.HolesNumberY):
                     Agujero = Part.makeCylinder(
                         3.5, 5, FreeCAD.Vector(x * 12.5, y * 12.5, -1), FreeCAD.Vector(0, 0, 1)
                     )
@@ -441,7 +440,7 @@ class STR_STD_BRM:
                         Agujeros = Agujeros.fuse(Agujero)
             P = P.cut(Agujeros)
         #  ---- Ponemos Nombre a la pieza con las variables de la misma
-        obj.Codigo = "STR STD BRM-" + str(obj.N_Agujeros_X) + "x" + str(obj.N_Agujeros_Y)
+        obj.Code = "STR STD BRM-" + str(obj.HolesNumberX) + "x" + str(obj.HolesNumberY)
 
         P.Placement = obj.Placement
         obj.Shape = P
@@ -454,84 +453,84 @@ class STR_STD_BRM_AY:
         obj.Proxy = self
         obj.addProperty(
             "App::PropertyString",
-            QT_TRANSLATE_NOOP("App::Property", "Codigo"),
-            QT_TRANSLATE_NOOP("App::Property", "Denominacion"),
-            QT_TRANSLATE_NOOP("App::Property", "Código Pieza"),
+            QT_TRANSLATE_NOOP("App::Property", "Code"),
+            QT_TRANSLATE_NOOP("App::Property", "Designation"),
+            QT_TRANSLATE_NOOP("App::Property", "STEMFIE part number"),
         )
-        obj.setEditorMode("Codigo", 1)
+        obj.setEditorMode("Code", 1)
         obj.addProperty(
             "App::PropertyInteger",
-            QT_TRANSLATE_NOOP("App::Property", "N_Agujeros_X"),
-            QT_TRANSLATE_NOOP("App::Property", "Valores Pieza"),
-            QT_TRANSLATE_NOOP("App::Property", "Número Agujeros en X\nMínimo = 2"),
-        ).N_Agujeros_X = 4
+            QT_TRANSLATE_NOOP("App::Property", "HolesNumberX"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
+            QT_TRANSLATE_NOOP("App::Property", "Holes number in X\nMinimum = 2"),
+        ).HolesNumberX = 4
         obj.addProperty(
             "App::PropertyInteger",
-            QT_TRANSLATE_NOOP("App::Property", "N_Agujeros_Y"),
-            QT_TRANSLATE_NOOP("App::Property", "Valores Pieza"),
-            QT_TRANSLATE_NOOP("App::Property", "Número Agujeros en Y\nMínimo = 2"),
-        ).N_Agujeros_Y = 3
+            QT_TRANSLATE_NOOP("App::Property", "HolesNumberY"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
+            QT_TRANSLATE_NOOP("App::Property", "Holes number in Y\nMinimum = 2"),
+        ).HolesNumberY = 3
         obj.addProperty(
             "App::PropertyInteger",
-            QT_TRANSLATE_NOOP("App::Property", "N_Agujeros_Inclinado"),
-            QT_TRANSLATE_NOOP("App::Property", "Valores Pieza"),
-            QT_TRANSLATE_NOOP("App::Property", "Nº Agujeros en parte inclinada\nMínimo 1"),
-        ).N_Agujeros_Inclinado = 2
+            QT_TRANSLATE_NOOP("App::Property", "HolesNumberSloping"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
+            QT_TRANSLATE_NOOP("App::Property", "Holes number in sloping part\nMinimum 1"),
+        ).HolesNumberSloping = 2
         obj.addProperty(
             "App::PropertyAngle",
-            QT_TRANSLATE_NOOP("App::Property", "Angulo"),
-            QT_TRANSLATE_NOOP("App::Property", "Valores Pieza"),
-            QT_TRANSLATE_NOOP("App::Property", "Ángulo\nMínimo = 0\nMáximo = 180"),
-        ).Angulo = 135
+            QT_TRANSLATE_NOOP("App::Property", "Angle"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
+            QT_TRANSLATE_NOOP("App::Property", "Angle\nMinimum = 0\nMaximum = 180"),
+        ).Angle = 135
 
     def execute(self, obj):
         import math
 
         # Compruebo que Numero_Agujeros mayor de 1
         if (
-            (obj.N_Agujeros_X < 2)
-            or (obj.N_Agujeros_Y < 2)
-            or (obj.N_Agujeros_Inclinado < 1)
-            or (obj.Angulo < 0)
-            or (obj.Angulo > 180)
+            (obj.HolesNumberX < 2)
+            or (obj.HolesNumberY < 2)
+            or (obj.HolesNumberSloping < 1)
+            or (obj.Angle < 0)
+            or (obj.Angle > 180)
         ):
-            if obj.N_Agujeros_X < 2:
-                obj.N_Agujeros_X = 2
-            if obj.N_Agujeros_Y < 2:
-                obj.N_Agujeros_Y = 2
-            if obj.N_Agujeros_Inclinado < 1:
-                obj.N_Agujeros_Inclinado = 1
-            if obj.Angulo < 0:
-                obj.Angulo = 0
-            if obj.Angulo > 180:
-                obj.Angulo = 180
+            if obj.HolesNumberX < 2:
+                obj.HolesNumberX = 2
+            if obj.HolesNumberY < 2:
+                obj.HolesNumberY = 2
+            if obj.HolesNumberSloping < 1:
+                obj.HolesNumberSloping = 1
+            if obj.Angle < 0:
+                obj.Angle = 0
+            if obj.Angle > 180:
+                obj.Angle = 180
         # ----------------------------
         #  ---- Genero Cuerpo Horizontal
         Pto1 = FreeCAD.Vector(-6.25, -6.25, 0)
-        Pto2 = FreeCAD.Vector((obj.N_Agujeros_X - 1) * 12.5, -6.25, 0)
+        Pto2 = FreeCAD.Vector((obj.HolesNumberX - 1) * 12.5, -6.25, 0)
 
-        Pto3 = FreeCAD.Vector(((obj.N_Agujeros_X - 1) * 12.5) + 6.25, 0, 0)
+        Pto3 = FreeCAD.Vector(((obj.HolesNumberX - 1) * 12.5) + 6.25, 0, 0)
         Pto4 = FreeCAD.Vector(
-            ((obj.N_Agujeros_X - 1) * 12.5) + 6.25, (obj.N_Agujeros_Y - 1) * 12.5, 0
+            ((obj.HolesNumberX - 1) * 12.5) + 6.25, (obj.HolesNumberY - 1) * 12.5, 0
         )
 
         Pto5 = FreeCAD.Vector(
-            (obj.N_Agujeros_X - 1) * 12.5, ((obj.N_Agujeros_Y - 1) * 12.5) + 6.25, 0
+            (obj.HolesNumberX - 1) * 12.5, ((obj.HolesNumberY - 1) * 12.5) + 6.25, 0
         )
-        Pto6 = FreeCAD.Vector(-6.25, ((obj.N_Agujeros_Y - 1) * 12.5) + 6.25, 0)
+        Pto6 = FreeCAD.Vector(-6.25, ((obj.HolesNumberY - 1) * 12.5) + 6.25, 0)
 
-        # Pto7 = FreeCAD.Vector(-6.25,((obj.N_Agujeros_Y-1)*12.5),0)
+        # Pto7 = FreeCAD.Vector(-6.25,((obj.HolesNumberY-1)*12.5),0)
         # Pto8 = FreeCAD.Vector(-6.25,0,0)
         #  ---- Genero puntos para circulos
         PtoC1 = FreeCAD.Vector(
             ((obj.HolesNumberX - 1) * 12.5) + (math.sin(0.7854) * 6.25), math.sin(0.7854) * -6.25, 0
         )
         PtoC2 = FreeCAD.Vector(
-            ((obj.N_Agujeros_X - 1) * 12.5) + (math.sin(0.7854) * 6.25),
-            ((obj.N_Agujeros_Y - 1) * 12.5) + (math.sin(0.7854) * 6.25),
+            ((obj.HolesNumberX - 1) * 12.5) + (math.sin(0.7854) * 6.25),
+            ((obj.HolesNumberY - 1) * 12.5) + (math.sin(0.7854) * 6.25),
             0,
         )
-        # PtoC3 = FreeCAD.Vector((math.sin(0.7854)*6.25)*-1,((obj.N_Agujeros_Y-1)*12.5)+(math.sin(0.7854)*6.25),0)
+        # PtoC3 = FreeCAD.Vector((math.sin(0.7854)*6.25)*-1,((obj.HolesNumberY-1)*12.5)+(math.sin(0.7854)*6.25),0)
         # PtoC4 = FreeCAD.Vector((math.sin(0.7854)*6.25)*-1,(math.sin(0.7854)*6.25)*-1,0)
         #  ---- Creamos lineas y arcos
         L1 = Part.LineSegment(Pto1, Pto2)
@@ -550,8 +549,8 @@ class STR_STD_BRM_AY:
         #  ---- Le doy Volumen a la cara
         P = F.extrude(FreeCAD.Vector(0, 0, -3.125))
         #  ---- Bucle para agujeros
-        for x in range(obj.N_Agujeros_X):
-            for y in range(obj.N_Agujeros_Y):
+        for x in range(obj.HolesNumberX):
+            for y in range(obj.HolesNumberY):
                 Agujero = Part.makeCylinder(
                     3.5, 5, FreeCAD.Vector(x * 12.5, y * 12.5, -5), FreeCAD.Vector(0, 0, 1)
                 )
@@ -562,13 +561,13 @@ class STR_STD_BRM_AY:
         P = P.cut(Agujeros)
 
         # Condicional para angulo 180 no generar cilindros
-        if obj.Angulo != 180:
+        if obj.Angle != 180:
             # Tengo que meter un cuarto de cilindro y unirlo a P
             # Añado condicional para que sea en funcion del angulo
-            Ang = (180 - int(obj.Angulo)) / 2
+            Ang = (180 - int(obj.Angle)) / 2
             Curva = Part.makeCylinder(
                 3.125,
-                obj.N_Agujeros_Y * 12.5,
+                obj.HolesNumberY * 12.5,
                 FreeCAD.Vector(6.25, -6.25, 0),
                 FreeCAD.Vector(0, 1, 0),
                 Ang,
@@ -579,32 +578,32 @@ class STR_STD_BRM_AY:
         #  ---- Genero Cuerpo Inclinado
         #  ---- Genero puntos de los contornos
         Pto1 = FreeCAD.Vector(-6.25, -6.25, 0)
-        Pto2 = FreeCAD.Vector((obj.N_Agujeros_Inclinado - 1) * 12.5, -6.25, 0)
+        Pto2 = FreeCAD.Vector((obj.HolesNumberSloping - 1) * 12.5, -6.25, 0)
 
-        Pto3 = FreeCAD.Vector(((obj.N_Agujeros_Inclinado - 1) * 12.5) + 6.25, 0, 0)
+        Pto3 = FreeCAD.Vector(((obj.HolesNumberSloping - 1) * 12.5) + 6.25, 0, 0)
         Pto4 = FreeCAD.Vector(
-            ((obj.N_Agujeros_Inclinado - 1) * 12.5) + 6.25, (obj.N_Agujeros_Y - 1) * 12.5, 0
+            ((obj.HolesNumberSloping - 1) * 12.5) + 6.25, (obj.HolesNumberY - 1) * 12.5, 0
         )
 
         Pto5 = FreeCAD.Vector(
-            (obj.N_Agujeros_Inclinado - 1) * 12.5, ((obj.N_Agujeros_Y - 1) * 12.5) + 6.25, 0
+            (obj.HolesNumberSloping - 1) * 12.5, ((obj.HolesNumberY - 1) * 12.5) + 6.25, 0
         )
-        Pto6 = FreeCAD.Vector(-6.25, ((obj.N_Agujeros_Y - 1) * 12.5) + 6.25, 0)
+        Pto6 = FreeCAD.Vector(-6.25, ((obj.HolesNumberY - 1) * 12.5) + 6.25, 0)
 
-        # Pto7 = FreeCAD.Vector(-6.25,((obj.N_Agujeros_Y-1)*12.5),0)
+        # Pto7 = FreeCAD.Vector(-6.25,((obj.HolesNumberY-1)*12.5),0)
         # Pto8 = FreeCAD.Vector(-6.25,0,0)
         #  ---- Genero puntos para circulos
         PtoC1 = FreeCAD.Vector(
-            ((obj.N_Agujeros_Inclinado - 1) * 12.5) + (math.sin(0.7854) * 6.25),
+            ((obj.HolesNumberSloping - 1) * 12.5) + (math.sin(0.7854) * 6.25),
             math.sin(0.7854) * -6.25,
             0,
         )
         PtoC2 = FreeCAD.Vector(
-            ((obj.N_Agujeros_Inclinado - 1) * 12.5) + (math.sin(0.7854) * 6.25),
-            ((obj.N_Agujeros_Y - 1) * 12.5) + (math.sin(0.7854) * 6.25),
+            ((obj.HolesNumberSloping - 1) * 12.5) + (math.sin(0.7854) * 6.25),
+            ((obj.HolesNumberY - 1) * 12.5) + (math.sin(0.7854) * 6.25),
             0,
         )
-        # PtoC3 = FreeCAD.Vector((math.sin(0.7854)*6.25)*-1,((obj.N_Agujeros_Y-1)*12.5)+(math.sin(0.7854)*6.25),0)
+        # PtoC3 = FreeCAD.Vector((math.sin(0.7854)*6.25)*-1,((obj.HolesNumberY-1)*12.5)+(math.sin(0.7854)*6.25),0)
         # PtoC4 = FreeCAD.Vector((math.sin(0.7854)*6.25)*-1,(math.sin(0.7854)*6.25)*-1,0)
         #  ---- Creamos lineas y arcos
         LInc1 = Part.LineSegment(Pto1, Pto2)
@@ -624,8 +623,8 @@ class STR_STD_BRM_AY:
         #  ---- Le doy Volumen a la cara
         PInc = FInc.extrude(FreeCAD.Vector(0, 0, 3.125))
         #  ---- Bucle para agujeros
-        for x in range(obj.N_Agujeros_Inclinado):
-            for y in range(obj.N_Agujeros_Y):
+        for x in range(obj.HolesNumberSloping):
+            for y in range(obj.HolesNumberY):
                 Agujero = Part.makeCylinder(
                     3.5, 10, FreeCAD.Vector(x * 12.5, y * 12.5, -5), FreeCAD.Vector(0, 0, 1)
                 )
@@ -635,10 +634,10 @@ class STR_STD_BRM_AY:
                     Agujeros = Agujeros.fuse(Agujero)
         PInc = PInc.cut(Agujeros)
         # Condicional para angulo 180 no generar cilindros
-        if obj.Angulo != 180:
+        if obj.Angle != 180:
             Curva = Part.makeCylinder(
                 3.125,
-                obj.N_Agujeros_Y * 12.5,
+                obj.HolesNumberY * 12.5,
                 FreeCAD.Vector(-6.25, -6.25, 0),
                 FreeCAD.Vector(0, 1, 0),
                 Ang,
@@ -646,22 +645,22 @@ class STR_STD_BRM_AY:
             Curva.rotate(FreeCAD.Vector(-6.25, -6.25, 0), FreeCAD.Vector(0, 1, 0), -Ang)
             PInc = PInc.fuse(Curva)
         # Giro en Y
-        PInc.rotate(FreeCAD.Vector(-6.25, 0, 0), FreeCAD.Vector(0, 1, 0), obj.Angulo * -1)
+        PInc.rotate(FreeCAD.Vector(-6.25, 0, 0), FreeCAD.Vector(0, 1, 0), obj.Angle * -1)
         # Junto los dos cuerpos
         P = P.fuse(PInc)
         # Refinamos el cuerpo
         P = P.removeSplitter()
 
         #  ---- Ponemos Nombre a la pieza con las variables de la misma
-        obj.Codigo = (
+        obj.Code = (
             "STR STD BRM AY-"
-            + str(obj.N_Agujeros_X)
+            + str(obj.HolesNumberX)
             + "x"
-            + str(obj.N_Agujeros_Y)
+            + str(obj.HolesNumberY)
             + "x"
-            + str(obj.N_Agujeros_Inclinado)
+            + str(obj.HolesNumberSloping)
             + " "
-            + str(obj.Angulo)
+            + str(obj.Angle)
         )
 
         P.Placement = obj.Placement
@@ -675,46 +674,46 @@ class STR_SLT_BE_SYM_ERR:
         obj.Proxy = self
         obj.addProperty(
             "App::PropertyString",
-            QT_TRANSLATE_NOOP("App::Property", "Codigo"),
-            QT_TRANSLATE_NOOP("App::Property", "Denominacion"),
-            QT_TRANSLATE_NOOP("App::Property", "Código Pieza"),
+            QT_TRANSLATE_NOOP("App::Property", "Code"),
+            QT_TRANSLATE_NOOP("App::Property", "Designation"),
+            QT_TRANSLATE_NOOP("App::Property", "STEMFIE part number"),
         )
-        obj.setEditorMode("Codigo", 1)
+        obj.setEditorMode("Code", 1)
         obj.addProperty(
             "App::PropertyInteger",
-            QT_TRANSLATE_NOOP("App::Property", "N_Agujeros_T"),
-            QT_TRANSLATE_NOOP("App::Property", "Valores Pieza"),
-            QT_TRANSLATE_NOOP("App::Property", "Número Agujeros Total\nMínimo 5"),
-        ).N_Agujeros_T = 5
+            QT_TRANSLATE_NOOP("App::Property", "HolesNumberTotal"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
+            QT_TRANSLATE_NOOP("App::Property", "Total number of holes\nMinimum 5"),
+        ).HolesNumberTotal = 5
         obj.addProperty(
             "App::PropertyInteger",
-            QT_TRANSLATE_NOOP("App::Property", "N_Agujeros_R"),
-            QT_TRANSLATE_NOOP("App::Property", "Valores Pieza"),
+            QT_TRANSLATE_NOOP("App::Property", "HolesNumberSlotted"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
             QT_TRANSLATE_NOOP(
-                "App::Property", "Número Agujeros Rasgados\nIgual en ambos lados\nMínimo 2"
+                "App::Property", "Slotted holes number\nSame on both sides\nMinimum 2"
             ),
-        ).N_Agujeros_R = 2
+        ).HolesNumberSlotted = 2
 
     def execute(self, obj):
-        # Compruebo que N_Agujeros_T y N_Agujeros_R
-        if (obj.N_Agujeros_T < 5) or (
-            obj.N_Agujeros_R < 2
+        # Compruebo que HolesNumberTotal y HolesNumberSlotted
+        if (obj.HolesNumberTotal < 5) or (
+            obj.HolesNumberSlotted < 2
         ):  # Si alguno es menor no modificar pieza
-            if obj.N_Agujeros_T < 5:  # si Numero Total de Agujeros es menor 5
-                obj.N_Agujeros_T = 5  # dejarlo en 5
+            if obj.HolesNumberTotal < 5:  # si Numero Total de Agujeros es menor 5
+                obj.HolesNumberTotal = 5  # dejarlo en 5
             else:  # si no
-                obj.N_Agujeros_R = 2  # dejar Numero Agujeros del coliso en 2
+                obj.HolesNumberSlotted = 2  # dejar Numero Agujeros del coliso en 2
 
-        if (obj.N_Agujeros_R * 2) + 1 > (obj.N_Agujeros_T):
-            obj.N_Agujeros_T = (obj.N_Agujeros_R * 2) + 1
+        if (obj.HolesNumberSlotted * 2) + 1 > (obj.HolesNumberTotal):
+            obj.HolesNumberTotal = (obj.HolesNumberSlotted * 2) + 1
         # ----------------------------
         #  ---- Genero Cuerpo exterior
         P1 = FreeCAD.Vector(0, -6.25, 0)
-        P2 = FreeCAD.Vector((obj.N_Agujeros_T - 1) * 12.5, -6.25, 0)
-        P3 = FreeCAD.Vector((obj.N_Agujeros_T - 1) * 12.5, 6.25, 0)
+        P2 = FreeCAD.Vector((obj.HolesNumberTotal - 1) * 12.5, -6.25, 0)
+        P3 = FreeCAD.Vector((obj.HolesNumberTotal - 1) * 12.5, 6.25, 0)
         P4 = FreeCAD.Vector(0, 6.25, 0)
         #  ---- Genero puntos para circulos
-        PC2 = FreeCAD.Vector(((obj.N_Agujeros_T - 1) * 12.5) + 6.25, 0, 0)
+        PC2 = FreeCAD.Vector(((obj.HolesNumberTotal - 1) * 12.5) + 6.25, 0, 0)
         PC4 = FreeCAD.Vector(-6.25, 0, 0)
         #  ---- Creamos lineas y arcos
         L1 = Part.LineSegment(P1, P2)
@@ -735,14 +734,16 @@ class STR_SLT_BE_SYM_ERR:
             if x == 0:
                 Desp = 0
             else:
-                Desp = ((obj.N_Agujeros_T - (obj.N_Agujeros_R * 2)) + obj.N_Agujeros_R) * 12.5
+                Desp = (
+                    (obj.HolesNumberTotal - (obj.HolesNumberSlotted * 2)) + obj.HolesNumberSlotted
+                ) * 12.5
 
             Pto01 = FreeCAD.Vector(0 + Desp, -3.5, 0)
-            Pto02 = FreeCAD.Vector(((obj.N_Agujeros_R - 1) * 12.5) + Desp, -3.5, 0)
-            Pto03 = FreeCAD.Vector(((obj.N_Agujeros_R - 1) * 12.5) + Desp, 3.5, 0)
+            Pto02 = FreeCAD.Vector(((obj.HolesNumberSlotted - 1) * 12.5) + Desp, -3.5, 0)
+            Pto03 = FreeCAD.Vector(((obj.HolesNumberSlotted - 1) * 12.5) + Desp, 3.5, 0)
             Pto04 = FreeCAD.Vector(0 + Desp, 3.5, 0)
             #  ---- Genero puntos para circulos
-            PtoC2 = FreeCAD.Vector((((obj.N_Agujeros_R - 1) * 12.5) + 3.5) + Desp, 0, 0)
+            PtoC2 = FreeCAD.Vector((((obj.HolesNumberSlotted - 1) * 12.5) + 3.5) + Desp, 0, 0)
             PtoC4 = FreeCAD.Vector(-3.5 + Desp, 0, 0)
             #  ---- Creamos lineas y arcos
             LRest1 = Part.LineSegment(Pto01, Pto02)
@@ -757,11 +758,11 @@ class STR_SLT_BE_SYM_ERR:
             P = P.cut(PRest)
 
         #  ---- Bucle para agujeros
-        for x in range(obj.N_Agujeros_T - (obj.N_Agujeros_R * 2)):
+        for x in range(obj.HolesNumberTotal - (obj.HolesNumberSlotted * 2)):
             Agujero = Part.makeCylinder(
                 3.5,
                 5,
-                FreeCAD.Vector((obj.N_Agujeros_R + x) * 12.5, 0, -1),
+                FreeCAD.Vector((obj.HolesNumberSlotted + x) * 12.5, 0, -1),
                 FreeCAD.Vector(0, 0, 1),
             )
             if x == 0:
@@ -771,8 +772,11 @@ class STR_SLT_BE_SYM_ERR:
         P = P.cut(Agujeros)
 
         #  ---- Ponemos Nombre a la pieza con las variables de la misma
-        obj.Codigo = (
-            "STR_SLT_BE_SYM_ERR-BU" + str(obj.N_Agujeros_T) + "x01x00.25x" + str(obj.N_Agujeros_R)
+        obj.Code = (
+            "STR_SLT_BE_SYM_ERR-BU"
+            + str(obj.HolesNumberTotal)
+            + "x01x00.25x"
+            + str(obj.HolesNumberSlotted)
         )
 
         P.Placement = obj.Placement
@@ -786,48 +790,48 @@ class STR_SLT_CNT_ERR:
         obj.Proxy = self
         obj.addProperty(
             "App::PropertyString",
-            QT_TRANSLATE_NOOP("App::Property", "Codigo"),
-            QT_TRANSLATE_NOOP("App::Property", "Denominacion"),
-            QT_TRANSLATE_NOOP("App::Property", "Código Pieza"),
+            QT_TRANSLATE_NOOP("App::Property", "Code"),
+            QT_TRANSLATE_NOOP("App::Property", "Designation"),
+            QT_TRANSLATE_NOOP("App::Property", "STEMFIE part number"),
         )
-        obj.setEditorMode("Codigo", 1)
+        obj.setEditorMode("Code", 1)
         obj.addProperty(
             "App::PropertyInteger",
-            QT_TRANSLATE_NOOP("App::Property", "N_Agujeros_T"),
-            QT_TRANSLATE_NOOP("App::Property", "Valores Pieza"),
-            QT_TRANSLATE_NOOP("App::Property", "Número Agujeros Total\nMínimo 4"),
-        ).N_Agujeros_T = 4
+            QT_TRANSLATE_NOOP("App::Property", "HolesNumberTotal"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
+            QT_TRANSLATE_NOOP("App::Property", "Total number of holes\nMinimum 4"),
+        ).HolesNumberTotal = 4
         obj.addProperty(
             "App::PropertyInteger",
-            QT_TRANSLATE_NOOP("App::Property", "N_Agujeros_R"),
-            QT_TRANSLATE_NOOP("App::Property", "Valores Pieza"),
-            QT_TRANSLATE_NOOP("App::Property", "Número Agujeros Rasgados\nMínimo 2"),
-        ).N_Agujeros_R = 2
+            QT_TRANSLATE_NOOP("App::Property", "HolesNumberSlotted"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
+            QT_TRANSLATE_NOOP("App::Property", "Number of slotted holes\nMinimum 2"),
+        ).HolesNumberSlotted = 2
 
     def execute(self, obj):
-        # Compruebo que N_Agujeros_T y N_Agujeros_R
-        if (obj.N_Agujeros_T < 4) or (
-            obj.N_Agujeros_R < 2
+        # Compruebo que HolesNumberTotal y HolesNumberSlotted
+        if (obj.HolesNumberTotal < 4) or (
+            obj.HolesNumberSlotted < 2
         ):  # Si alguno es menor no modificar pieza
-            if obj.N_Agujeros_T < 4:  # si Numero Total de Agujeros es menor 4
-                obj.N_Agujeros_T = 4  # dejarlo en 4
+            if obj.HolesNumberTotal < 4:  # si Numero Total de Agujeros es menor 4
+                obj.HolesNumberTotal = 4  # dejarlo en 4
             else:  # si no
-                obj.N_Agujeros_R = 2  # dejar Numero Agujeros del coliso en 2
+                obj.HolesNumberSlotted = 2  # dejar Numero Agujeros del coliso en 2
             # return
         # Ahora compuebo que la longitud total no sea menor de lo necesario
-        if obj.N_Agujeros_R + 2 > obj.N_Agujeros_T:
-            obj.N_Agujeros_T = obj.N_Agujeros_R + 2
+        if obj.HolesNumberSlotted + 2 > obj.HolesNumberTotal:
+            obj.HolesNumberTotal = obj.HolesNumberSlotted + 2
 
-        if ((obj.N_Agujeros_T - obj.N_Agujeros_R) % 2) != 0:
-            obj.N_Agujeros_T = (obj.N_Agujeros_T) + 1
+        if ((obj.HolesNumberTotal - obj.HolesNumberSlotted) % 2) != 0:
+            obj.HolesNumberTotal = (obj.HolesNumber_T) + 1
         # ----------------------------
         #  ---- Genero Cuerpo exterior
         P1 = FreeCAD.Vector(0, -6.25, 0)
-        P2 = FreeCAD.Vector((obj.N_Agujeros_T - 1) * 12.5, -6.25, 0)
-        P3 = FreeCAD.Vector((obj.N_Agujeros_T - 1) * 12.5, 6.25, 0)
+        P2 = FreeCAD.Vector((obj.HolesNumberTotal - 1) * 12.5, -6.25, 0)
+        P3 = FreeCAD.Vector((obj.HolesNumberTotal - 1) * 12.5, 6.25, 0)
         P4 = FreeCAD.Vector(0, 6.25, 0)
         #  ---- Genero puntos para circulos
-        PC2 = FreeCAD.Vector(((obj.N_Agujeros_T - 1) * 12.5) + 6.25, 0, 0)
+        PC2 = FreeCAD.Vector(((obj.HolesNumberTotal - 1) * 12.5) + 6.25, 0, 0)
         PC4 = FreeCAD.Vector(-6.25, 0, 0)
         #  ---- Creamos lineas y arcos
         L1 = Part.LineSegment(P1, P2)
@@ -848,9 +852,11 @@ class STR_SLT_CNT_ERR:
             if x == 0:
                 Desp = 0
             else:
-                Desp = (((obj.N_Agujeros_T - obj.N_Agujeros_R) / 2) + obj.N_Agujeros_R) * 12.5
+                Desp = (
+                    ((obj.HolesNumberTotal - obj.HolesNumberSlotted) / 2) + obj.HolesNumberSlotted
+                ) * 12.5
             #  ----  agujeros
-            for y in range(int((obj.N_Agujeros_T - obj.N_Agujeros_R) / 2)):
+            for y in range(int((obj.HolesNumberTotal - obj.HolesNumberSlotted) / 2)):
                 Agujero = Part.makeCylinder(
                     3.5, 5, FreeCAD.Vector((y * 12.5) + Desp, 0, -1), FreeCAD.Vector(0, 0, 1)
                 )
@@ -861,14 +867,14 @@ class STR_SLT_CNT_ERR:
             P = P.cut(Agujeros)
 
         # Genero la forma central
-        Desp = ((obj.N_Agujeros_T - obj.N_Agujeros_R) / 2) * 12.5
+        Desp = ((obj.HolesNumberTotal - obj.HolesNumberSlotted) / 2) * 12.5
 
         Pto01 = FreeCAD.Vector(0 + Desp, -3.5, -1)
-        Pto02 = FreeCAD.Vector(((obj.N_Agujeros_R - 1) * 12.5) + Desp, -3.5, -1)
-        Pto03 = FreeCAD.Vector(((obj.N_Agujeros_R - 1) * 12.5) + Desp, 3.5, -1)
+        Pto02 = FreeCAD.Vector(((obj.HolesNumberSlotted - 1) * 12.5) + Desp, -3.5, -1)
+        Pto03 = FreeCAD.Vector(((obj.HolesNumberSlotted - 1) * 12.5) + Desp, 3.5, -1)
         Pto04 = FreeCAD.Vector(0 + Desp, 3.5, -1)
         #  ---- Genero puntos para circulos
-        PtoC2 = FreeCAD.Vector((((obj.N_Agujeros_R - 1) * 12.5) + 3.5) + Desp, 0, -1)
+        PtoC2 = FreeCAD.Vector((((obj.HolesNumberSlotted - 1) * 12.5) + 3.5) + Desp, 0, -1)
         PtoC4 = FreeCAD.Vector(-3.5 + Desp, 0, -1)
         #  ---- Creamos lineas y arcos
         LRest1 = Part.LineSegment(Pto01, Pto02)
@@ -882,8 +888,11 @@ class STR_SLT_CNT_ERR:
         PRest = FRest.extrude(FreeCAD.Vector(0, 0, 5))  # Extruyo 5
         P = P.cut(PRest)
         #  ---- Ponemos Nombre a la pieza con las variables de la misma
-        obj.Codigo = (
-            "STR_SLT_CNT_ERR-BU" + str(obj.N_Agujeros_T) + "x01x00.25x" + str(obj.N_Agujeros_R)
+        obj.Code = (
+            "STR_SLT_CNT_ERR-BU"
+            + str(obj.HolesNumberTotal)
+            + "x01x00.25x"
+            + str(obj.HolesNumberSlotted)
         )
 
         P.Placement = obj.Placement
@@ -897,31 +906,31 @@ class STR_SLT_FL_ERR:
         obj.Proxy = self
         obj.addProperty(
             "App::PropertyString",
-            QT_TRANSLATE_NOOP("App::Property", "Codigo"),
-            QT_TRANSLATE_NOOP("App::Property", "Denominacion"),
-            QT_TRANSLATE_NOOP("App::Property", "Código Pieza"),
+            QT_TRANSLATE_NOOP("App::Property", "Code"),
+            QT_TRANSLATE_NOOP("App::Property", "Designation"),
+            QT_TRANSLATE_NOOP("App::Property", "STEMFIE part number"),
         )
-        obj.setEditorMode("Codigo", 1)
+        obj.setEditorMode("Code", 1)
         obj.addProperty(
             "App::PropertyInteger",
-            QT_TRANSLATE_NOOP("App::Property", "N_Agujeros"),
-            QT_TRANSLATE_NOOP("App::Property", "Valores Pieza"),
-            QT_TRANSLATE_NOOP("App::Property", "Número Agujeros\nMínimo 2"),
-        ).N_Agujeros = 4
+            QT_TRANSLATE_NOOP("App::Property", "HolesNumber"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
+            QT_TRANSLATE_NOOP("App::Property", "Holes number\nMinimum 2"),
+        ).HolesNumber = 4
 
     def execute(self, obj):
         # Compruebo que Numero_Agujeros
-        if obj.N_Agujeros < 2:
-            obj.N_Agujeros = 2  # Si es menor dejar Numero Agujeros en 2
+        if obj.HolesNumber < 2:
+            obj.HolesNumber = 2  # Si es menor dejar Numero Agujeros en 2
 
         # ----------------------------
         #  ---- Genero Cuerpo exterior
         P1 = FreeCAD.Vector(0, -6.25, 0)
-        P2 = FreeCAD.Vector((obj.N_Agujeros - 1) * 12.5, -6.25, 0)
-        P3 = FreeCAD.Vector((obj.N_Agujeros - 1) * 12.5, 6.25, 0)
+        P2 = FreeCAD.Vector((obj.HolesNumber - 1) * 12.5, -6.25, 0)
+        P3 = FreeCAD.Vector((obj.HolesNumber - 1) * 12.5, 6.25, 0)
         P4 = FreeCAD.Vector(0, 6.25, 0)
         #  ---- Genero puntos para circulos
-        PC2 = FreeCAD.Vector(((obj.N_Agujeros - 1) * 12.5) + 6.25, 0, 0)
+        PC2 = FreeCAD.Vector(((obj.HolesNumber - 1) * 12.5) + 6.25, 0, 0)
         PC4 = FreeCAD.Vector(-6.25, 0, 0)
         #  ---- Creamos lineas y arcos
         L1 = Part.LineSegment(P1, P2)
@@ -938,11 +947,11 @@ class STR_SLT_FL_ERR:
         #  ---- Genero el Cuerpo Interior a restar
         #  -----------------------------
         Pto01 = FreeCAD.Vector(0, -3.5, -1)
-        Pto02 = FreeCAD.Vector(((obj.N_Agujeros - 1) * 12.5), -3.5, -1)
-        Pto03 = FreeCAD.Vector(((obj.N_Agujeros - 1) * 12.5), 3.5, -1)
+        Pto02 = FreeCAD.Vector(((obj.HolesNumber - 1) * 12.5), -3.5, -1)
+        Pto03 = FreeCAD.Vector(((obj.HolesNumber - 1) * 12.5), 3.5, -1)
         Pto04 = FreeCAD.Vector(0, 3.5, -1)
         #  ---- Genero puntos para circulos
-        PtoC2 = FreeCAD.Vector((((obj.N_Agujeros - 1) * 12.5) + 3.5), 0, -1)
+        PtoC2 = FreeCAD.Vector((((obj.HolesNumber - 1) * 12.5) + 3.5), 0, -1)
         PtoC4 = FreeCAD.Vector(-3.5, 0, -1)
         #  ---- Creamos lineas y arcos
         LRest1 = Part.LineSegment(Pto01, Pto02)
@@ -956,7 +965,7 @@ class STR_SLT_FL_ERR:
         PRest = FRest.extrude(FreeCAD.Vector(0, 0, 5))  # Extruyo 5
         P = P.cut(PRest)  # Resto
         #  ---- Ponemos Nombre a la pieza con las variables de la misma
-        obj.Codigo = "STR_SLT_FL_ERR-" + str(obj.N_Agujeros)
+        obj.Code = "STR_SLT_FL_ERR-" + str(obj.HolesNumber)
 
         P.Placement = obj.Placement
         obj.Shape = P
@@ -969,44 +978,47 @@ class STR_SLT_SE_ERR:
         obj.Proxy = self
         obj.addProperty(
             "App::PropertyString",
-            QT_TRANSLATE_NOOP("App::Property", "Codigo"),
-            QT_TRANSLATE_NOOP("App::Property", "Denominacion"),
-            QT_TRANSLATE_NOOP("App::Property", "Código Pieza"),
+            QT_TRANSLATE_NOOP("App::Property", "Code"),
+            QT_TRANSLATE_NOOP("App::Property", "Designation"),
+            QT_TRANSLATE_NOOP("App::Property", "STEMFIE part number"),
         )
-        obj.setEditorMode("Codigo", 1)
+        obj.setEditorMode("Code", 1)
         obj.addProperty(
             "App::PropertyInteger",
-            QT_TRANSLATE_NOOP("App::Property", "N_Agujeros"),
-            QT_TRANSLATE_NOOP("App::Property", "Valores Pieza"),
-            QT_TRANSLATE_NOOP("App::Property", "Nº Agujeros Sueltos\nMínimo 1"),
-        ).N_Agujeros = 1
+            QT_TRANSLATE_NOOP("App::Property", "HolesNumber"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
+            QT_TRANSLATE_NOOP("App::Property", "Number of slotted holes\nMinimum 1"),
+        ).HolesNumber = 1
         obj.addProperty(
             "App::PropertyInteger",
-            QT_TRANSLATE_NOOP("App::Property", "N_Agujeros_R"),
-            QT_TRANSLATE_NOOP("App::Property", "Valores Pieza"),
+            QT_TRANSLATE_NOOP("App::Property", "HolesNumberSlotted"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
             QT_TRANSLATE_NOOP(
-                "App::Property", "Nº Agujeros Rasgados\nIgual en ambos lados\nMínimo 2"
+                "App::Property",
+                "Slotted holes number\nSame on both sides\nMinimum 2",
             ),
-        ).N_Agujeros_R = 2
+        ).HolesNumberSlotted = 2
 
     def execute(self, obj):
-        # Compruebo que N_Agujeros y Numero_Agujeros_R
-        if (obj.N_Agujeros < 1) or (obj.N_Agujeros_R < 2):  # Si alguno es menor de lo permitido
-            if obj.N_Agujeros < 1:  # si Numero de Agujeros es menor 1
-                obj.N_Agujeros = 1  # dejarlo en 1
-            else:  # si no a cambiado N_Agujeros, a sido Numero_Agujeros_R
-                obj.N_Agujeros_R = 2  # dejar Numero Agujeros del coliso en 2
+        # Compruebo que HolesNumber y Numero_Agujeros_R
+        if (obj.HolesNumber < 1) or (
+            obj.HolesNumberSlotted < 2
+        ):  # Si alguno es menor de lo permitido
+            if obj.HolesNumber < 1:  # si Numero de Agujeros es menor 1
+                obj.HolesNumber = 1  # dejarlo en 1
+            else:  # si no a cambiado HolesNumber, a sido Numero_Agujeros_R
+                obj.HolesNumberSlotted = 2  # dejar Numero Agujeros del coliso en 2
 
         # Creo la variable de total agujeros
-        N_Agujeros_T = obj.N_Agujeros + obj.N_Agujeros_R
+        HolesNumberTotal = obj.HolesNumber + obj.HolesNumberSlotted
         # ----------------------------
         #  ---- Genero Cuerpo exterior
         P1 = FreeCAD.Vector(0, -6.25, 0)
-        P2 = FreeCAD.Vector((N_Agujeros_T - 1) * 12.5, -6.25, 0)
-        P3 = FreeCAD.Vector((N_Agujeros_T - 1) * 12.5, 6.25, 0)
+        P2 = FreeCAD.Vector((HolesNumberTotal - 1) * 12.5, -6.25, 0)
+        P3 = FreeCAD.Vector((HolesNumberTotal - 1) * 12.5, 6.25, 0)
         P4 = FreeCAD.Vector(0, 6.25, 0)
         #  ---- Genero puntos para circulos
-        PC2 = FreeCAD.Vector(((N_Agujeros_T - 1) * 12.5) + 6.25, 0, 0)
+        PC2 = FreeCAD.Vector(((HolesNumberTotal - 1) * 12.5) + 6.25, 0, 0)
         PC4 = FreeCAD.Vector(-6.25, 0, 0)
         #  ---- Creamos lineas y arcos
         L1 = Part.LineSegment(P1, P2)
@@ -1023,7 +1035,7 @@ class STR_SLT_SE_ERR:
         #  ---- Genero Cuerpos a restar
         #  -----------------------------
         #  ---- Bucle para agujeros
-        for x in range(obj.N_Agujeros):
+        for x in range(obj.HolesNumber):
             Agujero = Part.makeCylinder(
                 3.5, 5, FreeCAD.Vector(x * 12.5, 0, -1), FreeCAD.Vector(0, 0, 1)
             )
@@ -1034,13 +1046,13 @@ class STR_SLT_SE_ERR:
         P = P.cut(Agujeros)
         #  ---- Genero Cuerpo del Agujero Rasgado
         #  ---- Calculo desplamiento para iniciar el coliso
-        Desp = obj.N_Agujeros * 12.5
+        Desp = obj.HolesNumber * 12.5
         Pto01 = FreeCAD.Vector(0 + Desp, -3.5, 0)
-        Pto02 = FreeCAD.Vector(((obj.N_Agujeros_R - 1) * 12.5) + Desp, -3.5, 0)
-        Pto03 = FreeCAD.Vector(((obj.N_Agujeros_R - 1) * 12.5) + Desp, 3.5, 0)
+        Pto02 = FreeCAD.Vector(((obj.HolesNumberSlotted - 1) * 12.5) + Desp, -3.5, 0)
+        Pto03 = FreeCAD.Vector(((obj.HolesNumberSlotted - 1) * 12.5) + Desp, 3.5, 0)
         Pto04 = FreeCAD.Vector(0 + Desp, 3.5, 0)
         #  ---- Genero puntos para circulos
-        PtoC2 = FreeCAD.Vector((((obj.N_Agujeros_R - 1) * 12.5) + 3.5) + Desp, 0, 0)
+        PtoC2 = FreeCAD.Vector((((obj.HolesNumberSlotted - 1) * 12.5) + 3.5) + Desp, 0, 0)
         PtoC4 = FreeCAD.Vector(-3.5 + Desp, 0, 0)
         #  ---- Creamos lineas y arcos
         LRest1 = Part.LineSegment(Pto01, Pto02)
@@ -1054,8 +1066,8 @@ class STR_SLT_SE_ERR:
         PRest = FRest.extrude(FreeCAD.Vector(0, 0, 5))
         P = P.cut(PRest)
         #  ---- Ponemos Nombre a la pieza con las variables de la misma
-        obj.Codigo = (
-            "STR_SLT_SE_ERR-BU" + str(obj.N_Agujeros) + "x01x00.25x" + str(obj.N_Agujeros_R)
+        obj.Code = (
+            "STR_SLT_SE_ERR-BU" + str(obj.HolesNumber) + "x01x00.25x" + str(obj.HolesNumberSlotted)
         )
         #  ---- Añado emplzamiento al objeto
         P.Placement = obj.Placement
@@ -1063,63 +1075,63 @@ class STR_SLT_SE_ERR:
 
 
 class STR_STD_BRD_AY:
-    """Brazo Stemfie angulo en Y Nº_Agureros en horizontal y Nº agujeros en inclinada"""
+    """Brazo Stemfie angulo en Y Nº_Agujeros en horizontal y Nº agujeros en inclinada"""
 
     def __init__(self, obj):
         obj.Proxy = self
         obj.addProperty(
             "App::PropertyString",
-            QT_TRANSLATE_NOOP("App::Property", "Codigo"),
-            QT_TRANSLATE_NOOP("App::Property", "Denominacion"),
-            QT_TRANSLATE_NOOP("App::Property", "Código Pieza"),
+            QT_TRANSLATE_NOOP("App::Property", "Code"),
+            QT_TRANSLATE_NOOP("App::Property", "Designation"),
+            QT_TRANSLATE_NOOP("App::Property", "STEMFIE part number"),
         )
-        obj.setEditorMode("Codigo", 1)
+        obj.setEditorMode("Code", 1)
         obj.addProperty(
             "App::PropertyInteger",
-            QT_TRANSLATE_NOOP("App::Property", "N_Agujeros_X"),
-            QT_TRANSLATE_NOOP("App::Property", "Valores Pieza"),
-            QT_TRANSLATE_NOOP("App::Property", "Nº Agujeros en parte Horizontal\nMínimo 1"),
+            QT_TRANSLATE_NOOP("App::Property", "HolesNumberX"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
+            QT_TRANSLATE_NOOP("App::Property", "Holes number in horizontal bar\nMinimum 1"),
         )
-        obj.N_Agujeros_X = 3
+        obj.HolesNumberX = 3
         obj.addProperty(
             "App::PropertyInteger",
-            QT_TRANSLATE_NOOP("App::Property", "N_Agujeros_Inclinado"),
-            QT_TRANSLATE_NOOP("App::Property", "Valores Pieza"),
-            QT_TRANSLATE_NOOP("App::Property", "Nº Agujeros en parte inclinada\nMínimo 1"),
+            QT_TRANSLATE_NOOP("App::Property", "HolesNumberSloping"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
+            QT_TRANSLATE_NOOP("App::Property", "Holes number in sloping part\nMinimum 1"),
         )
-        obj.N_Agujeros_Inclinado = 2
+        obj.HolesNumberSloping = 2
         obj.addProperty(
             "App::PropertyAngle",
-            QT_TRANSLATE_NOOP("App::Property", "Angulo"),
-            QT_TRANSLATE_NOOP("App::Property", "Valores Pieza"),
-            QT_TRANSLATE_NOOP("App::Property", "Ángulo\nMínimo = 0\nMáximo = 180"),
+            QT_TRANSLATE_NOOP("App::Property", "Angle"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
+            QT_TRANSLATE_NOOP("App::Property", "Angle\nMinimum = 0\nMaximum = 180"),
         )
-        obj.Angulo = 135
+        obj.Angle = 135
 
     def execute(self, obj):
         # Compruebo que Numero_Agujeros mayor de 2 y Angulo en 60 y 180
         if (
-            (obj.N_Agujeros_X < 1)
-            or (obj.N_Agujeros_Inclinado < 1)
-            or (obj.Angulo < 0)
-            or (obj.Angulo > 180)
+            (obj.HolesNumberX < 1)
+            or (obj.HolesNumberSloping < 1)
+            or (obj.Angle < 0)
+            or (obj.Angle > 180)
         ):
-            if obj.N_Agujeros_X < 1:
-                obj.N_Agujeros_X = 1
-            if obj.N_Agujeros_Inclinado < 1:
-                obj.N_Agujeros_Inclinado = 1
-            if obj.Angulo < 0:
-                obj.Angulo = 0
-            if obj.Angulo > 180:
-                obj.Angulo = 180
+            if obj.HolesNumberX < 1:
+                obj.HolesNumberX = 1
+            if obj.HolesNumberSloping < 1:
+                obj.HolesNumberSloping = 1
+            if obj.Angle < 0:
+                obj.Angle = 0
+            if obj.Angle > 180:
+                obj.Angle = 180
         # ----------------------------
         #  ---- Genero Cuerpo Horizontal
         P1 = FreeCAD.Vector(0, -6.25, 0)
-        P2 = FreeCAD.Vector(((obj.N_Agujeros_X - 1) * 12.5) + 6.25, -6.25, 0)
-        P3 = FreeCAD.Vector(((obj.N_Agujeros_X - 1) * 12.5) + 6.25, 6.25, 0)
+        P2 = FreeCAD.Vector(((obj.HolesNumberX - 1) * 12.5) + 6.25, -6.25, 0)
+        P3 = FreeCAD.Vector(((obj.HolesNumberX - 1) * 12.5) + 6.25, 6.25, 0)
         P4 = FreeCAD.Vector(0, 6.25, 0)
         #  ---- Genero punto para arco
-        PC2 = FreeCAD.Vector(obj.N_Agujeros_X * 12.5, 0, 0)
+        PC2 = FreeCAD.Vector(obj.HolesNumberX * 12.5, 0, 0)
         #  ---- Creamos lineas y arcos
         L1 = Part.LineSegment(P1, P2)
         C2 = Part.Arc(P2, PC2, P3)
@@ -1132,7 +1144,7 @@ class STR_STD_BRD_AY:
         #  ---- Le doy Volumen a la cara
         P = F.extrude(FreeCAD.Vector(0, 0, -3.125))
         # Hago los Agujeros de X
-        for x in range(obj.N_Agujeros_X):
+        for x in range(obj.HolesNumberX):
             Agujero = Part.makeCylinder(
                 3.5, 5, FreeCAD.Vector((x * 12.5) + 6.25, 0, -5), FreeCAD.Vector(0, 0, 1)
             )
@@ -1142,10 +1154,10 @@ class STR_STD_BRD_AY:
                 Agujeros = Agujeros.fuse(Agujero)
         P = P.cut(Agujeros)
         # Condicional para angulo 180 no generar cilindros
-        if obj.Angulo != 180:
+        if obj.Angle != 180:
             # Tengo que meter un cuarto de cilindro y unirlo a P
             # Añado condicional para que sea en funcion del angulo
-            Ang = (180 - int(obj.Angulo)) / 2
+            Ang = (180 - int(obj.Angle)) / 2
             Curva = Part.makeCylinder(
                 3.125, 12.5, FreeCAD.Vector(0, -6.25, 0), FreeCAD.Vector(0, 1, 0), Ang
             )
@@ -1153,11 +1165,11 @@ class STR_STD_BRD_AY:
             P = P.fuse(Curva)
         #  ---- Genero Cuerpo Inclinado
         Pto1 = FreeCAD.Vector(0, -6.25, 0)
-        Pto2 = FreeCAD.Vector(((obj.N_Agujeros_Inclinado - 1) * 12.5) + 6.25, -6.25, 0)
-        Pto3 = FreeCAD.Vector(((obj.N_Agujeros_Inclinado - 1) * 12.5) + 6.25, 6.25, 0)
+        Pto2 = FreeCAD.Vector(((obj.HolesNumberSloping - 1) * 12.5) + 6.25, -6.25, 0)
+        Pto3 = FreeCAD.Vector(((obj.HolesNumberSloping - 1) * 12.5) + 6.25, 6.25, 0)
         Pto4 = FreeCAD.Vector(0, 6.25, 0)
         #  ---- Genero punto para arco
-        PtoC2 = FreeCAD.Vector(obj.N_Agujeros_Inclinado * 12.5, 0, 0)
+        PtoC2 = FreeCAD.Vector(obj.HolesNumberSloping * 12.5, 0, 0)
         #  ---- Creamos lineas y arcos
         LInc1 = Part.LineSegment(Pto1, Pto2)
         CInc2 = Part.Arc(Pto2, PtoC2, Pto3)
@@ -1170,7 +1182,7 @@ class STR_STD_BRD_AY:
         #  ---- Le doy Volumen a la cara
         PInc = FInc.extrude(FreeCAD.Vector(0, 0, 3.125))
         # Hago los Agujeros en el cuerpo inclinado
-        for x in range(obj.N_Agujeros_Inclinado):
+        for x in range(obj.HolesNumberSloping):
             Agujero = Part.makeCylinder(
                 3.5, 5, FreeCAD.Vector((x * 12.5) + 6.25, 0, -1), FreeCAD.Vector(0, 0, 1)
             )
@@ -1180,26 +1192,26 @@ class STR_STD_BRD_AY:
                 Agujeros = Agujeros.fuse(Agujero)
         PInc = PInc.cut(Agujeros)
         # Condicional para angulo 180 no generar cilindros
-        if obj.Angulo != 180:
+        if obj.Angle != 180:
             Curva = Part.makeCylinder(
                 3.125, 12.5, FreeCAD.Vector(0, -6.25, 0), FreeCAD.Vector(0, 1, 0), Ang
             )
             Curva.rotate(FreeCAD.Vector(0, 0, 0), FreeCAD.Vector(0, 1, 0), -Ang)
             PInc = PInc.fuse(Curva)
         # Giro en Y
-        PInc.rotate(FreeCAD.Vector(0, 0, 0), FreeCAD.Vector(0, 1, 0), obj.Angulo * -1)
+        PInc.rotate(FreeCAD.Vector(0, 0, 0), FreeCAD.Vector(0, 1, 0), obj.Angle * -1)
         # Junto los dos cuerpos
         P = P.fuse(PInc)
         # Refinamos el cuerpo
         P = P.removeSplitter()
         #  ---- Ponemos Nombre a la pieza con las variables de la misma
-        obj.Codigo = (
+        obj.Code = (
             "STR_STD_BRD_AY-"
-            + str(obj.N_Agujeros_X)
+            + str(obj.HolesNumberX)
             + "x"
-            + str(obj.N_Agujeros_Inclinado)
+            + str(obj.HolesNumberSloping)
             + " "
-            + str(obj.Angulo)
+            + str(obj.Angle)
         )
         #  ---- Añado emplazamiento al objeto
         P.Placement = obj.Placement
@@ -1213,69 +1225,69 @@ class STR_STD_BRT_AZ:
         obj.Proxy = self
         obj.addProperty(
             "App::PropertyString",
-            QT_TRANSLATE_NOOP("App::Property", "Codigo"),
-            QT_TRANSLATE_NOOP("App::Property", "Denominacion"),
-            QT_TRANSLATE_NOOP("App::Property", "Código Pieza"),
+            QT_TRANSLATE_NOOP("App::Property", "Code"),
+            QT_TRANSLATE_NOOP("App::Property", "Designation"),
+            QT_TRANSLATE_NOOP("App::Property", "STEMFIE part number"),
         )
-        obj.setEditorMode("Codigo", 1)
+        obj.setEditorMode("Code", 1)
         obj.addProperty(
             "App::PropertyInteger",
-            QT_TRANSLATE_NOOP("App::Property", "N_Agujeros_X"),
-            QT_TRANSLATE_NOOP("App::Property", "Valores Pieza"),
-            QT_TRANSLATE_NOOP("App::Property", "Nº Agujeros en Barra Central\nMínimo = 3"),
+            QT_TRANSLATE_NOOP("App::Property", "HolesNumberX"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
+            QT_TRANSLATE_NOOP("App::Property", "Holes number in central bar\nMinimum = 3"),
         )
-        obj.N_Agujeros_X = 3
+        obj.HolesNumberX = 3
         obj.addProperty(
             "App::PropertyInteger",
-            QT_TRANSLATE_NOOP("App::Property", "N_Agujeros_Y1"),
-            QT_TRANSLATE_NOOP("App::Property", "Valores Pieza"),
-            QT_TRANSLATE_NOOP("App::Property", "Nº Agujeros en Barra Vertical Izq\nMínimo = 1"),
+            QT_TRANSLATE_NOOP("App::Property", "HolesNumberY1"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
+            QT_TRANSLATE_NOOP("App::Property", "Holes number in left vertical bar\nMinimum = 1"),
         )
-        obj.N_Agujeros_Y1 = 2
+        obj.HolesNumberY1 = 2
         obj.addProperty(
             "App::PropertyInteger",
-            QT_TRANSLATE_NOOP("App::Property", "N_Agujeros_Y2"),
-            QT_TRANSLATE_NOOP("App::Property", "Valores Pieza"),
-            QT_TRANSLATE_NOOP("App::Property", "Nº Agujeros en Barra Vertical Dch\nMínimo = 1"),
+            QT_TRANSLATE_NOOP("App::Property", "HolesNumberY2"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
+            QT_TRANSLATE_NOOP("App::Property", "Holes number in right vertical bar\nMinimum = 1"),
         )
-        obj.N_Agujeros_Y2 = 2
+        obj.HolesNumberY2 = 2
         obj.addProperty(
             "App::PropertyAngle",
-            QT_TRANSLATE_NOOP("App::Property", "Angulo"),
-            QT_TRANSLATE_NOOP("App::Property", "Valores Pieza"),
-            QT_TRANSLATE_NOOP("App::Property", "Ángulo\nMínimo = 90\nMáximo = 180"),
+            QT_TRANSLATE_NOOP("App::Property", "Angle"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
+            QT_TRANSLATE_NOOP("App::Property", "Angle\nMinimum = 90°\nMaximum = 180°"),
         )
-        obj.Angulo = 90
+        obj.Angle = 90
 
     def execute(self, obj):
         # Compruebo Valores
         if (
-            (obj.N_Agujeros_X < 3)
-            or (obj.N_Agujeros_Y1 < 1)
-            or (obj.N_Agujeros_Y2 < 1)
-            or (obj.Angulo < 90)
-            or (obj.Angulo > 180)
+            (obj.HolesNumberX < 3)
+            or (obj.HolesNumberY1 < 1)
+            or (obj.HolesNumberY2 < 1)
+            or (obj.Angle < 90)
+            or (obj.Angle > 180)
         ):
-            if obj.N_Agujeros_X < 3:
-                obj.N_Agujeros_X = 3
-            if obj.N_Agujeros_Y1 < 1:
-                obj.N_Agujeros_Y1 = 1
-            if obj.N_Agujeros_Y2 < 1:
-                obj.N_Agujeros_Y2 = 1
-            if obj.Angulo < 90:
-                obj.Angulo = 90
-            if obj.Angulo > 180:
-                obj.Angulo = 180
+            if obj.HolesNumberX < 3:
+                obj.HolesNumberX = 3
+            if obj.HolesNumberY1 < 1:
+                obj.HolesNumberY1 = 1
+            if obj.HolesNumberY2 < 1:
+                obj.HolesNumberY2 = 1
+            if obj.Angle < 90:
+                obj.Angle = 90
+            if obj.Angle > 180:
+                obj.Angle = 180
             # return
 
         # Genero Pieza en X
         #  ---- Genero puntos de los contornos
         P1 = FreeCAD.Vector(0, -6.25, 0)
-        P2 = FreeCAD.Vector((obj.N_Agujeros_X - 1) * 12.5, -6.25, 0)
-        P3 = FreeCAD.Vector((obj.N_Agujeros_X - 1) * 12.5, 6.25, 0)
+        P2 = FreeCAD.Vector((obj.HolesNumberX - 1) * 12.5, -6.25, 0)
+        P3 = FreeCAD.Vector((obj.HolesNumberX - 1) * 12.5, 6.25, 0)
         P4 = FreeCAD.Vector(0, 6.25, 0)
         #  ---- Genero puntos para circulos
-        PC2 = FreeCAD.Vector(((obj.N_Agujeros_X - 1) * 12.5) + 6.25, 0, 0)
+        PC2 = FreeCAD.Vector(((obj.HolesNumberX - 1) * 12.5) + 6.25, 0, 0)
         PC4 = FreeCAD.Vector(-6.25, 0, 0)
         #  ---- Creamos lineas y arcos
         L1 = Part.LineSegment(P1, P2)
@@ -1290,7 +1302,7 @@ class STR_STD_BRT_AZ:
         #  ---- Le doy Volumen a la cara
         PX = F.extrude(FreeCAD.Vector(0, 0, 3.125))
         #  ---- Bucle para agujeros
-        for x in range(obj.N_Agujeros_X):
+        for x in range(obj.HolesNumberX):
             Agujero = Part.makeCylinder(
                 3.5, 5, FreeCAD.Vector(x * 12.5, 0, -1), FreeCAD.Vector(0, 0, 1)
             )
@@ -1303,11 +1315,11 @@ class STR_STD_BRT_AZ:
         # Genero Piezas en Y1
         #  ---- Genero puntos de los contornos
         P1 = FreeCAD.Vector(0, -6.25, 0)
-        P2 = FreeCAD.Vector((obj.N_Agujeros_Y1) * 12.5, -6.25, 0)
-        P3 = FreeCAD.Vector((obj.N_Agujeros_Y1) * 12.5, 6.25, 0)
+        P2 = FreeCAD.Vector((obj.HolesNumberY1) * 12.5, -6.25, 0)
+        P3 = FreeCAD.Vector((obj.HolesNumberY1) * 12.5, 6.25, 0)
         P4 = FreeCAD.Vector(0, 6.25, 0)
         #  ---- Genero puntos para circulos
-        PC2 = FreeCAD.Vector(((obj.N_Agujeros_Y1) * 12.5) + 6.25, 0, 0)
+        PC2 = FreeCAD.Vector(((obj.HolesNumberY1) * 12.5) + 6.25, 0, 0)
         PC4 = FreeCAD.Vector(-6.25, 0, 0)
         #  ---- Creamos lineas y arcos
         L1 = Part.LineSegment(P1, P2)
@@ -1322,7 +1334,7 @@ class STR_STD_BRT_AZ:
         #  ---- Le doy Volumen a la cara
         PY1 = F.extrude(FreeCAD.Vector(0, 0, 3.125))
         #  ---- Bucle para agujeros
-        for x in range(obj.N_Agujeros_Y1 + 1):
+        for x in range(obj.HolesNumberY1 + 1):
             Agujero = Part.makeCylinder(
                 3.5, 5, FreeCAD.Vector(x * 12.5, 0, -1), FreeCAD.Vector(0, 0, 1)
             )
@@ -1332,19 +1344,19 @@ class STR_STD_BRT_AZ:
                 Agujeros = Agujeros.fuse(Agujero)
         PY1 = PY1.cut(Agujeros)
 
-        PY1.rotate(FreeCAD.Vector(0, 0, 0), FreeCAD.Vector(0, 0, 1), obj.Angulo)
+        PY1.rotate(FreeCAD.Vector(0, 0, 0), FreeCAD.Vector(0, 0, 1), obj.Angle)
 
         P = PX.fuse(PY1)
 
         # Genero Piezas en Y2
-        Desp = (obj.N_Agujeros_X - 1) * 12.5
+        Desp = (obj.HolesNumberX - 1) * 12.5
         #  ---- Genero puntos de los contornos
         P1 = FreeCAD.Vector(0 + Desp, -6.25, 0)
-        P2 = FreeCAD.Vector(((obj.N_Agujeros_Y2) * 12.5) + Desp, -6.25, 0)
-        P3 = FreeCAD.Vector(((obj.N_Agujeros_Y2) * 12.5) + Desp, 6.25, 0)
+        P2 = FreeCAD.Vector(((obj.HolesNumberY2) * 12.5) + Desp, -6.25, 0)
+        P3 = FreeCAD.Vector(((obj.HolesNumberY2) * 12.5) + Desp, 6.25, 0)
         P4 = FreeCAD.Vector(0 + Desp, 6.25, 0)
         #  ---- Genero puntos para circulos
-        PC2 = FreeCAD.Vector(((obj.N_Agujeros_Y2) * 12.5) + 6.25 + Desp, 0, 0)
+        PC2 = FreeCAD.Vector(((obj.HolesNumberY2) * 12.5) + 6.25 + Desp, 0, 0)
         PC4 = FreeCAD.Vector(-6.25 + Desp, 0, 0)
         #  ---- Creamos lineas y arcos
         L1 = Part.LineSegment(P1, P2)
@@ -1359,7 +1371,7 @@ class STR_STD_BRT_AZ:
         #  ---- Le doy Volumen a la cara
         PY2 = F.extrude(FreeCAD.Vector(0, 0, 3.125))
         #  ---- Bucle para agujeros
-        for x in range(obj.N_Agujeros_Y2 + 1):
+        for x in range(obj.HolesNumberY2 + 1):
             Agujero = Part.makeCylinder(
                 3.5, 5, FreeCAD.Vector(x * 12.5 + Desp, 0, -1), FreeCAD.Vector(0, 0, 1)
             )
@@ -1369,21 +1381,21 @@ class STR_STD_BRT_AZ:
                 Agujeros = Agujeros.fuse(Agujero)
         PY2 = PY2.cut(Agujeros)
         #  ---- giro parte Y 2 (restando de 180)----
-        PY2.rotate(FreeCAD.Vector(Desp, 0, 0), FreeCAD.Vector(0, 0, 1), (180 - int(obj.Angulo)))
+        PY2.rotate(FreeCAD.Vector(Desp, 0, 0), FreeCAD.Vector(0, 0, 1), (180 - int(obj.Angle)))
 
         P = P.fuse(PY2)
         # Refinamos el cuerpo
         P = P.removeSplitter()
         #  ---- Ponemos Nombre a la pieza con las variables de la misma
-        obj.Codigo = (
+        obj.Code = (
             "STR_STD_BRT_AZ-"
-            + str(obj.N_Agujeros_Y1)
+            + str(obj.HolesNumberY1)
             + "x"
-            + str(obj.N_Agujeros_X)
+            + str(obj.HolesNumberX)
             + "x"
-            + str(obj.N_Agujeros_Y2)
+            + str(obj.HolesNumberY2)
             + " "
-            + str(obj.Angulo)
+            + str(obj.Angle)
         )
 
         P.Placement = obj.Placement
@@ -1397,67 +1409,67 @@ class STR_STD_BRT_AY:
         obj.Proxy = self
         obj.addProperty(
             "App::PropertyString",
-            QT_TRANSLATE_NOOP("App::Property", "Codigo"),
-            QT_TRANSLATE_NOOP("App::Property", "Denominacion"),
-            QT_TRANSLATE_NOOP("App::Property", "Código Pieza"),
+            QT_TRANSLATE_NOOP("App::Property", "Code"),
+            QT_TRANSLATE_NOOP("App::Property", "Designation"),
+            QT_TRANSLATE_NOOP("App::Property", "STEMFIE part number"),
         )
-        obj.setEditorMode("Codigo", 1)
+        obj.setEditorMode("Code", 1)
         obj.addProperty(
             "App::PropertyInteger",
-            QT_TRANSLATE_NOOP("App::Property", "N_Agujeros_X"),
-            QT_TRANSLATE_NOOP("App::Property", "Valores Pieza"),
-            QT_TRANSLATE_NOOP("App::Property", "Nº Agujeros en parte Horizontal\nMínimo 1"),
-        ).N_Agujeros_X = 3
+            QT_TRANSLATE_NOOP("App::Property", "HolesNumberX"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
+            QT_TRANSLATE_NOOP("App::Property", "Holes number in horizontal part\nMinimum 1"),
+        ).HolesNumberX = 3
         obj.addProperty(
             "App::PropertyInteger",
-            QT_TRANSLATE_NOOP("App::Property", "N_Agujeros_Inclinado_1"),
-            QT_TRANSLATE_NOOP("App::Property", "Valores Pieza"),
-            QT_TRANSLATE_NOOP("App::Property", "Nº Agujeros en parte inclinada Izq\nMínimo 1"),
-        ).N_Agujeros_Inclinado_1 = 2
+            QT_TRANSLATE_NOOP("App::Property", "HolesNumberSloping1"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
+            QT_TRANSLATE_NOOP("App::Property", "Holes number in left sloping part\nMinimum 1"),
+        ).HolesNumberSloping1 = 2
         obj.addProperty(
             "App::PropertyInteger",
-            QT_TRANSLATE_NOOP("App::Property", "N_Agujeros_Inclinado_2"),
-            QT_TRANSLATE_NOOP("App::Property", "Valores Pieza"),
-            QT_TRANSLATE_NOOP("App::Property", "Nº Agujeros en parte inclinada Dch\nMínimo 1"),
-        ).N_Agujeros_Inclinado_2 = 2
+            QT_TRANSLATE_NOOP("App::Property", "HolesNumberSloping2"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
+            QT_TRANSLATE_NOOP("App::Property", "Holes number in right sloping part\nMinimum 1"),
+        ).HolesNumberSloping2 = 2
         obj.addProperty(
             "App::PropertyAngle",
-            QT_TRANSLATE_NOOP("App::Property", "Angulo"),
-            QT_TRANSLATE_NOOP("App::Property", "Valores Pieza"),
-            QT_TRANSLATE_NOOP("App::Property", "Ángulo\nMínimo = 0\nMáximo = 180"),
-        ).Angulo = 135
+            QT_TRANSLATE_NOOP("App::Property", "Angle"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
+            QT_TRANSLATE_NOOP("App::Property", "Angle\nMinimum = 0\nMaximum = 180"),
+        ).Angle = 135
 
     def execute(self, obj):
         # Compruebo que Numero_Agujeros mayor de 2 y Angulo en 60 y 180
         if (
-            (obj.N_Agujeros_X < 1)
-            or (obj.N_Agujeros_Inclinado_1 < 1)
-            or (obj.N_Agujeros_Inclinado_2 < 1)
-            or (obj.Angulo < 0)
-            or (obj.Angulo > 180)
+            (obj.HolesNumberX < 1)
+            or (obj.HolesNumberSloping1 < 1)
+            or (obj.HolesNumberSloping2 < 1)
+            or (obj.Angle < 0)
+            or (obj.Angle > 180)
         ):
-            if obj.N_Agujeros_X < 1:
-                obj.N_Agujeros_X = 1
-            if obj.N_Agujeros_Inclinado_1 < 1:
-                obj.N_Agujeros_Inclinado_1 = 1
-            if obj.N_Agujeros_Inclinado_2 < 1:
-                obj.N_Agujeros_Inclinado_2 = 1
-            if obj.Angulo < 0:
-                obj.Angulo = 0
-            if obj.Angulo > 180:
-                obj.Angulo = 180
+            if obj.HolesNumberX < 1:
+                obj.HolesNumberX = 1
+            if obj.HolesNumberSloping1 < 1:
+                obj.HolesNumberSloping1 = 1
+            if obj.HolesNumberSloping2 < 1:
+                obj.HolesNumberSloping2 = 1
+            if obj.Angle < 0:
+                obj.Angle = 0
+            if obj.Angle > 180:
+                obj.Angle = 180
         # Limito nº agujeros en Inclinadas cuando angulo es 0
-        if obj.Angulo == 0:
-            if obj.N_Agujeros_Inclinado_1 > obj.N_Agujeros_X:
-                obj.N_Agujeros_Inclinado_1 = obj.N_Agujeros_X
-            if obj.N_Agujeros_Inclinado_2 > obj.N_Agujeros_X:
-                obj.N_Agujeros_Inclinado_2 = obj.N_Agujeros_X
+        if obj.Angle == 0:
+            if obj.HolesNumberSloping1 > obj.HolesNumberX:
+                obj.HolesNumberSloping1 = obj.HolesNumberX
+            if obj.HolesNumberSloping2 > obj.HolesNumberX:
+                obj.HolesNumberSloping2 = obj.HolesNumberX
 
         # ----------------------------
         #  ---- Genero Cuerpo Horizontal
         P1 = FreeCAD.Vector(0, -6.25, 0)
-        P2 = FreeCAD.Vector(((obj.N_Agujeros_X) * 12.5), -6.25, 0)
-        P3 = FreeCAD.Vector(((obj.N_Agujeros_X) * 12.5), 6.25, 0)
+        P2 = FreeCAD.Vector(((obj.HolesNumberX) * 12.5), -6.25, 0)
+        P3 = FreeCAD.Vector(((obj.HolesNumberX) * 12.5), 6.25, 0)
         P4 = FreeCAD.Vector(0, 6.25, 0)
         #  ---- Creamos lineas y arcos
         L1 = Part.LineSegment(P1, P2)
@@ -1471,7 +1483,7 @@ class STR_STD_BRT_AY:
         #  ---- Le doy Volumen a la cara
         P = F.extrude(FreeCAD.Vector(0, 0, -3.125))
         # Hago los Agujeros de X
-        for x in range(obj.N_Agujeros_X):
+        for x in range(obj.HolesNumberX):
             Agujero = Part.makeCylinder(
                 3.5, 5, FreeCAD.Vector((x * 12.5) + 6.25, 0, -5), FreeCAD.Vector(0, 0, 1)
             )
@@ -1482,11 +1494,11 @@ class STR_STD_BRT_AY:
         P = P.cut(Agujeros)
 
         # Condicional para angulo 180 no generar cilindros
-        if obj.Angulo != 180:
+        if obj.Angle != 180:
             # Tengo que meter dos cachos de cilindro en los extremos y unirlo a P
             # Añado condicional para que sea en funcion del angulo
             #  ---- Primer Cilindro
-            Ang = (180 - int(obj.Angulo)) / 2
+            Ang = (180 - int(obj.Angle)) / 2
             Curva1 = Part.makeCylinder(
                 3.125, 12.5, FreeCAD.Vector(0, -6.25, 0), FreeCAD.Vector(0, 1, 0), Ang
             )
@@ -1496,23 +1508,23 @@ class STR_STD_BRT_AY:
             Curva2 = Part.makeCylinder(
                 3.125,
                 12.5,
-                FreeCAD.Vector(obj.N_Agujeros_X * 12.5, -6.25, 0),
+                FreeCAD.Vector(obj.HolesNumberX * 12.5, -6.25, 0),
                 FreeCAD.Vector(0, 1, 0),
                 Ang,
             )
             Curva2.rotate(
-                FreeCAD.Vector(obj.N_Agujeros_X * 12.5, 0, 0), FreeCAD.Vector(0, 1, 0), 180 - Ang
+                FreeCAD.Vector(obj.HolesNumberX * 12.5, 0, 0), FreeCAD.Vector(0, 1, 0), 180 - Ang
             )
             P = P.fuse(Curva2)
 
         #
         #  ---- Genero Cuerpo Inclinado_1 Izquierdo
         Pto1 = FreeCAD.Vector(0, -6.25, 0)
-        Pto2 = FreeCAD.Vector(((obj.N_Agujeros_Inclinado_1 - 1) * 12.5) + 6.25, -6.25, 0)
-        Pto3 = FreeCAD.Vector(((obj.N_Agujeros_Inclinado_1 - 1) * 12.5) + 6.25, 6.25, 0)
+        Pto2 = FreeCAD.Vector(((obj.HolesNumberSloping1 - 1) * 12.5) + 6.25, -6.25, 0)
+        Pto3 = FreeCAD.Vector(((obj.HolesNumberSloping1 - 1) * 12.5) + 6.25, 6.25, 0)
         Pto4 = FreeCAD.Vector(0, 6.25, 0)
         #  ---- Genero punto para arco
-        PtoC2 = FreeCAD.Vector(obj.N_Agujeros_Inclinado_1 * 12.5, 0, 0)
+        PtoC2 = FreeCAD.Vector(obj.HolesNumberSloping1 * 12.5, 0, 0)
         #  ---- Creamos lineas y arcos
         LInc1 = Part.LineSegment(Pto1, Pto2)
         CInc2 = Part.Arc(Pto2, PtoC2, Pto3)
@@ -1525,7 +1537,7 @@ class STR_STD_BRT_AY:
         #  ---- Le doy Volumen a la cara
         PInc = FInc.extrude(FreeCAD.Vector(0, 0, 3.125))
         # Hago los Agujeros en el cuerpo inclinado
-        for x in range(obj.N_Agujeros_Inclinado_1):
+        for x in range(obj.HolesNumberSloping1):
             Agujero = Part.makeCylinder(
                 3.5, 5, FreeCAD.Vector((x * 12.5) + 6.25, 0, -1), FreeCAD.Vector(0, 0, 1)
             )
@@ -1535,7 +1547,7 @@ class STR_STD_BRT_AY:
                 Agujeros = Agujeros.fuse(Agujero)
         PInc = PInc.cut(Agujeros)
         # Condicional para angulo 180 no generar cilindros
-        if obj.Angulo != 180:
+        if obj.Angle != 180:
             # Curva
             Curva = Part.makeCylinder(
                 3.125, 12.5, FreeCAD.Vector(0, -6.25, 0), FreeCAD.Vector(0, 1, 0), Ang
@@ -1543,18 +1555,18 @@ class STR_STD_BRT_AY:
             Curva.rotate(FreeCAD.Vector(0, 0, 0), FreeCAD.Vector(0, 1, 0), -Ang)
             PInc = PInc.fuse(Curva)
         # Giro en Y
-        PInc.rotate(FreeCAD.Vector(0, 0, 0), FreeCAD.Vector(0, 1, 0), obj.Angulo * -1)
+        PInc.rotate(FreeCAD.Vector(0, 0, 0), FreeCAD.Vector(0, 1, 0), obj.Angle * -1)
         # Junto los dos cuerpos
         P = P.fuse(PInc)
 
         #  ---- Genero Cuerpo Inclinado_2 Izquierdo
-        Desp = obj.N_Agujeros_X * 12.5
+        Desp = obj.HolesNumberX * 12.5
         Pto1 = FreeCAD.Vector(Desp, -6.25, 0)
-        Pto2 = FreeCAD.Vector(((obj.N_Agujeros_Inclinado_2 - 1) * 12.5) + 6.25 + Desp, -6.25, 0)
-        Pto3 = FreeCAD.Vector(((obj.N_Agujeros_Inclinado_2 - 1) * 12.5) + 6.25 + Desp, 6.25, 0)
+        Pto2 = FreeCAD.Vector(((obj.HolesNumberSloping2 - 1) * 12.5) + 6.25 + Desp, -6.25, 0)
+        Pto3 = FreeCAD.Vector(((obj.HolesNumberSloping2 - 1) * 12.5) + 6.25 + Desp, 6.25, 0)
         Pto4 = FreeCAD.Vector(Desp, 6.25, 0)
         #  ---- Genero punto para arco
-        PtoC2 = FreeCAD.Vector((obj.N_Agujeros_Inclinado_2 * 12.5) + Desp, 0, 0)
+        PtoC2 = FreeCAD.Vector((obj.HolesNumberSloping2 * 12.5) + Desp, 0, 0)
         #  ---- Creamos lineas y arcos
         LInc1 = Part.LineSegment(Pto1, Pto2)
         CInc2 = Part.Arc(Pto2, PtoC2, Pto3)
@@ -1567,7 +1579,7 @@ class STR_STD_BRT_AY:
         #  ---- Le doy Volumen a la cara
         PInc = FInc.extrude(FreeCAD.Vector(0, 0, -3.125))
         # Hago los Agujeros en el cuerpo inclinado
-        for x in range(obj.N_Agujeros_Inclinado_2):
+        for x in range(obj.HolesNumberSloping2):
             Agujero = Part.makeCylinder(
                 3.5, 5, FreeCAD.Vector((x * 12.5) + 6.25 + Desp, 0, -4), FreeCAD.Vector(0, 0, 1)
             )
@@ -1577,7 +1589,7 @@ class STR_STD_BRT_AY:
                 Agujeros = Agujeros.fuse(Agujero)
         PInc = PInc.cut(Agujeros)
         # Condicional para angulo 180 no generar cilindros
-        if obj.Angulo != 180:
+        if obj.Angle != 180:
             # Curva
             Curva = Part.makeCylinder(
                 3.125, 12.5, FreeCAD.Vector(Desp, -6.25, 0), FreeCAD.Vector(0, 1, 0), Ang
@@ -1586,22 +1598,22 @@ class STR_STD_BRT_AY:
             PInc = PInc.fuse(Curva)
         # Giro en Y
         PInc.rotate(
-            FreeCAD.Vector(Desp, 0, 0), FreeCAD.Vector(0, 1, 0), (180 - int(obj.Angulo)) * -1
+            FreeCAD.Vector(Desp, 0, 0), FreeCAD.Vector(0, 1, 0), (180 - int(obj.Angle)) * -1
         )
         # Junto los dos cuerpos
         P = P.fuse(PInc)
         # Refinamos el cuerpo
         P = P.removeSplitter()
         #  ---- Ponemos Nombre a la pieza con las variables de la misma
-        obj.Codigo = (
+        obj.Code = (
             "STR_STD_BRT_AY-"
-            + str(obj.N_Agujeros_Inclinado_1)
+            + str(obj.HolesNumberSloping1)
             + "x"
-            + str(obj.N_Agujeros_X)
+            + str(obj.HolesNumberX)
             + "x"
-            + str(obj.N_Agujeros_Inclinado_2)
+            + str(obj.HolesNumberSloping2)
             + " "
-            + str(obj.Angulo)
+            + str(obj.Angle)
         )
 
         #  ---- Añado emplazamiento al objeto
@@ -1616,62 +1628,62 @@ class STR_STD_CR:
         obj.Proxy = self
         obj.addProperty(
             "App::PropertyString",
-            QT_TRANSLATE_NOOP("App::Property", "Codigo"),
-            QT_TRANSLATE_NOOP("App::Property", "Denominacion"),
-            QT_TRANSLATE_NOOP("App::Property", "Código Pieza"),
+            QT_TRANSLATE_NOOP("App::Property", "Code"),
+            QT_TRANSLATE_NOOP("App::Property", "Designation"),
+            QT_TRANSLATE_NOOP("App::Property", "STEMFIE part number"),
         )
-        obj.setEditorMode("Codigo", 1)
+        obj.setEditorMode("Code", 1)
         obj.addProperty(
             "App::PropertyInteger",
-            QT_TRANSLATE_NOOP("App::Property", "N_Agujeros_X_Positivo"),
-            QT_TRANSLATE_NOOP("App::Property", "Valores Pieza"),
-            QT_TRANSLATE_NOOP("App::Property", "Nº Agujeros en X +\nMínimo = 1"),
-        ).N_Agujeros_X_Positivo = 3
+            QT_TRANSLATE_NOOP("App::Property", "HolesNumberXPositive"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
+            QT_TRANSLATE_NOOP("App::Property", "Holes number in X +\nMinimum = 1"),
+        ).HolesNumberXPositive = 3
         obj.addProperty(
             "App::PropertyInteger",
-            QT_TRANSLATE_NOOP("App::Property", "N_Agujeros_X_Negativo"),
-            QT_TRANSLATE_NOOP("App::Property", "Valores Pieza"),
-            QT_TRANSLATE_NOOP("App::Property", "Nº Agujeros en X -\nMínimo = 1"),
-        ).N_Agujeros_X_Negativo = 3
+            QT_TRANSLATE_NOOP("App::Property", "HolesNumberXNegative"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
+            QT_TRANSLATE_NOOP("App::Property", "Holes number in X -\nMinimum = 1"),
+        ).HolesNumberXNegative = 3
         obj.addProperty(
             "App::PropertyInteger",
-            QT_TRANSLATE_NOOP("App::Property", "N_Agujeros_Y_Positivo"),
-            QT_TRANSLATE_NOOP("App::Property", "Valores Pieza"),
-            QT_TRANSLATE_NOOP("App::Property", "Nº Agujeros en Y +\nMínimo = 1"),
-        ).N_Agujeros_Y_Positivo = 2
+            QT_TRANSLATE_NOOP("App::Property", "HolesNumberYPositive"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
+            QT_TRANSLATE_NOOP("App::Property", "Holes number in Y +\nMinimum = 1"),
+        ).HolesNumberYPositive = 2
         obj.addProperty(
             "App::PropertyInteger",
-            QT_TRANSLATE_NOOP("App::Property", "N_Agujeros_Y_Negativo"),
-            QT_TRANSLATE_NOOP("App::Property", "Valores Pieza"),
-            QT_TRANSLATE_NOOP("App::Property", "Nº Agujeros en Y -\nMínimo = 1"),
-        ).N_Agujeros_Y_Negativo = 2
+            QT_TRANSLATE_NOOP("App::Property", "HolesNumberYNegative"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
+            QT_TRANSLATE_NOOP("App::Property", "Holes number in Y -\nMinimum = 1"),
+        ).HolesNumberYNegative = 2
 
     def execute(self, obj):
         # Compruebo que Numero_Agujeros mayor de 2
         if (
-            (obj.N_Agujeros_X_Positivo < 1)
-            or (obj.N_Agujeros_X_Negativo < 1)
-            or (obj.N_Agujeros_Y_Positivo < 1)
-            or (obj.N_Agujeros_Y_Negativo < 1)
+            (obj.HolesNumberXPositive < 1)
+            or (obj.HolesNumberXNegative < 1)
+            or (obj.HolesNumberYPositive < 1)
+            or (obj.HolesNumberYNegative < 1)
         ):
-            if obj.N_Agujeros_X_Positivo < 1:
-                obj.N_Agujeros_X_Positivo = 1
-            if obj.N_Agujeros_X_Negativo < 1:
-                obj.N_Agujeros_X_Negativo = 1
-            if obj.N_Agujeros_Y_Positivo < 1:
-                obj.N_Agujeros_Y_Positivo = 1
-            if obj.N_Agujeros_Y_Negativo < 1:
-                obj.N_Agujeros_Y_Negativo = 1
+            if obj.HolesNumberXPositive < 1:
+                obj.HolesNumberXPositive = 1
+            if obj.HolesNumberXNegative < 1:
+                obj.HolesNumberXNegative = 1
+            if obj.HolesNumberYPositive < 1:
+                obj.HolesNumberYPositive = 1
+            if obj.HolesNumberYNegative < 1:
+                obj.HolesNumberYNegative = 1
             # return
 
         # Genero Pieza en X+
         #  ---- Genero puntos de los contornos
         P1 = FreeCAD.Vector(0, -6.25, 0)
-        P2 = FreeCAD.Vector((obj.N_Agujeros_X_Positivo) * 12.5, -6.25, 0)
-        P3 = FreeCAD.Vector((obj.N_Agujeros_X_Positivo) * 12.5, 6.25, 0)
+        P2 = FreeCAD.Vector((obj.HolesNumberXPositive) * 12.5, -6.25, 0)
+        P3 = FreeCAD.Vector((obj.HolesNumberXPositive) * 12.5, 6.25, 0)
         P4 = FreeCAD.Vector(0, 6.25, 0)
         #  ---- Genero puntos para circulos
-        PC2 = FreeCAD.Vector(((obj.N_Agujeros_X_Positivo) * 12.5) + 6.25, 0, 0)
+        PC2 = FreeCAD.Vector(((obj.HolesNumberXPositive) * 12.5) + 6.25, 0, 0)
         #  ---- Creamos lineas y arcos
         L1 = Part.LineSegment(P1, P2)
         C2 = Part.Arc(P2, PC2, P3)
@@ -1685,7 +1697,7 @@ class STR_STD_CR:
         #  ---- Le doy Volumen a la cara
         PX = F.extrude(FreeCAD.Vector(0, 0, 3.125))
         #  ---- Bucle para agujeros
-        for x in range(obj.N_Agujeros_X_Positivo + 1):
+        for x in range(obj.HolesNumberXPositive + 1):
             Agujero = Part.makeCylinder(
                 3.5, 5, FreeCAD.Vector(x * 12.5, 0, -1), FreeCAD.Vector(0, 0, 1)
             )
@@ -1698,11 +1710,11 @@ class STR_STD_CR:
         # Genero Pieza en X-
         #  ---- Genero puntos de los contornos
         P1 = FreeCAD.Vector(0, -6.25, 0)
-        P2 = FreeCAD.Vector((obj.N_Agujeros_X_Negativo) * 12.5, -6.25, 0)
-        P3 = FreeCAD.Vector((obj.N_Agujeros_X_Negativo) * 12.5, 6.25, 0)
+        P2 = FreeCAD.Vector((obj.HolesNumberXNegative) * 12.5, -6.25, 0)
+        P3 = FreeCAD.Vector((obj.HolesNumberXNegative) * 12.5, 6.25, 0)
         P4 = FreeCAD.Vector(0, 6.25, 0)
         #  ---- Genero puntos para circulos
-        PC2 = FreeCAD.Vector(((obj.N_Agujeros_X_Negativo) * 12.5) + 6.25, 0, 0)
+        PC2 = FreeCAD.Vector(((obj.HolesNumberXNegative) * 12.5) + 6.25, 0, 0)
         #  ---- Creamos lineas y arcos
         L1 = Part.LineSegment(P1, P2)
         C2 = Part.Arc(P2, PC2, P3)
@@ -1716,7 +1728,7 @@ class STR_STD_CR:
         #  ---- Le doy Volumen a la cara
         PX = F.extrude(FreeCAD.Vector(0, 0, 3.125))
         #  ---- Bucle para agujeros
-        for x in range(obj.N_Agujeros_X_Negativo + 1):
+        for x in range(obj.HolesNumberXNegative + 1):
             Agujero = Part.makeCylinder(
                 3.5, 5, FreeCAD.Vector(x * 12.5, 0, -1), FreeCAD.Vector(0, 0, 1)
             )
@@ -1730,11 +1742,11 @@ class STR_STD_CR:
         # Genero Pieza en Y+
         #  ---- Genero puntos de los contornos
         P1 = FreeCAD.Vector(0, -6.25, 0)
-        P2 = FreeCAD.Vector((obj.N_Agujeros_Y_Positivo) * 12.5, -6.25, 0)
-        P3 = FreeCAD.Vector((obj.N_Agujeros_Y_Positivo) * 12.5, 6.25, 0)
+        P2 = FreeCAD.Vector((obj.HolesNumberYPositive) * 12.5, -6.25, 0)
+        P3 = FreeCAD.Vector((obj.HolesNumberYPositive) * 12.5, 6.25, 0)
         P4 = FreeCAD.Vector(0, 6.25, 0)
         #  ---- Genero puntos para circulos
-        PC2 = FreeCAD.Vector(((obj.N_Agujeros_Y_Positivo) * 12.5) + 6.25, 0, 0)
+        PC2 = FreeCAD.Vector(((obj.HolesNumberYPositive) * 12.5) + 6.25, 0, 0)
         #  ---- Creamos lineas y arcos
         L1 = Part.LineSegment(P1, P2)
         C2 = Part.Arc(P2, PC2, P3)
@@ -1748,7 +1760,7 @@ class STR_STD_CR:
         #  ---- Le doy Volumen a la cara
         PY = F.extrude(FreeCAD.Vector(0, 0, 3.125))
         #  ---- Bucle para agujeros
-        for x in range(obj.N_Agujeros_Y_Positivo + 1):
+        for x in range(obj.HolesNumberYPositive + 1):
             Agujero = Part.makeCylinder(
                 3.5, 5, FreeCAD.Vector(x * 12.5, 0, -1), FreeCAD.Vector(0, 0, 1)
             )
@@ -1762,11 +1774,11 @@ class STR_STD_CR:
         # Genero Pieza en Y-
         #  ---- Genero puntos de los contornos
         P1 = FreeCAD.Vector(0, -6.25, 0)
-        P2 = FreeCAD.Vector((obj.N_Agujeros_Y_Negativo) * 12.5, -6.25, 0)
-        P3 = FreeCAD.Vector((obj.N_Agujeros_Y_Negativo) * 12.5, 6.25, 0)
+        P2 = FreeCAD.Vector((obj.HolesNumberYNegative) * 12.5, -6.25, 0)
+        P3 = FreeCAD.Vector((obj.HolesNumberYNegative) * 12.5, 6.25, 0)
         P4 = FreeCAD.Vector(0, 6.25, 0)
         #  ---- Genero puntos para circulos
-        PC2 = FreeCAD.Vector(((obj.N_Agujeros_Y_Negativo) * 12.5) + 6.25, 0, 0)
+        PC2 = FreeCAD.Vector(((obj.HolesNumberYNegative) * 12.5) + 6.25, 0, 0)
         #  ---- Creamos lineas y arcos
         L1 = Part.LineSegment(P1, P2)
         C2 = Part.Arc(P2, PC2, P3)
@@ -1780,7 +1792,7 @@ class STR_STD_CR:
         #  ---- Le doy Volumen a la cara
         PY = F.extrude(FreeCAD.Vector(0, 0, 3.125))
         #  ---- Bucle para agujeros
-        for x in range(obj.N_Agujeros_Y_Negativo + 1):
+        for x in range(obj.HolesNumberYNegative + 1):
             Agujero = Part.makeCylinder(
                 3.5, 5, FreeCAD.Vector(x * 12.5, 0, -1), FreeCAD.Vector(0, 0, 1)
             )
@@ -1794,15 +1806,15 @@ class STR_STD_CR:
         # Refinamos el cuerpo
         P = P.removeSplitter()
         #  ---- Ponemos Nombre a la pieza con las variables de la misma
-        obj.Codigo = (
+        obj.Code = (
             "STR_STD_CR-"
-            + str(obj.N_Agujeros_X_Positivo)
+            + str(obj.HolesNumberXPositive)
             + "x"
-            + str(obj.N_Agujeros_X_Negativo)
+            + str(obj.HolesNumberXNegative)
             + "x"
-            + str(obj.N_Agujeros_Y_Positivo)
+            + str(obj.HolesNumberYPositive)
             + "x"
-            + str(obj.N_Agujeros_Y_Negativo)
+            + str(obj.HolesNumberYNegative)
         )
 
         P.Placement = obj.Placement
@@ -1818,33 +1830,33 @@ class STR_ESS:
         obj.Proxy = self
         obj.addProperty(
             "App::PropertyString",
-            QT_TRANSLATE_NOOP("App::Property", "Codigo"),
-            QT_TRANSLATE_NOOP("App::Property", "Denominacion"),
-            QT_TRANSLATE_NOOP("App::Property", "Código Pieza"),
+            QT_TRANSLATE_NOOP("App::Property", "Code"),
+            QT_TRANSLATE_NOOP("App::Property", "Designation"),
+            QT_TRANSLATE_NOOP("App::Property", "STEMFIE part number"),
         )
-        obj.setEditorMode("Codigo", 1)
+        obj.setEditorMode("Code", 1)
         obj.addProperty(
             "App::PropertyInteger",
-            QT_TRANSLATE_NOOP("App::Property", "N_Agujeros"),
-            QT_TRANSLATE_NOOP("App::Property", "Valores Pieza"),
-            QT_TRANSLATE_NOOP("App::Property", "Nº Agujeros Pieza\nMínimo = 1"),
-        ).N_Agujeros = 4
+            QT_TRANSLATE_NOOP("App::Property", "HolesNumber"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
+            QT_TRANSLATE_NOOP("App::Property", "Holes number for part\nMinimum = 1"),
+        ).HolesNumber = 4
 
     def execute(self, obj):
         # Compruebo que Numero_Agujeros mayor de 1
-        if obj.N_Agujeros < 1:
-            obj.N_Agujeros = 1
+        if obj.HolesNumber < 1:
+            obj.HolesNumber = 1
 
         # Genero el cuerpo exterior
         P = Part.makeBox(
-            (obj.N_Agujeros * 12.5),
+            (obj.HolesNumber * 12.5),
             12.5,
             12.5,
             FreeCAD.Vector(-6.25, -6.25, -6.25),
             FreeCAD.Vector(0, 0, 1),
         )
         #  ---- Bucle para agujeros en X
-        for x in range(obj.N_Agujeros):
+        for x in range(obj.HolesNumber):
             Agujero = Part.makeCylinder(
                 3.5, 20, FreeCAD.Vector(x * 12.5, 0, -10), FreeCAD.Vector(0, 0, 1)
             )
@@ -1854,7 +1866,7 @@ class STR_ESS:
                 Agujeros = Agujeros.fuse(Agujero)
         P = P.cut(Agujeros)
         #  ---- Bucle para agujeros en Y
-        for x in range(obj.N_Agujeros):
+        for x in range(obj.HolesNumber):
             Agujero = Part.makeCylinder(
                 3.5, 20, FreeCAD.Vector(x * 12.5, -10, 0), FreeCAD.Vector(0, 1, 0)
             )
@@ -1865,11 +1877,11 @@ class STR_ESS:
         P = P.cut(Agujeros)
         #  ---- Agujeros en Z
         Agujero = Part.makeCylinder(
-            3.5, (obj.N_Agujeros * 12.5) + 25, FreeCAD.Vector(-10, 0, 0), FreeCAD.Vector(1, 0, 0)
+            3.5, (obj.HolesNumber * 12.5) + 25, FreeCAD.Vector(-10, 0, 0), FreeCAD.Vector(1, 0, 0)
         )
         P = P.cut(Agujero)
         #  ---- Ponemos Nombre a la pieza con las variables de la misma
-        obj.Codigo = "STR_ESS_BU-" + str(obj.N_Agujeros) + "x01x01"
+        obj.Code = "STR_ESS_BU-" + str(obj.HolesNumber) + "x01x01"
 
         P.Placement = obj.Placement
         obj.Shape = P
@@ -1885,11 +1897,11 @@ class STR_ERR:
 
          1     2     3
           --------->
-           N_Agujeros
+           HolesNumber
 
       Variables:
           Codigo          'Demoninacion'
-          N_Agujeros      'Numero Agujeros que contiene la pieza
+          HolesNumber      'Numero Agujeros que contiene la pieza
 
     """
 
@@ -1897,30 +1909,30 @@ class STR_ERR:
         obj.Proxy = self
         obj.addProperty(
             "App::PropertyString",
-            QT_TRANSLATE_NOOP("App::Property", "Codigo"),
-            QT_TRANSLATE_NOOP("App::Property", "Denominacion"),
-            QT_TRANSLATE_NOOP("App::Property", "Código Pieza"),
+            QT_TRANSLATE_NOOP("App::Property", "Code"),
+            QT_TRANSLATE_NOOP("App::Property", "Designation"),
+            QT_TRANSLATE_NOOP("App::Property", "STEMFIE part number"),
         )
-        obj.setEditorMode("Codigo", 1)
+        obj.setEditorMode("Code", 1)
         obj.addProperty(
             "App::PropertyInteger",
-            QT_TRANSLATE_NOOP("App::Property", "N_Agujeros"),
-            QT_TRANSLATE_NOOP("App::Property", "Valores Pieza"),
-            QT_TRANSLATE_NOOP("App::Property", "Nº Agujeros Pieza Simple\nMínimo = 3"),
-        ).N_Agujeros = 5
+            QT_TRANSLATE_NOOP("App::Property", "HolesNumber"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
+            QT_TRANSLATE_NOOP("App::Property", "Holes number for simple part\nMinimum = 3"),
+        ).HolesNumber = 5
 
     def execute(self, obj):
-        # Compruebo que N_Agujeros mayor de 3
-        if obj.N_Agujeros < 3:
-            obj.N_Agujeros = 3
+        # Compruebo que HolesNumber mayor de 3
+        if obj.HolesNumber < 3:
+            obj.HolesNumber = 3
 
         #  ---- Genero puntos de los contornos
         P1 = FreeCAD.Vector(0, -6.25, 0)
-        P2 = FreeCAD.Vector((obj.N_Agujeros - 1) * 12.5, -6.25, 0)
-        P3 = FreeCAD.Vector((obj.N_Agujeros - 1) * 12.5, 6.25, 0)
+        P2 = FreeCAD.Vector((obj.HolesNumber - 1) * 12.5, -6.25, 0)
+        P3 = FreeCAD.Vector((obj.HolesNumber - 1) * 12.5, 6.25, 0)
         P4 = FreeCAD.Vector(0, 6.25, 0)
         #  ---- Genero puntos para circulos
-        PC2 = FreeCAD.Vector(((obj.N_Agujeros - 1) * 12.5) + 6.25, 0, 0)
+        PC2 = FreeCAD.Vector(((obj.HolesNumber - 1) * 12.5) + 6.25, 0, 0)
         PC4 = FreeCAD.Vector(-6.25, 0, 0)
         #  ---- Creamos lineas y arcos
         L1 = Part.LineSegment(P1, P2)
@@ -1935,7 +1947,7 @@ class STR_ERR:
         #  ---- Le doy Volumen a la cara
         P = F.extrude(FreeCAD.Vector(0, 0, 12.5))
         #  ---- Bucle para agujeros superiores
-        for x in range(obj.N_Agujeros):
+        for x in range(obj.HolesNumber):
             Agujero = Part.makeCylinder(
                 3.5, 15, FreeCAD.Vector(x * 12.5, 0, -1), FreeCAD.Vector(0, 0, 1)
             )
@@ -1945,7 +1957,7 @@ class STR_ERR:
                 Agujeros = Agujeros.fuse(Agujero)
         P = P.cut(Agujeros)
         #  ---- Bucle para agujeros superiores
-        for x in range(obj.N_Agujeros - 2):
+        for x in range(obj.HolesNumber - 2):
             Agujero = Part.makeCylinder(
                 3.5, 15, FreeCAD.Vector((x * 12.5) + 12.5, -7, 6.25), FreeCAD.Vector(0, 1, 0)
             )
@@ -1955,7 +1967,7 @@ class STR_ERR:
                 Agujeros = Agujeros.fuse(Agujero)
         P = P.cut(Agujeros)
         #  ---- Ponemos Nombre a la pieza con las variables de la misma
-        obj.Codigo = "STR ERR-BU" + str(obj.N_Agujeros) + "x01x00.25"
+        obj.Code = "STR ERR-BU" + str(obj.HolesNumber) + "x01x00.25"
 
         P.Placement = obj.Placement
         obj.Shape = P
@@ -1968,57 +1980,57 @@ class STR_BEM:
         obj.Proxy = self
         obj.addProperty(
             "App::PropertyString",
-            QT_TRANSLATE_NOOP("App::Property", "Codigo"),
-            QT_TRANSLATE_NOOP("App::Property", "Denominacion"),
-            QT_TRANSLATE_NOOP("App::Property", "Código Pieza"),
+            QT_TRANSLATE_NOOP("App::Property", "Code"),
+            QT_TRANSLATE_NOOP("App::Property", "Designation"),
+            QT_TRANSLATE_NOOP("App::Property", "STEMFIE part number"),
         )
-        obj.setEditorMode("Codigo", 1)
+        obj.setEditorMode("Code", 1)
         obj.addProperty(
             "App::PropertyInteger",
-            QT_TRANSLATE_NOOP("App::Property", "N_Agujeros_X"),
-            QT_TRANSLATE_NOOP("App::Property", "Valores Pieza"),
-            QT_TRANSLATE_NOOP("App::Property", "Nº Agujeros En X\nMínimo = 1"),
+            QT_TRANSLATE_NOOP("App::Property", "HolesNumberX"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
+            QT_TRANSLATE_NOOP("App::Property", "Holes number in X\nMinimum = 1"),
         )
-        obj.N_Agujeros_X = 2
+        obj.HolesNumberX = 2
         obj.addProperty(
             "App::PropertyInteger",
-            QT_TRANSLATE_NOOP("App::Property", "N_Agujeros_Y"),
-            QT_TRANSLATE_NOOP("App::Property", "Valores Pieza"),
-            QT_TRANSLATE_NOOP("App::Property", "Nº Agujeros En Y\nMínimo = 1"),
+            QT_TRANSLATE_NOOP("App::Property", "HolesNumberY"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
+            QT_TRANSLATE_NOOP("App::Property", "Holes number in Y\nMinimum = 1"),
         )
-        obj.N_Agujeros_Y = 2
+        obj.HolesNumberY = 2
         obj.addProperty(
             "App::PropertyInteger",
-            QT_TRANSLATE_NOOP("App::Property", "N_Agujeros_Z"),
-            QT_TRANSLATE_NOOP("App::Property", "Valores Pieza"),
-            QT_TRANSLATE_NOOP("App::Property", "Nº Agujeros En Z\nMínimo = 1"),
+            QT_TRANSLATE_NOOP("App::Property", "HolesNumberZ"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
+            QT_TRANSLATE_NOOP("App::Property", "Holes number in Z\nMinimum = 1"),
         )
-        obj.N_Agujeros_Z = 2
+        obj.HolesNumberZ = 2
 
     def execute(self, obj):
         # Compruebo que Numero_Agujeros mayor de 1
-        if (obj.N_Agujeros_X < 1) or (obj.N_Agujeros_Y < 1) or (obj.N_Agujeros_Z < 1):
-            if obj.N_Agujeros_X < 1:
-                obj.N_Agujeros_X = 1
-            if obj.N_Agujeros_Y < 1:
-                obj.N_Agujeros_Y = 1
-            if obj.N_Agujeros_Z < 1:
-                obj.N_Agujeros_Z = 1
+        if (obj.HolesNumberX < 1) or (obj.HolesNumberY < 1) or (obj.HolesNumberZ < 1):
+            if obj.HolesNumberX < 1:
+                obj.HolesNumberX = 1
+            if obj.HolesNumberY < 1:
+                obj.HolesNumberY = 1
+            if obj.HolesNumberZ < 1:
+                obj.HolesNumberZ = 1
 
         # Genero el cuerpo exterior
         P = Part.makeBox(
-            (obj.N_Agujeros_X * 12.5),
-            (obj.N_Agujeros_Y * 12.5),
-            (obj.N_Agujeros_Z * 12.5),
+            (obj.HolesNumberX * 12.5),
+            (obj.HolesNumberY * 12.5),
+            (obj.HolesNumberZ * 12.5),
             FreeCAD.Vector(-6.25, -6.25, -6.25),
             FreeCAD.Vector(0, 0, 1),
         )
         #  ---- Bucle para agujeros en X
-        for x in range(obj.N_Agujeros_X):
-            for y in range(obj.N_Agujeros_Y):
+        for x in range(obj.HolesNumberX):
+            for y in range(obj.HolesNumberY):
                 Agujero = Part.makeCylinder(
                     3.5,
-                    (obj.N_Agujeros_Z * 12.5) + 20,
+                    (obj.HolesNumberZ * 12.5) + 20,
                     FreeCAD.Vector(x * 12.5, y * 12.5, -10),
                     FreeCAD.Vector(0, 0, 1),
                 )
@@ -2028,11 +2040,11 @@ class STR_BEM:
                     AgujerosX = AgujerosX.fuse(Agujero)
 
         #  ---- Bucle para agujeros en Y
-        for x in range(obj.N_Agujeros_X):
-            for z in range(obj.N_Agujeros_Z):
+        for x in range(obj.HolesNumberX):
+            for z in range(obj.HolesNumberZ):
                 Agujero = Part.makeCylinder(
                     3.5,
-                    (obj.N_Agujeros_Y * 12.5) + 20,
+                    (obj.HolesNumberY * 12.5) + 20,
                     FreeCAD.Vector(x * 12.5, -10, z * 12.5),
                     FreeCAD.Vector(0, 1, 0),
                 )
@@ -2042,11 +2054,11 @@ class STR_BEM:
                     AgujerosY = AgujerosY.fuse(Agujero)
 
         #  ---- Agujeros en Z
-        for z in range(obj.N_Agujeros_Z):
-            for y in range(obj.N_Agujeros_Y):
+        for z in range(obj.HolesNumberZ):
+            for y in range(obj.HolesNumberY):
                 Agujero = Part.makeCylinder(
                     3.5,
-                    (obj.N_Agujeros_X * 12.5) + 20,
+                    (obj.HolesNumberX * 12.5) + 20,
                     FreeCAD.Vector(-10, y * 12.5, z * 12.5),
                     FreeCAD.Vector(1, 0, 0),
                 )
@@ -2059,13 +2071,13 @@ class STR_BEM:
         Agujeros = Agujeros.fuse(AgujerosZ)
         P = P.cut(Agujeros)
         #  ---- Ponemos Nombre a la pieza con las variables de la misma
-        obj.Codigo = (
+        obj.Code = (
             "STR_BEM-"
-            + str(obj.N_Agujeros_X)
+            + str(obj.HolesNumberX)
             + "x"
-            + str(obj.N_Agujeros_Y)
+            + str(obj.HolesNumberY)
             + "x"
-            + str(obj.N_Agujeros_Z)
+            + str(obj.HolesNumberZ)
         )
 
         P.Placement = obj.Placement
@@ -2079,46 +2091,46 @@ class AGD_ESS_USH_SYM:
         obj.Proxy = self
         obj.addProperty(
             "App::PropertyString",
-            QT_TRANSLATE_NOOP("App::Property", "Codigo"),
-            QT_TRANSLATE_NOOP("App::Property", "Denominacion"),
-            QT_TRANSLATE_NOOP("App::Property", "Código Pieza"),
+            QT_TRANSLATE_NOOP("App::Property", "Code"),
+            QT_TRANSLATE_NOOP("App::Property", "Designation"),
+            QT_TRANSLATE_NOOP("App::Property", "STEMFIE part number"),
         )
-        obj.setEditorMode("Codigo", 1)
+        obj.setEditorMode("Code", 1)
         obj.addProperty(
             "App::PropertyInteger",
-            QT_TRANSLATE_NOOP("App::Property", "N_Agujeros_X"),
-            QT_TRANSLATE_NOOP("App::Property", "Valores Pieza"),
-            QT_TRANSLATE_NOOP("App::Property", "Nº Agujeros Pieza_X\nMínimo = 3"),
+            QT_TRANSLATE_NOOP("App::Property", "HolesNumberX"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
+            QT_TRANSLATE_NOOP("App::Property", "Holes number for part in X\nMinimum = 3"),
         )
-        obj.N_Agujeros_X = 3
+        obj.HolesNumberX = 3
         obj.addProperty(
             "App::PropertyInteger",
-            QT_TRANSLATE_NOOP("App::Property", "N_Agujeros_Y1"),
-            QT_TRANSLATE_NOOP("App::Property", "Valores Pieza"),
-            QT_TRANSLATE_NOOP("App::Property", "Nº Agujeros en Barra Vertical Izq\nMínimo = 1"),
+            QT_TRANSLATE_NOOP("App::Property", "HolesNumberY1"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
+            QT_TRANSLATE_NOOP("App::Property", "Holes number in left vertical bar\nMinimum = 1"),
         )
-        obj.N_Agujeros_Y1 = 2
+        obj.HolesNumberY1 = 2
         obj.addProperty(
             "App::PropertyInteger",
-            QT_TRANSLATE_NOOP("App::Property", "N_Agujeros_Y2"),
-            QT_TRANSLATE_NOOP("App::Property", "Valores Pieza"),
-            QT_TRANSLATE_NOOP("App::Property", "Nº Agujeros en Barra Vertical Dch\nMínimo = 1"),
+            QT_TRANSLATE_NOOP("App::Property", "HolesNumberY2"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
+            QT_TRANSLATE_NOOP("App::Property", "Holes number in right vertical bar\nMinimum = 1"),
         )
-        obj.N_Agujeros_Y2 = 2
+        obj.HolesNumberY2 = 2
 
     def execute(self, obj):
         # Compruebo Valores
-        if (obj.N_Agujeros_X < 3) or (obj.N_Agujeros_Y1 < 1) or (obj.N_Agujeros_Y2 < 1):
-            if obj.N_Agujeros_X < 3:
-                obj.N_Agujeros_X = 3
-            if obj.N_Agujeros_Y1 < 1:
-                obj.N_Agujeros_Y1 = 1
-            if obj.N_Agujeros_Y2 < 1:
-                obj.N_Agujeros_Y2 = 1
+        if (obj.HolesNumberX < 3) or (obj.HolesNumberY1 < 1) or (obj.HolesNumberY2 < 1):
+            if obj.HolesNumberX < 3:
+                obj.HolesNumberX = 3
+            if obj.HolesNumberY1 < 1:
+                obj.HolesNumberY1 = 1
+            if obj.HolesNumberY2 < 1:
+                obj.HolesNumberY2 = 1
 
         # Genero el cuerpo exterior
         P = Part.makeBox(
-            (obj.N_Agujeros_X * 12.5),
+            (obj.HolesNumberX * 12.5),
             12.5,
             12.5,
             FreeCAD.Vector(-6.25, -6.25, -6.25),
@@ -2126,16 +2138,16 @@ class AGD_ESS_USH_SYM:
         )
         PY1 = Part.makeBox(
             12.5,
-            ((obj.N_Agujeros_Y1 + 1) * 12.5),
+            ((obj.HolesNumberY1 + 1) * 12.5),
             12.5,
             FreeCAD.Vector(-6.25, -6.25, -6.25),
             FreeCAD.Vector(0, 0, 1),
         )
         PY2 = Part.makeBox(
             12.5,
-            ((obj.N_Agujeros_Y2 + 1) * 12.5),
+            ((obj.HolesNumberY2 + 1) * 12.5),
             12.5,
-            FreeCAD.Vector(((obj.N_Agujeros_X - 1) * 12.5) - 6.25, -6.25, -6.25),
+            FreeCAD.Vector(((obj.HolesNumberX - 1) * 12.5) - 6.25, -6.25, -6.25),
             FreeCAD.Vector(0, 0, 1),
         )
         P = P.fuse(PY1)
@@ -2143,7 +2155,7 @@ class AGD_ESS_USH_SYM:
 
         #  Genero los agujeros de la parte central
         #  ---- Bucle para agujeros en cara X
-        for x in range(obj.N_Agujeros_X):
+        for x in range(obj.HolesNumberX):
             Agujero = Part.makeCylinder(
                 3.5, 20, FreeCAD.Vector(x * 12.5, 0, -10), FreeCAD.Vector(0, 0, 1)
             )
@@ -2152,7 +2164,7 @@ class AGD_ESS_USH_SYM:
             else:
                 AgujerosX = AgujerosX.fuse(Agujero)
 
-        for y in range(obj.N_Agujeros_Y1):
+        for y in range(obj.HolesNumberY1):
             Agujero = Part.makeCylinder(
                 3.5, 20, FreeCAD.Vector(0, (y * 12.5) + 12.5, -10), FreeCAD.Vector(0, 0, 1)
             )
@@ -2161,11 +2173,11 @@ class AGD_ESS_USH_SYM:
             else:
                 AgujerosY1 = AgujerosY1.fuse(Agujero)
 
-        for y in range(obj.N_Agujeros_Y2):
+        for y in range(obj.HolesNumberY2):
             Agujero = Part.makeCylinder(
                 3.5,
                 20,
-                FreeCAD.Vector(((obj.N_Agujeros_X - 1) * 12.5), (y * 12.5) + 12.5, -10),
+                FreeCAD.Vector(((obj.HolesNumberX - 1) * 12.5), (y * 12.5) + 12.5, -10),
                 FreeCAD.Vector(0, 0, 1),
             )
             if y == 0:
@@ -2178,12 +2190,12 @@ class AGD_ESS_USH_SYM:
         P = P.cut(Agujeros)
 
         #  ---- Bucle para agujeros en cara Z
-        for y in range(obj.N_Agujeros_X):
+        for y in range(obj.HolesNumberX):
             if y == 0:
-                Longitud = (obj.N_Agujeros_Y1) * 12.5
-            if y == obj.N_Agujeros_X - 1:
-                Longitud = (obj.N_Agujeros_Y2) * 12.5
-            if (y > 0) and (y < obj.N_Agujeros_X - 1):
+                Longitud = (obj.HolesNumberY1) * 12.5
+            if y == obj.HolesNumberX - 1:
+                Longitud = (obj.HolesNumberY2) * 12.5
+            if (y > 0) and (y < obj.HolesNumberX - 1):
                 Longitud = 0
 
             Agujero = Part.makeCylinder(
@@ -2195,15 +2207,15 @@ class AGD_ESS_USH_SYM:
                 Agujeros = Agujeros.fuse(Agujero)
         P = P.cut(Agujeros)
         #  ---- Bucle para agujeros en cara Y
-        if (obj.N_Agujeros_Y1) >= (obj.N_Agujeros_Y2):
-            repeticion = obj.N_Agujeros_Y1
+        if (obj.HolesNumberY1) >= (obj.HolesNumberY2):
+            repeticion = obj.HolesNumberY1
         else:
-            repeticion = obj.N_Agujeros_Y2
+            repeticion = obj.HolesNumberY2
 
         for x in range(repeticion + 1):
             Agujero = Part.makeCylinder(
                 3.5,
-                (obj.N_Agujeros_X * 12.5) + 25,
+                (obj.HolesNumberX * 12.5) + 25,
                 FreeCAD.Vector(-10, (x * 12.5), 0),
                 FreeCAD.Vector(1, 0, 0),
             )
@@ -2215,13 +2227,13 @@ class AGD_ESS_USH_SYM:
         # Refinamos el cuerpo
         P = P.removeSplitter()
         #  ---- Ponemos Nombre a la pieza con las variables de la misma
-        obj.Codigo = (
+        obj.Code = (
             "AGD_ESS_USH_SYM-"
-            + str(obj.N_Agujeros_Y1)
+            + str(obj.HolesNumberY1)
             + "x"
-            + str(obj.N_Agujeros_X)
+            + str(obj.HolesNumberX)
             + "x"
-            + str(obj.N_Agujeros_Y2)
+            + str(obj.HolesNumberY2)
         )
 
         P.Placement = obj.Placement
@@ -2235,53 +2247,53 @@ class STR_BED:
         obj.Proxy = self
         obj.addProperty(
             "App::PropertyString",
-            QT_TRANSLATE_NOOP("App::Property", "Codigo"),
-            QT_TRANSLATE_NOOP("App::Property", "Denominacion"),
-            QT_TRANSLATE_NOOP("App::Property", "Código Pieza"),
+            QT_TRANSLATE_NOOP("App::Property", "Code"),
+            QT_TRANSLATE_NOOP("App::Property", "Designation"),
+            QT_TRANSLATE_NOOP("App::Property", "STEMFIE part number"),
         )
-        obj.setEditorMode("Codigo", 1)
+        obj.setEditorMode("Code", 1)
         obj.addProperty(
             "App::PropertyInteger",
-            QT_TRANSLATE_NOOP("App::Property", "N_Agujeros_X"),
-            QT_TRANSLATE_NOOP("App::Property", "Valores Pieza"),
-            QT_TRANSLATE_NOOP("App::Property", "Nº Agujeros Pieza_X\nMínimo = 2"),
+            QT_TRANSLATE_NOOP("App::Property", "HolesNumberX"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
+            QT_TRANSLATE_NOOP("App::Property", "Holes number for part in X\nMinimum = 2"),
         )
-        obj.N_Agujeros_X = 3
+        obj.HolesNumberX = 3
         obj.addProperty(
             "App::PropertyInteger",
-            QT_TRANSLATE_NOOP("App::Property", "N_Agujeros_Y"),
-            QT_TRANSLATE_NOOP("App::Property", "Valores Pieza"),
-            QT_TRANSLATE_NOOP("App::Property", "Nº Agujeros en Barra Angular\nMínimo = 1"),
+            QT_TRANSLATE_NOOP("App::Property", "HolesNumberY"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
+            QT_TRANSLATE_NOOP("App::Property", "Holes number in angular bar\nMinimum = 1"),
         )
-        obj.N_Agujeros_Y = 2
+        obj.HolesNumberY = 2
         obj.addProperty(
             "App::PropertyAngle",
-            QT_TRANSLATE_NOOP("App::Property", "Angulo"),
-            QT_TRANSLATE_NOOP("App::Property", "Valores Pieza"),
-            QT_TRANSLATE_NOOP("App::Property", "Ángulo\nMínimo = 90\nMáximo = 180"),
+            QT_TRANSLATE_NOOP("App::Property", "Angle"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
+            QT_TRANSLATE_NOOP("App::Property", "Angle\nMinimum = 90°\nMaximum = 180°"),
         )
-        obj.Angulo = 135
+        obj.Angle = 135
 
     def execute(self, obj):
         # Compruebo Valores
         if (
-            (obj.N_Agujeros_X < 2)
-            or (obj.N_Agujeros_Y < 1)
-            or (obj.Angulo < 90)
-            or (obj.Angulo > 180)
+            (obj.HolesNumberX < 2)
+            or (obj.HolesNumberY < 1)
+            or (obj.Angle < 90)
+            or (obj.Angle > 180)
         ):
-            if obj.N_Agujeros_X < 2:
-                obj.N_Agujeros_X = 2
-            if obj.N_Agujeros_Y < 1:
-                obj.N_Agujeros_Y = 1
-            if obj.Angulo < 90:
-                obj.Angulo = 90
-            if obj.Angulo > 180:
-                obj.Angulo = 180
+            if obj.HolesNumberX < 2:
+                obj.HolesNumberX = 2
+            if obj.HolesNumberY < 1:
+                obj.HolesNumberY = 1
+            if obj.Angle < 90:
+                obj.Angle = 90
+            if obj.Angle > 180:
+                obj.Angle = 180
 
         # Genero el cuerpo exterior
         P = Part.makeBox(
-            ((obj.N_Agujeros_X - 1) * 12.5) + 6.25,
+            ((obj.HolesNumberX - 1) * 12.5) + 6.25,
             12.5,
             12.5,
             FreeCAD.Vector(0, -6.25, -6.25),
@@ -2292,7 +2304,7 @@ class STR_BED:
 
         #  Genero los agujeros en el cuerpo principal
         #  ---- Bucle para agujeros en cara X
-        for x in range(obj.N_Agujeros_X):
+        for x in range(obj.HolesNumberX):
             Agujero = Part.makeCylinder(
                 3.5, 20, FreeCAD.Vector(x * 12.5, 0, -10), FreeCAD.Vector(0, 0, 1)
             )
@@ -2302,7 +2314,7 @@ class STR_BED:
                 AgujerosX = AgujerosX.fuse(Agujero)
 
         #  ---- Bucle para agujeros en cara Z
-        for x in range(obj.N_Agujeros_X - 1):
+        for x in range(obj.HolesNumberX - 1):
             Agujero = Part.makeCylinder(
                 3.5, 20, FreeCAD.Vector((x * 12.5) + 12.5, -10, 0), FreeCAD.Vector(0, 1, 0)
             )
@@ -2317,7 +2329,7 @@ class STR_BED:
 
         #  Genero cuerpo para luego girar
         PY1 = Part.makeBox(
-            ((obj.N_Agujeros_Y) * 12.5) + 6.25,
+            ((obj.HolesNumberY) * 12.5) + 6.25,
             12.5,
             12.5,
             FreeCAD.Vector(0, -6.25, -6.25),
@@ -2325,7 +2337,7 @@ class STR_BED:
         )
         #  Genero los agujeros en el cuerpo a girar
         #  ---- Bucle para agujeros en cara X
-        for x in range(obj.N_Agujeros_Y + 1):
+        for x in range(obj.HolesNumberY + 1):
             Agujero = Part.makeCylinder(
                 3.5, 20, FreeCAD.Vector(x * 12.5, 0, -10), FreeCAD.Vector(0, 0, 1)
             )
@@ -2335,7 +2347,7 @@ class STR_BED:
                 AgujerosX = AgujerosX.fuse(Agujero)
 
         #  ---- Bucle para agujeros en cara Z
-        for x in range(obj.N_Agujeros_Y):
+        for x in range(obj.HolesNumberY):
             Agujero = Part.makeCylinder(
                 3.5, 20, FreeCAD.Vector((x * 12.5) + 12.5, -10, 0), FreeCAD.Vector(0, 1, 0)
             )
@@ -2348,7 +2360,7 @@ class STR_BED:
         #  ---- Se los resto al cuerpo
         PY1 = PY1.cut(Agujeros)
         #  Giro pieza
-        PY1.rotate(FreeCAD.Vector(0, 0, 0), FreeCAD.Vector(0, 0, 1), obj.Angulo)
+        PY1.rotate(FreeCAD.Vector(0, 0, 0), FreeCAD.Vector(0, 0, 1), obj.Angle)
         # Uno las dos partes
         P = P.fuse(PY1)
 
@@ -2356,26 +2368,26 @@ class STR_BED:
         #   ----- Agujero en X
         Agujero1 = Part.makeCylinder(
             3.5,
-            (obj.N_Agujeros_X * 12.5) + ((obj.N_Agujeros_Y + 1) * 12.5) + 12.5,
-            FreeCAD.Vector(((obj.N_Agujeros_Y + 1) * -12.5), 0, 0),
+            (obj.HolesNumberX * 12.5) + ((obj.HolesNumberY + 1) * 12.5) + 12.5,
+            FreeCAD.Vector(((obj.HolesNumberY + 1) * -12.5), 0, 0),
             FreeCAD.Vector(1, 0, 0),
         )
         #   ----- Agujero en Inclinado
         Agujero2 = Part.makeCylinder(
             3.5,
-            (obj.N_Agujeros_X + obj.N_Agujeros_Y + 2) * 12.5,
-            FreeCAD.Vector(((obj.N_Agujeros_X + 1) * -12.5), 0, 0),
+            (obj.HolesNumberX + obj.HolesNumberY + 2) * 12.5,
+            FreeCAD.Vector(((obj.HolesNumberX + 1) * -12.5), 0, 0),
             FreeCAD.Vector(1, 0, 0),
         )
-        Agujero2.rotate(FreeCAD.Vector(0, 0, 0), FreeCAD.Vector(0, 0, 1), obj.Angulo)
+        Agujero2.rotate(FreeCAD.Vector(0, 0, 0), FreeCAD.Vector(0, 0, 1), obj.Angle)
 
         Agujeros = Agujero1.fuse(Agujero2)
         P = P.cut(Agujeros)
         # Refinamos el cuerpo
         P = P.removeSplitter()
         #  ---- Ponemos Nombre a la pieza con las variables de la misma
-        obj.Codigo = (
-            "STR_BED-" + str(obj.N_Agujeros_X) + "x" + str(obj.N_Agujeros_Y) + " " + str(obj.Angulo)
+        obj.Code = (
+            "STR_BED-" + str(obj.HolesNumberX) + "x" + str(obj.HolesNumberY) + " " + str(obj.Angle)
         )
 
         P.Placement = obj.Placement
@@ -2389,63 +2401,63 @@ class STR_BET:
         obj.Proxy = self
         obj.addProperty(
             "App::PropertyString",
-            QT_TRANSLATE_NOOP("App::Property", "Codigo"),
-            QT_TRANSLATE_NOOP("App::Property", "Denominacion"),
-            QT_TRANSLATE_NOOP("App::Property", "Código Pieza"),
+            QT_TRANSLATE_NOOP("App::Property", "Code"),
+            QT_TRANSLATE_NOOP("App::Property", "Designation"),
+            QT_TRANSLATE_NOOP("App::Property", "STEMFIE part number"),
         )
-        obj.setEditorMode("Codigo", 1)
+        obj.setEditorMode("Code", 1)
         obj.addProperty(
             "App::PropertyInteger",
-            QT_TRANSLATE_NOOP("App::Property", "N_Agujeros_X"),
-            QT_TRANSLATE_NOOP("App::Property", "Valores Pieza"),
-            QT_TRANSLATE_NOOP("App::Property", "Nº Agujeros en Barra Central\nMínimo = 3"),
+            QT_TRANSLATE_NOOP("App::Property", "HolesNumberX"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
+            QT_TRANSLATE_NOOP("App::Property", "Holes number in central bar\nMinimum = 3"),
         )
-        obj.N_Agujeros_X = 3
+        obj.HolesNumberX = 3
         obj.addProperty(
             "App::PropertyInteger",
-            QT_TRANSLATE_NOOP("App::Property", "N_Agujeros_Y1"),
-            QT_TRANSLATE_NOOP("App::Property", "Valores Pieza"),
-            QT_TRANSLATE_NOOP("App::Property", "Nº Agujeros en Barra Angular Izq\nMínimo = 1"),
+            QT_TRANSLATE_NOOP("App::Property", "HolesNumberY1"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
+            QT_TRANSLATE_NOOP("App::Property", "Holes number in left angular bar\nMinimum = 1"),
         )
-        obj.N_Agujeros_Y1 = 2
+        obj.HolesNumberY1 = 2
         obj.addProperty(
             "App::PropertyInteger",
-            QT_TRANSLATE_NOOP("App::Property", "N_Agujeros_Y2"),
-            QT_TRANSLATE_NOOP("App::Property", "Valores Pieza"),
-            QT_TRANSLATE_NOOP("App::Property", "Nº Agujeros en Barra Angular Dch\nMínimo = 1"),
+            QT_TRANSLATE_NOOP("App::Property", "HolesNumberY2"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
+            QT_TRANSLATE_NOOP("App::Property", "Holes number in right angular bar\nMinimum = 1"),
         )
-        obj.N_Agujeros_Y2 = 2
+        obj.HolesNumberY2 = 2
         obj.addProperty(
             "App::PropertyAngle",
-            QT_TRANSLATE_NOOP("App::Property", "Angulo"),
-            QT_TRANSLATE_NOOP("App::Property", "Valores Pieza"),
-            QT_TRANSLATE_NOOP("App::Property", "Ángulo\nMínimo = 90\nMáximo = 180"),
+            QT_TRANSLATE_NOOP("App::Property", "Angle"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
+            QT_TRANSLATE_NOOP("App::Property", "Angle\nMinimum = 90°\nMaximum = 180°"),
         )
-        obj.Angulo = 135
+        obj.Angle = 135
 
     def execute(self, obj):
         # Compruebo Valores
         if (
-            (obj.N_Agujeros_X < 3)
-            or (obj.N_Agujeros_Y1 < 1)
-            or (obj.N_Agujeros_Y2 < 1)
-            or (obj.Angulo < 90)
-            or (obj.Angulo > 180)
+            (obj.HolesNumberX < 3)
+            or (obj.HolesNumberY1 < 1)
+            or (obj.HolesNumberY2 < 1)
+            or (obj.Angle < 90)
+            or (obj.Angle > 180)
         ):
-            if obj.N_Agujeros_X < 3:
-                obj.N_Agujeros_X = 3
-            if obj.N_Agujeros_Y1 < 1:
-                obj.N_Agujeros_Y1 = 1
-            if obj.N_Agujeros_Y2 < 1:
-                obj.N_Agujeros_Y2 = 1
-            if obj.Angulo < 90:
-                obj.Angulo = 90
-            if obj.Angulo > 180:
-                obj.Angulo = 180
+            if obj.HolesNumberX < 3:
+                obj.HolesNumberX = 3
+            if obj.HolesNumberY1 < 1:
+                obj.HolesNumberY1 = 1
+            if obj.HolesNumberY2 < 1:
+                obj.HolesNumberY2 = 1
+            if obj.Angle < 90:
+                obj.Angle = 90
+            if obj.Angle > 180:
+                obj.Angle = 180
 
         # Genero el cuerpo exterior
         P = Part.makeBox(
-            ((obj.N_Agujeros_X - 1) * 12.5),
+            ((obj.HolesNumberX - 1) * 12.5),
             12.5,
             12.5,
             FreeCAD.Vector(0, -6.25, -6.25),
@@ -2456,14 +2468,14 @@ class STR_BET:
         Curva = Part.makeCylinder(
             6.25,
             12.5,
-            FreeCAD.Vector((obj.N_Agujeros_X - 1) * 12.5, 0, -6.25),
+            FreeCAD.Vector((obj.HolesNumberX - 1) * 12.5, 0, -6.25),
             FreeCAD.Vector(0, 0, 1),
         )
         P = P.fuse(Curva)
 
         #  Genero los agujeros en el cuerpo principal
         #  ---- Bucle para agujeros en cara X
-        for x in range(obj.N_Agujeros_X):
+        for x in range(obj.HolesNumberX):
             Agujero = Part.makeCylinder(
                 3.5, 20, FreeCAD.Vector(x * 12.5, 0, -10), FreeCAD.Vector(0, 0, 1)
             )
@@ -2472,7 +2484,7 @@ class STR_BET:
             else:
                 AgujerosX = AgujerosX.fuse(Agujero)
         #  ---- Bucle para agujeros en cara Z
-        for x in range(obj.N_Agujeros_X - 2):
+        for x in range(obj.HolesNumberX - 2):
             Agujero = Part.makeCylinder(
                 3.5, 20, FreeCAD.Vector((x * 12.5) + 12.5, -10, 0), FreeCAD.Vector(0, 1, 0)
             )
@@ -2487,7 +2499,7 @@ class STR_BET:
 
         #  Genero cuerpo Izquierda
         PY1 = Part.makeBox(
-            ((obj.N_Agujeros_Y1) * 12.5) + 6.25,
+            ((obj.HolesNumberY1) * 12.5) + 6.25,
             12.5,
             12.5,
             FreeCAD.Vector(0, -6.25, -6.25),
@@ -2495,7 +2507,7 @@ class STR_BET:
         )
         #  Genero los agujeros en el cuerpo a girar
         #  ---- Bucle para agujeros en cara X
-        for x in range(obj.N_Agujeros_Y1 + 1):
+        for x in range(obj.HolesNumberY1 + 1):
             Agujero = Part.makeCylinder(
                 3.5, 20, FreeCAD.Vector(x * 12.5, 0, -10), FreeCAD.Vector(0, 0, 1)
             )
@@ -2504,7 +2516,7 @@ class STR_BET:
             else:
                 AgujerosX = AgujerosX.fuse(Agujero)
         #  ---- Bucle para agujeros en cara Z
-        for x in range(obj.N_Agujeros_Y1):
+        for x in range(obj.HolesNumberY1):
             Agujero = Part.makeCylinder(
                 3.5, 20, FreeCAD.Vector((x * 12.5) + 12.5, -10, 0), FreeCAD.Vector(0, 1, 0)
             )
@@ -2517,24 +2529,24 @@ class STR_BET:
         #  ---- Se los resto al cuerpo
         PY1 = PY1.cut(Agujeros)
         #  Giro pieza
-        PY1.rotate(FreeCAD.Vector(0, 0, 0), FreeCAD.Vector(0, 0, 1), obj.Angulo)
+        PY1.rotate(FreeCAD.Vector(0, 0, 0), FreeCAD.Vector(0, 0, 1), obj.Angle)
         # Uno las dos partes
         P = P.fuse(PY1)
         #  Genero cuerpo Derecha
         PY2 = Part.makeBox(
-            ((obj.N_Agujeros_Y2) * 12.5) + 6.25,
+            ((obj.HolesNumberY2) * 12.5) + 6.25,
             12.5,
             12.5,
-            FreeCAD.Vector((obj.N_Agujeros_X - 1) * 12.5, -6.25, -6.25),
+            FreeCAD.Vector((obj.HolesNumberX - 1) * 12.5, -6.25, -6.25),
             FreeCAD.Vector(0, 0, 1),
         )
         #  Genero los agujeros en el cuerpo a girar
         #  ---- Bucle para agujeros en cara X
-        for x in range(obj.N_Agujeros_Y2 + 1):
+        for x in range(obj.HolesNumberY2 + 1):
             Agujero = Part.makeCylinder(
                 3.5,
                 20,
-                FreeCAD.Vector(((obj.N_Agujeros_X - 1) * 12.5) + x * 12.5, 0, -10),
+                FreeCAD.Vector(((obj.HolesNumberX - 1) * 12.5) + x * 12.5, 0, -10),
                 FreeCAD.Vector(0, 0, 1),
             )
             if x == 0:
@@ -2542,11 +2554,11 @@ class STR_BET:
             else:
                 AgujerosX = AgujerosX.fuse(Agujero)
         #  ---- Bucle para agujeros en cara Z
-        for x in range(obj.N_Agujeros_Y2):
+        for x in range(obj.HolesNumberY2):
             Agujero = Part.makeCylinder(
                 3.5,
                 20,
-                FreeCAD.Vector(((obj.N_Agujeros_X - 1) * 12.5) + (x * 12.5) + 12.5, -10, 0),
+                FreeCAD.Vector(((obj.HolesNumberX - 1) * 12.5) + (x * 12.5) + 12.5, -10, 0),
                 FreeCAD.Vector(0, 1, 0),
             )
             if x == 0:
@@ -2559,9 +2571,9 @@ class STR_BET:
         PY2 = PY2.cut(Agujeros)
         #  Giro pieza
         PY2.rotate(
-            FreeCAD.Vector(((obj.N_Agujeros_X - 1) * 12.5), 0, 0),
+            FreeCAD.Vector(((obj.HolesNumberX - 1) * 12.5), 0, 0),
             FreeCAD.Vector(0, 0, 1),
-            180 - int(obj.Angulo),
+            180 - int(obj.Angle),
         )
         # Uno las dos partes
         P = P.fuse(PY2)
@@ -2570,44 +2582,44 @@ class STR_BET:
         #   ----- Agujero en X
         Agujero = Part.makeCylinder(
             3.5,
-            (obj.N_Agujeros_X + obj.N_Agujeros_Y1 + obj.N_Agujeros_Y2 + 2) * 12.5,
-            FreeCAD.Vector(((obj.N_Agujeros_Y1 + 1) * -12.5), 0, 0),
+            (obj.HolesNumberX + obj.HolesNumberY1 + obj.HolesNumberY2 + 2) * 12.5,
+            FreeCAD.Vector(((obj.HolesNumberY1 + 1) * -12.5), 0, 0),
             FreeCAD.Vector(1, 0, 0),
         )
         P = P.cut(Agujero)
         #   ----- Agujero en Inclinado Y1
         Agujero = Part.makeCylinder(
             3.5,
-            (obj.N_Agujeros_X + obj.N_Agujeros_Y1 + 2) * 12.5,
-            FreeCAD.Vector(((obj.N_Agujeros_X + 1) * -12.5), 0, 0),
+            (obj.HolesNumberX + obj.HolesNumberY1 + 2) * 12.5,
+            FreeCAD.Vector(((obj.HolesNumberX + 1) * -12.5), 0, 0),
             FreeCAD.Vector(1, 0, 0),
         )
-        Agujero.rotate(FreeCAD.Vector(0, 0, 0), FreeCAD.Vector(0, 0, 1), obj.Angulo)
+        Agujero.rotate(FreeCAD.Vector(0, 0, 0), FreeCAD.Vector(0, 0, 1), obj.Angle)
         P = P.cut(Agujero)
         #   ----- Agujero en Inclinado Y2
         Agujero = Part.makeCylinder(
             3.5,
-            (obj.N_Agujeros_X + obj.N_Agujeros_Y2 + 2) * 12.5,
+            (obj.HolesNumberX + obj.HolesNumberY2 + 2) * 12.5,
             FreeCAD.Vector(0, 0, 0),
             FreeCAD.Vector(1, 0, 0),
         )
         Agujero.rotate(
-            FreeCAD.Vector(((obj.N_Agujeros_X - 1) * 12.5), 0, 0),
+            FreeCAD.Vector(((obj.HolesNumberX - 1) * 12.5), 0, 0),
             FreeCAD.Vector(0, 0, 1),
-            180 - int(obj.Angulo),
+            180 - int(obj.Angle),
         )
         P = P.cut(Agujero)
         # Refinamos el cuerpo
         P = P.removeSplitter()
         #  ---- Ponemos Nombre a la pieza con las variables de la misma
-        obj.Codigo = (
+        obj.Code = (
             "STR_BET-"
-            + str(obj.N_Agujeros_Y1)
+            + str(obj.HolesNumberY1)
             + "x"
-            + str(obj.N_Agujeros_X)
-            + str(obj.N_Agujeros_Y2)
+            + str(obj.HolesNumberX)
+            + str(obj.HolesNumberY2)
             + " "
-            + str(obj.Angulo)
+            + str(obj.Angle)
         )
 
         P.Placement = obj.Placement
@@ -2621,27 +2633,27 @@ class STR_BXS_ESS_H:
         obj.Proxy = self
         obj.addProperty(
             "App::PropertyString",
-            QT_TRANSLATE_NOOP("App::Property", "Codigo"),
-            QT_TRANSLATE_NOOP("App::Property", "Denominacion"),
-            QT_TRANSLATE_NOOP("App::Property", "Código Pieza"),
+            QT_TRANSLATE_NOOP("App::Property", "Code"),
+            QT_TRANSLATE_NOOP("App::Property", "Designation"),
+            QT_TRANSLATE_NOOP("App::Property", "STEMFIE part number"),
         )
-        obj.setEditorMode("Codigo", 1)
+        obj.setEditorMode("Code", 1)
         obj.addProperty(
             "App::PropertyInteger",
-            QT_TRANSLATE_NOOP("App::Property", "N_Agujeros"),
-            QT_TRANSLATE_NOOP("App::Property", "Valores Pieza"),
-            QT_TRANSLATE_NOOP("App::Property", "Nº Agujeros \nMínimo = 1"),
+            QT_TRANSLATE_NOOP("App::Property", "HolesNumber"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
+            QT_TRANSLATE_NOOP("App::Property", "Holes number \nMinimum = 1"),
         )
-        obj.N_Agujeros = 1
+        obj.HolesNumber = 1
 
     def execute(self, obj):
         # Compruebo Valores
-        if obj.N_Agujeros < 1:
-            obj.N_Agujeros = 1
+        if obj.HolesNumber < 1:
+            obj.HolesNumber = 1
 
         # Genero el cuerpo exterior
         P = Part.makeBox(
-            obj.N_Agujeros * 12.5,
+            obj.HolesNumber * 12.5,
             12.5,
             12.5,
             FreeCAD.Vector(0, -6.25, -6.25),
@@ -2651,7 +2663,7 @@ class STR_BXS_ESS_H:
         #  Genero los cuerpos para restar del cuerpo exterior
         #  ---- Cubo central
         Cubo = Part.makeBox(
-            ((obj.N_Agujeros - 1) * 12.5) + 6.25,
+            ((obj.HolesNumber - 1) * 12.5) + 6.25,
             9.375,
             20,
             FreeCAD.Vector(3.125, -4.6875, -10),
@@ -2660,11 +2672,11 @@ class STR_BXS_ESS_H:
         P = P.cut(Cubo)
         #  ---- Agujero
         Agujero = Part.makeCylinder(
-            3.5, (obj.N_Agujeros * 12.5) + 20, FreeCAD.Vector(-10, 0, 0), FreeCAD.Vector(1, 0, 0)
+            3.5, (obj.HolesNumber * 12.5) + 20, FreeCAD.Vector(-10, 0, 0), FreeCAD.Vector(1, 0, 0)
         )
         P = P.cut(Agujero)
         #  ---- Ponemos Nombre a la pieza con las variables de la misma
-        obj.Codigo = "STR_BXS_ESS_H-" + str(obj.N_Agujeros)
+        obj.Code = "STR_BXS_ESS_H-" + str(obj.HolesNumber)
 
         P.Placement = obj.Placement
         obj.Shape = P
@@ -2677,27 +2689,27 @@ class STR_BXS_ESS_C:
         obj.Proxy = self
         obj.addProperty(
             "App::PropertyString",
-            QT_TRANSLATE_NOOP("App::Property", "Codigo"),
-            QT_TRANSLATE_NOOP("App::Property", "Denominacion"),
-            QT_TRANSLATE_NOOP("App::Property", "Código Pieza"),
+            QT_TRANSLATE_NOOP("App::Property", "Code"),
+            QT_TRANSLATE_NOOP("App::Property", "Designation"),
+            QT_TRANSLATE_NOOP("App::Property", "STEMFIE part number"),
         )
-        obj.setEditorMode("Codigo", 1)
+        obj.setEditorMode("Code", 1)
         obj.addProperty(
             "App::PropertyInteger",
-            QT_TRANSLATE_NOOP("App::Property", "N_Agujeros"),
-            QT_TRANSLATE_NOOP("App::Property", "Valores Pieza"),
-            QT_TRANSLATE_NOOP("App::Property", "Nº Agujeros \nMínimo = 3"),
+            QT_TRANSLATE_NOOP("App::Property", "HolesNumber"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
+            QT_TRANSLATE_NOOP("App::Property", "Holes number \nMinimum = 3"),
         )
-        obj.N_Agujeros = 3
+        obj.HolesNumber = 3
 
     def execute(self, obj):
         # Compruebo Valores
-        if obj.N_Agujeros < 3:
-            obj.N_Agujeros = 3
+        if obj.HolesNumber < 3:
+            obj.HolesNumber = 3
 
         # Genero el cuerpo exterior
         P = Part.makeBox(
-            obj.N_Agujeros * 12.5,
+            obj.HolesNumber * 12.5,
             12.5,
             12.5,
             FreeCAD.Vector(0, -6.25, -6.25),
@@ -2707,7 +2719,7 @@ class STR_BXS_ESS_C:
         #  Genero los cuerpos para restar del cuerpo exterior
         #  ---- Cubo central
         Cubo = Part.makeBox(
-            ((obj.N_Agujeros - 2) * 12.5),
+            ((obj.HolesNumber - 2) * 12.5),
             9.375,
             20,
             FreeCAD.Vector(12.5, -4.6875, -10),
@@ -2716,7 +2728,7 @@ class STR_BXS_ESS_C:
         P = P.cut(Cubo)
         #  ---- Agujero Longitudinal
         Agujero = Part.makeCylinder(
-            3.5, (obj.N_Agujeros * 12.5) + 20, FreeCAD.Vector(-10, 0, 0), FreeCAD.Vector(1, 0, 0)
+            3.5, (obj.HolesNumber * 12.5) + 20, FreeCAD.Vector(-10, 0, 0), FreeCAD.Vector(1, 0, 0)
         )
         P = P.cut(Agujero)
         #  ---- Agujero Cubo Inicio cara X
@@ -2726,7 +2738,7 @@ class STR_BXS_ESS_C:
         Agujero = Part.makeCylinder(
             3.5,
             20,
-            FreeCAD.Vector(((obj.N_Agujeros - 1) * 12.5) + 6.25, -10, 0),
+            FreeCAD.Vector(((obj.HolesNumber - 1) * 12.5) + 6.25, -10, 0),
             FreeCAD.Vector(0, 1, 0),
         )
         P = P.cut(Agujero)
@@ -2737,12 +2749,12 @@ class STR_BXS_ESS_C:
         Agujero = Part.makeCylinder(
             3.5,
             20,
-            FreeCAD.Vector(((obj.N_Agujeros - 1) * 12.5) + 6.25, 0, -10),
+            FreeCAD.Vector(((obj.HolesNumber - 1) * 12.5) + 6.25, 0, -10),
             FreeCAD.Vector(0, 0, 1),
         )
         P = P.cut(Agujero)
         #  ---- Ponemos Nombre a la pieza con las variables de la misma
-        obj.Codigo = "STR_BXS_ESS_C-" + str(obj.N_Agujeros)
+        obj.Code = "STR_BXS_ESS_C-" + str(obj.HolesNumber)
 
         P.Placement = obj.Placement
         obj.Shape = P
@@ -2756,11 +2768,11 @@ class THR_H_BEM_SFT_1W:
         obj.Proxy = self
         obj.addProperty(
             "App::PropertyString",
-            QT_TRANSLATE_NOOP("App::Property", "Codigo"),
-            QT_TRANSLATE_NOOP("App::Property", "Denominacion"),
-            QT_TRANSLATE_NOOP("App::Property", "Código Pieza"),
+            QT_TRANSLATE_NOOP("App::Property", "Code"),
+            QT_TRANSLATE_NOOP("App::Property", "Designation"),
+            QT_TRANSLATE_NOOP("App::Property", "STEMFIE part number"),
         )
-        obj.setEditorMode("Codigo", 1)
+        obj.setEditorMode("Code", 1)
 
     def execute(self, obj):
         # Genero el cuerpo exterior
@@ -2884,7 +2896,7 @@ class THR_H_BEM_SFT_1W:
         # Refinamos el cuerpo
         P = P.removeSplitter()
         #  ---- Ponemos Nombre a la pieza con las variables de la misma
-        obj.Codigo = "THR_H_BEM_SFT_1W"
+        obj.Code = "THR_H_BEM_SFT_1W"
 
         P.Placement = obj.Placement
         obj.Shape = P
@@ -2897,11 +2909,11 @@ class THR_H_BEM_SFT_2W_180:
         obj.Proxy = self
         obj.addProperty(
             "App::PropertyString",
-            QT_TRANSLATE_NOOP("App::Property", "Codigo"),
-            QT_TRANSLATE_NOOP("App::Property", "Denominacion"),
-            QT_TRANSLATE_NOOP("App::Property", "Código Pieza"),
+            QT_TRANSLATE_NOOP("App::Property", "Code"),
+            QT_TRANSLATE_NOOP("App::Property", "Designation"),
+            QT_TRANSLATE_NOOP("App::Property", "STEMFIE part number"),
         )
-        obj.setEditorMode("Codigo", 1)
+        obj.setEditorMode("Code", 1)
 
     def execute(self, obj):
         # Genero el cuerpo exterior
@@ -3032,7 +3044,7 @@ class THR_H_BEM_SFT_2W_180:
         # Refinamos el cuerpo
         P = P.removeSplitter()
         #  ---- Ponemos Nombre a la pieza con las variables de la misma
-        obj.Codigo = "THR_H_BEM_SFT_2W_180"
+        obj.Code = "THR_H_BEM_SFT_2W_180"
 
         P.Placement = obj.Placement
         obj.Shape = P
@@ -3045,11 +3057,11 @@ class THR_H_BEM_SFT_2W_90:
         obj.Proxy = self
         obj.addProperty(
             "App::PropertyString",
-            QT_TRANSLATE_NOOP("App::Property", "Codigo"),
-            QT_TRANSLATE_NOOP("App::Property", "Denominacion"),
-            QT_TRANSLATE_NOOP("App::Property", "Código Pieza"),
+            QT_TRANSLATE_NOOP("App::Property", "Code"),
+            QT_TRANSLATE_NOOP("App::Property", "Designation"),
+            QT_TRANSLATE_NOOP("App::Property", "STEMFIE part number"),
         )
-        obj.setEditorMode("Codigo", 1)
+        obj.setEditorMode("Code", 1)
 
     def execute(self, obj):
         # Genero el cuerpo exterior
@@ -3180,7 +3192,7 @@ class THR_H_BEM_SFT_2W_90:
         # Refinamos el cuerpo
         P = P.removeSplitter()
         #  ---- Ponemos Nombre a la pieza con las variables de la misma
-        obj.Codigo = "THR_H_BEM_SFT_2W_90"
+        obj.Code = "THR_H_BEM_SFT_2W_90"
 
         P.Placement = obj.Placement
         obj.Shape = P
@@ -3193,11 +3205,11 @@ class THR_H_BEM_SFT_3W:
         obj.Proxy = self
         obj.addProperty(
             "App::PropertyString",
-            QT_TRANSLATE_NOOP("App::Property", "Codigo"),
-            QT_TRANSLATE_NOOP("App::Property", "Denominacion"),
-            QT_TRANSLATE_NOOP("App::Property", "Código Pieza"),
+            QT_TRANSLATE_NOOP("App::Property", "Code"),
+            QT_TRANSLATE_NOOP("App::Property", "Designation"),
+            QT_TRANSLATE_NOOP("App::Property", "STEMFIE part number"),
         )
-        obj.setEditorMode("Codigo", 1)
+        obj.setEditorMode("Code", 1)
 
     def execute(self, obj):
         # Genero el cuerpo exterior
@@ -3335,7 +3347,7 @@ class THR_H_BEM_SFT_3W:
         # Refinamos el cuerpo
         P = P.removeSplitter()
         #  ---- Ponemos Nombre a la pieza con las variables de la misma
-        obj.Codigo = "THR_H_BEM_SFT_3W"
+        obj.Code = "THR_H_BEM_SFT_3W"
 
         P.Placement = obj.Placement
         obj.Shape = P
@@ -3348,11 +3360,11 @@ class THR_H_BEM_SFT_4W:
         obj.Proxy = self
         obj.addProperty(
             "App::PropertyString",
-            QT_TRANSLATE_NOOP("App::Property", "Codigo"),
-            QT_TRANSLATE_NOOP("App::Property", "Denominacion"),
-            QT_TRANSLATE_NOOP("App::Property", "Código Pieza"),
+            QT_TRANSLATE_NOOP("App::Property", "Code"),
+            QT_TRANSLATE_NOOP("App::Property", "Designation"),
+            QT_TRANSLATE_NOOP("App::Property", "STEMFIE part number"),
         )
-        obj.setEditorMode("Codigo", 1)
+        obj.setEditorMode("Code", 1)
 
     def execute(self, obj):
         # Genero el cuerpo exterior
@@ -3497,7 +3509,7 @@ class THR_H_BEM_SFT_4W:
         # Refinamos el cuerpo
         P = P.removeSplitter()
         #  ---- Ponemos Nombre a la pieza con las variables de la misma
-        obj.Codigo = "THR_H_BEM_SFT_4W"
+        obj.Code = "THR_H_BEM_SFT_4W"
 
         P.Placement = obj.Placement
         obj.Shape = P
