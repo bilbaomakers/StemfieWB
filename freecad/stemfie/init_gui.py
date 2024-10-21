@@ -1,18 +1,12 @@
-import StemfieWb_locator
 import os
-global StemfieWBpath
-global StemfieWB_icons_path
-StemfieWBpath = os.path.dirname(StemfieWb_locator.__file__)
-StemfieWB_icons_path = os.path.join( StemfieWBpath, 'Icons')
 
-#global main_StemfieWB_Icon
-#main_StemfieWB_Icon = os.path.join( StemfieWB_icons_path , 'Stemfie_-_Logo_48x48.png')
+from freecad.stemfie import ICONPATH, TRANSLATIONSPATH, UIPATH, __version__
 
 
 class StemfieWorkbench(Workbench):
     MenuText = "STEMFIE"
     ToolTip = "Banco trabajo para Stemfie"
-    Icon = ( StemfieWB_icons_path + "/Stemfie_-_Logo_48x48.png")
+    Icon = os.path.join(ICONPATH, "Stemfie_-_Logo_48x48.png")
 
     def Initialize(self):
         from freecad.stemfie import Stemfie
