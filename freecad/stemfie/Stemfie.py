@@ -25,479 +25,248 @@ class BaseCommand:
         else:
             return True
 
-
-# Brazos
-class STR_STD_ERR(BaseCommand):
     def Activated(self):
-        myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_STD_ERR")
-        Piezas.STR_STD_ERR(myObj)
-        ViewProvider(myObj.ViewObject)
-        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
-
+        FreeCADGui.doCommandGui("import freecad.stemfie.Stemfie")
+        FreeCADGui.doCommandGui(
+            "freecad.stemfie.Stemfie.{}.create()".format(self.__class__.__name__)
+        )
         FreeCAD.ActiveDocument.recompute()
         FreeCADGui.SendMsgToActiveView("ViewFit")
 
-    def GetResources(self):
-        return {
-            "Pixmap": os.path.join(ICONPATH, "Brace STR STD ERR_icon.png"),
-            "MenuText": "STR STD ERR",
-            "ToolTip": QT_TRANSLATE_NOOP(
-                "STEMFIE_Brace_STR_STD_ERR", "Brace - Straight - Standard - End Round Round"
-            ),
-        }
+    @classmethod
+    def create(cls):
+        if FreeCAD.GuiUp:
+            # borrowed from threaded profiles
+            # puts the gear into an active container
+            body = FreeCADGui.ActiveDocument.ActiveView.getActiveObject("pdbody")
+            part = FreeCADGui.ActiveDocument.ActiveView.getActiveObject("part")
 
+            if body:
+                obj = FreeCAD.ActiveDocument.addObject("PartDesign::FeaturePython", cls.NAME)
+            else:
+                obj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", cls.NAME)
+            ViewProvider(obj.ViewObject)
+            # ViewProvider(obj.ViewObject, cls.pixmap)
+            cls.FUNCTION(obj)
 
-class STR_STD_BRD_AZ(BaseCommand):
-    def Activated(self):
-        myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_STD_BRD_AZ")
-        # myObj = FreeCAD.ActiveDocument.addObject("Part::Refine","STR_STD_BRD_AZ")
-        Piezas.STR_STD_BRD_AZ(myObj)
-        ViewProvider(myObj.ViewObject)
-        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
+            if body:
+                body.addObject(obj)
+            elif part:
+                part.Group += [obj]
+        else:
+            obj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", cls.NAME)
+            cls.FUNCTION(obj)
 
-        FreeCAD.ActiveDocument.recompute()
-        FreeCADGui.SendMsgToActiveView("ViewFit")
+        obj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
 
-    def GetResources(self):
-        return {
-            "Pixmap": os.path.join(ICONPATH, "Brace STR STD BRD AZ_icon.png"),
-            "MenuText": "STR STD BRD AZ",
-            "ToolTip": QT_TRANSLATE_NOOP(
-                "STEMFIE_Brace_STR_STD_BRD_AZ", "Brace - Straight - Standard - Barbed -  AZ"
-            ),  # FIXME: What does it mean "AZ"
-        }
-
-
-class CRN_ERR_ASYM(BaseCommand):
-    def Activated(self):
-        myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "CRN_ERR_ASYM")
-        Piezas.CRN_ERR_ASYM(myObj)
-        ViewProvider(myObj.ViewObject)
-        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
-
-        FreeCAD.ActiveDocument.recompute()
-        FreeCADGui.SendMsgToActiveView("ViewFit")
+        return obj
 
     def GetResources(self):
-        return {
-            "Pixmap": os.path.join(ICONPATH, "Brace CRN ERR ASYM_icon.png"),
-            "MenuText": "CRN ERR ASYM",
-            "ToolTip": QT_TRANSLATE_NOOP(
-                "STEMFIE_Brace_CRN_ERR_ASYM", "Brace - Corner - End Round Round - Asymmetric"
-            ),
-        }
+        return {"Pixmap": self.pixmap, "MenuText": self.menutext, "ToolTip": self.tooltip}
 
 
-class STR_STD_BRM_AY(BaseCommand):
-    def Activated(self):
-        myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_STD_BRM_AY")
-        Piezas.STR_STD_BRM_AY(myObj)
-        ViewProvider(myObj.ViewObject)
-        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
-
-        FreeCAD.ActiveDocument.recompute()
-        FreeCADGui.SendMsgToActiveView("ViewFit")
-
-    def GetResources(self):
-        return {
-            "Pixmap": os.path.join(ICONPATH, "Brace STR STD BRM AY_icon.png"),
-            "MenuText": "STR STD BRM_AY",
-            "ToolTip": QT_TRANSLATE_NOOP(
-                "STEMFIE_Brace_STR_STD_BRM_AY", "Brace - Straight - Standard -  BRM_AY"
-            ),
-        }  # FIXME: BRM_AY?
-
-
-class STR_SLT_BE_SYM_ERR(BaseCommand):
-    def Activated(self):
-        myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_SLT_BE_SYM_ERR")
-        Piezas.STR_SLT_BE_SYM_ERR(myObj)
-        ViewProvider(myObj.ViewObject)
-        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
-
-        FreeCAD.ActiveDocument.recompute()
-        FreeCADGui.SendMsgToActiveView("ViewFit")
-
-    def GetResources(self):
-        return {
-            "Pixmap": os.path.join(ICONPATH, "Brace STR SLT BE SYM ERR_icon.png"),
-            "MenuText": "STR SLT BE SYM ERR",
-            "ToolTip": QT_TRANSLATE_NOOP(
-                "STEMFIE_Brace_STR_SLT_BE_SYM_ERR",
-                "Brace - Standard - Slotted - Both Ends - Symmetric - End Round Round",
-            ),
-        }
-
-
-class STR_SLT_CNT_ERR(BaseCommand):
-    def Activated(self):
-        myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_SLT_CNT_ERR")
-        Piezas.STR_SLT_CNT_ERR(myObj)
-        ViewProvider(myObj.ViewObject)
-        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
-
-        FreeCAD.ActiveDocument.recompute()
-        FreeCADGui.SendMsgToActiveView("ViewFit")
-
-    def GetResources(self):
-        return {
-            "Pixmap": os.path.join(ICONPATH, "Brace STR SLT CNT ERR_icon.png"),
-            "MenuText": "STR SLT CNT ERR",
-            "ToolTip": QT_TRANSLATE_NOOP(
-                "STEMFIE_Brace_STR_SLT_CNT_ERR",
-                "Brace - Straight - Slotted - Centered - End Round Round",
-            ),
-        }
-
-
-class STR_SLT_FL_ERR(BaseCommand):
-    def Activated(self):
-        myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_SLT_FL_ERR")
-        Piezas.STR_SLT_FL_ERR(myObj)
-        ViewProvider(myObj.ViewObject)
-        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
-
-        FreeCAD.ActiveDocument.recompute()
-        FreeCADGui.SendMsgToActiveView("ViewFit")
-
-    def GetResources(self):
-        return {
-            "Pixmap": os.path.join(ICONPATH, "Brace STR SLT FL ERR_icon.png"),
-            "MenuText": "STR SLT FL ERR",
-            "ToolTip": QT_TRANSLATE_NOOP(
-                "STEMFIE_Brace_STR_SLT_FL_ERR",
-                "Brace - Straight - Slotted - Full Length - End Round Round",
-            ),
-        }
-
-
-class STR_SLT_SE_ERR(BaseCommand):
-    def Activated(self):
-        myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_SLT_SE_ERR")
-        Piezas.STR_SLT_SE_ERR(myObj)
-        ViewProvider(myObj.ViewObject)
-        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
-
-        FreeCAD.ActiveDocument.recompute()
-        FreeCADGui.SendMsgToActiveView("ViewFit")
-
-    def GetResources(self):
-        return {
-            "Pixmap": os.path.join(ICONPATH, "Brace STR SLT SE ERR_icon.png"),
-            "MenuText": "STR SLT SE ERR",
-            "ToolTip": QT_TRANSLATE_NOOP(
-                "STEMFIE_Brace_STR_SLT_SE_ERR",
-                "Brace - Straight - Slotted - Single End - End Round Round",
-            ),
-        }
-
-
-class STR_STD_BRD_AY(BaseCommand):
-    def Activated(self):
-        myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_STD_BRD_AY")
-        Piezas.STR_STD_BRD_AY(myObj)
-        ViewProvider(myObj.ViewObject)
-        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
-
-        FreeCAD.ActiveDocument.recompute()
-        FreeCADGui.SendMsgToActiveView("ViewFit")
-
-    def GetResources(self):
-        return {
-            "Pixmap": os.path.join(ICONPATH, "Brace STR STD BRD AY_icon.png"),
-            "MenuText": "STR STD BRD AY",
-            "ToolTip": QT_TRANSLATE_NOOP(
-                "STEMFIE_Brace_STR_STD_BRD_AY", "Brace - Straight - Standard - Barbed - AY"
-            ),  # FIXME: AY?
-        }
-
-
-class STR_STD_BRT_AZ(BaseCommand):
-    def Activated(self):
-        myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_STD_BRT_AZ")
-        Piezas.STR_STD_BRT_AZ(myObj)
-        ViewProvider(myObj.ViewObject)
-        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
-
-        FreeCAD.ActiveDocument.recompute()
-        FreeCADGui.SendMsgToActiveView("ViewFit")
-
-    def GetResources(self):
-        return {
-            "Pixmap": os.path.join(ICONPATH, "Brace STR STD BRT AZ_icon.png"),
-            "MenuText": "STR STD BRT AZ",
-            "ToolTip": QT_TRANSLATE_NOOP(
-                "STEMFIE_Brace_STR_STD_BRT_AZ", "Brace Straight - Standard - BRT AZ"
-            ),  # FIXME: BRT AZ?
-        }
-
-
-class STR_STD_BRT_AY(BaseCommand):
-    def Activated(self):
-        myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_STD_BRT_AY")
-        Piezas.STR_STD_BRT_AY(myObj)
-        ViewProvider(myObj.ViewObject)
-        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
-
-        FreeCAD.ActiveDocument.recompute()
-        FreeCADGui.SendMsgToActiveView("ViewFit")
-
-    def GetResources(self):
-        return {
-            "Pixmap": os.path.join(ICONPATH, "Brace STR STD BRT AY_icon.png"),
-            "MenuText": "STR STD BRT AY",
-            "ToolTip": QT_TRANSLATE_NOOP(
-                "STEMFIE_Brace_STR_STD_BRT_AY", "Brace - Straight - Standard - BRT AY"
-            ),  # FIXME: RT AY?
-        }
-
-
-class STR_STD_CR(BaseCommand):
-    def Activated(self):
-        myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_STD_CR")
-        Piezas.STR_STD_CR(myObj)
-        ViewProvider(myObj.ViewObject)
-        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
-
-        FreeCAD.ActiveDocument.recompute()
-        FreeCADGui.SendMsgToActiveView("ViewFit")
-
-    def GetResources(self):
-        return {
-            "Pixmap": os.path.join(ICONPATH, "Brace STR STD CR_icon.png"),
-            "MenuText": "STR STD CR",
-            "ToolTip": QT_TRANSLATE_NOOP(
-                "STEMFIE_Brace_STR_STD_CR", "Brace - Straight - Standard - CR"
-            ),  # FIXME: CR? maybe CRN?
-        }
-
-
-# Plates
-class PLT_TRI(BaseCommand):
-    def Activated(self):
-        myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "PLT_TRI")
-        Plates.PLT_TRI(myObj)
-        ViewProvider(myObj.ViewObject)
-        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
-
-        FreeCAD.ActiveDocument.recompute()
-        FreeCADGui.SendMsgToActiveView("ViewFit")
-
-    def GetResources(self):
-        return {
-            "Pixmap": os.path.join(ICONPATH, "Plate_TRI.svg"),
-            "MenuText": "PLT TRI",
-            "ToolTip": QT_TRANSLATE_NOOP("STEMFIE_Plate_TRI_PLT", "Plate - Triangular"),
-        }
-
-
-class PLT_SQR(BaseCommand):
-    def Activated(self):
-        myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "PLT_SQR")
-        Plates.PLT_SQR(myObj)
-        ViewProvider(myObj.ViewObject)
-        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
-
-        FreeCAD.ActiveDocument.recompute()
-        FreeCADGui.SendMsgToActiveView("ViewFit")
-
-    def GetResources(self):
-        return {
-            "Pixmap": os.path.join(ICONPATH, "Plate_SQR.svg"),
-            "MenuText": "PLT SQR",
-            "ToolTip": QT_TRANSLATE_NOOP("STEMFIE_Plate_SQR", "Plate - Square"),
-        }
-
-
-class PLT_HEX(BaseCommand):
-    def Activated(self):
-        myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "PLT_HEX")
-        Plates.PLT_HEX(myObj)
-        ViewProvider(myObj.ViewObject)
-        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
-
-        FreeCAD.ActiveDocument.recompute()
-        FreeCADGui.SendMsgToActiveView("ViewFit")
-
-    def GetResources(self):
-        return {
-            "Pixmap": os.path.join(ICONPATH, "Plate_HEX.svg"),
-            "MenuText": "PLT HEX",
-            "ToolTip": QT_TRANSLATE_NOOP("STEMFIE_Plate_HEX", "Plate - Hexagonal"),
-        }
-
-
-# Vigas
+# Beams
 class STR_ESS(BaseCommand):
-    def Activated(self):
-        myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_ESS")
-        Piezas.STR_ESS(myObj)
-        ViewProvider(myObj.ViewObject)
-        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
-
-        FreeCAD.ActiveDocument.recompute()
-        FreeCADGui.SendMsgToActiveView("ViewFit")
-
-    def GetResources(self):
-        return {
-            "Pixmap": os.path.join(ICONPATH, "Beam STR ESS_icon.png"),
-            "MenuText": "STR ESS",
-            "ToolTip": QT_TRANSLATE_NOOP(
-                "STEMFIE_Beam_STR_ESS", "Beam - Straight - Ending Square Square"
-            ),
-        }
+    NAME = "STR_ESS"
+    FUNCTION = Piezas.STR_ESS
+    pixmap = os.path.join(ICONPATH, "Beam STR ESS_icon.png")
+    menutext = "STR ESS"
+    tooltip = QT_TRANSLATE_NOOP("STEMFIE_Beam_STR_ESS", "Beam - Straight - Ending Square Square")
 
 
 class STR_ERR(BaseCommand):
-    def Activated(self):
-        myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_ERR")
-        Piezas.STR_ERR(myObj)
-        ViewProvider(myObj.ViewObject)
-        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
-
-        FreeCAD.ActiveDocument.recompute()
-        FreeCADGui.SendMsgToActiveView("ViewFit")
-
-    def GetResources(self):
-        return {
-            "Pixmap": os.path.join(ICONPATH, "Beam STR ERR_icon.png"),
-            "MenuText": "STR ERR",
-            "ToolTip": QT_TRANSLATE_NOOP(
-                "STEMFIE_Beam_STR_ERR", "Beam - Straight - End Round Round"
-            ),
-        }
+    NAME = "STR_ERR"
+    FUNCTION = Piezas.STR_ERR
+    pixmap = os.path.join(ICONPATH, "Beam STR ERR_icon.png")
+    menutext = "STR ERR"
+    tooltip = QT_TRANSLATE_NOOP("STEMFIE_Beam_STR_ERR", "Beam - Straight - End Round Round")
 
 
 class STR_BEM(BaseCommand):
-    def Activated(self):
-        myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_BEM")
-        Piezas.STR_BEM(myObj)
-        ViewProvider(myObj.ViewObject)
-        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
-
-        FreeCAD.ActiveDocument.recompute()
-        FreeCADGui.SendMsgToActiveView("ViewFit")
-
-    def GetResources(self):
-        return {
-            "Pixmap": os.path.join(ICONPATH, "Beam STR BEM_icon.png"),
-            "MenuText": "STR BEM",
-            "ToolTip": QT_TRANSLATE_NOOP("STEMFIE_Beam_STR_BEM", "Beam - Straight"),
-        }
+    NAME = "STR_BEM"
+    FUNCTION = Piezas.STR_BEM
+    pixmap = os.path.join(ICONPATH, "Beam STR BEM_icon.png")
+    menutext = "STR BEM"
+    tooltip = QT_TRANSLATE_NOOP("STEMFIE_Beam_STR_BEM", "Beam - Straight")
 
 
 class AGD_ESS_USH_SYM(BaseCommand):
-    def Activated(self):
-        myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "AGD_ESS_USH_SYM")
-        Piezas.AGD_ESS_USH_SYM(myObj)
-        ViewProvider(myObj.ViewObject)
-        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
-
-        FreeCAD.ActiveDocument.recompute()
-        FreeCADGui.SendMsgToActiveView("ViewFit")
-
-    def GetResources(self):
-        return {
-            "Pixmap": os.path.join(ICONPATH, "Beam AGD ESS USH SYM_icon.png"),
-            "MenuText": "AGD ESS USH SYM",
-            "ToolTip": QT_TRANSLATE_NOOP(
-                "STEMFIE_Beam_AGD_ESS_USH_SYM",
-                "Beam - Angled - End Square Aquare - U-shaped - Symmetric",
-            ),
-        }
+    NAME = "AGD_ESS_USH_SYM"
+    FUNCTION = Piezas.AGD_ESS_USH_SYM
+    pixmap = os.path.join(ICONPATH, "Beam AGD ESS USH SYM_icon.png")
+    menutext = "AGD ESS USH SYM"
+    tooltip = QT_TRANSLATE_NOOP(
+        "STEMFIE_Beam_AGD_ESS_USH_SYM", "Beam - Angled - End Square Square - U-shaped - Symmetric"
+    )
 
 
 class STR_BED(BaseCommand):
-    def Activated(self):
-        myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_BED")
-        Piezas.STR_BED(myObj)
-        ViewProvider(myObj.ViewObject)
-        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
-
-        FreeCAD.ActiveDocument.recompute()
-        FreeCADGui.SendMsgToActiveView("ViewFit")
-
-    def GetResources(self):
-        return {
-            "Pixmap": os.path.join(ICONPATH, "Beam STR BED_icon.png"),
-            "MenuText": "STR BED",
-            "ToolTip": QT_TRANSLATE_NOOP(
-                "STEMFIE_Beam_STR_BED", "Beam - Straight - BED"
-            ),  # FIXME: BED?
-        }
+    NAME = "STR_BED"
+    FUNCTION = Piezas.STR_BED
+    pixmap = os.path.join(ICONPATH, "Beam STR BED_icon.png")
+    menutext = "STR BED"
+    tooltip = QT_TRANSLATE_NOOP("STEMFIE_Beam_STR_BED", "Beam - Straight - BED")  # FIXME: BED?
 
 
 class STR_BET(BaseCommand):
-    def Activated(self):
-        myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_BET")
-        Piezas.STR_BET(myObj)
-        ViewProvider(myObj.ViewObject)
-        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
-
-        FreeCAD.ActiveDocument.recompute()
-        FreeCADGui.SendMsgToActiveView("ViewFit")
-
-    def GetResources(self):
-        return {
-            "Pixmap": os.path.join(ICONPATH, "Beam STR BET_icon.png"),
-            "MenuText": "STR BET",
-            "ToolTip": QT_TRANSLATE_NOOP(
-                "STEMFIE_Beam_STR_BET", "Beam - Straight - BET"
-            ),  # FIXME: BET?
-        }
+    NAME = "STR_BET"
+    FUNCTION = Piezas.STR_BET
+    pixmap = os.path.join(ICONPATH, "Beam STR BET_icon.png")
+    menutext = "STR BET"
+    tooltip = QT_TRANSLATE_NOOP("STEMFIE_Beam_STR_BET", "Beam - Straight - BET")  # FIXME: BET?
 
 
 class STR_BXS_ESS_H(BaseCommand):
-    def Activated(self):
-        myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_BXS_ESS_H")
-        Piezas.STR_BXS_ESS_H(myObj)
-        ViewProvider(myObj.ViewObject)
-        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
-
-        FreeCAD.ActiveDocument.recompute()
-        FreeCADGui.SendMsgToActiveView("ViewFit")
-
-    def GetResources(self):
-        return {
-            "Pixmap": os.path.join(ICONPATH, "Beam STR BXS ESS H_icon.png"),
-            "MenuText": "STR BXS ESS H",
-            "ToolTip": QT_TRANSLATE_NOOP(
-                "STEMFIE_Beam_STR_BXS_ESS_H",
-                "Beam - Straight - Box-section - End Square Square - H",
-            ),  # FIXME: H?
-        }
+    NAME = "STR_BXS_ESS_H"
+    FUNCTION = Piezas.STR_BXS_ESS_H
+    pixmap = os.path.join(ICONPATH, "Beam STR BXS ESS H_icon.png")
+    menutext = "STR BXS ESS H"
+    tooltip = QT_TRANSLATE_NOOP(
+        "STEMFIE_Beam_STR_BXS_ESS_H", "Beam - Straight - Box-section - End Square Square - H"
+    )
 
 
 class STR_BXS_ESS_C(BaseCommand):
-    def Activated(self):
-        myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_BXS_ESS_C")
-        Piezas.STR_BXS_ESS_C(myObj)
-        ViewProvider(myObj.ViewObject)
-        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
-
-        FreeCAD.ActiveDocument.recompute()
-        FreeCADGui.SendMsgToActiveView("ViewFit")
-
-    def GetResources(self):
-        return {
-            "Pixmap": os.path.join(ICONPATH, "Beam STR BXS ESS C_icon.png"),
-            "MenuText": "STR BXS ESS C",
-            "ToolTip": QT_TRANSLATE_NOOP(
-                "STEMFIE_Beam_STR_BXS_ESS_C",
-                "Beam - Straight - Box-section - End Square Square - C",
-            ),  # FIXME: C?
-        }
+    NAME = "STR_BXS_ESS_C"
+    FUNCTION = Piezas.STR_BXS_ESS_C
+    pixmap = os.path.join(ICONPATH, "Beam STR BXS ESS C_icon.png")
+    menutext = "STR BXS ESS C"
+    tooltip = QT_TRANSLATE_NOOP(
+        "STEMFIE_Beam_STR_BXS_ESS_C", "Beam - Straight - Box-section - End Square Square - C"
+    )
 
 
-#  Conectores
+# Braces
+class STR_STD_ERR(BaseCommand):
+    NAME = "STR_STD_ERR"
+    FUNCTION = Piezas.STR_STD_ERR
+    pixmap = os.path.join(ICONPATH, "Brace STR STD ERR_icon.png")
+    menutext = "STR STD ERR"
+    tooltip = QT_TRANSLATE_NOOP(
+        "STEMFIE_Brace_STR_STD_ERR", "Brace - Straight - Standard - End Round Round"
+    )
+
+
+class STR_STD_BRD_AZ(BaseCommand):
+    NAME = "STR_STD_BRD_AZ"
+    FUNCTION = Piezas.STR_STD_BRD_AZ
+    pixmap = os.path.join(ICONPATH, "Brace STR STD BRD AZ_icon.png")
+    menutext = "STR STD BRD AZ"
+    tooltip = QT_TRANSLATE_NOOP(
+        "STEMFIE_Brace_STR_STD_BRD_AZ", "Brace - Straight - Standard - Barbed -  AZ"
+    )
+
+
+class CRN_ERR_ASYM(BaseCommand):
+    NAME = "CRN_ERR_ASYM"
+    FUNCTION = Piezas.CRN_ERR_ASYM
+    pixmap = os.path.join(ICONPATH, "Brace CRN ERR ASYM_icon.png")
+    menutext = "CRN ERR ASYM"
+    tooltip = QT_TRANSLATE_NOOP(
+        "STEMFIE_Brace_CRN_ERR_ASYM", "Brace - Corner - End Round Round - Asymmetric"
+    )
+
+
+class STR_STD_BRM_AY(BaseCommand):
+    NAME = "STR_STD_BRM_AY"
+    FUNCTION = Piezas.STR_STD_BRM_AY
+    pixmap = os.path.join(ICONPATH, "Brace STR STD BRM AY_icon.png")
+    menutext = "STR STD BRM_AY"
+    tooltip = QT_TRANSLATE_NOOP(
+        "STEMFIE_Brace_STR_STD_BRM_AY", "Brace - Straight - Standard -  BRM_AY"
+    )
+
+
+class STR_SLT_BE_SYM_ERR(BaseCommand):
+    NAME = "STR_SLT_BE_SYM_ERR"
+    FUNCTION = Piezas.STR_SLT_BE_SYM_ERR
+    pixmap = os.path.join(ICONPATH, "Brace STR SLT BE SYM ERR_icon.png")
+    menutext = "STR SLT BE SYM ERR"
+    tooltip = QT_TRANSLATE_NOOP(
+        "STEMFIE_Brace_STR_SLT_BE_SYM_ERR",
+        "Brace - Standard - Slotted - Both Ends - Symmetric - End Round Round",
+    )
+
+
+class STR_SLT_CNT_ERR(BaseCommand):
+    NAME = "STR_SLT_CNT_ERR"
+    FUNCTION = Piezas.STR_SLT_CNT_ERR
+    pixmap = os.path.join(ICONPATH, "Brace STR SLT CNT ERR_icon.png")
+    menutext = "STR SLT CNT ERR"
+    tooltip = QT_TRANSLATE_NOOP(
+        "STEMFIE_Brace_STR_SLT_CNT_ERR", "Brace - Straight - Slotted - Centered - End Round Round"
+    )
+
+
+class STR_SLT_FL_ERR(BaseCommand):
+    NAME = "STR_SLT_FL_ERR"
+    FUNCTION = Piezas.STR_SLT_FL_ERR
+    pixmap = os.path.join(ICONPATH, "Brace STR SLT FL ERR_icon.png")
+    menutext = "STR SLT FL ERR"
+    tooltip = QT_TRANSLATE_NOOP(
+        "STEMFIE_Brace_STR_SLT_FL_ERR", "Brace - Straight - Slotted - Full Length - End Round Round"
+    )
+
+
+class STR_SLT_SE_ERR(BaseCommand):
+    NAME = "STR_SLT_SE_ERR"
+    FUNCTION = Piezas.STR_SLT_SE_ERR
+    pixmap = os.path.join(ICONPATH, "Brace STR SLT SE ERR_icon.png")
+    menutext = "STR SLT SE ERR"
+    tooltip = QT_TRANSLATE_NOOP(
+        "STEMFIE_Brace_STR_SLT_SE_ERR", "Brace - Straight - Slotted - Single End - End Round Round"
+    )
+
+
+class STR_STD_BRD_AY(BaseCommand):
+    NAME = "STR_STD_BRD_AY"
+    FUNCTION = Piezas.STR_STD_BRD_AY
+    pixmap = os.path.join(ICONPATH, "Brace STR STD BRD AY_icon.png")
+    menutext = "STR STD BRD AY"
+    tooltip = QT_TRANSLATE_NOOP(
+        "STEMFIE_Brace_STR_STD_BRD_AY", "Brace - Straight - Standard - Barbed - AY"
+    )  # FIXME: AY?
+
+
+class STR_STD_BRT_AZ(BaseCommand):
+    NAME = "STR_STD_BRT_AZ"
+    FUNCTION = Piezas.STR_STD_BRT_AZ
+    pixmap = os.path.join(ICONPATH, "Brace STR STD BRT AZ_icon.png")
+    menutext = "STR STD BRT AZ"
+    tooltip = QT_TRANSLATE_NOOP(
+        "STEMFIE_Brace_STR_STD_BRT_AZ", "Brace Straight - Standard - BRT AZ"
+    )  # FIXME: BRT AZ?
+
+
+class STR_STD_BRT_AY(BaseCommand):
+    NAME = "STR_STD_BRT_AY"
+    FUNCTION = Piezas.STR_STD_BRT_AY
+    pixmap = os.path.join(ICONPATH, "Brace STR STD BRT AY_icon.png")
+    menutext = "STR STD BRT AY"
+    tooltip = QT_TRANSLATE_NOOP(
+        "STEMFIE_Brace_STR_STD_BRT_AY", "Brace - Straight - Standard - BRT AY"
+    )  # FIXME: RT AY?
+
+
+class STR_STD_CR(BaseCommand):
+    NAME = "STR_STD_CR"
+    FUNCTION = Piezas.STR_STD_CR
+    pixmap = os.path.join(ICONPATH, "Brace STR STD CR_icon.png")
+    menutext = "STR STD CR"
+    tooltip = QT_TRANSLATE_NOOP(
+        "STEMFIE_Brace_STR_STD_CR", "Brace - Straight - Standard - CR"
+    )  # FIXME: CR? maybe CRN
+
+
+#  Connectors
 class TRH_H_BEM_SFT_1W(BaseCommand):
     NAME = "TRH_H_BEM_SFT_1W"
     FUNCTION = Piezas.TRH_H_BEM_SFT_1W
     pixmap = os.path.join(ICONPATH, "Conector THR H BEM SFT 1W_icon.png")
-    menutext = "THR-H BEM SFT 1W"
+    menutext = "TRH-H BEM SFT 1W"
     tooltip = QT_TRANSLATE_NOOP(
         "STEMFIE_Connector_TRH_H_BEM_SFT_1W",
-        "Connector - Throught-Hole - Beam - Shaft - One-way",
+        "Connector - Through-Hole - Beam - Shaft - One-way",
     )
 
 
@@ -505,10 +274,10 @@ class TRH_H_BEM_SFT_2W_180(BaseCommand):
     NAME = "TRH_H_BEM_SFT_2W_180"
     FUNCTION = Piezas.TRH_H_BEM_SFT_2W_180
     pixmap = os.path.join(ICONPATH, "Conector THR H BEM SFT 2W 180_icon.png")
-    menutext = "THR-H BEM SFT 2W 180º"
+    menutext = "TRH-H BEM SFT 2W 180º"
     tooltip = QT_TRANSLATE_NOOP(
         "STEMFIE_Connector_TRH_H_BEM_SFT_2W_180",
-        "Connector - Throught-Hole - Beam - Shaft - Two-way - 180º",
+        "Connector - Through-Hole - Beam - Shaft - Two-way - 180º",
     )
 
 
@@ -516,10 +285,10 @@ class TRH_H_BEM_SFT_2W_90(BaseCommand):
     NAME = "TRH_H_BEM_SFT_2W_90"
     FUNCTION = Piezas.TRH_H_BEM_SFT_2W_90
     pixmap = os.path.join(ICONPATH, "Conector THR H BEM SFT 2W 90_icon.png")
-    menutext = "THR-H BEM SFT 2W 90º"
+    menutext = "TRH-H BEM SFT 2W 90º"
     tooltip = QT_TRANSLATE_NOOP(
         "STEMFIE_Connector_TRH_H_BEM_SFT_2W_90",
-        "Connector - Throught-Hole - Beam - Shaft - Two-way - 90º",
+        "Connector - Through-Hole - Beam - Shaft - Two-way - 90º",
     )
 
 
@@ -527,26 +296,57 @@ class TRH_H_BEM_SFT_3W(BaseCommand):
     NAME = "TRH_H_BEM_SFT_3W"
     FUNCTION = Piezas.TRH_H_BEM_SFT_3W
     pixmap = os.path.join(ICONPATH, "Conector THR H BEM SFT 3W_icon.png")
-    menutext = "THR-H BEM SFT 3W"
+    menutext = "TRH-H BEM SFT 3W"
     tooltip = QT_TRANSLATE_NOOP(
         "STEMFIE_Connector_TRH_H_BEM_SFT_3W",
-        "Connector - Throught-Hole - Beam - Shaft - Three-way",
-    )  # FIXME: H?
+        "Connector - Through-Hole - Beam - Shaft - Three-way",
+    )
 
 
 class TRH_H_BEM_SFT_4W(BaseCommand):
     NAME = "TRH_H_BEM_SFT_4W"
     FUNCTION = Piezas.TRH_H_BEM_SFT_4W
     pixmap = os.path.join(ICONPATH, "Conector THR H BEM SFT 4W_icon.png")
-    menutext = "THR-H BEM SFT 4W"
+    menutext = "TRH-H BEM SFT 4W"
     tooltip = QT_TRANSLATE_NOOP(
         "STEMFIE_Connector_TRH_H_BEM_SFT_4W",
-        "Connector - Throught-Hole - Beam - Shaft - Four-way",
+        "Connector - Through-Hole - Beam - Shaft - Four-way",
     )
 
 
+# Plates
+class PLT_TRI(BaseCommand):
+    NAME = "PLT_TRI"
+    FUNCTION = Plates.PLT_TRI
+    pixmap = os.path.join(ICONPATH, "Plate_TRI.svg")
+    menutext = "PLT TRI"
+    tooltip = QT_TRANSLATE_NOOP("STEMFIE_Plate_TRI_PLT", "Plate - Triangular")
+
+
+class PLT_SQR(BaseCommand):
+    NAME = "PLT_SQR"
+    FUNCTION = Plates.PLT_SQR
+    pixmap = os.path.join(ICONPATH, "Plate_SQR.svg")
+    menutext = "PLT SQR"
+    tooltip = QT_TRANSLATE_NOOP("STEMFIE_Plate_SQR", "Plate - Square")
+
+
+class PLT_HEX(BaseCommand):
+    NAME = "PLT_HEX"
+    FUNCTION = Plates.PLT_HEX
+    pixmap = os.path.join(ICONPATH, "Plate_HEX.svg")
+    menutext = "PLT HEX"
+    tooltip = QT_TRANSLATE_NOOP("STEMFIE_Plate_HEX", "Plate - Hexagonal")
+
+
 #  Comandos
-class Cmd_Listado(BaseCommand):
+class Cmd_Listado:
+    def IsActive(self):
+        if FreeCAD.ActiveDocument is None:
+            return False
+        else:
+            return True
+
     def Activated(self):
         from freecad.stemfie import Comandos
 
@@ -562,7 +362,16 @@ class Cmd_Listado(BaseCommand):
         }
 
 
-# Brazos
+# Beams
+FreeCADGui.addCommand("STEMFIE_Beam_STR_ESS", STR_ESS())
+FreeCADGui.addCommand("STEMFIE_Beam_STR_ERR", STR_ERR())
+FreeCADGui.addCommand("STEMFIE_Beam_STR_BEM", STR_BEM())
+FreeCADGui.addCommand("STEMFIE_Beam_AGD_ESS_USH_SYM", AGD_ESS_USH_SYM())
+FreeCADGui.addCommand("STEMFIE_Beam_STR_BED", STR_BED())
+FreeCADGui.addCommand("STEMFIE_Beam_STR_BET", STR_BET())
+FreeCADGui.addCommand("STEMFIE_Beam_STR_BXS_ESS_H", STR_BXS_ESS_H())
+FreeCADGui.addCommand("STEMFIE_Beam_STR_BXS_ESS_C", STR_BXS_ESS_C())
+# Braces
 FreeCADGui.addCommand("STEMFIE_Brace_STR_STD_ERR", STR_STD_ERR())
 FreeCADGui.addCommand("STEMFIE_Brace_STR_STD_BRD_AZ", STR_STD_BRD_AZ())
 FreeCADGui.addCommand("STEMFIE_Brace_CRN_ERR_ASYM", CRN_ERR_ASYM())
@@ -575,27 +384,15 @@ FreeCADGui.addCommand("STEMFIE_Brace_STR_STD_BRD_AY", STR_STD_BRD_AY())
 FreeCADGui.addCommand("STEMFIE_Brace_STR_STD_BRT_AZ", STR_STD_BRT_AZ())
 FreeCADGui.addCommand("STEMFIE_Brace_STR_STD_BRT_AY", STR_STD_BRT_AY())
 FreeCADGui.addCommand("STEMFIE_Brace_STR_STD_CR", STR_STD_CR())
-# Vigas
-FreeCADGui.addCommand("STEMFIE_Beam_STR_ESS", STR_ESS())
-FreeCADGui.addCommand("STEMFIE_Beam_STR_ERR", STR_ERR())
-FreeCADGui.addCommand("STEMFIE_Beam_STR_BEM", STR_BEM())
-FreeCADGui.addCommand("STEMFIE_Beam_AGD_ESS_USH_SYM", AGD_ESS_USH_SYM())
-FreeCADGui.addCommand("STEMFIE_Beam_STR_BED", STR_BED())
-FreeCADGui.addCommand("STEMFIE_Beam_STR_BET", STR_BET())
-FreeCADGui.addCommand("STEMFIE_Beam_STR_BXS_ESS_H", STR_BXS_ESS_H())
-FreeCADGui.addCommand("STEMFIE_Beam_STR_BXS_ESS_C", STR_BXS_ESS_C())
+# Connectors
+FreeCADGui.addCommand("STEMFIE_Connector_TRH_H_BEM_SFT_1W", TRH_H_BEM_SFT_1W())
+FreeCADGui.addCommand("STEMFIE_Connector_TRH_H_BEM_SFT_2W_180", TRH_H_BEM_SFT_2W_180())
+FreeCADGui.addCommand("STEMFIE_Connector_TRH_H_BEM_SFT_2W_90", TRH_H_BEM_SFT_2W_90())
+FreeCADGui.addCommand("STEMFIE_Connector_TRH_H_BEM_SFT_3W", TRH_H_BEM_SFT_3W())
+FreeCADGui.addCommand("STEMFIE_Connector_TRH_H_BEM_SFT_4W", TRH_H_BEM_SFT_4W())
 # Plates
 FreeCADGui.addCommand("STEMFIE_Plate_TRI", PLT_TRI())
 FreeCADGui.addCommand("STEMFIE_Plate_SQR", PLT_SQR())
 FreeCADGui.addCommand("STEMFIE_Plate_HEX", PLT_HEX())
-# Conectores
-FreeCADGui.addCommand("STEMFIE_Connector_TRH-H_BEM_SFT_1W", TRH_H_BEM_SFT_1W())
-FreeCADGui.addCommand("STEMFIE_Connector_TRH-H_BEM_SFT_2W_180", TRH_H_BEM_SFT_2W_180())
-FreeCADGui.addCommand("STEMFIE_Connector_TRH-H_BEM_SFT_2W_90", TRH_H_BEM_SFT_2W_90())
-FreeCADGui.addCommand("STEMFIE_Connector_TRH-H_BEM_SFT_3W", TRH_H_BEM_SFT_3W())
-FreeCADGui.addCommand("STEMFIE_Connector_TRH-H_BEM_SFT_4W", TRH_H_BEM_SFT_4W())
 # Comandos
 FreeCADGui.addCommand("STEMFIE_Cmd_Listado", Cmd_Listado())
-
-
-Icon = os.path.join(ICONPATH, "STEMFIE.svg")
