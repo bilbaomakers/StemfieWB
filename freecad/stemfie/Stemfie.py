@@ -3,7 +3,7 @@ import FreeCADGui
 
 import os
 import random
-from freecad.stemfie import ICONPATH, Piezas
+from freecad.stemfie import ICONPATH, Piezas, Plates
 
 QT_TRANSLATE_NOOP = FreeCAD.Qt.QT_TRANSLATE_NOOP
 
@@ -80,25 +80,9 @@ class CRN_ERR_ASYM(BaseCommand):
         return {
             "Pixmap": os.path.join(ICONPATH, "Brace CRN ERR ASYM_icon.png"),
             "MenuText": "CRN ERR ASYM",
-            "ToolTip": QT_TRANSLATE_NOOP("STEMFIE_Brace_CRN_ERR_ASYM", "Brace CRN ERR ASYM"),
-        }
-
-
-class STR_STD_BRM(BaseCommand):
-    def Activated(self):
-        myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "STR_STD_BRM")
-        Piezas.STR_STD_BRM(myObj)
-        ViewProvider(myObj.ViewObject)
-        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
-
-        FreeCAD.ActiveDocument.recompute()
-        FreeCADGui.SendMsgToActiveView("ViewFit")
-
-    def GetResources(self):
-        return {
-            "Pixmap": os.path.join(ICONPATH, "Brace STR STD BRM_icon.png"),
-            "MenuText": "STR STD BRM",
-            "ToolTip": QT_TRANSLATE_NOOP("STEMFIE_Brace_STR_STD_BRM", "Brace STR STD BRM"),
+            "ToolTip": QT_TRANSLATE_NOOP(
+                "STEMFIE_Brace_CRN_ERR_ASYM", "Brace - Corner - End Round Round - Asymmetric"
+            ),
         }
 
 
@@ -268,7 +252,64 @@ class STR_STD_CR(BaseCommand):
         return {
             "Pixmap": os.path.join(ICONPATH, "Brace STR STD CR_icon.png"),
             "MenuText": "STR STD CR",
-            "ToolTip": QT_TRANSLATE_NOOP("STEMFIE_Brace_STR_STD_CR", "Brace STR STD CR"),
+            "ToolTip": QT_TRANSLATE_NOOP(
+                "STEMFIE_Brace_STR_STD_CR", "Brace - Straight - Standard - CR"
+            ),  # FIXME: CR? maybe CRN?
+        }
+
+
+# Plates
+class PLT_TRI(BaseCommand):
+    def Activated(self):
+        myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "PLT_TRI")
+        Plates.PLT_TRI(myObj)
+        ViewProvider(myObj.ViewObject)
+        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
+
+        FreeCAD.ActiveDocument.recompute()
+        FreeCADGui.SendMsgToActiveView("ViewFit")
+
+    def GetResources(self):
+        return {
+            "Pixmap": os.path.join(ICONPATH, "Plate_TRI.svg"),
+            "MenuText": "PLT TRI",
+            "ToolTip": QT_TRANSLATE_NOOP("STEMFIE_Plate_TRI_PLT", "Plate - Triangular"),
+        }
+
+
+class PLT_SQR(BaseCommand):
+    def Activated(self):
+        myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "PLT_SQR")
+        Plates.PLT_SQR(myObj)
+        ViewProvider(myObj.ViewObject)
+        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
+
+        FreeCAD.ActiveDocument.recompute()
+        FreeCADGui.SendMsgToActiveView("ViewFit")
+
+    def GetResources(self):
+        return {
+            "Pixmap": os.path.join(ICONPATH, "Plate_SQR.svg"),
+            "MenuText": "PLT SQR",
+            "ToolTip": QT_TRANSLATE_NOOP("STEMFIE_Plate_SQR", "Plate - Square"),
+        }
+
+
+class PLT_HEX(BaseCommand):
+    def Activated(self):
+        myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "PLT_HEX")
+        Plates.PLT_HEX(myObj)
+        ViewProvider(myObj.ViewObject)
+        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
+
+        FreeCAD.ActiveDocument.recompute()
+        FreeCADGui.SendMsgToActiveView("ViewFit")
+
+    def GetResources(self):
+        return {
+            "Pixmap": os.path.join(ICONPATH, "Plate_HEX.svg"),
+            "MenuText": "PLT HEX",
+            "ToolTip": QT_TRANSLATE_NOOP("STEMFIE_Plate_HEX", "Plate - Hexagonal"),
         }
 
 
@@ -541,7 +582,6 @@ class Cmd_Listado(BaseCommand):
 FreeCADGui.addCommand("STEMFIE_Brace_STR_STD_ERR", STR_STD_ERR())
 FreeCADGui.addCommand("STEMFIE_Brace_STR_STD_BRD_AZ", STR_STD_BRD_AZ())
 FreeCADGui.addCommand("STEMFIE_Brace_CRN_ERR_ASYM", CRN_ERR_ASYM())
-FreeCADGui.addCommand("STEMFIE_Brace_STR_STD_BRM", STR_STD_BRM())
 FreeCADGui.addCommand("STEMFIE_Brace_STR_STD_BRM_AY", STR_STD_BRM_AY())
 FreeCADGui.addCommand("STEMFIE_Brace_STR_SLT_BE_SYM_ERR", STR_SLT_BE_SYM_ERR())
 FreeCADGui.addCommand("STEMFIE_Brace_STR_SLT_CNT_ERR", STR_SLT_CNT_ERR())
@@ -560,6 +600,10 @@ FreeCADGui.addCommand("STEMFIE_Beam_STR_BED", STR_BED())
 FreeCADGui.addCommand("STEMFIE_Beam_STR_BET", STR_BET())
 FreeCADGui.addCommand("STEMFIE_Beam_STR_BXS_ESS_H", STR_BXS_ESS_H())
 FreeCADGui.addCommand("STEMFIE_Beam_STR_BXS_ESS_C", STR_BXS_ESS_C())
+# Plates
+FreeCADGui.addCommand("STEMFIE_Plate_TRI", PLT_TRI())
+FreeCADGui.addCommand("STEMFIE_Plate_SQR", PLT_SQR())
+FreeCADGui.addCommand("STEMFIE_Plate_HEX", PLT_HEX())
 # Conectores
 FreeCADGui.addCommand("STEMFIE_Connector_THR_H_BEM_SFT_1W", THR_H_BEM_SFT_1W())
 FreeCADGui.addCommand("STEMFIE_Connector_THR_H_BEM_SFT_2W_180", THR_H_BEM_SFT_2W_180())

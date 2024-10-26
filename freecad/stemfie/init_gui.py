@@ -26,7 +26,6 @@ class StemfieWorkbench(Workbench):
             "STEMFIE_Brace_STR_STD_ERR",
             "STEMFIE_Brace_STR_STD_BRD_AZ",
             "STEMFIE_Brace_CRN_ERR_ASYM",
-            "STEMFIE_Brace_STR_STD_BRM",
             "STEMFIE_Brace_STR_STD_BRM_AY",
             "STEMFIE_Brace_STR_SLT_BE_SYM_ERR",
             "STEMFIE_Brace_STR_SLT_CNT_ERR",
@@ -55,6 +54,14 @@ class StemfieWorkbench(Workbench):
         self.appendToolbar(
             QT_TRANSLATE_NOOP("Workbench", "Stemfie Beams"), self.ListaVigas
         )  # crea una barra de herramientas 'Stemfie Beam' con los iconos de los comandos
+
+        # List of plates
+        self.list_plates = [
+            "STEMFIE_Plate_TRI",
+            "STEMFIE_Plate_SQR",
+            "STEMFIE_Plate_HEX",
+        ]
+        self.appendToolbar(QT_TRANSLATE_NOOP("Workbench", "Stemfie Plates"), self.list_plates)
 
         #   Lista Conectores
         self.ListaConectores = [
