@@ -65,11 +65,11 @@ class StemfieWorkbench(Workbench):
 
         #   Lista Conectores
         self.ListaConectores = [
-            "STEMFIE_Connector_THR_H_BEM_SFT_1W",
-            "STEMFIE_Connector_THR_H_BEM_SFT_2W_180",
-            "STEMFIE_Connector_THR_H_BEM_SFT_2W_90",
-            "STEMFIE_Connector_THR_H_BEM_SFT_3W",
-            "STEMFIE_Connector_THR_H_BEM_SFT_4W",
+            "STEMFIE_Connector_TRH_H_BEM_SFT_1W",
+            "STEMFIE_Connector_TRH_H_BEM_SFT_2W_180",
+            "STEMFIE_Connector_TRH_H_BEM_SFT_2W_90",
+            "STEMFIE_Connector_TRH_H_BEM_SFT_3W",
+            "STEMFIE_Connector_TRH_H_BEM_SFT_4W",
         ]
         self.appendToolbar(
             QT_TRANSLATE_NOOP("Workbench", "Stemfie Conectors"), self.ListaConectores

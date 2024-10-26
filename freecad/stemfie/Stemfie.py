@@ -42,7 +42,7 @@ class STR_STD_ERR(BaseCommand):
             "Pixmap": os.path.join(ICONPATH, "Brace STR STD ERR_icon.png"),
             "MenuText": "STR STD ERR",
             "ToolTip": QT_TRANSLATE_NOOP(
-                "STEMFIE_Brace_STR_STD_ERR", "Brace - Straight - Ending Round Round"
+                "STEMFIE_Brace_STR_STD_ERR", "Brace - Straight - Standard - End Round Round"
             ),
         }
 
@@ -62,7 +62,9 @@ class STR_STD_BRD_AZ(BaseCommand):
         return {
             "Pixmap": os.path.join(ICONPATH, "Brace STR STD BRD AZ_icon.png"),
             "MenuText": "STR STD BRD AZ",
-            "ToolTip": QT_TRANSLATE_NOOP("STEMFIE_Brace_STR_STD_BRD_AZ", "Brace STR STD BRD AZ"),
+            "ToolTip": QT_TRANSLATE_NOOP(
+                "STEMFIE_Brace_STR_STD_BRD_AZ", "Brace - Straight - Standard - Barbed -  AZ"
+            ),  # FIXME: What does it mean "AZ"
         }
 
 
@@ -100,8 +102,10 @@ class STR_STD_BRM_AY(BaseCommand):
         return {
             "Pixmap": os.path.join(ICONPATH, "Brace STR STD BRM AY_icon.png"),
             "MenuText": "STR STD BRM_AY",
-            "ToolTip": QT_TRANSLATE_NOOP("STEMFIE_Brace_STR_STD_BRM_AY", "Brace STR STD BRM_AY"),
-        }
+            "ToolTip": QT_TRANSLATE_NOOP(
+                "STEMFIE_Brace_STR_STD_BRM_AY", "Brace - Straight - Standard -  BRM_AY"
+            ),
+        }  # FIXME: BRM_AY?
 
 
 class STR_SLT_BE_SYM_ERR(BaseCommand):
@@ -119,7 +123,8 @@ class STR_SLT_BE_SYM_ERR(BaseCommand):
             "Pixmap": os.path.join(ICONPATH, "Brace STR SLT BE SYM ERR_icon.png"),
             "MenuText": "STR SLT BE SYM ERR",
             "ToolTip": QT_TRANSLATE_NOOP(
-                "STEMFIE_Brace_STR_SLT_BE_SYM_ERR", "Brace STR SLT BE SYM ERR"
+                "STEMFIE_Brace_STR_SLT_BE_SYM_ERR",
+                "Brace - Standard - Slotted - Both Ends - Symmetric - End Round Round",
             ),
         }
 
@@ -138,7 +143,10 @@ class STR_SLT_CNT_ERR(BaseCommand):
         return {
             "Pixmap": os.path.join(ICONPATH, "Brace STR SLT CNT ERR_icon.png"),
             "MenuText": "STR SLT CNT ERR",
-            "ToolTip": QT_TRANSLATE_NOOP("STEMFIE_Brace_STR_SLT_CNT_ERR", "Brace STR SLT CNT ERR"),
+            "ToolTip": QT_TRANSLATE_NOOP(
+                "STEMFIE_Brace_STR_SLT_CNT_ERR",
+                "Brace - Straight - Slotted - Centered - End Round Round",
+            ),
         }
 
 
@@ -158,7 +166,7 @@ class STR_SLT_FL_ERR(BaseCommand):
             "MenuText": "STR SLT FL ERR",
             "ToolTip": QT_TRANSLATE_NOOP(
                 "STEMFIE_Brace_STR_SLT_FL_ERR",
-                "Brace - Straight - Slotted - Full Length - Ending Round Round",
+                "Brace - Straight - Slotted - Full Length - End Round Round",
             ),
         }
 
@@ -179,7 +187,7 @@ class STR_SLT_SE_ERR(BaseCommand):
             "MenuText": "STR SLT SE ERR",
             "ToolTip": QT_TRANSLATE_NOOP(
                 "STEMFIE_Brace_STR_SLT_SE_ERR",
-                "Brace - Straight - Slotted - Single End - Ending Round Round",
+                "Brace - Straight - Slotted - Single End - End Round Round",
             ),
         }
 
@@ -198,7 +206,9 @@ class STR_STD_BRD_AY(BaseCommand):
         return {
             "Pixmap": os.path.join(ICONPATH, "Brace STR STD BRD AY_icon.png"),
             "MenuText": "STR STD BRD AY",
-            "ToolTip": QT_TRANSLATE_NOOP("STEMFIE_Brace_STR_STD_BRD_AY", "Brace STR STD BRD AY"),
+            "ToolTip": QT_TRANSLATE_NOOP(
+                "STEMFIE_Brace_STR_STD_BRD_AY", "Brace - Straight - Standard - Barbed - AY"
+            ),  # FIXME: AY?
         }
 
 
@@ -216,7 +226,9 @@ class STR_STD_BRT_AZ(BaseCommand):
         return {
             "Pixmap": os.path.join(ICONPATH, "Brace STR STD BRT AZ_icon.png"),
             "MenuText": "STR STD BRT AZ",
-            "ToolTip": QT_TRANSLATE_NOOP("STEMFIE_Brace_STR_STD_BRT_AZ", "Brace STR STD BRT AZ"),
+            "ToolTip": QT_TRANSLATE_NOOP(
+                "STEMFIE_Brace_STR_STD_BRT_AZ", "Brace Straight - Standard - BRT AZ"
+            ),  # FIXME: BRT AZ?
         }
 
 
@@ -234,7 +246,9 @@ class STR_STD_BRT_AY(BaseCommand):
         return {
             "Pixmap": os.path.join(ICONPATH, "Brace STR STD BRT AY_icon.png"),
             "MenuText": "STR STD BRT AY",
-            "ToolTip": QT_TRANSLATE_NOOP("STEMFIE_Brace_STR_STD_BRT_AY", "Brace STR STD BRT AY"),
+            "ToolTip": QT_TRANSLATE_NOOP(
+                "STEMFIE_Brace_STR_STD_BRT_AY", "Brace - Straight - Standard - BRT AY"
+            ),  # FIXME: RT AY?
         }
 
 
@@ -329,7 +343,7 @@ class STR_ESS(BaseCommand):
             "Pixmap": os.path.join(ICONPATH, "Beam STR ESS_icon.png"),
             "MenuText": "STR ESS",
             "ToolTip": QT_TRANSLATE_NOOP(
-                "STEMFIE_Beam_STR_ESS", "Beam - Straight - Ending Square/Square"
+                "STEMFIE_Beam_STR_ESS", "Beam - Straight - Ending Square Square"
             ),
         }
 
@@ -349,7 +363,7 @@ class STR_ERR(BaseCommand):
             "Pixmap": os.path.join(ICONPATH, "Beam STR ERR_icon.png"),
             "MenuText": "STR ERR",
             "ToolTip": QT_TRANSLATE_NOOP(
-                "STEMFIE_Beam_STR_ERR", "Beam - Straight - Ending Round/Round"
+                "STEMFIE_Beam_STR_ERR", "Beam - Straight - End Round Round"
             ),
         }
 
@@ -368,7 +382,7 @@ class STR_BEM(BaseCommand):
         return {
             "Pixmap": os.path.join(ICONPATH, "Beam STR BEM_icon.png"),
             "MenuText": "STR BEM",
-            "ToolTip": QT_TRANSLATE_NOOP("STEMFIE_Beam_STR_BEM", "Beam STR BEM"),
+            "ToolTip": QT_TRANSLATE_NOOP("STEMFIE_Beam_STR_BEM", "Beam - Straight"),
         }
 
 
@@ -386,7 +400,10 @@ class AGD_ESS_USH_SYM(BaseCommand):
         return {
             "Pixmap": os.path.join(ICONPATH, "Beam AGD ESS USH SYM_icon.png"),
             "MenuText": "AGD ESS USH SYM",
-            "ToolTip": QT_TRANSLATE_NOOP("STEMFIE_Beam_AGD_ESS_USH_SYM", "Beam AGD ESS USH SYM"),
+            "ToolTip": QT_TRANSLATE_NOOP(
+                "STEMFIE_Beam_AGD_ESS_USH_SYM",
+                "Beam - Angled - End Square Aquare - U-shaped - Symmetric",
+            ),
         }
 
 
@@ -404,7 +421,9 @@ class STR_BED(BaseCommand):
         return {
             "Pixmap": os.path.join(ICONPATH, "Beam STR BED_icon.png"),
             "MenuText": "STR BED",
-            "ToolTip": QT_TRANSLATE_NOOP("STEMFIE_Beam_STR_BED", "Beam STR_BED"),
+            "ToolTip": QT_TRANSLATE_NOOP(
+                "STEMFIE_Beam_STR_BED", "Beam - Straight - BED"
+            ),  # FIXME: BED?
         }
 
 
@@ -422,7 +441,9 @@ class STR_BET(BaseCommand):
         return {
             "Pixmap": os.path.join(ICONPATH, "Beam STR BET_icon.png"),
             "MenuText": "STR BET",
-            "ToolTip": QT_TRANSLATE_NOOP("STEMFIE_Beam_STR_BET", "Beam STR_BET"),
+            "ToolTip": QT_TRANSLATE_NOOP(
+                "STEMFIE_Beam_STR_BET", "Beam - Straight - BET"
+            ),  # FIXME: BET?
         }
 
 
@@ -440,7 +461,10 @@ class STR_BXS_ESS_H(BaseCommand):
         return {
             "Pixmap": os.path.join(ICONPATH, "Beam STR BXS ESS H_icon.png"),
             "MenuText": "STR BXS ESS H",
-            "ToolTip": QT_TRANSLATE_NOOP("STEMFIE_Beam_STR_BXS_ESS_H", "Beam STR BXS ESS H"),
+            "ToolTip": QT_TRANSLATE_NOOP(
+                "STEMFIE_Beam_STR_BXS_ESS_H",
+                "Beam - Straight - Box-section - End Square Square - H",
+            ),  # FIXME: H?
         }
 
 
@@ -458,107 +482,67 @@ class STR_BXS_ESS_C(BaseCommand):
         return {
             "Pixmap": os.path.join(ICONPATH, "Beam STR BXS ESS C_icon.png"),
             "MenuText": "STR BXS ESS C",
-            "ToolTip": QT_TRANSLATE_NOOP("STEMFIE_Beam_STR_BXS_ESS_C", "Beam STR BXS ESS C"),
+            "ToolTip": QT_TRANSLATE_NOOP(
+                "STEMFIE_Beam_STR_BXS_ESS_C",
+                "Beam - Straight - Box-section - End Square Square - C",
+            ),  # FIXME: C?
         }
 
 
 #  Conectores
-class THR_H_BEM_SFT_1W(BaseCommand):
-    def Activated(self):
-        myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "THR_H_BEM_SFT_1W")
-        Piezas.THR_H_BEM_SFT_1W(myObj)
-        ViewProvider(myObj.ViewObject)
-        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
-
-        FreeCAD.ActiveDocument.recompute()
-        FreeCADGui.SendMsgToActiveView("ViewFit")
-
-    def GetResources(self):
-        return {
-            "Pixmap": os.path.join(ICONPATH, "Conector THR H BEM SFT 1W_icon.png"),
-            "MenuText": "THR H BEM SFT 1W",
-            "ToolTip": QT_TRANSLATE_NOOP(
-                "STEMFIE_Connector_THR_H_BEM_SFT_1W", "Connector THR H BEM SFT 1W"
-            ),
-        }
+class TRH_H_BEM_SFT_1W(BaseCommand):
+    NAME = "TRH_H_BEM_SFT_1W"
+    FUNCTION = Piezas.TRH_H_BEM_SFT_1W
+    pixmap = os.path.join(ICONPATH, "Conector THR H BEM SFT 1W_icon.png")
+    menutext = "THR-H BEM SFT 1W"
+    tooltip = QT_TRANSLATE_NOOP(
+        "STEMFIE_Connector_TRH_H_BEM_SFT_1W",
+        "Connector - Throught-Hole - Beam - Shaft - One-way",
+    )
 
 
-class THR_H_BEM_SFT_2W_180(BaseCommand):
-    def Activated(self):
-        myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "THR_H_BEM_SFT_2W_180")
-        Piezas.THR_H_BEM_SFT_2W_180(myObj)
-        ViewProvider(myObj.ViewObject)
-        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
-
-        FreeCAD.ActiveDocument.recompute()
-        FreeCADGui.SendMsgToActiveView("ViewFit")
-
-    def GetResources(self):
-        return {
-            "Pixmap": os.path.join(ICONPATH, "Conector THR H BEM SFT 2W 180_icon.png"),
-            "MenuText": "THR H BEM SFT 2W 180º",
-            "ToolTip": QT_TRANSLATE_NOOP(
-                "STEMFIE_Connector_THR_H_BEM_SFT_2W_180", "Connector THR H BEM SFT 2W 180º"
-            ),
-        }
+class TRH_H_BEM_SFT_2W_180(BaseCommand):
+    NAME = "TRH_H_BEM_SFT_2W_180"
+    FUNCTION = Piezas.TRH_H_BEM_SFT_2W_180
+    pixmap = os.path.join(ICONPATH, "Conector THR H BEM SFT 2W 180_icon.png")
+    menutext = "THR-H BEM SFT 2W 180º"
+    tooltip = QT_TRANSLATE_NOOP(
+        "STEMFIE_Connector_TRH_H_BEM_SFT_2W_180",
+        "Connector - Throught-Hole - Beam - Shaft - Two-way - 180º",
+    )
 
 
-class THR_H_BEM_SFT_2W_90(BaseCommand):
-    def Activated(self):
-        myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "THR_H_BEM_SFT_2W_90")
-        Piezas.THR_H_BEM_SFT_2W_90(myObj)
-        ViewProvider(myObj.ViewObject)
-        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
-
-        FreeCAD.ActiveDocument.recompute()
-        FreeCADGui.SendMsgToActiveView("ViewFit")
-
-    def GetResources(self):
-        return {
-            "Pixmap": os.path.join(ICONPATH, "Conector THR H BEM SFT 2W 90_icon.png"),
-            "MenuText": "THR H BEM SFT 2W 90º",
-            "ToolTip": QT_TRANSLATE_NOOP(
-                "STEMFIE_Connector_THR_H_BEM_SFT_2W_90", "Connector THR H BEM SFT 2W 90º"
-            ),
-        }
+class TRH_H_BEM_SFT_2W_90(BaseCommand):
+    NAME = "TRH_H_BEM_SFT_2W_90"
+    FUNCTION = Piezas.TRH_H_BEM_SFT_2W_90
+    pixmap = os.path.join(ICONPATH, "Conector THR H BEM SFT 2W 90_icon.png")
+    menutext = "THR-H BEM SFT 2W 90º"
+    tooltip = QT_TRANSLATE_NOOP(
+        "STEMFIE_Connector_TRH_H_BEM_SFT_2W_90",
+        "Connector - Throught-Hole - Beam - Shaft - Two-way - 90º",
+    )
 
 
-class THR_H_BEM_SFT_3W(BaseCommand):
-    def Activated(self):
-        myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "THR_H_BEM_SFT_3W")
-        Piezas.THR_H_BEM_SFT_3W(myObj)
-        ViewProvider(myObj.ViewObject)
-
-        FreeCAD.ActiveDocument.recompute()
-
-    def GetResources(self):
-        return {
-            "Pixmap": os.path.join(ICONPATH, "Conector THR H BEM SFT 3W_icon.png"),
-            "MenuText": "THR H BEM SFT 3W",
-            "ToolTip": QT_TRANSLATE_NOOP(
-                "STEMFIE_Connector_THR_H_BEM_SFT_3W", "Connector THR H BEM SFT 3W"
-            ),
-        }
+class TRH_H_BEM_SFT_3W(BaseCommand):
+    NAME = "TRH_H_BEM_SFT_3W"
+    FUNCTION = Piezas.TRH_H_BEM_SFT_3W
+    pixmap = os.path.join(ICONPATH, "Conector THR H BEM SFT 3W_icon.png")
+    menutext = "THR-H BEM SFT 3W"
+    tooltip = QT_TRANSLATE_NOOP(
+        "STEMFIE_Connector_TRH_H_BEM_SFT_3W",
+        "Connector - Throught-Hole - Beam - Shaft - Three-way",
+    )  # FIXME: H?
 
 
-class THR_H_BEM_SFT_4W(BaseCommand):
-    def Activated(self):
-        myObj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "THR_H_BEM_SFT_4W")
-        Piezas.THR_H_BEM_SFT_4W(myObj)
-        ViewProvider(myObj.ViewObject)
-        myObj.ViewObject.ShapeColor = tuple(random.random() for _ in range(3))
-
-        FreeCAD.ActiveDocument.recompute()
-        FreeCADGui.SendMsgToActiveView("ViewFit")
-
-    def GetResources(self):
-        return {
-            "Pixmap": os.path.join(ICONPATH, "Conector THR H BEM SFT 4W_icon.png"),
-            "MenuText": "THR H BEM SFT 4W",
-            "ToolTip": QT_TRANSLATE_NOOP(
-                "STEMFIE_Connector_THR_H_BEM_SFT_4W", "Connector THR H BEM SFT 4W"
-            ),
-        }
+class TRH_H_BEM_SFT_4W(BaseCommand):
+    NAME = "TRH_H_BEM_SFT_4W"
+    FUNCTION = Piezas.TRH_H_BEM_SFT_4W
+    pixmap = os.path.join(ICONPATH, "Conector THR H BEM SFT 4W_icon.png")
+    menutext = "THR-H BEM SFT 4W"
+    tooltip = QT_TRANSLATE_NOOP(
+        "STEMFIE_Connector_TRH_H_BEM_SFT_4W",
+        "Connector - Throught-Hole - Beam - Shaft - Four-way",
+    )
 
 
 #  Comandos
@@ -605,11 +589,11 @@ FreeCADGui.addCommand("STEMFIE_Plate_TRI", PLT_TRI())
 FreeCADGui.addCommand("STEMFIE_Plate_SQR", PLT_SQR())
 FreeCADGui.addCommand("STEMFIE_Plate_HEX", PLT_HEX())
 # Conectores
-FreeCADGui.addCommand("STEMFIE_Connector_THR_H_BEM_SFT_1W", THR_H_BEM_SFT_1W())
-FreeCADGui.addCommand("STEMFIE_Connector_THR_H_BEM_SFT_2W_180", THR_H_BEM_SFT_2W_180())
-FreeCADGui.addCommand("STEMFIE_Connector_THR_H_BEM_SFT_2W_90", THR_H_BEM_SFT_2W_90())
-FreeCADGui.addCommand("STEMFIE_Connector_THR_H_BEM_SFT_3W", THR_H_BEM_SFT_3W())
-FreeCADGui.addCommand("STEMFIE_Connector_THR_H_BEM_SFT_4W", THR_H_BEM_SFT_4W())
+FreeCADGui.addCommand("STEMFIE_Connector_TRH-H_BEM_SFT_1W", TRH_H_BEM_SFT_1W())
+FreeCADGui.addCommand("STEMFIE_Connector_TRH-H_BEM_SFT_2W_180", TRH_H_BEM_SFT_2W_180())
+FreeCADGui.addCommand("STEMFIE_Connector_TRH-H_BEM_SFT_2W_90", TRH_H_BEM_SFT_2W_90())
+FreeCADGui.addCommand("STEMFIE_Connector_TRH-H_BEM_SFT_3W", TRH_H_BEM_SFT_3W())
+FreeCADGui.addCommand("STEMFIE_Connector_TRH-H_BEM_SFT_4W", TRH_H_BEM_SFT_4W())
 # Comandos
 FreeCADGui.addCommand("STEMFIE_Cmd_Listado", Cmd_Listado())
 

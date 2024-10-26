@@ -2761,7 +2761,7 @@ class STR_BXS_ESS_C:
 
 
 # Conectores
-class THR_H_BEM_SFT_1W:
+class TRH_H_BEM_SFT_1W:
     """Conector en 1 cara Stemfie"""
 
     def __init__(self, obj):
@@ -2896,13 +2896,13 @@ class THR_H_BEM_SFT_1W:
         # Refinamos el cuerpo
         P = P.removeSplitter()
         #  ---- Ponemos Nombre a la pieza con las variables de la misma
-        obj.Code = "THR_H_BEM_SFT_1W"
+        obj.Code = "TRH_H_BEM_SFT_1W"
 
         P.Placement = obj.Placement
         obj.Shape = P
 
 
-class THR_H_BEM_SFT_2W_180:
+class TRH_H_BEM_SFT_2W_180:
     """Conector en 2 caras opuestas Stemfie"""
 
     def __init__(self, obj):
@@ -3044,13 +3044,13 @@ class THR_H_BEM_SFT_2W_180:
         # Refinamos el cuerpo
         P = P.removeSplitter()
         #  ---- Ponemos Nombre a la pieza con las variables de la misma
-        obj.Code = "THR_H_BEM_SFT_2W_180"
+        obj.Code = "TRH_H_BEM_SFT_2W_180"
 
         P.Placement = obj.Placement
         obj.Shape = P
 
 
-class THR_H_BEM_SFT_2W_90:
+class TRH_H_BEM_SFT_2W_90:
     """Conector en 2 caras contiguas Stemfie"""
 
     def __init__(self, obj):
@@ -3192,13 +3192,13 @@ class THR_H_BEM_SFT_2W_90:
         # Refinamos el cuerpo
         P = P.removeSplitter()
         #  ---- Ponemos Nombre a la pieza con las variables de la misma
-        obj.Code = "THR_H_BEM_SFT_2W_90"
+        obj.Code = "TRH_H_BEM_SFT_2W_90"
 
         P.Placement = obj.Placement
         obj.Shape = P
 
 
-class THR_H_BEM_SFT_3W:
+class TRH_H_BEM_SFT_3W:
     """Conector en 3 caras contiguas Stemfie"""
 
     def __init__(self, obj):
@@ -3347,13 +3347,13 @@ class THR_H_BEM_SFT_3W:
         # Refinamos el cuerpo
         P = P.removeSplitter()
         #  ---- Ponemos Nombre a la pieza con las variables de la misma
-        obj.Code = "THR_H_BEM_SFT_3W"
+        obj.Code = "TRH_H_BEM_SFT_3W"
 
         P.Placement = obj.Placement
         obj.Shape = P
 
 
-class THR_H_BEM_SFT_4W:
+class TRH_H_BEM_SFT_4W:
     """Conector en las 4 caras Stemfie"""
 
     def __init__(self, obj):
@@ -3509,7 +3509,7 @@ class THR_H_BEM_SFT_4W:
         # Refinamos el cuerpo
         P = P.removeSplitter()
         #  ---- Ponemos Nombre a la pieza con las variables de la misma
-        obj.Code = "THR_H_BEM_SFT_4W"
+        obj.Code = "TRH_H_BEM_SFT_4W"
 
         P.Placement = obj.Placement
         obj.Shape = P
