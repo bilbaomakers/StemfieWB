@@ -366,7 +366,7 @@ class Cmd_Listado:
 
     def GetResources(self):
         return {
-            "Pixmap": os.path.join(ICONPATH, "Cmd_Listado_icon.png"),
+            "Pixmap": os.path.join(ICONPATH, "BoM.svg"),
             "MenuText": QT_TRANSLATE_NOOP("STEMFIE_Cmd_Listado", "Part list"),
             "ToolTip": QT_TRANSLATE_NOOP(
                 "STEMFIE_Cmd_Listado", "Print a list of the STEMFIE parts on the tree"
