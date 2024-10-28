@@ -21,8 +21,17 @@ class StemfieWorkbench(Workbench):
     def Initialize(self):
         from freecad.stemfie import Stemfie
 
-        #  Lista Brazos
-        self.ListaBrazos = [
+        self.list_beams = [
+            "STEMFIE_Beam_STR_ESS",
+            "STEMFIE_Beam_STR_ERR",
+            "STEMFIE_Beam_STR_BEM",
+            "STEMFIE_Beam_AGD_ESS_USH_SYM",
+            "STEMFIE_Beam_STR_BED",
+            "STEMFIE_Beam_STR_BET",
+            "STEMFIE_Beam_STR_BXS_ESS_H",
+            "STEMFIE_Beam_STR_BXS_ESS_C",
+        ]
+        self.list_braces = [
             "STEMFIE_Brace_STR_STD_ERR",
             "STEMFIE_Brace_STR_STD_BRD_AZ",
             "STEMFIE_Brace_CRN_ERR_ASYM",
@@ -36,59 +45,48 @@ class StemfieWorkbench(Workbench):
             "STEMFIE_Brace_STR_STD_BRT_AY",
             "STEMFIE_Brace_STR_STD_CR",
         ]
-        self.appendToolbar(
-            QT_TRANSLATE_NOOP("Workbench", "Stemfie Braces"), self.ListaBrazos
-        )  # crea una barra de herramientas 'Stemfie Brace' con los iconos de los comandos
-
-        #   Lista Vigas
-        self.ListaVigas = [
-            "STEMFIE_Beam_STR_ESS",
-            "STEMFIE_Beam_STR_ERR",
-            "STEMFIE_Beam_STR_BEM",
-            "STEMFIE_Beam_AGD_ESS_USH_SYM",
-            "STEMFIE_Beam_STR_BED",
-            "STEMFIE_Beam_STR_BET",
-            "STEMFIE_Beam_STR_BXS_ESS_H",
-            "STEMFIE_Beam_STR_BXS_ESS_C",
-        ]
-        self.appendToolbar(
-            QT_TRANSLATE_NOOP("Workbench", "Stemfie Beams"), self.ListaVigas
-        )  # crea una barra de herramientas 'Stemfie Beam' con los iconos de los comandos
-
-        # List of plates
-        self.list_plates = [
-            "STEMFIE_Plate_TRI",
-            "STEMFIE_Plate_SQR",
-            "STEMFIE_Plate_HEX",
-        ]
-        self.appendToolbar(QT_TRANSLATE_NOOP("Workbench", "Stemfie Plates"), self.list_plates)
-
-        #   Lista Conectores
-        self.ListaConectores = [
+        self.list_connectors = [
             "STEMFIE_Connector_TRH_H_BEM_SFT_1W",
             "STEMFIE_Connector_TRH_H_BEM_SFT_2W_180",
             "STEMFIE_Connector_TRH_H_BEM_SFT_2W_90",
             "STEMFIE_Connector_TRH_H_BEM_SFT_3W",
             "STEMFIE_Connector_TRH_H_BEM_SFT_4W",
         ]
-        self.appendToolbar(
-            QT_TRANSLATE_NOOP("Workbench", "Stemfie Conectors"), self.ListaConectores
-        )  # crea una barra de herramientas 'Stemfie Conectores' con los iconos de los comandos
+        self.list_fasteners = []
+        self.list_plates = [
+            "STEMFIE_Plate_TRI",
+            "STEMFIE_Plate_SQR",
+            "STEMFIE_Plate_HEX",
+        ]
+        self.list_shafts = []
+        self.list_springs = []
+        self.list_commands = ["STEMFIE_Cmd_Listado"]
 
-        #   Lista Comandos
-        self.ListaComandos = ["STEMFIE_Cmd_Listado"]
+        self.appendToolbar(QT_TRANSLATE_NOOP("Workbench", "Stemfie Beams"), self.list_beams)
+        self.appendToolbar(QT_TRANSLATE_NOOP("Workbench", "Stemfie Braces"), self.list_braces)
         self.appendToolbar(
-            QT_TRANSLATE_NOOP("Workbench", "Stemfie Tools"), self.ListaComandos
-        )  # crea una barra de herramientas 'Stemfie Comandos' con los iconos de los comandos
+            QT_TRANSLATE_NOOP("Workbench", "Stemfie Connectors"), self.list_connectors
+        )
+        # self.appendToolbar(QT_TRANSLATE_NOOP("Workbench", "Stemfie Fasteners"), self.list_fasteners)
+        self.appendToolbar(QT_TRANSLATE_NOOP("Workbench", "Stemfie Plates"), self.list_plates)
+        # self.appendToolbar(QT_TRANSLATE_NOOP("Workbench", "Stemfie Shafts"), self.list_shafts)
+        # self.appendToolbar(QT_TRANSLATE_NOOP("Workbench", "Stemfie Springs"), self.list_springs)
+        self.appendToolbar(QT_TRANSLATE_NOOP("Workbench", "Stemfie Utilities"), self.list_commands)
 
         # Creamos menu
-        self.appendMenu("Stemfie", self.ListaComandos)
+        self.appendMenu("Stemfie", self.list_commands)
         # Creo submenus
-        self.appendMenu(["Stemfie", QT_TRANSLATE_NOOP("Workbench", "Braces")], self.ListaBrazos)
-        self.appendMenu(["Stemfie", QT_TRANSLATE_NOOP("Workbench", "Beams")], self.ListaVigas)
+        self.appendMenu(["Stemfie", QT_TRANSLATE_NOOP("Workbench", "Beams")], self.list_beams)
+        self.appendMenu(["Stemfie", QT_TRANSLATE_NOOP("Workbench", "Braces")], self.list_braces)
         self.appendMenu(
-            ["Stemfie", QT_TRANSLATE_NOOP("Workbench", "Connectors")], self.ListaConectores
+            ["Stemfie", QT_TRANSLATE_NOOP("Workbench", "Connectors")], self.list_connectors
         )
+        # self.appendMenu(
+        #     ["Stemfie", QT_TRANSLATE_NOOP("Workbench", "Fasteners")], self.list_fasteners
+        # )
+        self.appendMenu(["Stemfie", QT_TRANSLATE_NOOP("Workbench", "Plates")], self.list_plates)
+        # self.appendMenu(["Stemfie", QT_TRANSLATE_NOOP("Workbench", "Shafts")], self.list_shafts)
+        # self.appendMenu(["Stemfie", QT_TRANSLATE_NOOP("Workbench", "Springs")], self.list_springs)
 
     def Activated(self):
         """
