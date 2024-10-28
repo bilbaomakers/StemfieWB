@@ -31,3 +31,8 @@ SIN_60 = sin(pi / 3)
 COS_30 = cos(pi / 6)
 COS_45 = cos(pi / 4)
 COS_60 = cos(pi / 3)
+
+
+def get_icon_path(icon_name: str) -> str:
+    """Returns the path to the SVG icon."""
+    return os.path.join(ICONPATH, icon_name + ".svg")

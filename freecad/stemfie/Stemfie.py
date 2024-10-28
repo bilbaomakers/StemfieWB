@@ -3,17 +3,30 @@ import FreeCADGui
 
 import os
 import random
-from freecad.stemfie import ICONPATH, Piezas, Plates
+from freecad.stemfie import ICONPATH, Piezas, Plates, get_icon_path
 
 QT_TRANSLATE_NOOP = FreeCAD.Qt.QT_TRANSLATE_NOOP
 
 
 class ViewProvider:
-    def __init__(self, obj):
+    def __init__(self, obj, icon_fn):
         obj.Proxy = self
+        self._check_attr()
+        if icon_fn[-3:].lower() != "svg":
+            self.icon = get_icon_path("STEMFIE")
+        else:
+            self.icon_fn = icon_fn or get_icon_path("STEMFIE")
+
+    def _check_attr(self):
+        """Check for missing attributes."""
+
+        if not hasattr(self, "icon_fn"):
+            setattr(self, "icon_fn", get_icon_path("STEMFIE"))
 
     def getIcon(self):
-        return os.path.join(ICONPATH, "STEMFIE.svg")
+        """Returns the path to the SVG icon."""
+        self._check_attr()
+        return self.icon_fn
 
 
 class BaseCommand:
@@ -45,8 +58,7 @@ class BaseCommand:
                 obj = FreeCAD.ActiveDocument.addObject("PartDesign::FeaturePython", cls.NAME)
             else:
                 obj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", cls.NAME)
-            ViewProvider(obj.ViewObject)
-            # ViewProvider(obj.ViewObject, cls.pixmap)
+            ViewProvider(obj.ViewObject, cls.pixmap)
             cls.FUNCTION(obj)
 
             if body:
