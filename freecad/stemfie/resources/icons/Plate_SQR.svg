@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="64"
+   height="64"
+   viewBox="0 0 64 64"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   sodipodi:docname="Plate_SQR.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <title
+     id="title1">Triangular plate</title>
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#323232"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#191919"
+     inkscape:document-units="px"
+     showgrid="true"
+     inkscape:zoom="7.9999996"
+     inkscape:cx="24.875001"
+     inkscape:cy="36.812502"
+     inkscape:window-width="1894"
+     inkscape:window-height="999"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1"
+     showguides="true"
+     inkscape:lockguides="false"
+     guidecolor="#ffff00"
+     guideopacity="0.6"
+     guidehicolor="#ff00ff"
+     guidehiopacity="0.50196078">
+    <inkscape:grid
+       id="grid1"
+       units="px"
+       originx="0"
+       originy="0"
+       spacingx="2"
+       spacingy="2"
+       empcolor="#0099e5"
+       empopacity="0.30196078"
+       color="#0099e5"
+       opacity="0.14901961"
+       empspacing="4"
+       enabled="true"
+       visible="true" />
+    <sodipodi:guide
+       position="-2,62"
+       orientation="0,1"
+       id="guide5"
+       inkscape:locked="false"
+       inkscape:label="top margin"
+       inkscape:color="rgb(255,255,0)" />
+    <sodipodi:guide
+       position="64,2"
+       orientation="0,1"
+       id="guide6"
+       inkscape:locked="false"
+       inkscape:label="bottom margin"
+       inkscape:color="rgb(255,255,0)" />
+    <sodipodi:guide
+       position="2,-2"
+       orientation="-1,0"
+       id="guide7"
+       inkscape:locked="false"
+       inkscape:label="right margin"
+       inkscape:color="rgb(255,255,0)" />
+    <sodipodi:guide
+       position="62,64"
+       orientation="-1,0"
+       id="guide8"
+       inkscape:locked="false"
+       inkscape:label="left margin"
+       inkscape:color="rgb(255,255,0)" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1">
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient13"
+       id="linearGradient8"
+       x1="11.493903"
+       y1="11.493903"
+       x2="52.506096"
+       y2="52.506096"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       id="linearGradient13"
+       inkscape:collect="always"
+       inkscape:label="Orange gradient">
+      <stop
+         style="stop-color:#fcaf3e;stop-opacity:1;"
+         offset="0"
+         id="stop13" />
+      <stop
+         style="stop-color:#f57900;stop-opacity:1;"
+         offset="1"
+         id="stop14" />
+    </linearGradient>
+  </defs>
+  <metadata
+     id="metadata1">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <cc:license
+           rdf:resource="http://creativecommons.org/licenses/by-nc-sa/4.0/" />
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>hasecilu</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>FreeCAD</rdf:li>
+            <rdf:li>command</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+        <dc:description>Template file to create icons for FreeCAD commands.</dc:description>
+        <dc:date>2024</dc:date>
+        <dc:rights>
+          <cc:Agent>
+            <dc:title>FreeCAD LGPL2+</dc:title>
+          </cc:Agent>
+        </dc:rights>
+        <dc:identifier>FreeCAD/src/</dc:identifier>
+        <dc:publisher>
+          <cc:Agent>
+            <dc:title>FreeCAD</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:relation>https://wiki.freecad.org/Artwork</dc:relation>
+        <dc:title>Triangular plate</dc:title>
+      </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Notice" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Attribution" />
+        <cc:prohibits
+           rdf:resource="http://creativecommons.org/ns#CommercialUse" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#ShareAlike" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+  <path
+     id="rect1"
+     style="display:inline;fill:#fcaf3e;stroke:#ce5c00;stroke-width:2;fill-opacity:1"
+     d="M 18,4 C 10.244,4 4,10.244 4,18 v 28 c 0,7.756 6.244,14 14,14 h 28 c 7.756,0 14,-6.244 14,-14 V 18 C 60,10.244 53.756,4 46,4 Z m 0,6 a 8,8 0 0 1 8,8 8,8 0 0 1 -8,8 8,8 0 0 1 -8,-8 8,8 0 0 1 8,-8 z m 28,0 a 8,8 0 0 1 8,8 8,8 0 0 1 -8,8 8,8 0 0 1 -8,-8 8,8 0 0 1 8,-8 z M 18,38 a 8,8 0 0 1 8,8 8,8 0 0 1 -8,8 8,8 0 0 1 -8,-8 8,8 0 0 1 8,-8 z m 28,0 a 8,8 0 0 1 8,8 8,8 0 0 1 -8,8 8,8 0 0 1 -8,-8 8,8 0 0 1 8,-8 z"
+     inkscape:label="main" />
+  <path
+     id="path6"
+     style="display:inline;fill:url(#linearGradient8);stroke:none;stroke-width:2"
+     inkscape:label="gradient"
+     sodipodi:type="inkscape:offset"
+     inkscape:radius="-3.0935922"
+     inkscape:original="M 18 4 C 10.244 4 4 10.244 4 18 L 4 46 C 4 53.756 10.244 60 18 60 L 46 60 C 53.756 60 60 53.756 60 46 L 60 18 C 60 10.244 53.756 4 46 4 L 18 4 z M 18 10 A 8 8 0 0 1 26 18 A 8 8 0 0 1 18 26 A 8 8 0 0 1 10 18 A 8 8 0 0 1 18 10 z M 46 10 A 8 8 0 0 1 54 18 A 8 8 0 0 1 46 26 A 8 8 0 0 1 38 18 A 8 8 0 0 1 46 10 z M 18 38 A 8 8 0 0 1 26 46 A 8 8 0 0 1 18 54 A 8 8 0 0 1 10 46 A 8 8 0 0 1 18 38 z M 46 38 A 8 8 0 0 1 54 46 A 8 8 0 0 1 46 54 A 8 8 0 0 1 38 46 A 8 8 0 0 1 46 38 z "
+     d="m 19.90625,7.09375 c 0.1474,0.033987 0.0033,-0.025236 0.257812,0.025391 2.136368,0.42495 0.06962,-0.20271 2.082032,0.6308594 2.012414,0.8335694 0.106843,-0.1847645 1.917968,1.0253906 1.811126,1.2101552 0.139453,-0.159376 1.679688,1.3808594 1.540235,1.540235 0.170704,-0.131438 1.380859,1.679688 1.210156,1.811125 0.191822,-0.09445 1.025391,1.917968 0.833569,2.012415 0.205909,-0.05434 0.630859,2.082032 0.42495,2.136367 0.212891,-0.01416 0.212891,2.164062 0,2.178222 0.212059,0.0277 -0.212891,2.164062 -0.42495,2.136368 0.20271,0.06962 -0.630859,2.082032 -0.833569,2.012414 0.184765,0.106843 -1.025391,1.917968 -1.210155,1.811126 0.159376,0.139453 -1.380859,1.679688 -1.540235,1.540235 0.131438,0.170704 -1.679688,1.380859 -1.811125,1.210156 0.09445,0.191822 -1.917968,1.025391 -2.012415,0.833569 0.05434,0.205909 -2.082032,0.630859 -2.136367,0.42495 0.01416,0.212891 -2.164062,0.212891 -2.178222,0 -0.0277,0.212059 -2.164062,-0.212891 C 13.69957,28.455909 15.766321,29.083569 13.753906,28.25 11.741492,27.416431 13.647063,28.434765 11.835938,27.224609 10.024812,26.014454 11.696485,27.383985 10.15625,25.84375 8.6160146,24.303515 9.9855458,25.975188 8.7753906,24.164062 7.5652355,22.352937 8.5835694,24.258508 7.75,22.246094 6.9164306,20.233679 7.5440906,22.30043 7.1191406,20.164062 7.0685143,19.909547 7.1277365,20.05365 7.09375,19.90625 v 24.1875 c 0.033987,-0.1474 -0.025236,-0.0033 0.025391,-0.257813 C 7.5440906,41.69957 6.9164306,43.766321 7.75,41.753906 8.5835694,39.741492 7.5652355,41.647063 8.7753906,39.835937 9.9855458,38.024812 8.6160146,39.696485 10.15625,38.15625 11.696485,36.616015 10.024812,37.985546 11.835938,36.775391 13.647063,35.565235 11.741492,36.583569 13.753906,35.75 15.766321,34.916431 13.69957,35.544091 15.835938,35.119141 17.972305,34.694191 15.821778,34.90625 18,34.90625 c 2.178222,0 0.0277,-0.212059 2.164062,0.212891 2.136368,0.42495 0.06962,-0.20271 2.082032,0.630859 2.012414,0.833569 0.106843,-0.184765 1.917968,1.025391 1.811126,1.210155 0.139453,-0.159376 1.679688,1.380859 1.540235,1.540235 0.170704,-0.131438 1.380859,1.679687 1.210156,1.811126 0.191822,-0.09445 1.025391,1.917969 0.833569,2.012415 0.205909,-0.05434 0.630859,2.082031 0.42495,2.136368 0.212891,-0.01416 0.212891,2.164063 0,2.178222 0.212059,0.0277 -0.212891,2.164062 -0.42495,2.136368 0.20271,0.06962 -0.630859,2.082032 -0.833569,2.012414 0.184765,0.106843 -1.025391,1.917968 -1.210155,1.811126 0.159376,0.139453 -1.380859,1.679688 -1.540235,1.540235 0.131438,0.170704 -1.679688,1.380859 -1.811125,1.210156 0.09445,0.191822 -1.917968,1.025391 -2.012415,0.833569 0.05434,0.205909 -2.082032,0.630859 -0.254515,0.05063 -0.110412,-0.0086 -0.257812,0.02539 h 24.1875 c -0.1474,-0.03399 -0.0033,0.02524 -0.257813,-0.02539 C 41.69957,56.455909 43.766321,57.083569 41.753906,56.25 39.741492,55.416431 41.647063,56.434765 39.835937,55.224609 38.024812,54.014454 39.696485,55.383985 38.15625,53.84375 36.616015,52.303515 37.985546,53.975188 36.775391,52.164062 35.565235,50.352937 36.583569,52.258508 35.75,50.246094 34.916431,48.233679 35.544091,50.30043 35.119141,48.164062 34.694191,46.027695 34.90625,48.178222 34.90625,46 c 0,-2.178222 -0.212059,-0.0277 0.212891,-2.164063 0.42495,-2.136367 -0.20271,-0.06962 0.630859,-2.082031 0.833569,-2.012414 -0.184765,-0.106843 1.025391,-1.917969 1.210155,-1.811125 -0.159376,-0.139452 1.380859,-1.679687 1.540235,-1.540235 -0.131438,-0.170704 1.679687,-1.380859 1.811126,-1.210156 -0.09445,-0.191822 1.917969,-1.025391 2.012415,-0.833569 -0.05434,-0.205909 2.082031,-0.630859 C 45.972305,34.694191 43.821778,34.90625 46,34.90625 c 2.178222,0 0.0277,-0.212059 2.164062,0.212891 2.136368,0.42495 0.06962,-0.20271 2.082032,0.630859 2.012414,0.833569 0.106843,-0.184765 1.917968,1.025391 1.811126,1.210155 0.139453,-0.159376 1.679688,1.380859 1.540235,1.540235 0.170704,-0.131438 1.380859,1.679687 1.210156,1.811126 0.191822,-0.09445 1.025391,1.917969 0.833569,2.012415 0.205909,-0.05434 0.630859,2.082031 0.05063,0.254516 -0.0086,0.110413 0.02539,0.257813 v -24.1875 c -0.03399,0.1474 0.02524,0.0033 -0.02539,0.257812 -0.42495,2.136368 0.20271,0.06962 -0.630859,2.082032 -0.833569,2.012414 0.184765,0.106843 -1.025391,1.917968 -1.210155,1.811126 0.159376,0.139453 -1.380859,1.679688 -1.540235,1.540235 0.131438,0.170704 -1.679688,1.380859 -1.811125,1.210156 0.09445,0.191822 -1.917968,1.025391 -2.012415,0.833569 0.05434,0.205909 -2.082032,0.630859 -2.136367,0.42495 0.01416,0.212891 -2.164062,0.212891 -2.178222,0 -0.0277,0.212059 -2.164063,-0.212891 C 41.69957,28.455909 43.766321,29.083569 41.753906,28.25 39.741492,27.416431 41.647063,28.434765 39.835937,27.224609 38.024812,26.014454 39.696485,27.383985 38.15625,25.84375 36.616015,24.303515 37.985546,25.975188 36.775391,24.164062 35.565235,22.352937 36.583569,24.258508 35.75,22.246094 34.916431,20.233679 35.544091,22.30043 35.119141,20.164062 34.694191,18.027695 34.90625,20.178222 34.90625,18 c 0,-2.178222 -0.212059,-0.0277 0.212891,-2.164062 0.42495,-2.136368 -0.20271,-0.06962 0.630859,-2.082032 0.833569,-2.012414 -0.184765,-0.106843 1.025391,-1.917968 C 37.985546,10.024812 36.616015,11.696485 38.15625,10.15625 39.696485,8.6160146 38.024812,9.9855458 39.835937,8.7753906 41.647063,7.5652355 39.741492,8.5835694 41.753906,7.75 43.766321,6.9164306 41.69957,7.5440906 43.835937,7.1191406 c 0.254516,-0.050626 0.110413,0.0086 0.257813,-0.025391 z" />
+</svg>
