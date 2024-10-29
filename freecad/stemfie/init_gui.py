@@ -58,7 +58,7 @@ class StemfieWorkbench(Workbench):
             "STEMFIE_Plate_SQR",
             "STEMFIE_Plate_HEX",
         ]
-        self.list_shafts = []
+        self.list_shafts = ["STEMFIE_Shaft_SFT_PLN"]
         self.list_springs = []
         self.list_commands = ["STEMFIE_Cmd_Listado"]
 
@@ -69,7 +69,7 @@ class StemfieWorkbench(Workbench):
         )
         # self.appendToolbar(QT_TRANSLATE_NOOP("Workbench", "Stemfie Fasteners"), self.list_fasteners)
         self.appendToolbar(QT_TRANSLATE_NOOP("Workbench", "Stemfie Plates"), self.list_plates)
-        # self.appendToolbar(QT_TRANSLATE_NOOP("Workbench", "Stemfie Shafts"), self.list_shafts)
+        self.appendToolbar(QT_TRANSLATE_NOOP("Workbench", "Stemfie Shafts"), self.list_shafts)
         # self.appendToolbar(QT_TRANSLATE_NOOP("Workbench", "Stemfie Springs"), self.list_springs)
         self.appendToolbar(QT_TRANSLATE_NOOP("Workbench", "Stemfie Utilities"), self.list_commands)
 
@@ -85,7 +85,7 @@ class StemfieWorkbench(Workbench):
         #     ["Stemfie", QT_TRANSLATE_NOOP("Workbench", "Fasteners")], self.list_fasteners
         # )
         self.appendMenu(["Stemfie", QT_TRANSLATE_NOOP("Workbench", "Plates")], self.list_plates)
-        # self.appendMenu(["Stemfie", QT_TRANSLATE_NOOP("Workbench", "Shafts")], self.list_shafts)
+        self.appendMenu(["Stemfie", QT_TRANSLATE_NOOP("Workbench", "Shafts")], self.list_shafts)
         # self.appendMenu(["Stemfie", QT_TRANSLATE_NOOP("Workbench", "Springs")], self.list_springs)
 
     def Activated(self):

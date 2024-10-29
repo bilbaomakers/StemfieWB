@@ -3,7 +3,7 @@ import FreeCADGui
 
 import os
 import random
-from freecad.stemfie import ICONPATH, Piezas, Plates, get_icon_path
+from freecad.stemfie import ICONPATH, Piezas, Plates, Shafts, get_icon_path
 
 QT_TRANSLATE_NOOP = FreeCAD.Qt.QT_TRANSLATE_NOOP
 
@@ -351,6 +351,18 @@ class PLT_HEX(BaseCommand):
     tooltip = QT_TRANSLATE_NOOP("STEMFIE_Plate_HEX", "Plate - Hexagonal")
 
 
+# Shafts
+class SFT_PLN(BaseCommand):
+    NAME = "SFT_PLN"
+    FUNCTION = Shafts.SFT_PLN
+    pixmap = os.path.join(ICONPATH, "SFT_PLN.svg")
+    menutext = "SFT PLN"
+    tooltip = QT_TRANSLATE_NOOP(
+        "STEMFIE_Shaft_SFT_PLN",
+        "Shaft - Plain",
+    )
+
+
 #  Comandos
 class Cmd_Listado:
     def IsActive(self):
@@ -406,5 +418,7 @@ FreeCADGui.addCommand("STEMFIE_Connector_TRH_H_BEM_SFT_4W", TRH_H_BEM_SFT_4W())
 FreeCADGui.addCommand("STEMFIE_Plate_TRI", PLT_TRI())
 FreeCADGui.addCommand("STEMFIE_Plate_SQR", PLT_SQR())
 FreeCADGui.addCommand("STEMFIE_Plate_HEX", PLT_HEX())
+# Shafts
+FreeCADGui.addCommand("STEMFIE_Shaft_SFT_PLN", SFT_PLN())
 # Comandos
 FreeCADGui.addCommand("STEMFIE_Cmd_Listado", Cmd_Listado())
