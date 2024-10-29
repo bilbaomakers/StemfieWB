@@ -274,7 +274,7 @@ class STR_STD_CR(BaseCommand):
 class TRH_H_BEM_SFT_1W(BaseCommand):
     NAME = "TRH_H_BEM_SFT_1W"
     FUNCTION = Piezas.TRH_H_BEM_SFT_1W
-    pixmap = os.path.join(ICONPATH, "Conector THR H BEM SFT 1W_icon.png")
+    pixmap = os.path.join(ICONPATH, "TRH-H_BEM_SFT_1W.svg")
     menutext = "TRH-H BEM SFT 1W"
     tooltip = QT_TRANSLATE_NOOP(
         "STEMFIE_Connector_TRH_H_BEM_SFT_1W",
@@ -285,7 +285,7 @@ class TRH_H_BEM_SFT_1W(BaseCommand):
 class TRH_H_BEM_SFT_2W_180(BaseCommand):
     NAME = "TRH_H_BEM_SFT_2W_180"
     FUNCTION = Piezas.TRH_H_BEM_SFT_2W_180
-    pixmap = os.path.join(ICONPATH, "Conector THR H BEM SFT 2W 180_icon.png")
+    pixmap = os.path.join(ICONPATH, "TRH-H_BEM_SFT_2W_180.svg")
     menutext = "TRH-H BEM SFT 2W 180º"
     tooltip = QT_TRANSLATE_NOOP(
         "STEMFIE_Connector_TRH_H_BEM_SFT_2W_180",
@@ -296,7 +296,7 @@ class TRH_H_BEM_SFT_2W_180(BaseCommand):
 class TRH_H_BEM_SFT_2W_90(BaseCommand):
     NAME = "TRH_H_BEM_SFT_2W_90"
     FUNCTION = Piezas.TRH_H_BEM_SFT_2W_90
-    pixmap = os.path.join(ICONPATH, "Conector THR H BEM SFT 2W 90_icon.png")
+    pixmap = os.path.join(ICONPATH, "TRH-H_BEM_SFT_2W_90.svg")
     menutext = "TRH-H BEM SFT 2W 90º"
     tooltip = QT_TRANSLATE_NOOP(
         "STEMFIE_Connector_TRH_H_BEM_SFT_2W_90",
@@ -307,7 +307,7 @@ class TRH_H_BEM_SFT_2W_90(BaseCommand):
 class TRH_H_BEM_SFT_3W(BaseCommand):
     NAME = "TRH_H_BEM_SFT_3W"
     FUNCTION = Piezas.TRH_H_BEM_SFT_3W
-    pixmap = os.path.join(ICONPATH, "Conector THR H BEM SFT 3W_icon.png")
+    pixmap = os.path.join(ICONPATH, "TRH-H_BEM_SFT_3W.svg")
     menutext = "TRH-H BEM SFT 3W"
     tooltip = QT_TRANSLATE_NOOP(
         "STEMFIE_Connector_TRH_H_BEM_SFT_3W",
@@ -318,7 +318,7 @@ class TRH_H_BEM_SFT_3W(BaseCommand):
 class TRH_H_BEM_SFT_4W(BaseCommand):
     NAME = "TRH_H_BEM_SFT_4W"
     FUNCTION = Piezas.TRH_H_BEM_SFT_4W
-    pixmap = os.path.join(ICONPATH, "Conector THR H BEM SFT 4W_icon.png")
+    pixmap = os.path.join(ICONPATH, "TRH-H_BEM_SFT_4W.svg")
     menutext = "TRH-H BEM SFT 4W"
     tooltip = QT_TRANSLATE_NOOP(
         "STEMFIE_Connector_TRH_H_BEM_SFT_4W",
