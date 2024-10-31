@@ -10,6 +10,8 @@
 
 [FreeCAD][FreeCAD] workbench for the [STEMFIE][STEMFIE] construction system.
 
+![Available components](img/screenshot.jpg "Available components")
+
 ## Installation
 
 ### Automatic Installation
