@@ -45,6 +45,21 @@ git clone https://github.com/bilbaomakers/StemfieWB STEMFIE
 
 If you are updating the code, restarting FreeCAD is advised.
 
+## Changelog
+
+Read our [CHANGELOG](./CHANGELOG.md) file to know about the latest changes.
+
+## Contributing
+
+Read our [CONTRIBUTING](./CONTRIBUTING.md) file to know about ways how to help
+on the workbench.
+
+## Links
+
+- About STEMFIE: <https://www.stemfie.org/about>
+- Workbench documentation: <https://wiki.freecad.org/Stemfie_Workbench>
+- FreeCAD's forum thread: <https://forum.freecad.org/viewtopic.php?t=59951>
+
 [ContribsW]: ./CONTRIBUTING.md
 [ContribsW_badge]: https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat
 [license]: ./LICENSE
