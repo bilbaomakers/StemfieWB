@@ -15,7 +15,7 @@ Gui.updateLocale()
 
 class StemfieWorkbench(Workbench):
     MenuText = "STEMFIE"
-    ToolTip = translate("Workbench", "Workbench for Stemfie")
+    ToolTip = translate("Workbench", "Workbench for STEMFIE")
     Icon = os.path.join(ICONPATH, "STEMFIE.svg")
 
     def Initialize(self):
@@ -62,31 +62,32 @@ class StemfieWorkbench(Workbench):
         self.list_springs = []
         self.list_commands = ["STEMFIE_PartsList"]
 
-        self.appendToolbar(QT_TRANSLATE_NOOP("Workbench", "Stemfie Beams"), self.list_beams)
-        self.appendToolbar(QT_TRANSLATE_NOOP("Workbench", "Stemfie Braces"), self.list_braces)
+        self.appendToolbar(QT_TRANSLATE_NOOP("Workbench", "STEMFIE Beams"), self.list_beams)
+        self.appendToolbar(QT_TRANSLATE_NOOP("Workbench", "STEMFIE Braces"), self.list_braces)
         self.appendToolbar(
-            QT_TRANSLATE_NOOP("Workbench", "Stemfie Connectors"), self.list_connectors
+            QT_TRANSLATE_NOOP("Workbench", "STEMFIE Connectors"), self.list_connectors
         )
-        # self.appendToolbar(QT_TRANSLATE_NOOP("Workbench", "Stemfie Fasteners"), self.list_fasteners)
-        self.appendToolbar(QT_TRANSLATE_NOOP("Workbench", "Stemfie Plates"), self.list_plates)
-        self.appendToolbar(QT_TRANSLATE_NOOP("Workbench", "Stemfie Shafts"), self.list_shafts)
-        # self.appendToolbar(QT_TRANSLATE_NOOP("Workbench", "Stemfie Springs"), self.list_springs)
-        self.appendToolbar(QT_TRANSLATE_NOOP("Workbench", "Stemfie Utilities"), self.list_commands)
+        # self.appendToolbar(QT_TRANSLATE_NOOP("Workbench", "STEMFIE Fasteners"), self.list_fasteners)
+        self.appendToolbar(QT_TRANSLATE_NOOP("Workbench", "STEMFIE Plates"), self.list_plates)
+        self.appendToolbar(QT_TRANSLATE_NOOP("Workbench", "STEMFIE Shafts"), self.list_shafts)
+        # self.appendToolbar(QT_TRANSLATE_NOOP("Workbench", "STEMFIE Springs"), self.list_springs)
+        self.appendToolbar(QT_TRANSLATE_NOOP("Workbench", "STEMFIE Utilities"), self.list_commands)
 
         # Creamos menu
-        self.appendMenu("Stemfie", self.list_commands)
+        self.appendMenu("STEMFIE", self.list_commands)
         # Creo submenus
-        self.appendMenu(["Stemfie", QT_TRANSLATE_NOOP("Workbench", "Beams")], self.list_beams)
-        self.appendMenu(["Stemfie", QT_TRANSLATE_NOOP("Workbench", "Braces")], self.list_braces)
+        self.appendMenu(["STEMFIE", QT_TRANSLATE_NOOP("Workbench", "Beams")], self.list_beams)
+        self.appendMenu(["STEMFIE", QT_TRANSLATE_NOOP("Workbench", "Braces")], self.list_braces)
         self.appendMenu(
-            ["Stemfie", QT_TRANSLATE_NOOP("Workbench", "Connectors")], self.list_connectors
+            ["STEMFIE", QT_TRANSLATE_NOOP("Workbench", "Connectors")],
+            self.list_connectors,
         )
         # self.appendMenu(
-        #     ["Stemfie", QT_TRANSLATE_NOOP("Workbench", "Fasteners")], self.list_fasteners
+        #     ["STEMFIE", QT_TRANSLATE_NOOP("Workbench", "Fasteners")], self.list_fasteners
         # )
-        self.appendMenu(["Stemfie", QT_TRANSLATE_NOOP("Workbench", "Plates")], self.list_plates)
-        self.appendMenu(["Stemfie", QT_TRANSLATE_NOOP("Workbench", "Shafts")], self.list_shafts)
-        # self.appendMenu(["Stemfie", QT_TRANSLATE_NOOP("Workbench", "Springs")], self.list_springs)
+        self.appendMenu(["STEMFIE", QT_TRANSLATE_NOOP("Workbench", "Plates")], self.list_plates)
+        self.appendMenu(["STEMFIE", QT_TRANSLATE_NOOP("Workbench", "Shafts")], self.list_shafts)
+        # self.appendMenu(["STEMFIE", QT_TRANSLATE_NOOP("Workbench", "Springs")], self.list_springs)
 
     def Activated(self):
         """
@@ -111,14 +112,14 @@ class StemfieWorkbench(Workbench):
     #     "recipient" will be either "view" or "tree".
     #     """
     #
-    #    self.appendContextMenu("Stemfie",self.ListaBrazos)
+    #    self.appendContextMenu("STEMFIE",self.ListaBrazos)
     #
     #    import FreeCAD, FreeCADGui
     #     selection = [s  for s in FreeCADGui.Selection.getSelection() if s.Document == FreeCAD.ActiveDocument ]
     #     if len(selection) == 1:
     #         obj = selection[0]
     #         if 'sourceFile' in  obj.Content:
-    #             self.appendContextMenu("Stemfie", self.ListaBrazos )
+    #             self.appendContextMenu("STEMFIE", self.ListaBrazos )
 
 
 Gui.addWorkbench(StemfieWorkbench())  # Carga las barras de herramientas que se denominen
