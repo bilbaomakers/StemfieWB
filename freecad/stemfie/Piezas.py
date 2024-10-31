@@ -100,7 +100,7 @@ class STR_STD_ERR:
         obj.Shape = P
 
 
-class STR_STD_BRD_AZ:
+class STR_STD_DBL_AZ:
     """Brazo Angular Stemfie"""
 
     def __init__(self, obj):
@@ -338,7 +338,7 @@ class CRN_ERR_ASYM:
         obj.Shape = P
 
 
-class STR_STD_BRM:
+class STR_STD_SQR:
     """Plancha Cuadrada Stemfie"""
 
     def __init__(self, obj):
@@ -440,13 +440,13 @@ class STR_STD_BRM:
                         Agujeros = Agujeros.fuse(Agujero)
             P = P.cut(Agujeros)
         #  ---- Ponemos Nombre a la pieza con las variables de la misma
-        obj.Code = "STR STD BRM-" + str(obj.HolesNumberX) + "x" + str(obj.HolesNumberY)
+        obj.Code = "STR STD SQR-" + str(obj.HolesNumberX) + "x" + str(obj.HolesNumberY)
 
         P.Placement = obj.Placement
         obj.Shape = P
 
 
-class STR_STD_BRM_AY:
+class STR_STD_SQR_AY:
     """Plancha Cuadrada Stemfie con angulo en Y"""
 
     def __init__(self, obj):
@@ -653,7 +653,7 @@ class STR_STD_BRM_AY:
 
         #  ---- Ponemos Nombre a la pieza con las variables de la misma
         obj.Code = (
-            "STR STD BRM AY-"
+            "STR STD SQR AY-"
             + str(obj.HolesNumberX)
             + "x"
             + str(obj.HolesNumberY)
@@ -1074,7 +1074,7 @@ class STR_SLT_SE_ERR:
         obj.Shape = P
 
 
-class STR_STD_BRD_AY:
+class STR_STD_DBL_AY:
     """Brazo Stemfie angulo en Y Nº_Agujeros en horizontal y Nº agujeros en inclinada"""
 
     def __init__(self, obj):
@@ -1206,7 +1206,7 @@ class STR_STD_BRD_AY:
         P = P.removeSplitter()
         #  ---- Ponemos Nombre a la pieza con las variables de la misma
         obj.Code = (
-            "STR_STD_BRD_AY-"
+            "STR_STD_DBL_AY-"
             + str(obj.HolesNumberX)
             + "x"
             + str(obj.HolesNumberSloping)
@@ -1218,7 +1218,7 @@ class STR_STD_BRD_AY:
         obj.Shape = P
 
 
-class STR_STD_BRT_AZ:
+class STR_STD_TRPL_AZ:
     """Brazo Stemfie con brazos inclinados en extremos"""
 
     def __init__(self, obj):
@@ -1388,7 +1388,7 @@ class STR_STD_BRT_AZ:
         P = P.removeSplitter()
         #  ---- Ponemos Nombre a la pieza con las variables de la misma
         obj.Code = (
-            "STR_STD_BRT_AZ-"
+            "STR_STD_TRPL_AZ-"
             + str(obj.HolesNumberY1)
             + "x"
             + str(obj.HolesNumberX)
@@ -1402,7 +1402,7 @@ class STR_STD_BRT_AZ:
         obj.Shape = P
 
 
-class STR_STD_BRT_AY:
+class STR_STD_TRPL_AY:
     """Brazo Stemfie con brazos inclinados en extremos en eje Y"""
 
     def __init__(self, obj):
@@ -1606,7 +1606,7 @@ class STR_STD_BRT_AY:
         P = P.removeSplitter()
         #  ---- Ponemos Nombre a la pieza con las variables de la misma
         obj.Code = (
-            "STR_STD_BRT_AY-"
+            "STR_STD_TRPL_AY-"
             + str(obj.HolesNumberSloping1)
             + "x"
             + str(obj.HolesNumberX)
@@ -1621,7 +1621,7 @@ class STR_STD_BRT_AY:
         obj.Shape = P
 
 
-class STR_STD_CR:
+class STR_STD_CRS:
     """Brazo Stemfie Cruz con longitud de brazos independientes"""
 
     def __init__(self, obj):
@@ -1807,7 +1807,7 @@ class STR_STD_CR:
         P = P.removeSplitter()
         #  ---- Ponemos Nombre a la pieza con las variables de la misma
         obj.Code = (
-            "STR_STD_CR-"
+            "STR_STD_CRS-"
             + str(obj.HolesNumberXPositive)
             + "x"
             + str(obj.HolesNumberXNegative)
@@ -2240,7 +2240,7 @@ class AGD_ESS_USH_SYM:
         obj.Shape = P
 
 
-class STR_BED:
+class STR_DBL:
     """Viga Angular Stemfie"""
 
     def __init__(self, obj):
@@ -2387,14 +2387,14 @@ class STR_BED:
         P = P.removeSplitter()
         #  ---- Ponemos Nombre a la pieza con las variables de la misma
         obj.Code = (
-            "STR_BED-" + str(obj.HolesNumberX) + "x" + str(obj.HolesNumberY) + " " + str(obj.Angle)
+            "STR_DBL-" + str(obj.HolesNumberX) + "x" + str(obj.HolesNumberY) + " " + str(obj.Angle)
         )
 
         P.Placement = obj.Placement
         obj.Shape = P
 
 
-class STR_BET:
+class STR_TRPL:
     """Viga Stemfie con brazos en los extremos Angulo variable"""
 
     def __init__(self, obj):
@@ -2613,7 +2613,7 @@ class STR_BET:
         P = P.removeSplitter()
         #  ---- Ponemos Nombre a la pieza con las variables de la misma
         obj.Code = (
-            "STR_BET-"
+            "STR_TRPL-"
             + str(obj.HolesNumberY1)
             + "x"
             + str(obj.HolesNumberX)
@@ -2642,7 +2642,7 @@ class STR_BXS_ESS_H:
             "App::PropertyInteger",
             QT_TRANSLATE_NOOP("App::Property", "HolesNumber"),
             QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
-            QT_TRANSLATE_NOOP("App::Property", "Holes number \nMinimum = 1"),
+            QT_TRANSLATE_NOOP("App::Property", "Holes number\nMinimum = 1"),
         )
         obj.HolesNumber = 1
 
@@ -2698,7 +2698,7 @@ class STR_BXS_ESS_C:
             "App::PropertyInteger",
             QT_TRANSLATE_NOOP("App::Property", "HolesNumber"),
             QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
-            QT_TRANSLATE_NOOP("App::Property", "Holes number \nMinimum = 3"),
+            QT_TRANSLATE_NOOP("App::Property", "Holes number\nMinimum = 3"),
         )
         obj.HolesNumber = 3
 

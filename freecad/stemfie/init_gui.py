@@ -26,29 +26,29 @@ class StemfieWorkbench(Workbench):
             "STEMFIE_Beam_STR_ERR",
             "STEMFIE_Beam_STR_BEM",
             "STEMFIE_Beam_AGD_ESS_USH_SYM",
-            "STEMFIE_Beam_STR_BED",
-            "STEMFIE_Beam_STR_BET",
+            "STEMFIE_Beam_STR_DBL",
+            "STEMFIE_Beam_STR_TRPL",
             "STEMFIE_Beam_STR_BXS_ESS_H",
             "STEMFIE_Beam_STR_BXS_ESS_C",
         ]
         self.list_braces = [
             "STEMFIE_Brace_STR_STD_ERR",
-            "STEMFIE_Brace_STR_STD_BRD_AZ",
             "STEMFIE_Brace_CRN_ERR_ASYM",
-            "STEMFIE_Brace_STR_STD_BRM_AY",
+            "STEMFIE_Brace_STR_STD_SQR_AY",
             "STEMFIE_Brace_STR_SLT_BE_SYM_ERR",
             "STEMFIE_Brace_STR_SLT_CNT_ERR",
             "STEMFIE_Brace_STR_SLT_FL_ERR",
             "STEMFIE_Brace_STR_SLT_SE_ERR",
-            "STEMFIE_Brace_STR_STD_BRD_AY",
-            "STEMFIE_Brace_STR_STD_BRT_AZ",
-            "STEMFIE_Brace_STR_STD_BRT_AY",
-            "STEMFIE_Brace_STR_STD_CR",
+            "STEMFIE_Brace_STR_STD_DBL_AZ",
+            "STEMFIE_Brace_STR_STD_DBL_AY",
+            "STEMFIE_Brace_STR_STD_TRPL_AZ",
+            "STEMFIE_Brace_STR_STD_TRPL_AY",
+            "STEMFIE_Brace_STR_STD_CRS",
         ]
         self.list_connectors = [
             "STEMFIE_Connector_TRH_H_BEM_SFT_1W",
-            "STEMFIE_Connector_TRH_H_BEM_SFT_2W_180",
             "STEMFIE_Connector_TRH_H_BEM_SFT_2W_90",
+            "STEMFIE_Connector_TRH_H_BEM_SFT_2W_180",
             "STEMFIE_Connector_TRH_H_BEM_SFT_3W",
             "STEMFIE_Connector_TRH_H_BEM_SFT_4W",
         ]
@@ -60,7 +60,7 @@ class StemfieWorkbench(Workbench):
         ]
         self.list_shafts = ["STEMFIE_Shaft_SFT_PLN"]
         self.list_springs = []
-        self.list_commands = ["STEMFIE_Cmd_Listado"]
+        self.list_commands = ["STEMFIE_PartsList"]
 
         self.appendToolbar(QT_TRANSLATE_NOOP("Workbench", "Stemfie Beams"), self.list_beams)
         self.appendToolbar(QT_TRANSLATE_NOOP("Workbench", "Stemfie Braces"), self.list_braces)

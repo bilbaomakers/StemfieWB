@@ -271,7 +271,7 @@ class PLT_HEX:
             QT_TRANSLATE_NOOP("App::Property", "RingsNumber"),
             QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
             QT_TRANSLATE_NOOP(
-                "App::Property", "Number of rings araound central hole \nMinimum = 1"
+                "App::Property", "Number of rings around the central hole\nMinimum = 1"
             ),
         ).RingsNumber = 2
 
