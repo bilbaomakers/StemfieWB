@@ -39,11 +39,10 @@
 
   <tag>3dprinting</tag>
 
-  <icon>freecad/stemfie/resources/icons/STEMFIE.svg</icon>
-
   <content>
     <workbench>
       <name>STEMFIE Workbench</name>
+      <icon>resources/icons/STEMFIE.svg</icon>
       <subdirectory>freecad/stemfie</subdirectory>
       <classname>StemfieWorkbench</classname>
     </workbench>
