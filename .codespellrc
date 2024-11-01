@@ -4,4 +4,5 @@ skip = .git*,ADDON_DISABLED,.codespellrc,metadata.txt
 check-hidden = true
 # camel-cased
 ignore-regex = (\b[A-Za-z][a-z]*[A-Z]\S+\b|\.edn\b|\S+…|\\nd\b)
-ignore-words-list = vertexes
+# Still there are some Spanish comments
+ignore-words-list = vertexes,funcion,conector,comandos
