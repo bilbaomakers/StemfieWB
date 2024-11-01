@@ -43,7 +43,8 @@
 
   <content>
     <workbench>
-      <icon>freecad/stemfie/resources/icons/STEMFIE.svg</icon>
+      <name>STEMFIE Workbench</name>
+      <subdirectory>freecad/stemfie</subdirectory>
       <classname>StemfieWorkbench</classname>
     </workbench>
   </content>
