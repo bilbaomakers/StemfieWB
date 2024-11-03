@@ -25,11 +25,15 @@
         <location filename="../../Piezas.py" line="2404"/>
         <location filename="../../Piezas.py" line="2636"/>
         <location filename="../../Piezas.py" line="2692"/>
-        <location filename="../../Piezas.py" line="2771"/>
-        <location filename="../../Piezas.py" line="2912"/>
-        <location filename="../../Piezas.py" line="3060"/>
-        <location filename="../../Piezas.py" line="3208"/>
-        <location filename="../../Piezas.py" line="3363"/>
+        <location filename="../../Piezas.py" line="2772"/>
+        <location filename="../../Piezas.py" line="2913"/>
+        <location filename="../../Piezas.py" line="3061"/>
+        <location filename="../../Piezas.py" line="3209"/>
+        <location filename="../../Piezas.py" line="3364"/>
+        <location filename="../../Plates.py" line="34"/>
+        <location filename="../../Plates.py" line="147"/>
+        <location filename="../../Plates.py" line="267"/>
+        <location filename="../../Shafts.py" line="30"/>
         <source>Code</source>
         <translation type="unfinished"></translation>
     </message>
@@ -55,11 +59,15 @@
         <location filename="../../Piezas.py" line="2405"/>
         <location filename="../../Piezas.py" line="2637"/>
         <location filename="../../Piezas.py" line="2693"/>
-        <location filename="../../Piezas.py" line="2772"/>
-        <location filename="../../Piezas.py" line="2913"/>
-        <location filename="../../Piezas.py" line="3061"/>
-        <location filename="../../Piezas.py" line="3209"/>
-        <location filename="../../Piezas.py" line="3364"/>
+        <location filename="../../Piezas.py" line="2773"/>
+        <location filename="../../Piezas.py" line="2914"/>
+        <location filename="../../Piezas.py" line="3062"/>
+        <location filename="../../Piezas.py" line="3210"/>
+        <location filename="../../Piezas.py" line="3365"/>
+        <location filename="../../Plates.py" line="35"/>
+        <location filename="../../Plates.py" line="148"/>
+        <location filename="../../Plates.py" line="268"/>
+        <location filename="../../Shafts.py" line="31"/>
         <source>Designation</source>
         <translation type="unfinished"></translation>
     </message>
@@ -85,11 +93,15 @@
         <location filename="../../Piezas.py" line="2406"/>
         <location filename="../../Piezas.py" line="2638"/>
         <location filename="../../Piezas.py" line="2694"/>
-        <location filename="../../Piezas.py" line="2773"/>
-        <location filename="../../Piezas.py" line="2914"/>
-        <location filename="../../Piezas.py" line="3062"/>
-        <location filename="../../Piezas.py" line="3210"/>
-        <location filename="../../Piezas.py" line="3365"/>
+        <location filename="../../Piezas.py" line="2774"/>
+        <location filename="../../Piezas.py" line="2915"/>
+        <location filename="../../Piezas.py" line="3063"/>
+        <location filename="../../Piezas.py" line="3211"/>
+        <location filename="../../Piezas.py" line="3366"/>
+        <location filename="../../Plates.py" line="36"/>
+        <location filename="../../Plates.py" line="149"/>
+        <location filename="../../Plates.py" line="269"/>
+        <location filename="../../Shafts.py" line="32"/>
         <source>STEMFIE part number</source>
         <translation type="unfinished"></translation>
     </message>
@@ -101,6 +113,7 @@
         <location filename="../../Piezas.py" line="1919"/>
         <location filename="../../Piezas.py" line="2643"/>
         <location filename="../../Piezas.py" line="2699"/>
+        <location filename="../../Shafts.py" line="37"/>
         <source>HolesNumber</source>
         <translation type="unfinished"></translation>
     </message>
@@ -156,6 +169,11 @@
         <location filename="../../Piezas.py" line="2433"/>
         <location filename="../../Piezas.py" line="2644"/>
         <location filename="../../Piezas.py" line="2700"/>
+        <location filename="../../Plates.py" line="42"/>
+        <location filename="../../Plates.py" line="155"/>
+        <location filename="../../Plates.py" line="161"/>
+        <location filename="../../Plates.py" line="275"/>
+        <location filename="../../Shafts.py" line="38"/>
         <source>Part parameters</source>
         <translation type="unfinished"></translation>
     </message>
@@ -177,6 +195,7 @@ Minimum = 1</source>
         <location filename="../../Piezas.py" line="2101"/>
         <location filename="../../Piezas.py" line="2257"/>
         <location filename="../../Piezas.py" line="2411"/>
+        <location filename="../../Plates.py" line="154"/>
         <source>HolesNumberX</source>
         <translation type="unfinished"></translation>
     </message>
@@ -185,6 +204,7 @@ Minimum = 1</source>
         <location filename="../../Piezas.py" line="250"/>
         <location filename="../../Piezas.py" line="357"/>
         <location filename="../../Piezas.py" line="465"/>
+        <location filename="../../Plates.py" line="156"/>
         <source>Holes number in X
 Minimum = 2</source>
         <translation type="unfinished"></translation>
@@ -196,6 +216,7 @@ Minimum = 2</source>
         <location filename="../../Piezas.py" line="469"/>
         <location filename="../../Piezas.py" line="1997"/>
         <location filename="../../Piezas.py" line="2264"/>
+        <location filename="../../Plates.py" line="160"/>
         <source>HolesNumberY</source>
         <translation type="unfinished"></translation>
     </message>
@@ -204,6 +225,7 @@ Minimum = 2</source>
         <location filename="../../Piezas.py" line="256"/>
         <location filename="../../Piezas.py" line="363"/>
         <location filename="../../Piezas.py" line="471"/>
+        <location filename="../../Plates.py" line="162"/>
         <source>Holes number in Y
 Minimum = 2</source>
         <translation type="unfinished"></translation>
@@ -488,235 +510,282 @@ Minimum = 1</source>
     </message>
     <message>
         <location filename="../../Piezas.py" line="2645"/>
-        <source>Holes number 
+        <location filename="../../Shafts.py" line="39"/>
+        <source>Holes number
 Minimum = 1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Piezas.py" line="2701"/>
-        <source>Holes number 
+        <source>Holes number
 Minimum = 3</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Plates.py" line="41"/>
+        <source>RowsNumber</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Plates.py" line="43"/>
+        <source>Number of horizontal rows in X
+Minimum = 2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Plates.py" line="274"/>
+        <source>RingsNumber</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Plates.py" line="278"/>
+        <source>Number of rings around the central hole
+Minimum = 1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>STEMFIE_Beam_AGD_ESS_USH_SYM</name>
     <message>
-        <location filename="../../Stemfie.py" line="348"/>
-        <source>Beam AGD ESS USH SYM</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>STEMFIE_Beam_STR_BED</name>
-    <message>
-        <location filename="../../Stemfie.py" line="366"/>
-        <source>Beam STR_BED</source>
+        <location filename="../../Stemfie.py" line="116"/>
+        <source>Beam - Angled - End Square Square - U-shaped - Symmetric</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>STEMFIE_Beam_STR_BEM</name>
     <message>
-        <location filename="../../Stemfie.py" line="330"/>
-        <source>Beam STR BEM</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>STEMFIE_Beam_STR_BET</name>
-    <message>
-        <location filename="../../Stemfie.py" line="384"/>
-        <source>Beam STR_BET</source>
+        <location filename="../../Stemfie.py" line="106"/>
+        <source>Beam - Block</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>STEMFIE_Beam_STR_BXS_ESS_C</name>
     <message>
-        <location filename="../../Stemfie.py" line="420"/>
-        <source>Beam STR BXS ESS C</source>
+        <location filename="../../Stemfie.py" line="155"/>
+        <source>Beam - Straight - Box-section - End Square Square - Holes at ends</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>STEMFIE_Beam_STR_BXS_ESS_H</name>
     <message>
-        <location filename="../../Stemfie.py" line="402"/>
-        <source>Beam STR BXS ESS H</source>
+        <location filename="../../Stemfie.py" line="143"/>
+        <source>Beam - Straight - Box-section - End Square Square - Full Length</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>STEMFIE_Beam_STR_DBL</name>
+    <message>
+        <location filename="../../Stemfie.py" line="124"/>
+        <source>Beam - Straight - Double</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>STEMFIE_Beam_STR_ERR</name>
     <message>
-        <location filename="../../Stemfie.py" line="312"/>
-        <source>Beam - Straight - Ending Round/Round</source>
+        <location filename="../../Stemfie.py" line="98"/>
+        <source>Beam - Straight - End Round Round</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>STEMFIE_Beam_STR_ESS</name>
     <message>
-        <location filename="../../Stemfie.py" line="292"/>
-        <source>Beam - Straight - Ending Square/Square</source>
+        <location filename="../../Stemfie.py" line="90"/>
+        <source>Beam - Straight - End Square Square</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>STEMFIE_Beam_STR_TRPL</name>
+    <message>
+        <location filename="../../Stemfie.py" line="132"/>
+        <source>Beam - Straight - Triple</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>STEMFIE_Brace_CRN_ERR_ASYM</name>
     <message>
-        <location filename="../../Stemfie.py" line="83"/>
-        <source>Brace CRN ERR ASYM</source>
+        <location filename="../../Stemfie.py" line="175"/>
+        <source>Brace - Corner - End Round Round - Asymmetric</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>STEMFIE_Brace_STR_SLT_BE_SYM_ERR</name>
     <message>
-        <location filename="../../Stemfie.py" line="139"/>
-        <source>Brace STR SLT BE SYM ERR</source>
+        <location filename="../../Stemfie.py" line="197"/>
+        <source>Brace - Standard - Slotted - Both Ends - Symmetric - End Round Round</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>STEMFIE_Brace_STR_SLT_CNT_ERR</name>
     <message>
-        <location filename="../../Stemfie.py" line="157"/>
-        <source>Brace STR SLT CNT ERR</source>
+        <location filename="../../Stemfie.py" line="207"/>
+        <source>Brace - Straight - Slotted - Centered - End Round Round</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>STEMFIE_Brace_STR_SLT_FL_ERR</name>
     <message>
-        <location filename="../../Stemfie.py" line="178"/>
-        <source>Brace - Straight - Slotted - Full Length - Ending Round Round</source>
+        <location filename="../../Stemfie.py" line="217"/>
+        <source>Brace - Straight - Slotted - Full Length - End Round Round</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>STEMFIE_Brace_STR_SLT_SE_ERR</name>
     <message>
-        <location filename="../../Stemfie.py" line="199"/>
-        <source>Brace - Straight - Slotted - Single End - Ending Round Round</source>
+        <location filename="../../Stemfie.py" line="227"/>
+        <source>Brace - Straight - Slotted - Single End - End Round Round</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>STEMFIE_Brace_STR_STD_BRD_AY</name>
+    <name>STEMFIE_Brace_STR_STD_CRS</name>
     <message>
-        <location filename="../../Stemfie.py" line="217"/>
-        <source>Brace STR STD BRD AY</source>
+        <location filename="../../Stemfie.py" line="276"/>
+        <source>Brace - Straight - Standard - Cross</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>STEMFIE_Brace_STR_STD_BRD_AZ</name>
+    <name>STEMFIE_Brace_STR_STD_DBL_AY</name>
     <message>
-        <location filename="../../Stemfie.py" line="65"/>
-        <source>Brace STR STD BRD AZ</source>
+        <location filename="../../Stemfie.py" line="247"/>
+        <source>Brace - Straight - Standard - Double - Axis Y</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>STEMFIE_Brace_STR_STD_BRM</name>
+    <name>STEMFIE_Brace_STR_STD_DBL_AZ</name>
     <message>
-        <location filename="../../Stemfie.py" line="101"/>
-        <source>Brace STR STD BRM</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>STEMFIE_Brace_STR_STD_BRM_AY</name>
-    <message>
-        <location filename="../../Stemfie.py" line="119"/>
-        <source>Brace STR STD BRM_AY</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>STEMFIE_Brace_STR_STD_BRT_AY</name>
-    <message>
-        <location filename="../../Stemfie.py" line="253"/>
-        <source>Brace STR STD BRT AY</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>STEMFIE_Brace_STR_STD_BRT_AZ</name>
-    <message>
-        <location filename="../../Stemfie.py" line="235"/>
-        <source>Brace STR STD BRT AZ</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>STEMFIE_Brace_STR_STD_CR</name>
-    <message>
-        <location filename="../../Stemfie.py" line="271"/>
-        <source>Brace STR STD CR</source>
+        <location filename="../../Stemfie.py" line="237"/>
+        <source>Brace - Straight - Standard - Double - Axis Z</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>STEMFIE_Brace_STR_STD_ERR</name>
     <message>
-        <location filename="../../Stemfie.py" line="46"/>
-        <source>Brace - Straight - Ending Round Round</source>
+        <location filename="../../Stemfie.py" line="165"/>
+        <source>Brace - Straight - Standard - End Round Round</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>STEMFIE_Cmd_Listado</name>
+    <name>STEMFIE_Brace_STR_STD_SQR_AY</name>
     <message>
-        <location filename="../../Stemfie.py" line="533"/>
-        <source>Part list</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Stemfie.py" line="536"/>
-        <source>Print a list of the STEMFIE parts on the tree</source>
+        <location filename="../../Stemfie.py" line="186"/>
+        <source>Brace - Straight - Standard - Square - Axis Y</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>STEMFIE_Connector_THR_H_BEM_SFT_1W</name>
+    <name>STEMFIE_Brace_STR_STD_TRPL_AY</name>
     <message>
-        <location filename="../../Stemfie.py" line="441"/>
-        <source>Connector THR H BEM SFT 1W</source>
+        <location filename="../../Stemfie.py" line="267"/>
+        <source>Brace - Straight - Standard - Triple - Axis Y</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>STEMFIE_Connector_THR_H_BEM_SFT_2W_180</name>
+    <name>STEMFIE_Brace_STR_STD_TRPL_AZ</name>
     <message>
-        <location filename="../../Stemfie.py" line="461"/>
-        <source>Connector THR H BEM SFT 2W 180º</source>
+        <location filename="../../Stemfie.py" line="257"/>
+        <source>Brace Straight - Standard - Triple - Axis Z</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>STEMFIE_Connector_THR_H_BEM_SFT_2W_90</name>
+    <name>STEMFIE_Connector_TRH_H_BEM_SFT_1W</name>
     <message>
-        <location filename="../../Stemfie.py" line="481"/>
-        <source>Connector THR H BEM SFT 2W 90º</source>
+        <location filename="../../Stemfie.py" line="287"/>
+        <source>Connector - Through-Hole - Beam - Shaft - One-way</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>STEMFIE_Connector_THR_H_BEM_SFT_3W</name>
+    <name>STEMFIE_Connector_TRH_H_BEM_SFT_2W_180</name>
     <message>
-        <location filename="../../Stemfie.py" line="499"/>
-        <source>Connector THR H BEM SFT 3W</source>
+        <location filename="../../Stemfie.py" line="298"/>
+        <source>Connector - Through-Hole - Beam - Shaft - Two-way - 180º</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>STEMFIE_Connector_THR_H_BEM_SFT_4W</name>
+    <name>STEMFIE_Connector_TRH_H_BEM_SFT_2W_90</name>
     <message>
-        <location filename="../../Stemfie.py" line="519"/>
-        <source>Connector THR H BEM SFT 4W</source>
+        <location filename="../../Stemfie.py" line="309"/>
+        <source>Connector - Through-Hole - Beam - Shaft - Two-way - 90º</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>STEMFIE_Connector_TRH_H_BEM_SFT_3W</name>
+    <message>
+        <location filename="../../Stemfie.py" line="320"/>
+        <source>Connector - Through-Hole - Beam - Shaft - Three-way</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>STEMFIE_Connector_TRH_H_BEM_SFT_4W</name>
+    <message>
+        <location filename="../../Stemfie.py" line="332"/>
+        <source>Connector - Through-Hole - Beam - Shaft - Four-way</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>STEMFIE_PartsList</name>
+    <message>
+        <location filename="../../Stemfie.py" line="381"/>
+        <source>Parts list</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Stemfie.py" line="384"/>
+        <source>Print a list of the STEMFIE parts on the tree to the console</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>STEMFIE_Plate_HEX</name>
+    <message>
+        <location filename="../../Stemfie.py" line="357"/>
+        <source>Plate - Hexagonal</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>STEMFIE_Plate_SQR</name>
+    <message>
+        <location filename="../../Stemfie.py" line="348"/>
+        <source>Plate - Square</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>STEMFIE_Plate_TRI</name>
+    <message>
+        <location filename="../../Stemfie.py" line="340"/>
+        <source>Plate - Triangular</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>STEMFIE_Shaft_SFT_PLN</name>
+    <message>
+        <location filename="../../Stemfie.py" line="366"/>
+        <source>Shaft - Plain</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -724,27 +793,42 @@ Minimum = 3</source>
     <name>Workbench</name>
     <message>
         <location filename="../../init_gui.py" line="19"/>
-        <source>Workbench for Stemfie</source>
+        <source>Workbench for STEMFIE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../init_gui.py" line="41"/>
-        <source>Stemfie Braces</source>
+        <location filename="../../init_gui.py" line="65"/>
+        <source>STEMFIE Beams</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../init_gui.py" line="56"/>
-        <source>Stemfie Beams</source>
+        <location filename="../../init_gui.py" line="66"/>
+        <source>STEMFIE Braces</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../init_gui.py" line="68"/>
-        <source>Stemfie Conectors</source>
+        <source>STEMFIE Connectors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../init_gui.py" line="71"/>
+        <source>STEMFIE Plates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../init_gui.py" line="72"/>
+        <source>STEMFIE Shafts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../init_gui.py" line="74"/>
-        <source>Stemfie Tools</source>
+        <source>STEMFIE Utilities</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../init_gui.py" line="79"/>
+        <source>Beams</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -753,13 +837,18 @@ Minimum = 3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../init_gui.py" line="81"/>
-        <source>Beams</source>
+        <location filename="../../init_gui.py" line="82"/>
+        <source>Connectors</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../init_gui.py" line="83"/>
-        <source>Connectors</source>
+        <location filename="../../init_gui.py" line="88"/>
+        <source>Plates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../init_gui.py" line="89"/>
+        <source>Shafts</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

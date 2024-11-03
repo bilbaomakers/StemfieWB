@@ -37,7 +37,9 @@
 
   <tag>parametric</tag>
 
-  <tag>3dprinting</tag>
+  <tag>3d-printing</tag>
+
+  <icon>freecad/stemfie/resources/icons/STEMFIE.svg</icon>
 
   <content>
     <workbench>
