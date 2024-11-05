@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: General questions about the workbench
+    url: https://forum.freecad.org/viewtopic.php?t=59951
+    about: You can join the discussions on the FreeCAD forum.
+  - name: Dudas y preguntas del banco de trabajo en español/castellano
+    url: https://t.me/FreeCAD_Es/90060
+    about: Sección dedicada al sistema STEMFIE en el grupo de FreeCAD en español/castellano en Telegram
