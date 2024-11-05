@@ -727,7 +727,7 @@ Mínimo = 1</translation>
     <message>
         <location filename="../../Stemfie.py" line="186"/>
         <source>Brace - Straight - Standard - Square - Axis Y</source>
-        <translation>Brazo - Recto - Estándar - Caudrado - Eje Y</translation>
+        <translation>Brazo - Recto - Estándar - Cuadrado - Eje Y</translation>
     </message>
 </context>
 <context>
