@@ -155,7 +155,7 @@ class STR_BXS_ESS_C(BaseCommand):
 class STR_STD_ERR(BaseCommand):
     NAME = "STR_STD_ERR"
     FUNCTION = Piezas.STR_STD_ERR
-    pixmap = os.path.join(ICONPATH, "Brace STR STD ERR_icon.png")
+    pixmap = get_icon_path("STR_STD_ERR")
     menutext = "STR STD ERR"
     tooltip = QT_TRANSLATE_NOOP(
         "STEMFIE_Brace_STR_STD_ERR", "Brace - Straight - Standard - End Round Round"
@@ -165,7 +165,7 @@ class STR_STD_ERR(BaseCommand):
 class CRN_ERR_ASYM(BaseCommand):
     NAME = "CRN_ERR_ASYM"
     FUNCTION = Piezas.CRN_ERR_ASYM
-    pixmap = os.path.join(ICONPATH, "Brace CRN ERR ASYM_icon.png")
+    pixmap = get_icon_path("CRN_ERR_ASYM")
     menutext = "CRN ERR ASYM"
     tooltip = QT_TRANSLATE_NOOP(
         "STEMFIE_Brace_CRN_ERR_ASYM", "Brace - Corner - End Round Round - Asymmetric"
@@ -186,7 +186,7 @@ class STR_STD_SQR_AY(BaseCommand):
 class STR_SLT_BE_SYM_ERR(BaseCommand):
     NAME = "STR_SLT_BE_SYM_ERR"
     FUNCTION = Piezas.STR_SLT_BE_SYM_ERR
-    pixmap = os.path.join(ICONPATH, "Brace STR SLT BE SYM ERR_icon.png")
+    pixmap = get_icon_path("STR_SLT_BE_SYM_ERR")
     menutext = "STR SLT BE SYM ERR"
     tooltip = QT_TRANSLATE_NOOP(
         "STEMFIE_Brace_STR_SLT_BE_SYM_ERR",
@@ -197,7 +197,7 @@ class STR_SLT_BE_SYM_ERR(BaseCommand):
 class STR_SLT_CNT_ERR(BaseCommand):
     NAME = "STR_SLT_CNT_ERR"
     FUNCTION = Piezas.STR_SLT_CNT_ERR
-    pixmap = os.path.join(ICONPATH, "Brace STR SLT CNT ERR_icon.png")
+    pixmap = get_icon_path("STR_SLT_CNT_ERR")
     menutext = "STR SLT CNT ERR"
     tooltip = QT_TRANSLATE_NOOP(
         "STEMFIE_Brace_STR_SLT_CNT_ERR", "Brace - Straight - Slotted - Centered - End Round Round"
@@ -207,7 +207,7 @@ class STR_SLT_CNT_ERR(BaseCommand):
 class STR_SLT_FL_ERR(BaseCommand):
     NAME = "STR_SLT_FL_ERR"
     FUNCTION = Piezas.STR_SLT_FL_ERR
-    pixmap = os.path.join(ICONPATH, "Brace STR SLT FL ERR_icon.png")
+    pixmap = get_icon_path("STR_SLT_FL_ERR")
     menutext = "STR SLT FL ERR"
     tooltip = QT_TRANSLATE_NOOP(
         "STEMFIE_Brace_STR_SLT_FL_ERR", "Brace - Straight - Slotted - Full Length - End Round Round"
@@ -217,7 +217,7 @@ class STR_SLT_FL_ERR(BaseCommand):
 class STR_SLT_SE_ERR(BaseCommand):
     NAME = "STR_SLT_SE_ERR"
     FUNCTION = Piezas.STR_SLT_SE_ERR
-    pixmap = os.path.join(ICONPATH, "Brace STR SLT SE ERR_icon.png")
+    pixmap = get_icon_path("STR_SLT_SE_ERR")
     menutext = "STR SLT SE ERR"
     tooltip = QT_TRANSLATE_NOOP(
         "STEMFIE_Brace_STR_SLT_SE_ERR", "Brace - Straight - Slotted - Single End - End Round Round"
@@ -227,7 +227,7 @@ class STR_SLT_SE_ERR(BaseCommand):
 class STR_STD_DBL_AZ(BaseCommand):
     NAME = "STR_STD_DBL_AZ"
     FUNCTION = Piezas.STR_STD_DBL_AZ
-    pixmap = os.path.join(ICONPATH, "Brace STR STD BRD AZ_icon.png")
+    pixmap = get_icon_path("STR_STD_DBL_AZ")
     menutext = "STR STD DBL AZ"
     tooltip = QT_TRANSLATE_NOOP(
         "STEMFIE_Brace_STR_STD_DBL_AZ", "Brace - Straight - Standard - Double - Axis Z"
@@ -247,10 +247,10 @@ class STR_STD_DBL_AY(BaseCommand):
 class STR_STD_TRPL_AZ(BaseCommand):
     NAME = "STR_STD_TRPL_AZ"
     FUNCTION = Piezas.STR_STD_TRPL_AZ
-    pixmap = os.path.join(ICONPATH, "Brace STR STD BRT AZ_icon.png")
+    pixmap = get_icon_path("STR_STD_TRPL_AZ")
     menutext = "STR STD TRPL AZ"
     tooltip = QT_TRANSLATE_NOOP(
-        "STEMFIE_Brace_STR_STD_TRPL_AZ", "Brace Straight - Standard - Triple - Axis Z"
+        "STEMFIE_Brace_STR_STD_TRPL_AZ", "Brace - Straight - Standard - Triple - Axis Z"
     )
 
 
@@ -267,7 +267,7 @@ class STR_STD_TRPL_AY(BaseCommand):
 class STR_STD_CRS(BaseCommand):
     NAME = "STR_STD_CRS"
     FUNCTION = Piezas.STR_STD_CRS
-    pixmap = os.path.join(ICONPATH, "Brace STR STD CR_icon.png")
+    pixmap = get_icon_path("STR_STD_CRS")
     menutext = "STR STD CRS"
     tooltip = QT_TRANSLATE_NOOP("STEMFIE_Brace_STR_STD_CRS", "Brace - Straight - Standard - Cross")
 
@@ -276,7 +276,7 @@ class STR_STD_CRS(BaseCommand):
 class TRH_H_BEM_SFT_1W(BaseCommand):
     NAME = "TRH_H_BEM_SFT_1W"
     FUNCTION = Piezas.TRH_H_BEM_SFT_1W
-    pixmap = os.path.join(ICONPATH, "TRH-H_BEM_SFT_1W.svg")
+    pixmap = get_icon_path("TRH-H_BEM_SFT_1W")
     menutext = "TRH-H BEM SFT 1W"
     tooltip = QT_TRANSLATE_NOOP(
         "STEMFIE_Connector_TRH_H_BEM_SFT_1W",
@@ -287,7 +287,7 @@ class TRH_H_BEM_SFT_1W(BaseCommand):
 class TRH_H_BEM_SFT_2W_180(BaseCommand):
     NAME = "TRH_H_BEM_SFT_2W_180"
     FUNCTION = Piezas.TRH_H_BEM_SFT_2W_180
-    pixmap = os.path.join(ICONPATH, "TRH-H_BEM_SFT_2W_180.svg")
+    pixmap = get_icon_path("TRH-H_BEM_SFT_2W_180")
     menutext = "TRH-H BEM SFT 2W 180º"
     tooltip = QT_TRANSLATE_NOOP(
         "STEMFIE_Connector_TRH_H_BEM_SFT_2W_180",
@@ -298,7 +298,7 @@ class TRH_H_BEM_SFT_2W_180(BaseCommand):
 class TRH_H_BEM_SFT_2W_90(BaseCommand):
     NAME = "TRH_H_BEM_SFT_2W_90"
     FUNCTION = Piezas.TRH_H_BEM_SFT_2W_90
-    pixmap = os.path.join(ICONPATH, "TRH-H_BEM_SFT_2W_90.svg")
+    pixmap = get_icon_path("TRH-H_BEM_SFT_2W_90")
     menutext = "TRH-H BEM SFT 2W 90º"
     tooltip = QT_TRANSLATE_NOOP(
         "STEMFIE_Connector_TRH_H_BEM_SFT_2W_90",
@@ -309,7 +309,7 @@ class TRH_H_BEM_SFT_2W_90(BaseCommand):
 class TRH_H_BEM_SFT_3W(BaseCommand):
     NAME = "TRH_H_BEM_SFT_3W"
     FUNCTION = Piezas.TRH_H_BEM_SFT_3W
-    pixmap = os.path.join(ICONPATH, "TRH-H_BEM_SFT_3W.svg")
+    pixmap = get_icon_path("TRH-H_BEM_SFT_3W")
     menutext = "TRH-H BEM SFT 3W"
     tooltip = QT_TRANSLATE_NOOP(
         "STEMFIE_Connector_TRH_H_BEM_SFT_3W",
@@ -320,7 +320,7 @@ class TRH_H_BEM_SFT_3W(BaseCommand):
 class TRH_H_BEM_SFT_4W(BaseCommand):
     NAME = "TRH_H_BEM_SFT_4W"
     FUNCTION = Piezas.TRH_H_BEM_SFT_4W
-    pixmap = os.path.join(ICONPATH, "TRH-H_BEM_SFT_4W.svg")
+    pixmap = get_icon_path("TRH-H_BEM_SFT_4W")
     menutext = "TRH-H BEM SFT 4W"
     tooltip = QT_TRANSLATE_NOOP(
         "STEMFIE_Connector_TRH_H_BEM_SFT_4W",
@@ -332,7 +332,7 @@ class TRH_H_BEM_SFT_4W(BaseCommand):
 class PLT_TRI(BaseCommand):
     NAME = "PLT_TRI"
     FUNCTION = Plates.PLT_TRI
-    pixmap = os.path.join(ICONPATH, "Plate_TRI.svg")
+    pixmap = get_icon_path("Plate_TRI")
     menutext = "PLT TRI"
     tooltip = QT_TRANSLATE_NOOP("STEMFIE_Plate_TRI", "Plate - Triangular")
 
@@ -340,7 +340,7 @@ class PLT_TRI(BaseCommand):
 class PLT_SQR(BaseCommand):
     NAME = "PLT_SQR"
     FUNCTION = Plates.PLT_SQR
-    pixmap = os.path.join(ICONPATH, "Plate_SQR.svg")
+    pixmap = get_icon_path("Plate_SQR")
     menutext = "PLT SQR"
     tooltip = QT_TRANSLATE_NOOP("STEMFIE_Plate_SQR", "Plate - Square")
 
@@ -348,7 +348,7 @@ class PLT_SQR(BaseCommand):
 class PLT_HEX(BaseCommand):
     NAME = "PLT_HEX"
     FUNCTION = Plates.PLT_HEX
-    pixmap = os.path.join(ICONPATH, "Plate_HEX.svg")
+    pixmap = get_icon_path("Plate_HEX")
     menutext = "PLT HEX"
     tooltip = QT_TRANSLATE_NOOP("STEMFIE_Plate_HEX", "Plate - Hexagonal")
 
@@ -357,7 +357,7 @@ class PLT_HEX(BaseCommand):
 class SFT_PLN(BaseCommand):
     NAME = "SFT_PLN"
     FUNCTION = Shafts.SFT_PLN
-    pixmap = os.path.join(ICONPATH, "SFT_PLN.svg")
+    pixmap = get_icon_path("SFT_PLN")
     menutext = "SFT PLN"
     tooltip = QT_TRANSLATE_NOOP("STEMFIE_Shaft_SFT_PLN", "Shaft - Plain")
 
