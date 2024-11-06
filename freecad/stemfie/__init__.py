@@ -4,7 +4,7 @@ from math import cos, pi, sin
 import FreeCAD
 import Part
 
-__version__ = "0.2.2"
+__version__ = "0.2.3"
 
 path = os.path.join(os.path.dirname(__file__), "resources")
 

@@ -75,6 +75,6 @@ on the workbench.
 [tag]: <https://github.com/bilbaomakers/StemfieWB/releases>
 [tag_bagde]: <https://img.shields.io/github/v/tag/bilbaomakers/StemfieWB>
 [cc_badge]: <https://common-changelog.org/badge.svg>
-[cc]: <https://common-changelog.org>
+[cc]: <./CHANGELOG.md>
 [FreeCAD]: <https://freecad.org> "FreeCAD"
 [STEMFIE]: <https://stemfie.org/> "STEMFIE"

@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.3] - 2024-11-06
+
+### Fixed
+
+- Fix typo "Caudrado" -> "Cuadrado"
+- Add SVG icons for some braces' commands
+
 ## [0.2.2] - 2024-11-05
 
 ### Fixed
@@ -34,6 +41,8 @@
 
 ## [0.1.0] - 2021-09-19
 
+🌱 Initial release.
+
 ### Added
 
 - Add parametric braces: 12 models
@@ -45,4 +54,5 @@
 [0.2.0]: https://github.com/bilbaomakers/StemfieWB/releases/tag/0.2.0
 [0.2.1]: https://github.com/bilbaomakers/StemfieWB/releases/tag/0.2.1
 [0.2.2]: https://github.com/bilbaomakers/StemfieWB/releases/tag/0.2.2
+[0.2.3]: https://github.com/bilbaomakers/StemfieWB/releases/tag/0.2.3
 [black]: https://github.com/psf/black
