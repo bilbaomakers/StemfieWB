@@ -82,7 +82,7 @@ class BaseCommand:
 class STR_ESS(BaseCommand):
     NAME = "STR_ESS"
     FUNCTION = Piezas.STR_ESS
-    pixmap = os.path.join(ICONPATH, "Beam STR ESS_icon.png")
+    pixmap = get_icon_path("STR_ESS")
     menutext = "STR ESS"
     tooltip = QT_TRANSLATE_NOOP("STEMFIE_Beam_STR_ESS", "Beam - Straight - End Square Square")
 
@@ -90,7 +90,7 @@ class STR_ESS(BaseCommand):
 class STR_ERR(BaseCommand):
     NAME = "STR_ERR"
     FUNCTION = Piezas.STR_ERR
-    pixmap = os.path.join(ICONPATH, "Beam STR ERR_icon.png")
+    pixmap = get_icon_path("STR_ERR")
     menutext = "STR ERR"
     tooltip = QT_TRANSLATE_NOOP("STEMFIE_Beam_STR_ERR", "Beam - Straight - End Round Round")
 
@@ -98,7 +98,7 @@ class STR_ERR(BaseCommand):
 class STR_BEM(BaseCommand):
     NAME = "STR_BEM"
     FUNCTION = Piezas.STR_BEM
-    pixmap = os.path.join(ICONPATH, "Beam STR BEM_icon.png")
+    pixmap = get_icon_path("STR_BEM")
     menutext = "STR BEM"
     tooltip = QT_TRANSLATE_NOOP("STEMFIE_Beam_STR_BEM", "Beam - Block")
 
@@ -106,7 +106,7 @@ class STR_BEM(BaseCommand):
 class AGD_ESS_USH_SYM(BaseCommand):
     NAME = "AGD_ESS_USH_SYM"
     FUNCTION = Piezas.AGD_ESS_USH_SYM
-    pixmap = os.path.join(ICONPATH, "Beam AGD ESS USH SYM_icon.png")
+    pixmap = get_icon_path("AGD_ESS_USH_SYM")
     menutext = "AGD ESS USH SYM"
     tooltip = QT_TRANSLATE_NOOP(
         "STEMFIE_Beam_AGD_ESS_USH_SYM", "Beam - Angled - End Square Square - U-shaped - Symmetric"
@@ -116,7 +116,7 @@ class AGD_ESS_USH_SYM(BaseCommand):
 class STR_DBL(BaseCommand):
     NAME = "STR_DBL"
     FUNCTION = Piezas.STR_DBL
-    pixmap = os.path.join(ICONPATH, "Beam STR BED_icon.png")
+    pixmap = get_icon_path("STR_DBL")
     menutext = "STR DBL"
     tooltip = QT_TRANSLATE_NOOP("STEMFIE_Beam_STR_DBL", "Beam - Straight - Double")
 
@@ -124,7 +124,7 @@ class STR_DBL(BaseCommand):
 class STR_TRPL(BaseCommand):
     NAME = "STR_TRPL"
     FUNCTION = Piezas.STR_TRPL
-    pixmap = os.path.join(ICONPATH, "Beam STR BET_icon.png")
+    pixmap = get_icon_path("STR_TRPL")
     menutext = "STR TRPL"
     tooltip = QT_TRANSLATE_NOOP("STEMFIE_Beam_STR_TRPL", "Beam - Straight - Triple")
 
@@ -132,7 +132,7 @@ class STR_TRPL(BaseCommand):
 class STR_BXS_ESS_H(BaseCommand):
     NAME = "STR_BXS_ESS_H"
     FUNCTION = Piezas.STR_BXS_ESS_H
-    pixmap = os.path.join(ICONPATH, "Beam STR BXS ESS H_icon.png")
+    pixmap = get_icon_path("STR_BXS_ESS_H")
     menutext = "STR BXS ESS H"
     tooltip = QT_TRANSLATE_NOOP(
         "STEMFIE_Beam_STR_BXS_ESS_H",
@@ -143,7 +143,7 @@ class STR_BXS_ESS_H(BaseCommand):
 class STR_BXS_ESS_C(BaseCommand):
     NAME = "STR_BXS_ESS_C"
     FUNCTION = Piezas.STR_BXS_ESS_C
-    pixmap = os.path.join(ICONPATH, "Beam STR BXS ESS C_icon.png")
+    pixmap = get_icon_path("STR_BXS_ESS_C")
     menutext = "STR BXS ESS C"
     tooltip = QT_TRANSLATE_NOOP(
         "STEMFIE_Beam_STR_BXS_ESS_C",
