@@ -13,16 +13,12 @@ class ViewProvider:
     def __init__(self, obj, icon_fn):
         obj.Proxy = self
         self._check_attr()
-        if icon_fn[-3:].lower() != "svg":
-            self.icon = get_icon_path("STEMFIE")
-        else:
-            self.icon_fn = icon_fn or get_icon_path("STEMFIE")
+        self.icon_fn = get_icon_path(icon_fn or "STEMFIE")  # full path
 
     def _check_attr(self):
         """Check for missing attributes."""
-
         if not hasattr(self, "icon_fn"):
-            setattr(self, "icon_fn", get_icon_path("STEMFIE"))
+            setattr(self, "icon_fn", get_icon_path("STEMFIE"))  # full path
 
     def getIcon(self):
         """Returns the path to the SVG icon."""
@@ -75,14 +71,19 @@ class BaseCommand:
         return obj
 
     def GetResources(self):
-        return {"Pixmap": self.pixmap, "MenuText": self.menutext, "ToolTip": self.tooltip}
+        # We can use this without the full path because we used `FreeCADGui.addIconPath()`
+        return {
+            "Pixmap": self.pixmap,
+            "MenuText": self.menutext,
+            "ToolTip": self.tooltip,
+        }
 
 
 # Beams
 class STR_ESS(BaseCommand):
     NAME = "STR_ESS"
     FUNCTION = Piezas.STR_ESS
-    pixmap = get_icon_path("STR_ESS")
+    pixmap = "STR_ESS"
     menutext = "STR ESS"
     tooltip = QT_TRANSLATE_NOOP("STEMFIE_Beam_STR_ESS", "Beam - Straight - End Square Square")
 
@@ -90,7 +91,7 @@ class STR_ESS(BaseCommand):
 class STR_ERR(BaseCommand):
     NAME = "STR_ERR"
     FUNCTION = Piezas.STR_ERR
-    pixmap = get_icon_path("STR_ERR")
+    pixmap = "STR_ERR"
     menutext = "STR ERR"
     tooltip = QT_TRANSLATE_NOOP("STEMFIE_Beam_STR_ERR", "Beam - Straight - End Round Round")
 
@@ -98,7 +99,7 @@ class STR_ERR(BaseCommand):
 class STR_BEM(BaseCommand):
     NAME = "STR_BEM"
     FUNCTION = Piezas.STR_BEM
-    pixmap = get_icon_path("STR_BEM")
+    pixmap = "STR_BEM"
     menutext = "STR BEM"
     tooltip = QT_TRANSLATE_NOOP("STEMFIE_Beam_STR_BEM", "Beam - Block")
 
@@ -106,7 +107,7 @@ class STR_BEM(BaseCommand):
 class AGD_ESS_USH_SYM(BaseCommand):
     NAME = "AGD_ESS_USH_SYM"
     FUNCTION = Piezas.AGD_ESS_USH_SYM
-    pixmap = get_icon_path("AGD_ESS_USH_SYM")
+    pixmap = "AGD_ESS_USH_SYM"
     menutext = "AGD ESS USH SYM"
     tooltip = QT_TRANSLATE_NOOP(
         "STEMFIE_Beam_AGD_ESS_USH_SYM", "Beam - Angled - End Square Square - U-shaped - Symmetric"
@@ -116,7 +117,7 @@ class AGD_ESS_USH_SYM(BaseCommand):
 class STR_DBL(BaseCommand):
     NAME = "STR_DBL"
     FUNCTION = Piezas.STR_DBL
-    pixmap = get_icon_path("STR_DBL")
+    pixmap = "STR_DBL"
     menutext = "STR DBL"
     tooltip = QT_TRANSLATE_NOOP("STEMFIE_Beam_STR_DBL", "Beam - Straight - Double")
 
@@ -124,7 +125,7 @@ class STR_DBL(BaseCommand):
 class STR_TRPL(BaseCommand):
     NAME = "STR_TRPL"
     FUNCTION = Piezas.STR_TRPL
-    pixmap = get_icon_path("STR_TRPL")
+    pixmap = "STR_TRPL"
     menutext = "STR TRPL"
     tooltip = QT_TRANSLATE_NOOP("STEMFIE_Beam_STR_TRPL", "Beam - Straight - Triple")
 
@@ -132,7 +133,7 @@ class STR_TRPL(BaseCommand):
 class STR_BXS_ESS_H(BaseCommand):
     NAME = "STR_BXS_ESS_H"
     FUNCTION = Piezas.STR_BXS_ESS_H
-    pixmap = get_icon_path("STR_BXS_ESS_H")
+    pixmap = "STR_BXS_ESS_H"
     menutext = "STR BXS ESS H"
     tooltip = QT_TRANSLATE_NOOP(
         "STEMFIE_Beam_STR_BXS_ESS_H",
@@ -143,7 +144,7 @@ class STR_BXS_ESS_H(BaseCommand):
 class STR_BXS_ESS_C(BaseCommand):
     NAME = "STR_BXS_ESS_C"
     FUNCTION = Piezas.STR_BXS_ESS_C
-    pixmap = get_icon_path("STR_BXS_ESS_C")
+    pixmap = "STR_BXS_ESS_C"
     menutext = "STR BXS ESS C"
     tooltip = QT_TRANSLATE_NOOP(
         "STEMFIE_Beam_STR_BXS_ESS_C",
@@ -155,7 +156,7 @@ class STR_BXS_ESS_C(BaseCommand):
 class STR_STD_ERR(BaseCommand):
     NAME = "STR_STD_ERR"
     FUNCTION = Piezas.STR_STD_ERR
-    pixmap = get_icon_path("STR_STD_ERR")
+    pixmap = "STR_STD_ERR"
     menutext = "STR STD ERR"
     tooltip = QT_TRANSLATE_NOOP(
         "STEMFIE_Brace_STR_STD_ERR", "Brace - Straight - Standard - End Round Round"
@@ -165,7 +166,7 @@ class STR_STD_ERR(BaseCommand):
 class CRN_ERR_ASYM(BaseCommand):
     NAME = "CRN_ERR_ASYM"
     FUNCTION = Piezas.CRN_ERR_ASYM
-    pixmap = get_icon_path("CRN_ERR_ASYM")
+    pixmap = "CRN_ERR_ASYM"
     menutext = "CRN ERR ASYM"
     tooltip = QT_TRANSLATE_NOOP(
         "STEMFIE_Brace_CRN_ERR_ASYM", "Brace - Corner - End Round Round - Asymmetric"
@@ -175,7 +176,7 @@ class CRN_ERR_ASYM(BaseCommand):
 class STR_STD_SQR_AY(BaseCommand):
     NAME = "STR_STD_SQR_AY"
     FUNCTION = Piezas.STR_STD_SQR_AY
-    pixmap = get_icon_path("STR_STD_SQR_AY")
+    pixmap = "STR_STD_SQR_AY"
     menutext = "STR STD SQR AY"
     tooltip = QT_TRANSLATE_NOOP(
         "STEMFIE_Brace_STR_STD_SQR_AY", "Brace - Straight - Standard - Square - Axis Y"
@@ -186,7 +187,7 @@ class STR_STD_SQR_AY(BaseCommand):
 class STR_SLT_BE_SYM_ERR(BaseCommand):
     NAME = "STR_SLT_BE_SYM_ERR"
     FUNCTION = Piezas.STR_SLT_BE_SYM_ERR
-    pixmap = get_icon_path("STR_SLT_BE_SYM_ERR")
+    pixmap = "STR_SLT_BE_SYM_ERR"
     menutext = "STR SLT BE SYM ERR"
     tooltip = QT_TRANSLATE_NOOP(
         "STEMFIE_Brace_STR_SLT_BE_SYM_ERR",
@@ -197,7 +198,7 @@ class STR_SLT_BE_SYM_ERR(BaseCommand):
 class STR_SLT_CNT_ERR(BaseCommand):
     NAME = "STR_SLT_CNT_ERR"
     FUNCTION = Piezas.STR_SLT_CNT_ERR
-    pixmap = get_icon_path("STR_SLT_CNT_ERR")
+    pixmap = "STR_SLT_CNT_ERR"
     menutext = "STR SLT CNT ERR"
     tooltip = QT_TRANSLATE_NOOP(
         "STEMFIE_Brace_STR_SLT_CNT_ERR", "Brace - Straight - Slotted - Centered - End Round Round"
@@ -207,7 +208,7 @@ class STR_SLT_CNT_ERR(BaseCommand):
 class STR_SLT_FL_ERR(BaseCommand):
     NAME = "STR_SLT_FL_ERR"
     FUNCTION = Piezas.STR_SLT_FL_ERR
-    pixmap = get_icon_path("STR_SLT_FL_ERR")
+    pixmap = "STR_SLT_FL_ERR"
     menutext = "STR SLT FL ERR"
     tooltip = QT_TRANSLATE_NOOP(
         "STEMFIE_Brace_STR_SLT_FL_ERR", "Brace - Straight - Slotted - Full Length - End Round Round"
@@ -217,7 +218,7 @@ class STR_SLT_FL_ERR(BaseCommand):
 class STR_SLT_SE_ERR(BaseCommand):
     NAME = "STR_SLT_SE_ERR"
     FUNCTION = Piezas.STR_SLT_SE_ERR
-    pixmap = get_icon_path("STR_SLT_SE_ERR")
+    pixmap = "STR_SLT_SE_ERR"
     menutext = "STR SLT SE ERR"
     tooltip = QT_TRANSLATE_NOOP(
         "STEMFIE_Brace_STR_SLT_SE_ERR", "Brace - Straight - Slotted - Single End - End Round Round"
@@ -227,7 +228,7 @@ class STR_SLT_SE_ERR(BaseCommand):
 class STR_STD_DBL_AZ(BaseCommand):
     NAME = "STR_STD_DBL_AZ"
     FUNCTION = Piezas.STR_STD_DBL_AZ
-    pixmap = get_icon_path("STR_STD_DBL_AZ")
+    pixmap = "STR_STD_DBL_AZ"
     menutext = "STR STD DBL AZ"
     tooltip = QT_TRANSLATE_NOOP(
         "STEMFIE_Brace_STR_STD_DBL_AZ", "Brace - Straight - Standard - Double - Axis Z"
@@ -237,7 +238,7 @@ class STR_STD_DBL_AZ(BaseCommand):
 class STR_STD_DBL_AY(BaseCommand):
     NAME = "STR_STD_DBL_AY"
     FUNCTION = Piezas.STR_STD_DBL_AY
-    pixmap = get_icon_path("STR_STD_DBL_AY")
+    pixmap = "STR_STD_DBL_AY"
     menutext = "STR STD DBL AY"
     tooltip = QT_TRANSLATE_NOOP(
         "STEMFIE_Brace_STR_STD_DBL_AY", "Brace - Straight - Standard - Double - Axis Y"
@@ -247,7 +248,7 @@ class STR_STD_DBL_AY(BaseCommand):
 class STR_STD_TRPL_AZ(BaseCommand):
     NAME = "STR_STD_TRPL_AZ"
     FUNCTION = Piezas.STR_STD_TRPL_AZ
-    pixmap = get_icon_path("STR_STD_TRPL_AZ")
+    pixmap = "STR_STD_TRPL_AZ"
     menutext = "STR STD TRPL AZ"
     tooltip = QT_TRANSLATE_NOOP(
         "STEMFIE_Brace_STR_STD_TRPL_AZ", "Brace - Straight - Standard - Triple - Axis Z"
@@ -257,7 +258,7 @@ class STR_STD_TRPL_AZ(BaseCommand):
 class STR_STD_TRPL_AY(BaseCommand):
     NAME = "STR_STD_TRPL_AY"
     FUNCTION = Piezas.STR_STD_TRPL_AY
-    pixmap = get_icon_path("STR_STD_TRPL_AY")
+    pixmap = "STR_STD_TRPL_AY"
     menutext = "STR STD TRPL AY"
     tooltip = QT_TRANSLATE_NOOP(
         "STEMFIE_Brace_STR_STD_TRPL_AY", "Brace - Straight - Standard - Triple - Axis Y"
@@ -267,7 +268,7 @@ class STR_STD_TRPL_AY(BaseCommand):
 class STR_STD_CRS(BaseCommand):
     NAME = "STR_STD_CRS"
     FUNCTION = Piezas.STR_STD_CRS
-    pixmap = get_icon_path("STR_STD_CRS")
+    pixmap = "STR_STD_CRS"
     menutext = "STR STD CRS"
     tooltip = QT_TRANSLATE_NOOP("STEMFIE_Brace_STR_STD_CRS", "Brace - Straight - Standard - Cross")
 
@@ -276,7 +277,7 @@ class STR_STD_CRS(BaseCommand):
 class TRH_H_BEM_SFT_1W(BaseCommand):
     NAME = "TRH_H_BEM_SFT_1W"
     FUNCTION = Piezas.TRH_H_BEM_SFT_1W
-    pixmap = get_icon_path("TRH-H_BEM_SFT_1W")
+    pixmap = "TRH-H_BEM_SFT_1W"
     menutext = "TRH-H BEM SFT 1W"
     tooltip = QT_TRANSLATE_NOOP(
         "STEMFIE_Connector_TRH_H_BEM_SFT_1W",
@@ -287,7 +288,7 @@ class TRH_H_BEM_SFT_1W(BaseCommand):
 class TRH_H_BEM_SFT_2W_180(BaseCommand):
     NAME = "TRH_H_BEM_SFT_2W_180"
     FUNCTION = Piezas.TRH_H_BEM_SFT_2W_180
-    pixmap = get_icon_path("TRH-H_BEM_SFT_2W_180")
+    pixmap = "TRH-H_BEM_SFT_2W_180"
     menutext = "TRH-H BEM SFT 2W 180º"
     tooltip = QT_TRANSLATE_NOOP(
         "STEMFIE_Connector_TRH_H_BEM_SFT_2W_180",
@@ -298,7 +299,7 @@ class TRH_H_BEM_SFT_2W_180(BaseCommand):
 class TRH_H_BEM_SFT_2W_90(BaseCommand):
     NAME = "TRH_H_BEM_SFT_2W_90"
     FUNCTION = Piezas.TRH_H_BEM_SFT_2W_90
-    pixmap = get_icon_path("TRH-H_BEM_SFT_2W_90")
+    pixmap = "TRH-H_BEM_SFT_2W_90"
     menutext = "TRH-H BEM SFT 2W 90º"
     tooltip = QT_TRANSLATE_NOOP(
         "STEMFIE_Connector_TRH_H_BEM_SFT_2W_90",
@@ -309,7 +310,7 @@ class TRH_H_BEM_SFT_2W_90(BaseCommand):
 class TRH_H_BEM_SFT_3W(BaseCommand):
     NAME = "TRH_H_BEM_SFT_3W"
     FUNCTION = Piezas.TRH_H_BEM_SFT_3W
-    pixmap = get_icon_path("TRH-H_BEM_SFT_3W")
+    pixmap = "TRH-H_BEM_SFT_3W"
     menutext = "TRH-H BEM SFT 3W"
     tooltip = QT_TRANSLATE_NOOP(
         "STEMFIE_Connector_TRH_H_BEM_SFT_3W",
@@ -320,7 +321,7 @@ class TRH_H_BEM_SFT_3W(BaseCommand):
 class TRH_H_BEM_SFT_4W(BaseCommand):
     NAME = "TRH_H_BEM_SFT_4W"
     FUNCTION = Piezas.TRH_H_BEM_SFT_4W
-    pixmap = get_icon_path("TRH-H_BEM_SFT_4W")
+    pixmap = "TRH-H_BEM_SFT_4W"
     menutext = "TRH-H BEM SFT 4W"
     tooltip = QT_TRANSLATE_NOOP(
         "STEMFIE_Connector_TRH_H_BEM_SFT_4W",
@@ -332,7 +333,7 @@ class TRH_H_BEM_SFT_4W(BaseCommand):
 class PLT_TRI(BaseCommand):
     NAME = "PLT_TRI"
     FUNCTION = Plates.PLT_TRI
-    pixmap = get_icon_path("Plate_TRI")
+    pixmap = "Plate_TRI"
     menutext = "PLT TRI"
     tooltip = QT_TRANSLATE_NOOP("STEMFIE_Plate_TRI", "Plate - Triangular")
 
@@ -340,7 +341,7 @@ class PLT_TRI(BaseCommand):
 class PLT_SQR(BaseCommand):
     NAME = "PLT_SQR"
     FUNCTION = Plates.PLT_SQR
-    pixmap = get_icon_path("Plate_SQR")
+    pixmap = "Plate_SQR"
     menutext = "PLT SQR"
     tooltip = QT_TRANSLATE_NOOP("STEMFIE_Plate_SQR", "Plate - Square")
 
@@ -348,7 +349,7 @@ class PLT_SQR(BaseCommand):
 class PLT_HEX(BaseCommand):
     NAME = "PLT_HEX"
     FUNCTION = Plates.PLT_HEX
-    pixmap = get_icon_path("Plate_HEX")
+    pixmap = "Plate_HEX"
     menutext = "PLT HEX"
     tooltip = QT_TRANSLATE_NOOP("STEMFIE_Plate_HEX", "Plate - Hexagonal")
 
@@ -357,7 +358,7 @@ class PLT_HEX(BaseCommand):
 class SFT_PLN(BaseCommand):
     NAME = "SFT_PLN"
     FUNCTION = Shafts.SFT_PLN
-    pixmap = get_icon_path("SFT_PLN")
+    pixmap = "SFT_PLN"
     menutext = "SFT PLN"
     tooltip = QT_TRANSLATE_NOOP("STEMFIE_Shaft_SFT_PLN", "Shaft - Plain")
 
