@@ -175,7 +175,7 @@ class CRN_ERR_ASYM(BaseCommand):
 class STR_STD_SQR_AY(BaseCommand):
     NAME = "STR_STD_SQR_AY"
     FUNCTION = Piezas.STR_STD_SQR_AY
-    pixmap = os.path.join(ICONPATH, "Brace STR STD BRM AY_icon.png")
+    pixmap = get_icon_path("STR_STD_SQR_AY")
     menutext = "STR STD SQR AY"
     tooltip = QT_TRANSLATE_NOOP(
         "STEMFIE_Brace_STR_STD_SQR_AY", "Brace - Straight - Standard - Square - Axis Y"
@@ -237,7 +237,7 @@ class STR_STD_DBL_AZ(BaseCommand):
 class STR_STD_DBL_AY(BaseCommand):
     NAME = "STR_STD_DBL_AY"
     FUNCTION = Piezas.STR_STD_DBL_AY
-    pixmap = os.path.join(ICONPATH, "Brace STR STD BRD AY_icon.png")
+    pixmap = get_icon_path("STR_STD_DBL_AY")
     menutext = "STR STD DBL AY"
     tooltip = QT_TRANSLATE_NOOP(
         "STEMFIE_Brace_STR_STD_DBL_AY", "Brace - Straight - Standard - Double - Axis Y"
@@ -257,7 +257,7 @@ class STR_STD_TRPL_AZ(BaseCommand):
 class STR_STD_TRPL_AY(BaseCommand):
     NAME = "STR_STD_TRPL_AY"
     FUNCTION = Piezas.STR_STD_TRPL_AY
-    pixmap = os.path.join(ICONPATH, "Brace STR STD BRT AY_icon.png")
+    pixmap = get_icon_path("STR_STD_TRPL_AY")
     menutext = "STR STD TRPL AY"
     tooltip = QT_TRANSLATE_NOOP(
         "STEMFIE_Brace_STR_STD_TRPL_AY", "Brace - Straight - Standard - Triple - Axis Y"
