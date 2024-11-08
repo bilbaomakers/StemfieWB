@@ -545,9 +545,24 @@ Minimum = 1</source>
     </message>
 </context>
 <context>
+    <name>Log</name>
+    <message>
+        <location filename="../../Comandos.py" line="68"/>
+        <source>There are no STEMFIE parts on the tree.
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Comandos.py" line="86"/>
+        <source>			    STEMFIE PARTS LIST
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>STEMFIE_Beam_AGD_ESS_USH_SYM</name>
     <message>
-        <location filename="../../Stemfie.py" line="116"/>
+        <location filename="../../Stemfie.py" line="117"/>
         <source>Beam - Angled - End Square Square - U-shaped - Symmetric</source>
         <translation type="unfinished"></translation>
     </message>
@@ -555,7 +570,7 @@ Minimum = 1</source>
 <context>
     <name>STEMFIE_Beam_STR_BEM</name>
     <message>
-        <location filename="../../Stemfie.py" line="106"/>
+        <location filename="../../Stemfie.py" line="107"/>
         <source>Beam - Block</source>
         <translation type="unfinished"></translation>
     </message>
@@ -563,7 +578,7 @@ Minimum = 1</source>
 <context>
     <name>STEMFIE_Beam_STR_BXS_ESS_C</name>
     <message>
-        <location filename="../../Stemfie.py" line="155"/>
+        <location filename="../../Stemfie.py" line="156"/>
         <source>Beam - Straight - Box-section - End Square Square - Holes at ends</source>
         <translation type="unfinished"></translation>
     </message>
@@ -571,7 +586,7 @@ Minimum = 1</source>
 <context>
     <name>STEMFIE_Beam_STR_BXS_ESS_H</name>
     <message>
-        <location filename="../../Stemfie.py" line="143"/>
+        <location filename="../../Stemfie.py" line="144"/>
         <source>Beam - Straight - Box-section - End Square Square - Full Length</source>
         <translation type="unfinished"></translation>
     </message>
@@ -579,7 +594,7 @@ Minimum = 1</source>
 <context>
     <name>STEMFIE_Beam_STR_DBL</name>
     <message>
-        <location filename="../../Stemfie.py" line="124"/>
+        <location filename="../../Stemfie.py" line="125"/>
         <source>Beam - Straight - Double</source>
         <translation type="unfinished"></translation>
     </message>
@@ -587,7 +602,7 @@ Minimum = 1</source>
 <context>
     <name>STEMFIE_Beam_STR_ERR</name>
     <message>
-        <location filename="../../Stemfie.py" line="98"/>
+        <location filename="../../Stemfie.py" line="99"/>
         <source>Beam - Straight - End Round Round</source>
         <translation type="unfinished"></translation>
     </message>
@@ -595,7 +610,7 @@ Minimum = 1</source>
 <context>
     <name>STEMFIE_Beam_STR_ESS</name>
     <message>
-        <location filename="../../Stemfie.py" line="90"/>
+        <location filename="../../Stemfie.py" line="91"/>
         <source>Beam - Straight - End Square Square</source>
         <translation type="unfinished"></translation>
     </message>
@@ -603,7 +618,7 @@ Minimum = 1</source>
 <context>
     <name>STEMFIE_Beam_STR_TRPL</name>
     <message>
-        <location filename="../../Stemfie.py" line="132"/>
+        <location filename="../../Stemfie.py" line="133"/>
         <source>Beam - Straight - Triple</source>
         <translation type="unfinished"></translation>
     </message>
@@ -611,7 +626,7 @@ Minimum = 1</source>
 <context>
     <name>STEMFIE_Brace_CRN_ERR_ASYM</name>
     <message>
-        <location filename="../../Stemfie.py" line="175"/>
+        <location filename="../../Stemfie.py" line="176"/>
         <source>Brace - Corner - End Round Round - Asymmetric</source>
         <translation type="unfinished"></translation>
     </message>
@@ -619,7 +634,7 @@ Minimum = 1</source>
 <context>
     <name>STEMFIE_Brace_STR_SLT_BE_SYM_ERR</name>
     <message>
-        <location filename="../../Stemfie.py" line="197"/>
+        <location filename="../../Stemfie.py" line="198"/>
         <source>Brace - Standard - Slotted - Both Ends - Symmetric - End Round Round</source>
         <translation type="unfinished"></translation>
     </message>
@@ -627,7 +642,7 @@ Minimum = 1</source>
 <context>
     <name>STEMFIE_Brace_STR_SLT_CNT_ERR</name>
     <message>
-        <location filename="../../Stemfie.py" line="207"/>
+        <location filename="../../Stemfie.py" line="208"/>
         <source>Brace - Straight - Slotted - Centered - End Round Round</source>
         <translation type="unfinished"></translation>
     </message>
@@ -635,7 +650,7 @@ Minimum = 1</source>
 <context>
     <name>STEMFIE_Brace_STR_SLT_FL_ERR</name>
     <message>
-        <location filename="../../Stemfie.py" line="217"/>
+        <location filename="../../Stemfie.py" line="218"/>
         <source>Brace - Straight - Slotted - Full Length - End Round Round</source>
         <translation type="unfinished"></translation>
     </message>
@@ -643,7 +658,7 @@ Minimum = 1</source>
 <context>
     <name>STEMFIE_Brace_STR_SLT_SE_ERR</name>
     <message>
-        <location filename="../../Stemfie.py" line="227"/>
+        <location filename="../../Stemfie.py" line="228"/>
         <source>Brace - Straight - Slotted - Single End - End Round Round</source>
         <translation type="unfinished"></translation>
     </message>
@@ -651,7 +666,7 @@ Minimum = 1</source>
 <context>
     <name>STEMFIE_Brace_STR_STD_CRS</name>
     <message>
-        <location filename="../../Stemfie.py" line="276"/>
+        <location filename="../../Stemfie.py" line="277"/>
         <source>Brace - Straight - Standard - Cross</source>
         <translation type="unfinished"></translation>
     </message>
@@ -659,7 +674,7 @@ Minimum = 1</source>
 <context>
     <name>STEMFIE_Brace_STR_STD_DBL_AY</name>
     <message>
-        <location filename="../../Stemfie.py" line="247"/>
+        <location filename="../../Stemfie.py" line="248"/>
         <source>Brace - Straight - Standard - Double - Axis Y</source>
         <translation type="unfinished"></translation>
     </message>
@@ -667,7 +682,7 @@ Minimum = 1</source>
 <context>
     <name>STEMFIE_Brace_STR_STD_DBL_AZ</name>
     <message>
-        <location filename="../../Stemfie.py" line="237"/>
+        <location filename="../../Stemfie.py" line="238"/>
         <source>Brace - Straight - Standard - Double - Axis Z</source>
         <translation type="unfinished"></translation>
     </message>
@@ -675,7 +690,7 @@ Minimum = 1</source>
 <context>
     <name>STEMFIE_Brace_STR_STD_ERR</name>
     <message>
-        <location filename="../../Stemfie.py" line="165"/>
+        <location filename="../../Stemfie.py" line="166"/>
         <source>Brace - Straight - Standard - End Round Round</source>
         <translation type="unfinished"></translation>
     </message>
@@ -683,7 +698,7 @@ Minimum = 1</source>
 <context>
     <name>STEMFIE_Brace_STR_STD_SQR_AY</name>
     <message>
-        <location filename="../../Stemfie.py" line="186"/>
+        <location filename="../../Stemfie.py" line="187"/>
         <source>Brace - Straight - Standard - Square - Axis Y</source>
         <translation type="unfinished"></translation>
     </message>
@@ -691,7 +706,7 @@ Minimum = 1</source>
 <context>
     <name>STEMFIE_Brace_STR_STD_TRPL_AY</name>
     <message>
-        <location filename="../../Stemfie.py" line="267"/>
+        <location filename="../../Stemfie.py" line="268"/>
         <source>Brace - Straight - Standard - Triple - Axis Y</source>
         <translation type="unfinished"></translation>
     </message>
@@ -699,15 +714,15 @@ Minimum = 1</source>
 <context>
     <name>STEMFIE_Brace_STR_STD_TRPL_AZ</name>
     <message>
-        <location filename="../../Stemfie.py" line="257"/>
-        <source>Brace Straight - Standard - Triple - Axis Z</source>
+        <location filename="../../Stemfie.py" line="258"/>
+        <source>Brace - Straight - Standard - Triple - Axis Z</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>STEMFIE_Connector_TRH_H_BEM_SFT_1W</name>
     <message>
-        <location filename="../../Stemfie.py" line="287"/>
+        <location filename="../../Stemfie.py" line="288"/>
         <source>Connector - Through-Hole - Beam - Shaft - One-way</source>
         <translation type="unfinished"></translation>
     </message>
@@ -715,7 +730,7 @@ Minimum = 1</source>
 <context>
     <name>STEMFIE_Connector_TRH_H_BEM_SFT_2W_180</name>
     <message>
-        <location filename="../../Stemfie.py" line="298"/>
+        <location filename="../../Stemfie.py" line="299"/>
         <source>Connector - Through-Hole - Beam - Shaft - Two-way - 180º</source>
         <translation type="unfinished"></translation>
     </message>
@@ -723,7 +738,7 @@ Minimum = 1</source>
 <context>
     <name>STEMFIE_Connector_TRH_H_BEM_SFT_2W_90</name>
     <message>
-        <location filename="../../Stemfie.py" line="309"/>
+        <location filename="../../Stemfie.py" line="310"/>
         <source>Connector - Through-Hole - Beam - Shaft - Two-way - 90º</source>
         <translation type="unfinished"></translation>
     </message>
@@ -731,7 +746,7 @@ Minimum = 1</source>
 <context>
     <name>STEMFIE_Connector_TRH_H_BEM_SFT_3W</name>
     <message>
-        <location filename="../../Stemfie.py" line="320"/>
+        <location filename="../../Stemfie.py" line="321"/>
         <source>Connector - Through-Hole - Beam - Shaft - Three-way</source>
         <translation type="unfinished"></translation>
     </message>
@@ -739,7 +754,7 @@ Minimum = 1</source>
 <context>
     <name>STEMFIE_Connector_TRH_H_BEM_SFT_4W</name>
     <message>
-        <location filename="../../Stemfie.py" line="332"/>
+        <location filename="../../Stemfie.py" line="333"/>
         <source>Connector - Through-Hole - Beam - Shaft - Four-way</source>
         <translation type="unfinished"></translation>
     </message>
@@ -747,12 +762,12 @@ Minimum = 1</source>
 <context>
     <name>STEMFIE_PartsList</name>
     <message>
-        <location filename="../../Stemfie.py" line="381"/>
+        <location filename="../../Stemfie.py" line="382"/>
         <source>Parts list</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Stemfie.py" line="384"/>
+        <location filename="../../Stemfie.py" line="385"/>
         <source>Print a list of the STEMFIE parts on the tree to the console</source>
         <translation type="unfinished"></translation>
     </message>
@@ -760,7 +775,7 @@ Minimum = 1</source>
 <context>
     <name>STEMFIE_Plate_HEX</name>
     <message>
-        <location filename="../../Stemfie.py" line="357"/>
+        <location filename="../../Stemfie.py" line="358"/>
         <source>Plate - Hexagonal</source>
         <translation type="unfinished"></translation>
     </message>
@@ -768,7 +783,7 @@ Minimum = 1</source>
 <context>
     <name>STEMFIE_Plate_SQR</name>
     <message>
-        <location filename="../../Stemfie.py" line="348"/>
+        <location filename="../../Stemfie.py" line="349"/>
         <source>Plate - Square</source>
         <translation type="unfinished"></translation>
     </message>
@@ -776,7 +791,7 @@ Minimum = 1</source>
 <context>
     <name>STEMFIE_Plate_TRI</name>
     <message>
-        <location filename="../../Stemfie.py" line="340"/>
+        <location filename="../../Stemfie.py" line="341"/>
         <source>Plate - Triangular</source>
         <translation type="unfinished"></translation>
     </message>
@@ -784,7 +799,7 @@ Minimum = 1</source>
 <context>
     <name>STEMFIE_Shaft_SFT_PLN</name>
     <message>
-        <location filename="../../Stemfie.py" line="366"/>
+        <location filename="../../Stemfie.py" line="367"/>
         <source>Shaft - Plain</source>
         <translation type="unfinished"></translation>
     </message>
@@ -797,57 +812,57 @@ Minimum = 1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../init_gui.py" line="65"/>
+        <location filename="../../init_gui.py" line="67"/>
         <source>STEMFIE Beams</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../init_gui.py" line="66"/>
+        <location filename="../../init_gui.py" line="68"/>
         <source>STEMFIE Braces</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../init_gui.py" line="68"/>
+        <location filename="../../init_gui.py" line="70"/>
         <source>STEMFIE Connectors</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../init_gui.py" line="71"/>
+        <location filename="../../init_gui.py" line="73"/>
         <source>STEMFIE Plates</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../init_gui.py" line="72"/>
+        <location filename="../../init_gui.py" line="74"/>
         <source>STEMFIE Shafts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../init_gui.py" line="74"/>
+        <location filename="../../init_gui.py" line="76"/>
         <source>STEMFIE Utilities</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../init_gui.py" line="79"/>
+        <location filename="../../init_gui.py" line="81"/>
         <source>Beams</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../init_gui.py" line="80"/>
+        <location filename="../../init_gui.py" line="82"/>
         <source>Braces</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../init_gui.py" line="82"/>
+        <location filename="../../init_gui.py" line="84"/>
         <source>Connectors</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../init_gui.py" line="88"/>
+        <location filename="../../init_gui.py" line="90"/>
         <source>Plates</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../init_gui.py" line="89"/>
+        <location filename="../../init_gui.py" line="91"/>
         <source>Shafts</source>
         <translation type="unfinished"></translation>
     </message>
