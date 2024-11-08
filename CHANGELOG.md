@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.4] - 2024-11-08
+
+### Fixed
+
+- Add SVG icons for beams and missing braces commands
+- Fix error when there are no STEMFIE parts on the tree
+
 ## [0.2.3] - 2024-11-06
 
 ### Fixed
@@ -50,9 +57,10 @@
 - Add parametric connectors: 5 models
 - BOM command that lists used components on the console
 
+[black]: https://github.com/psf/black
 [0.1.0]: https://github.com/bilbaomakers/StemfieWB/releases/tag/0.1.0
 [0.2.0]: https://github.com/bilbaomakers/StemfieWB/releases/tag/0.2.0
 [0.2.1]: https://github.com/bilbaomakers/StemfieWB/releases/tag/0.2.1
 [0.2.2]: https://github.com/bilbaomakers/StemfieWB/releases/tag/0.2.2
 [0.2.3]: https://github.com/bilbaomakers/StemfieWB/releases/tag/0.2.3
-[black]: https://github.com/psf/black
+[0.2.4]: https://github.com/bilbaomakers/StemfieWB/releases/tag/0.2.4
