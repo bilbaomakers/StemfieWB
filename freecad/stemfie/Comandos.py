@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 import FreeCAD
 
+translate = FreeCAD.Qt.translate
+
 
 def ListadoPiezas():
     # FreeCAD.Console.PrintMessage("Esto se ejecuta\n")
@@ -62,6 +64,10 @@ def ListadoPiezas():
                 TemporalPieza = Pieza
                 # reseteo contador
                 Contador = 1
+    if len(TemporalPiezas) == 0:
+        FreeCAD.Console.PrintMessage(translate("Log", "There are no STEMFIE parts on the tree.\n"))
+        return
+
     # Cambiar Nº piezas a la ultima pieza
     TempPieza = TemporalPiezas[-1]
     TempPieza[0] = Contador
@@ -77,7 +83,7 @@ def ListadoPiezas():
     FreeCAD.Console.PrintMessage(
         "\t\t\t**********************************************************\n"
     )
-    FreeCAD.Console.PrintMessage("\t\t            LISTADO PIEZAS STEMFIE \n")
+    FreeCAD.Console.PrintMessage(translate("Log", "\t\t\t    STEMFIE PARTS LIST\n"))
     FreeCAD.Console.PrintMessage("\t\t\t---------------------------------------------------\n")
     for x in ContenedorPiezas:
         print(x)

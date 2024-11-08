@@ -21,6 +21,8 @@ class StemfieWorkbench(Workbench):
     def Initialize(self):
         from freecad.stemfie import Stemfie
 
+        Gui.addIconPath(ICONPATH)
+
         self.list_beams = [
             "STEMFIE_Beam_STR_ESS",
             "STEMFIE_Beam_STR_ERR",
