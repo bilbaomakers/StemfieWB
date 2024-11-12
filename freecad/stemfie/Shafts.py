@@ -5,8 +5,10 @@ from math import sqrt
 
 import FreeCAD
 import Part
+from FreeCAD import Vector
 
-from freecad.stemfie import (
+from freecad.stemfie.utils import (
+    BLOCK_UNIT,
     BLOCK_UNIT_QUARTER,
     DOWEL_SHAFT_HOLE_DIAMETER,
     DOWEL_SHAFT_THICKNESS,
@@ -61,28 +63,16 @@ class SFT_PLN:
 
         s = Part.Shape([l1, c1, l2, c2])
         shaft_wire = Part.Wire(s.Edges)
-        # TODO: make profile with hole from start, generated solid is bad
-        # hole_wire = Part.Wire(
-        #     [
-        #         Part.makeCircle(
-        #             DOWEL_SHAFT_HOLE_DIAMETER / 2, FreeCAD.Vector(0, 0, 0), FreeCAD.Vector(1, 0, 0)
-        #         )
-        #     ]
-        # )
-        # Part.show(hole_wire, "hole")
-        # f = Part.Face([hole_wire, shaft_wire])
+        hole_wire = Part.Wire(
+            Part.Circle(
+                FreeCAD.Vector(0, 0, 0), Vector(1, 0, 0), DOWEL_SHAFT_HOLE_DIAMETER / 2
+            ).toShape()
+        )  # center, normal, radius
 
-        f = Part.Face(shaft_wire)
+        f = Part.Face([shaft_wire, hole_wire], "Part::FaceMakerCheese")
+
         length = (obj.HolesNumber + 1) * BLOCK_UNIT_QUARTER
         p = f.extrude(FreeCAD.Vector(length, 0, 0))
-        p = p.cut(
-            Part.makeCylinder(
-                DOWEL_SHAFT_HOLE_DIAMETER / 2,
-                length,
-                FreeCAD.Vector(0, 0, 0),
-                FreeCAD.Vector(1, 0, 0),
-            )
-        )
 
         hole = make_hole(
             DOWEL_SHAFT_HOLE_DIAMETER, DOWEL_SHAFT_THICKNESS, -DOWEL_SHAFT_THICKNESS / 2
