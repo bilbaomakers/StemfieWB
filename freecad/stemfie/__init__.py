@@ -1,8 +1,8 @@
 import os
 from math import cos, pi, sin
 
-import FreeCAD
 import Part
+from FreeCAD import Placement, Rotation, Vector
 
 __version__ = "0.2.4"
 
@@ -24,6 +24,9 @@ FASTENER_OUTER_DIAMETER = 4  # mm
 DOWEL_SHAFT_THICKNESS = 5  # mm
 DOWEL_SHAFT_HOLE_DIAMETER = 2  # mm
 FASTENER_HEAD_THICKNESS = 5  # mm
+PLATE_BORDER_OFFSET = 1.1  # mm
+PLATE_UPPER_FACE_POCKET = 0.2  # mm
+PLATE_UPPER_FACE_DIAMETER = 9  # mm
 CHAMFER = 0.3  # mm
 TOP_LEDGE = 0.2  # mm
 
@@ -45,12 +48,12 @@ def get_icon_path(icon_name: str) -> str:
 # Based on Fasteners WB
 def make_hole(diameter: float, height: float, z_offset: float = 0) -> Part.Shape:
     """Creates the shape of a hole with chamfered edges"""
-    p0 = FreeCAD.Vector(0, 0, 0)
-    p1 = FreeCAD.Vector(0, diameter / 2 + CHAMFER, 0)
-    p2 = FreeCAD.Vector(0, diameter / 2, CHAMFER)
-    p3 = FreeCAD.Vector(0, diameter / 2, height - CHAMFER)
-    p4 = FreeCAD.Vector(0, diameter / 2 + CHAMFER, height)
-    p5 = FreeCAD.Vector(0, 0, height)
+    p0 = Vector(0, 0, 0)
+    p1 = Vector(0, diameter / 2 + CHAMFER, 0)
+    p2 = Vector(0, diameter / 2, CHAMFER)
+    p3 = Vector(0, diameter / 2, height - CHAMFER)
+    p4 = Vector(0, diameter / 2 + CHAMFER, height)
+    p5 = Vector(0, 0, height)
     lines = [
         Part.makeLine(p0, p1),
         Part.makeLine(p1, p2),
@@ -60,6 +63,6 @@ def make_hole(diameter: float, height: float, z_offset: float = 0) -> Part.Shape
         Part.makeLine(p5, p0),
     ]
     face = Part.Face(Part.Wire(lines))
-    hole = face.revolve(FreeCAD.Vector(0, 0, 0), FreeCAD.Vector(0, 0, 1))
-    hole.Placement = FreeCAD.Placement(FreeCAD.Vector(0, 0, z_offset), FreeCAD.Rotation())
+    hole = face.revolve(Vector(0, 0, 0), Vector(0, 0, 1))
+    hole.Placement = Placement(Vector(0, 0, z_offset), Rotation())
     return hole
