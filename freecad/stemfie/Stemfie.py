@@ -4,7 +4,7 @@ import random
 import FreeCAD
 import FreeCADGui
 
-from freecad.stemfie import ICONPATH, Piezas, Plates, Shafts, get_icon_path
+from freecad.stemfie import ICONPATH, Connectors, Piezas, Plates, Shafts, get_icon_path
 
 QT_TRANSLATE_NOOP = FreeCAD.Qt.QT_TRANSLATE_NOOP
 
@@ -273,59 +273,61 @@ class STR_STD_CRS(BaseCommand):
     tooltip = QT_TRANSLATE_NOOP("STEMFIE_Brace_STR_STD_CRS", "Brace - Straight - Standard - Cross")
 
 
-#  Connectors
-class TRH_H_BEM_SFT_1W(BaseCommand):
-    NAME = "TRH_H_BEM_SFT_1W"
-    FUNCTION = Piezas.TRH_H_BEM_SFT_1W
+# NOTE: Connectors section
+
+
+class BEM_TRH_H_SFT_1W(BaseCommand):
+    NAME = "BEM_TRH_H_SFT_1W"
+    FUNCTION = Connectors.BEM_TRH_H_SFT_1W
     pixmap = "TRH-H_BEM_SFT_1W"
-    menutext = "TRH-H BEM SFT 1W"
+    menutext = "BEM TRH-H SFT 1W"
     tooltip = QT_TRANSLATE_NOOP(
         "STEMFIE_Connector_TRH_H_BEM_SFT_1W",
-        "Connector - Through-Hole - Beam - Shaft - One-way",
+        "Connector - Beam - Through-Hole - Shaft - One-way",
     )
 
 
-class TRH_H_BEM_SFT_2W_180(BaseCommand):
-    NAME = "TRH_H_BEM_SFT_2W_180"
-    FUNCTION = Piezas.TRH_H_BEM_SFT_2W_180
-    pixmap = "TRH-H_BEM_SFT_2W_180"
-    menutext = "TRH-H BEM SFT 2W 180º"
-    tooltip = QT_TRANSLATE_NOOP(
-        "STEMFIE_Connector_TRH_H_BEM_SFT_2W_180",
-        "Connector - Through-Hole - Beam - Shaft - Two-way - 180º",
-    )
-
-
-class TRH_H_BEM_SFT_2W_90(BaseCommand):
-    NAME = "TRH_H_BEM_SFT_2W_90"
-    FUNCTION = Piezas.TRH_H_BEM_SFT_2W_90
+class BEM_TRH_H_SFT_2W_90(BaseCommand):
+    NAME = "BEM_TRH_H_SFT_2W_90"
+    FUNCTION = Connectors.BEM_TRH_H_SFT_2W_90
     pixmap = "TRH-H_BEM_SFT_2W_90"
-    menutext = "TRH-H BEM SFT 2W 90º"
+    menutext = "BEM TRH-H SFT 2W 90º"
     tooltip = QT_TRANSLATE_NOOP(
-        "STEMFIE_Connector_TRH_H_BEM_SFT_2W_90",
-        "Connector - Through-Hole - Beam - Shaft - Two-way - 90º",
+        "STEMFIE_Connector_BEM_TRH_H_SFT_2W_90",
+        "Connector - Beam - Through-Hole - Shaft - Two-way - 90º",
     )
 
 
-class TRH_H_BEM_SFT_3W(BaseCommand):
-    NAME = "TRH_H_BEM_SFT_3W"
-    FUNCTION = Piezas.TRH_H_BEM_SFT_3W
+class BEM_TRH_H_SFT_2W_180(BaseCommand):
+    NAME = "BEM_TRH_H_SFT_2W_180"
+    FUNCTION = Connectors.BEM_TRH_H_SFT_2W_180
+    pixmap = "TRH-H_BEM_SFT_2W_180"
+    menutext = "BEM TRH-H SFT 2W 180º"
+    tooltip = QT_TRANSLATE_NOOP(
+        "STEMFIE_Connector_BEM_TRH_H_SFT_2W_180",
+        "Connector - Beam - Through-Hole - Shaft - Two-way - 180º",
+    )
+
+
+class BEM_TRH_H_SFT_3W(BaseCommand):
+    NAME = "BEM_TRH_H_SFT_3W"
+    FUNCTION = Connectors.BEM_TRH_H_SFT_3W
     pixmap = "TRH-H_BEM_SFT_3W"
-    menutext = "TRH-H BEM SFT 3W"
+    menutext = "BEM TRH-H SFT 3W"
     tooltip = QT_TRANSLATE_NOOP(
-        "STEMFIE_Connector_TRH_H_BEM_SFT_3W",
-        "Connector - Through-Hole - Beam - Shaft - Three-way",
+        "STEMFIE_Connector_BEM_TRH_H_SFT_3W",
+        "Connector - Beam - Through-Hole - Shaft - Three-way",
     )
 
 
-class TRH_H_BEM_SFT_4W(BaseCommand):
-    NAME = "TRH_H_BEM_SFT_4W"
-    FUNCTION = Piezas.TRH_H_BEM_SFT_4W
+class BEM_TRH_H_SFT_4W(BaseCommand):
+    NAME = "BEM_TRH_H_SFT_4W"
+    FUNCTION = Connectors.BEM_TRH_H_SFT_4W
     pixmap = "TRH-H_BEM_SFT_4W"
-    menutext = "TRH-H BEM SFT 4W"
+    menutext = "BEM TRH-H SFT 4W"
     tooltip = QT_TRANSLATE_NOOP(
-        "STEMFIE_Connector_TRH_H_BEM_SFT_4W",
-        "Connector - Through-Hole - Beam - Shaft - Four-way",
+        "STEMFIE_Connector_BEM_TRH_H_SFT_4W",
+        "Connector - Beam - Through-Hole - Shaft - Four-way",
     )
 
 
@@ -410,8 +412,8 @@ FreeCADGui.addCommand("STEMFIE_Brace_STR_STD_TRPL_AY", STR_STD_TRPL_AY())
 FreeCADGui.addCommand("STEMFIE_Brace_STR_STD_CRS", STR_STD_CRS())
 # Connectors
 FreeCADGui.addCommand("STEMFIE_Connector_TRH_H_BEM_SFT_1W", TRH_H_BEM_SFT_1W())
-FreeCADGui.addCommand("STEMFIE_Connector_TRH_H_BEM_SFT_2W_180", TRH_H_BEM_SFT_2W_180())
 FreeCADGui.addCommand("STEMFIE_Connector_TRH_H_BEM_SFT_2W_90", TRH_H_BEM_SFT_2W_90())
+FreeCADGui.addCommand("STEMFIE_Connector_TRH_H_BEM_SFT_2W_180", TRH_H_BEM_SFT_2W_180())
 FreeCADGui.addCommand("STEMFIE_Connector_TRH_H_BEM_SFT_3W", TRH_H_BEM_SFT_3W())
 FreeCADGui.addCommand("STEMFIE_Connector_TRH_H_BEM_SFT_4W", TRH_H_BEM_SFT_4W())
 # Plates

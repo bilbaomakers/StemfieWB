@@ -48,11 +48,11 @@ class StemfieWorkbench(Workbench):
             "STEMFIE_Brace_STR_STD_CRS",
         ]
         self.list_connectors = [
-            "STEMFIE_Connector_TRH_H_BEM_SFT_1W",
-            "STEMFIE_Connector_TRH_H_BEM_SFT_2W_90",
-            "STEMFIE_Connector_TRH_H_BEM_SFT_2W_180",
-            "STEMFIE_Connector_TRH_H_BEM_SFT_3W",
-            "STEMFIE_Connector_TRH_H_BEM_SFT_4W",
+            "STEMFIE_Connector_BEM_TRH_H_SFT_1W",
+            "STEMFIE_Connector_BEM_TRH_H_SFT_2W_90",
+            "STEMFIE_Connector_BEM_TRH_H_SFT_2W_180",
+            "STEMFIE_Connector_BEM_TRH_H_SFT_3W",
+            "STEMFIE_Connector_BEM_TRH_H_SFT_4W",
         ]
         self.list_fasteners = []
         self.list_plates = [
