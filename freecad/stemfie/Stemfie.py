@@ -4,7 +4,7 @@ import random
 import FreeCAD
 import FreeCADGui
 
-from freecad.stemfie import ICONPATH, Connectors, Piezas, Plates, Shafts, get_icon_path
+from freecad.stemfie import ICONPATH, Connectors, Gears, Piezas, Plates, Shafts, get_icon_path
 
 QT_TRANSLATE_NOOP = FreeCAD.Qt.QT_TRANSLATE_NOOP
 
@@ -37,9 +37,7 @@ class BaseCommand:
 
     def Activated(self):
         FreeCADGui.doCommandGui("import freecad.stemfie.Stemfie")
-        FreeCADGui.doCommandGui(
-            "freecad.stemfie.Stemfie.{}.create()".format(self.__class__.__name__)
-        )
+        FreeCADGui.doCommandGui(f"freecad.stemfie.Stemfie.{self.__class__.__name__}.create()")
         FreeCAD.ActiveDocument.recompute()
         FreeCADGui.SendMsgToActiveView("ViewFit")
 
@@ -329,6 +327,24 @@ class TRH_H_BEM_SFT_4W(BaseCommand):
     )
 
 
+# Gears
+# Let's use the classes from FreeCAD Gears WB
+class GER_INVOLUTE(BaseCommand):
+    NAME = "GER Involute"
+    FUNCTION = Gears.InvoluteGear2
+    pixmap = "GER_Involute"
+    menutext = "Gear Involute"
+    tooltip = "Gear Involute"
+
+
+class GER_BEVEL(BaseCommand):
+    NAME = "GER Bevel"
+    FUNCTION = Gears.BevelGear2
+    pixmap = "GER_Bevel"
+    menutext = "Gear Bevel"
+    tooltip = "Gear Bevel"
+
+
 # Plates
 class PLT_TRI(BaseCommand):
     NAME = "PLT_TRI"
@@ -414,6 +430,9 @@ FreeCADGui.addCommand("STEMFIE_Connector_TRH_H_BEM_SFT_2W_180", TRH_H_BEM_SFT_2W
 FreeCADGui.addCommand("STEMFIE_Connector_TRH_H_BEM_SFT_2W_90", TRH_H_BEM_SFT_2W_90())
 FreeCADGui.addCommand("STEMFIE_Connector_TRH_H_BEM_SFT_3W", TRH_H_BEM_SFT_3W())
 FreeCADGui.addCommand("STEMFIE_Connector_TRH_H_BEM_SFT_4W", TRH_H_BEM_SFT_4W())
+# Gears
+FreeCADGui.addCommand("STEMFIE_Gear_Involute", GER_INVOLUTE())
+FreeCADGui.addCommand("STEMFIE_Gear_Bevel", GER_BEVEL())
 # Plates
 FreeCADGui.addCommand("STEMFIE_Plate_TRI", PLT_TRI())
 FreeCADGui.addCommand("STEMFIE_Plate_SQR", PLT_SQR())
