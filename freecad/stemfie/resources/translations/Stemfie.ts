@@ -4,40 +4,7 @@
 <context>
     <name>App::Property</name>
     <message>
-        <location filename="../../Piezas.py" line="43"/>
-        <location filename="../../Piezas.py" line="110"/>
-        <location filename="../../Piezas.py" line="241"/>
-        <location filename="../../Piezas.py" line="348"/>
-        <location filename="../../Piezas.py" line="456"/>
-        <location filename="../../Piezas.py" line="677"/>
-        <location filename="../../Piezas.py" line="793"/>
-        <location filename="../../Piezas.py" line="909"/>
-        <location filename="../../Piezas.py" line="981"/>
-        <location filename="../../Piezas.py" line="1084"/>
-        <location filename="../../Piezas.py" line="1228"/>
-        <location filename="../../Piezas.py" line="1412"/>
-        <location filename="../../Piezas.py" line="1631"/>
-        <location filename="../../Piezas.py" line="1833"/>
-        <location filename="../../Piezas.py" line="1912"/>
-        <location filename="../../Piezas.py" line="1983"/>
-        <location filename="../../Piezas.py" line="2094"/>
-        <location filename="../../Piezas.py" line="2250"/>
-        <location filename="../../Piezas.py" line="2404"/>
-        <location filename="../../Piezas.py" line="2636"/>
-        <location filename="../../Piezas.py" line="2692"/>
-        <location filename="../../Piezas.py" line="2772"/>
-        <location filename="../../Piezas.py" line="2913"/>
-        <location filename="../../Piezas.py" line="3061"/>
-        <location filename="../../Piezas.py" line="3209"/>
-        <location filename="../../Piezas.py" line="3364"/>
-        <location filename="../../Plates.py" line="34"/>
-        <location filename="../../Plates.py" line="147"/>
-        <location filename="../../Plates.py" line="267"/>
-        <location filename="../../Shafts.py" line="30"/>
-        <source>Code</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
+        <location filename="../../Connectors.py" line="40"/>
         <location filename="../../Piezas.py" line="44"/>
         <location filename="../../Piezas.py" line="111"/>
         <location filename="../../Piezas.py" line="242"/>
@@ -59,19 +26,15 @@
         <location filename="../../Piezas.py" line="2405"/>
         <location filename="../../Piezas.py" line="2637"/>
         <location filename="../../Piezas.py" line="2693"/>
-        <location filename="../../Piezas.py" line="2773"/>
-        <location filename="../../Piezas.py" line="2914"/>
-        <location filename="../../Piezas.py" line="3062"/>
-        <location filename="../../Piezas.py" line="3210"/>
-        <location filename="../../Piezas.py" line="3365"/>
-        <location filename="../../Plates.py" line="35"/>
-        <location filename="../../Plates.py" line="148"/>
-        <location filename="../../Plates.py" line="268"/>
-        <location filename="../../Shafts.py" line="31"/>
-        <source>Designation</source>
+        <location filename="../../Plates.py" line="40"/>
+        <location filename="../../Plates.py" line="158"/>
+        <location filename="../../Plates.py" line="280"/>
+        <location filename="../../Shafts.py" line="30"/>
+        <source>Code</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../../Connectors.py" line="41"/>
         <location filename="../../Piezas.py" line="45"/>
         <location filename="../../Piezas.py" line="112"/>
         <location filename="../../Piezas.py" line="243"/>
@@ -93,452 +56,477 @@
         <location filename="../../Piezas.py" line="2406"/>
         <location filename="../../Piezas.py" line="2638"/>
         <location filename="../../Piezas.py" line="2694"/>
-        <location filename="../../Piezas.py" line="2774"/>
-        <location filename="../../Piezas.py" line="2915"/>
-        <location filename="../../Piezas.py" line="3063"/>
-        <location filename="../../Piezas.py" line="3211"/>
-        <location filename="../../Piezas.py" line="3366"/>
-        <location filename="../../Plates.py" line="36"/>
-        <location filename="../../Plates.py" line="149"/>
-        <location filename="../../Plates.py" line="269"/>
+        <location filename="../../Plates.py" line="41"/>
+        <location filename="../../Plates.py" line="159"/>
+        <location filename="../../Plates.py" line="281"/>
+        <location filename="../../Shafts.py" line="31"/>
+        <source>Designation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Connectors.py" line="42"/>
+        <location filename="../../Piezas.py" line="46"/>
+        <location filename="../../Piezas.py" line="113"/>
+        <location filename="../../Piezas.py" line="244"/>
+        <location filename="../../Piezas.py" line="351"/>
+        <location filename="../../Piezas.py" line="459"/>
+        <location filename="../../Piezas.py" line="680"/>
+        <location filename="../../Piezas.py" line="796"/>
+        <location filename="../../Piezas.py" line="912"/>
+        <location filename="../../Piezas.py" line="984"/>
+        <location filename="../../Piezas.py" line="1087"/>
+        <location filename="../../Piezas.py" line="1231"/>
+        <location filename="../../Piezas.py" line="1415"/>
+        <location filename="../../Piezas.py" line="1634"/>
+        <location filename="../../Piezas.py" line="1836"/>
+        <location filename="../../Piezas.py" line="1915"/>
+        <location filename="../../Piezas.py" line="1986"/>
+        <location filename="../../Piezas.py" line="2097"/>
+        <location filename="../../Piezas.py" line="2253"/>
+        <location filename="../../Piezas.py" line="2407"/>
+        <location filename="../../Piezas.py" line="2639"/>
+        <location filename="../../Piezas.py" line="2695"/>
+        <location filename="../../Plates.py" line="42"/>
+        <location filename="../../Plates.py" line="160"/>
+        <location filename="../../Plates.py" line="282"/>
         <location filename="../../Shafts.py" line="32"/>
         <source>STEMFIE part number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Piezas.py" line="50"/>
-        <location filename="../../Piezas.py" line="916"/>
-        <location filename="../../Piezas.py" line="988"/>
-        <location filename="../../Piezas.py" line="1840"/>
-        <location filename="../../Piezas.py" line="1919"/>
-        <location filename="../../Piezas.py" line="2643"/>
-        <location filename="../../Piezas.py" line="2699"/>
+        <location filename="../../Piezas.py" line="51"/>
+        <location filename="../../Piezas.py" line="917"/>
+        <location filename="../../Piezas.py" line="989"/>
+        <location filename="../../Piezas.py" line="1841"/>
+        <location filename="../../Piezas.py" line="1920"/>
+        <location filename="../../Piezas.py" line="2644"/>
+        <location filename="../../Piezas.py" line="2700"/>
         <location filename="../../Shafts.py" line="37"/>
         <source>HolesNumber</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Piezas.py" line="51"/>
-        <location filename="../../Piezas.py" line="118"/>
-        <location filename="../../Piezas.py" line="124"/>
-        <location filename="../../Piezas.py" line="130"/>
-        <location filename="../../Piezas.py" line="249"/>
-        <location filename="../../Piezas.py" line="255"/>
-        <location filename="../../Piezas.py" line="356"/>
-        <location filename="../../Piezas.py" line="362"/>
-        <location filename="../../Piezas.py" line="464"/>
-        <location filename="../../Piezas.py" line="470"/>
-        <location filename="../../Piezas.py" line="476"/>
-        <location filename="../../Piezas.py" line="482"/>
-        <location filename="../../Piezas.py" line="685"/>
-        <location filename="../../Piezas.py" line="691"/>
-        <location filename="../../Piezas.py" line="801"/>
-        <location filename="../../Piezas.py" line="807"/>
-        <location filename="../../Piezas.py" line="917"/>
-        <location filename="../../Piezas.py" line="989"/>
-        <location filename="../../Piezas.py" line="995"/>
-        <location filename="../../Piezas.py" line="1092"/>
-        <location filename="../../Piezas.py" line="1099"/>
-        <location filename="../../Piezas.py" line="1106"/>
-        <location filename="../../Piezas.py" line="1236"/>
-        <location filename="../../Piezas.py" line="1243"/>
-        <location filename="../../Piezas.py" line="1250"/>
-        <location filename="../../Piezas.py" line="1257"/>
-        <location filename="../../Piezas.py" line="1420"/>
-        <location filename="../../Piezas.py" line="1426"/>
-        <location filename="../../Piezas.py" line="1432"/>
-        <location filename="../../Piezas.py" line="1438"/>
-        <location filename="../../Piezas.py" line="1639"/>
-        <location filename="../../Piezas.py" line="1645"/>
-        <location filename="../../Piezas.py" line="1651"/>
-        <location filename="../../Piezas.py" line="1657"/>
-        <location filename="../../Piezas.py" line="1841"/>
-        <location filename="../../Piezas.py" line="1920"/>
-        <location filename="../../Piezas.py" line="1991"/>
-        <location filename="../../Piezas.py" line="1998"/>
-        <location filename="../../Piezas.py" line="2005"/>
-        <location filename="../../Piezas.py" line="2102"/>
-        <location filename="../../Piezas.py" line="2109"/>
-        <location filename="../../Piezas.py" line="2116"/>
-        <location filename="../../Piezas.py" line="2258"/>
-        <location filename="../../Piezas.py" line="2265"/>
-        <location filename="../../Piezas.py" line="2272"/>
-        <location filename="../../Piezas.py" line="2412"/>
-        <location filename="../../Piezas.py" line="2419"/>
-        <location filename="../../Piezas.py" line="2426"/>
-        <location filename="../../Piezas.py" line="2433"/>
-        <location filename="../../Piezas.py" line="2644"/>
-        <location filename="../../Piezas.py" line="2700"/>
-        <location filename="../../Plates.py" line="42"/>
-        <location filename="../../Plates.py" line="155"/>
-        <location filename="../../Plates.py" line="161"/>
-        <location filename="../../Plates.py" line="275"/>
+        <location filename="../../Piezas.py" line="52"/>
+        <location filename="../../Piezas.py" line="119"/>
+        <location filename="../../Piezas.py" line="125"/>
+        <location filename="../../Piezas.py" line="131"/>
+        <location filename="../../Piezas.py" line="250"/>
+        <location filename="../../Piezas.py" line="256"/>
+        <location filename="../../Piezas.py" line="357"/>
+        <location filename="../../Piezas.py" line="363"/>
+        <location filename="../../Piezas.py" line="465"/>
+        <location filename="../../Piezas.py" line="471"/>
+        <location filename="../../Piezas.py" line="477"/>
+        <location filename="../../Piezas.py" line="483"/>
+        <location filename="../../Piezas.py" line="686"/>
+        <location filename="../../Piezas.py" line="692"/>
+        <location filename="../../Piezas.py" line="802"/>
+        <location filename="../../Piezas.py" line="808"/>
+        <location filename="../../Piezas.py" line="918"/>
+        <location filename="../../Piezas.py" line="990"/>
+        <location filename="../../Piezas.py" line="996"/>
+        <location filename="../../Piezas.py" line="1093"/>
+        <location filename="../../Piezas.py" line="1100"/>
+        <location filename="../../Piezas.py" line="1107"/>
+        <location filename="../../Piezas.py" line="1237"/>
+        <location filename="../../Piezas.py" line="1244"/>
+        <location filename="../../Piezas.py" line="1251"/>
+        <location filename="../../Piezas.py" line="1258"/>
+        <location filename="../../Piezas.py" line="1421"/>
+        <location filename="../../Piezas.py" line="1427"/>
+        <location filename="../../Piezas.py" line="1433"/>
+        <location filename="../../Piezas.py" line="1439"/>
+        <location filename="../../Piezas.py" line="1640"/>
+        <location filename="../../Piezas.py" line="1646"/>
+        <location filename="../../Piezas.py" line="1652"/>
+        <location filename="../../Piezas.py" line="1658"/>
+        <location filename="../../Piezas.py" line="1842"/>
+        <location filename="../../Piezas.py" line="1921"/>
+        <location filename="../../Piezas.py" line="1992"/>
+        <location filename="../../Piezas.py" line="1999"/>
+        <location filename="../../Piezas.py" line="2006"/>
+        <location filename="../../Piezas.py" line="2103"/>
+        <location filename="../../Piezas.py" line="2110"/>
+        <location filename="../../Piezas.py" line="2117"/>
+        <location filename="../../Piezas.py" line="2259"/>
+        <location filename="../../Piezas.py" line="2266"/>
+        <location filename="../../Piezas.py" line="2273"/>
+        <location filename="../../Piezas.py" line="2413"/>
+        <location filename="../../Piezas.py" line="2420"/>
+        <location filename="../../Piezas.py" line="2427"/>
+        <location filename="../../Piezas.py" line="2434"/>
+        <location filename="../../Piezas.py" line="2645"/>
+        <location filename="../../Piezas.py" line="2701"/>
+        <location filename="../../Plates.py" line="48"/>
+        <location filename="../../Plates.py" line="166"/>
+        <location filename="../../Plates.py" line="172"/>
+        <location filename="../../Plates.py" line="288"/>
         <location filename="../../Shafts.py" line="38"/>
         <source>Part parameters</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Piezas.py" line="52"/>
+        <location filename="../../Piezas.py" line="53"/>
         <source>Holes number for simple part
 Minimum = 1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Piezas.py" line="117"/>
-        <location filename="../../Piezas.py" line="248"/>
-        <location filename="../../Piezas.py" line="355"/>
-        <location filename="../../Piezas.py" line="463"/>
-        <location filename="../../Piezas.py" line="1091"/>
-        <location filename="../../Piezas.py" line="1235"/>
-        <location filename="../../Piezas.py" line="1419"/>
-        <location filename="../../Piezas.py" line="1990"/>
-        <location filename="../../Piezas.py" line="2101"/>
-        <location filename="../../Piezas.py" line="2257"/>
-        <location filename="../../Piezas.py" line="2411"/>
-        <location filename="../../Plates.py" line="154"/>
+        <location filename="../../Piezas.py" line="118"/>
+        <location filename="../../Piezas.py" line="249"/>
+        <location filename="../../Piezas.py" line="356"/>
+        <location filename="../../Piezas.py" line="464"/>
+        <location filename="../../Piezas.py" line="1092"/>
+        <location filename="../../Piezas.py" line="1236"/>
+        <location filename="../../Piezas.py" line="1420"/>
+        <location filename="../../Piezas.py" line="1991"/>
+        <location filename="../../Piezas.py" line="2102"/>
+        <location filename="../../Piezas.py" line="2258"/>
+        <location filename="../../Piezas.py" line="2412"/>
+        <location filename="../../Plates.py" line="165"/>
         <source>HolesNumberX</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Piezas.py" line="119"/>
-        <location filename="../../Piezas.py" line="250"/>
-        <location filename="../../Piezas.py" line="357"/>
-        <location filename="../../Piezas.py" line="465"/>
-        <location filename="../../Plates.py" line="156"/>
+        <location filename="../../Piezas.py" line="120"/>
+        <location filename="../../Piezas.py" line="251"/>
+        <location filename="../../Piezas.py" line="358"/>
+        <location filename="../../Piezas.py" line="466"/>
+        <location filename="../../Plates.py" line="167"/>
         <source>Holes number in X
 Minimum = 2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Piezas.py" line="123"/>
-        <location filename="../../Piezas.py" line="254"/>
-        <location filename="../../Piezas.py" line="361"/>
-        <location filename="../../Piezas.py" line="469"/>
-        <location filename="../../Piezas.py" line="1997"/>
-        <location filename="../../Piezas.py" line="2264"/>
-        <location filename="../../Plates.py" line="160"/>
+        <location filename="../../Piezas.py" line="124"/>
+        <location filename="../../Piezas.py" line="255"/>
+        <location filename="../../Piezas.py" line="362"/>
+        <location filename="../../Piezas.py" line="470"/>
+        <location filename="../../Piezas.py" line="1998"/>
+        <location filename="../../Piezas.py" line="2265"/>
+        <location filename="../../Plates.py" line="171"/>
         <source>HolesNumberY</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Piezas.py" line="125"/>
-        <location filename="../../Piezas.py" line="256"/>
-        <location filename="../../Piezas.py" line="363"/>
-        <location filename="../../Piezas.py" line="471"/>
-        <location filename="../../Plates.py" line="162"/>
+        <location filename="../../Piezas.py" line="126"/>
+        <location filename="../../Piezas.py" line="257"/>
+        <location filename="../../Piezas.py" line="364"/>
+        <location filename="../../Piezas.py" line="472"/>
+        <location filename="../../Plates.py" line="173"/>
         <source>Holes number in Y
 Minimum = 2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Piezas.py" line="129"/>
-        <location filename="../../Piezas.py" line="481"/>
-        <location filename="../../Piezas.py" line="1105"/>
-        <location filename="../../Piezas.py" line="1256"/>
-        <location filename="../../Piezas.py" line="1437"/>
-        <location filename="../../Piezas.py" line="2271"/>
-        <location filename="../../Piezas.py" line="2432"/>
+        <location filename="../../Piezas.py" line="130"/>
+        <location filename="../../Piezas.py" line="482"/>
+        <location filename="../../Piezas.py" line="1106"/>
+        <location filename="../../Piezas.py" line="1257"/>
+        <location filename="../../Piezas.py" line="1438"/>
+        <location filename="../../Piezas.py" line="2272"/>
+        <location filename="../../Piezas.py" line="2433"/>
         <source>Angle</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Piezas.py" line="131"/>
+        <location filename="../../Piezas.py" line="132"/>
         <source>Angle
 Minimum = 60°
 Maximum = 180°</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Piezas.py" line="475"/>
-        <location filename="../../Piezas.py" line="1098"/>
+        <location filename="../../Piezas.py" line="476"/>
+        <location filename="../../Piezas.py" line="1099"/>
         <source>HolesNumberSloping</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Piezas.py" line="477"/>
-        <location filename="../../Piezas.py" line="1100"/>
+        <location filename="../../Piezas.py" line="478"/>
+        <location filename="../../Piezas.py" line="1101"/>
         <source>Holes number in sloping part
 Minimum 1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Piezas.py" line="483"/>
-        <location filename="../../Piezas.py" line="1107"/>
-        <location filename="../../Piezas.py" line="1439"/>
+        <location filename="../../Piezas.py" line="484"/>
+        <location filename="../../Piezas.py" line="1108"/>
+        <location filename="../../Piezas.py" line="1440"/>
         <source>Angle
 Minimum = 0
 Maximum = 180</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Piezas.py" line="684"/>
-        <location filename="../../Piezas.py" line="800"/>
+        <location filename="../../Piezas.py" line="685"/>
+        <location filename="../../Piezas.py" line="801"/>
         <source>HolesNumberTotal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Piezas.py" line="686"/>
+        <location filename="../../Piezas.py" line="687"/>
         <source>Total number of holes
 Minimum 5</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Piezas.py" line="690"/>
-        <location filename="../../Piezas.py" line="806"/>
-        <location filename="../../Piezas.py" line="994"/>
+        <location filename="../../Piezas.py" line="691"/>
+        <location filename="../../Piezas.py" line="807"/>
+        <location filename="../../Piezas.py" line="995"/>
         <source>HolesNumberSlotted</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Piezas.py" line="694"/>
-        <location filename="../../Piezas.py" line="999"/>
+        <location filename="../../Piezas.py" line="695"/>
+        <location filename="../../Piezas.py" line="1000"/>
         <source>Slotted holes number
 Same on both sides
 Minimum 2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Piezas.py" line="802"/>
+        <location filename="../../Piezas.py" line="803"/>
         <source>Total number of holes
 Minimum 4</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Piezas.py" line="808"/>
+        <location filename="../../Piezas.py" line="809"/>
         <source>Number of slotted holes
 Minimum 2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Piezas.py" line="918"/>
+        <location filename="../../Piezas.py" line="919"/>
         <source>Holes number
 Minimum 2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Piezas.py" line="990"/>
+        <location filename="../../Piezas.py" line="991"/>
         <source>Number of slotted holes
 Minimum 1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Piezas.py" line="1093"/>
+        <location filename="../../Piezas.py" line="1094"/>
         <source>Holes number in horizontal bar
 Minimum 1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Piezas.py" line="1237"/>
-        <location filename="../../Piezas.py" line="2413"/>
+        <location filename="../../Piezas.py" line="1238"/>
+        <location filename="../../Piezas.py" line="2414"/>
         <source>Holes number in central bar
 Minimum = 3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Piezas.py" line="1242"/>
-        <location filename="../../Piezas.py" line="2108"/>
-        <location filename="../../Piezas.py" line="2418"/>
+        <location filename="../../Piezas.py" line="1243"/>
+        <location filename="../../Piezas.py" line="2109"/>
+        <location filename="../../Piezas.py" line="2419"/>
         <source>HolesNumberY1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Piezas.py" line="1244"/>
-        <location filename="../../Piezas.py" line="2110"/>
+        <location filename="../../Piezas.py" line="1245"/>
+        <location filename="../../Piezas.py" line="2111"/>
         <source>Holes number in left vertical bar
 Minimum = 1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Piezas.py" line="1249"/>
-        <location filename="../../Piezas.py" line="2115"/>
-        <location filename="../../Piezas.py" line="2425"/>
+        <location filename="../../Piezas.py" line="1250"/>
+        <location filename="../../Piezas.py" line="2116"/>
+        <location filename="../../Piezas.py" line="2426"/>
         <source>HolesNumberY2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Piezas.py" line="1251"/>
-        <location filename="../../Piezas.py" line="2117"/>
+        <location filename="../../Piezas.py" line="1252"/>
+        <location filename="../../Piezas.py" line="2118"/>
         <source>Holes number in right vertical bar
 Minimum = 1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Piezas.py" line="1258"/>
-        <location filename="../../Piezas.py" line="2273"/>
-        <location filename="../../Piezas.py" line="2434"/>
+        <location filename="../../Piezas.py" line="1259"/>
+        <location filename="../../Piezas.py" line="2274"/>
+        <location filename="../../Piezas.py" line="2435"/>
         <source>Angle
 Minimum = 90°
 Maximum = 180°</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Piezas.py" line="1421"/>
+        <location filename="../../Piezas.py" line="1422"/>
         <source>Holes number in horizontal part
 Minimum 1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Piezas.py" line="1425"/>
+        <location filename="../../Piezas.py" line="1426"/>
         <source>HolesNumberSloping1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Piezas.py" line="1427"/>
+        <location filename="../../Piezas.py" line="1428"/>
         <source>Holes number in left sloping part
 Minimum 1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Piezas.py" line="1431"/>
+        <location filename="../../Piezas.py" line="1432"/>
         <source>HolesNumberSloping2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Piezas.py" line="1433"/>
+        <location filename="../../Piezas.py" line="1434"/>
         <source>Holes number in right sloping part
 Minimum 1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Piezas.py" line="1638"/>
+        <location filename="../../Piezas.py" line="1639"/>
         <source>HolesNumberXPositive</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Piezas.py" line="1640"/>
+        <location filename="../../Piezas.py" line="1641"/>
         <source>Holes number in X +
 Minimum = 1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Piezas.py" line="1644"/>
+        <location filename="../../Piezas.py" line="1645"/>
         <source>HolesNumberXNegative</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Piezas.py" line="1646"/>
+        <location filename="../../Piezas.py" line="1647"/>
         <source>Holes number in X -
 Minimum = 1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Piezas.py" line="1650"/>
+        <location filename="../../Piezas.py" line="1651"/>
         <source>HolesNumberYPositive</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Piezas.py" line="1652"/>
+        <location filename="../../Piezas.py" line="1653"/>
         <source>Holes number in Y +
 Minimum = 1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Piezas.py" line="1656"/>
+        <location filename="../../Piezas.py" line="1657"/>
         <source>HolesNumberYNegative</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Piezas.py" line="1658"/>
+        <location filename="../../Piezas.py" line="1659"/>
         <source>Holes number in Y -
 Minimum = 1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Piezas.py" line="1842"/>
+        <location filename="../../Piezas.py" line="1843"/>
         <source>Holes number for part
 Minimum = 1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Piezas.py" line="1921"/>
+        <location filename="../../Piezas.py" line="1922"/>
         <source>Holes number for simple part
 Minimum = 3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Piezas.py" line="1992"/>
+        <location filename="../../Piezas.py" line="1993"/>
         <source>Holes number in X
 Minimum = 1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Piezas.py" line="1999"/>
+        <location filename="../../Piezas.py" line="2000"/>
         <source>Holes number in Y
 Minimum = 1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Piezas.py" line="2004"/>
+        <location filename="../../Piezas.py" line="2005"/>
         <source>HolesNumberZ</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Piezas.py" line="2006"/>
+        <location filename="../../Piezas.py" line="2007"/>
         <source>Holes number in Z
 Minimum = 1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Piezas.py" line="2103"/>
+        <location filename="../../Piezas.py" line="2104"/>
         <source>Holes number for part in X
 Minimum = 3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Piezas.py" line="2259"/>
+        <location filename="../../Piezas.py" line="2260"/>
         <source>Holes number for part in X
 Minimum = 2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Piezas.py" line="2266"/>
+        <location filename="../../Piezas.py" line="2267"/>
         <source>Holes number in angular bar
 Minimum = 1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Piezas.py" line="2420"/>
+        <location filename="../../Piezas.py" line="2421"/>
         <source>Holes number in left angular bar
 Minimum = 1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Piezas.py" line="2427"/>
+        <location filename="../../Piezas.py" line="2428"/>
         <source>Holes number in right angular bar
 Minimum = 1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Piezas.py" line="2645"/>
+        <location filename="../../Piezas.py" line="2646"/>
         <location filename="../../Shafts.py" line="39"/>
         <source>Holes number
 Minimum = 1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Piezas.py" line="2701"/>
+        <location filename="../../Piezas.py" line="2702"/>
         <source>Holes number
 Minimum = 3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Plates.py" line="41"/>
+        <location filename="../../Plates.py" line="47"/>
         <source>RowsNumber</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Plates.py" line="43"/>
+        <location filename="../../Plates.py" line="49"/>
         <source>Number of horizontal rows in X
 Minimum = 2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Plates.py" line="274"/>
+        <location filename="../../Plates.py" line="287"/>
         <source>RingsNumber</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Plates.py" line="278"/>
+        <location filename="../../Plates.py" line="291"/>
         <source>Number of rings around the central hole
 Minimum = 1</source>
         <translation type="unfinished"></translation>
@@ -555,6 +543,12 @@ Minimum = 1</source>
     <message>
         <location filename="../../Comandos.py" line="86"/>
         <source>			    STEMFIE PARTS LIST
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Piezas.py" line="2772"/>
+        <source>Object migration was successful, using new proxy class.
 </source>
         <translation type="unfinished"></translation>
     </message>

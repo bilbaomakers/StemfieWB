@@ -12,6 +12,7 @@
 import FreeCAD
 import Part
 
+from freecad.stemfie import Connectors
 
 translate = FreeCAD.Qt.translate
 QT_TRANSLATE_NOOP = FreeCAD.Qt.QT_TRANSLATE_NOOP
@@ -2758,3 +2759,41 @@ class STR_BXS_ESS_C:
 
         P.Placement = obj.Placement
         obj.Shape = P
+
+
+# NOTE: Classes below this chunk are kept for migration purposes.
+# The migration method used is "Method 2. Migration when restoring the document"
+# from: https://wiki.freecad.org/Scripted_objects_migration
+# The view provider is not changed.
+
+msg = translate("Log", "Object migration was successful, using new proxy class.\n")
+
+
+class TRH_H_BEM_SFT_1W:
+    def onDocumentRestored(self, obj):
+        Connectors.TRH_H_BEM_SFT_1W(obj)
+        FreeCAD.Console.PrintWarning(msg)
+
+
+class TRH_H_BEM_SFT_2W_90:
+    def onDocumentRestored(self, obj):
+        Connectors.TRH_H_BEM_SFT_2W_90(obj)
+        FreeCAD.Console.PrintWarning(msg)
+
+
+class TRH_H_BEM_SFT_2W_180:
+    def onDocumentRestored(self, obj):
+        Connectors.TRH_H_BEM_SFT_2W_180(obj)
+        FreeCAD.Console.PrintWarning(msg)
+
+
+class TRH_H_BEM_SFT_3W:
+    def onDocumentRestored(self, obj):
+        Connectors.TRH_H_BEM_SFT_3W(obj)
+        FreeCAD.Console.PrintWarning(msg)
+
+
+class TRH_H_BEM_SFT_4W:
+    def onDocumentRestored(self, obj):
+        Connectors.TRH_H_BEM_SFT_4W(obj)
+        FreeCAD.Console.PrintWarning(msg)

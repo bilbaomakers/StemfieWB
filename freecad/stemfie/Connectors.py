@@ -12,9 +12,6 @@ from freecad.stemfie import (
     BLOCK_UNIT_QUARTER,
 )
 
-# FIXME: opening old files creates error
-# pyException: <string>(1)<class 'AttributeError'>: Module freecad.stemfie.Piezas has no class TRH_H_BEM_SFT_1W
-# How to redirect objects to new class?
 
 # TODO: ask if it's better to reduce from 5 commands to a single one
 # advantage: you can change shape on the same object
@@ -37,12 +34,13 @@ class CONN:
         obj.Proxy = self
         self.connectors = []
         self.code = ""
-        obj.addProperty(
-            "App::PropertyString",
-            QT_TRANSLATE_NOOP("App::Property", "Code"),
-            QT_TRANSLATE_NOOP("App::Property", "Designation"),
-            QT_TRANSLATE_NOOP("App::Property", "STEMFIE part number"),
-        )
+        if not hasattr(obj, "Code"):
+            obj.addProperty(
+                "App::PropertyString",
+                QT_TRANSLATE_NOOP("App::Property", "Code"),
+                QT_TRANSLATE_NOOP("App::Property", "Designation"),
+                QT_TRANSLATE_NOOP("App::Property", "STEMFIE part number"),
+            )
         obj.setEditorMode("Code", 1)
 
     def create_cube(self) -> Part.Shape:
