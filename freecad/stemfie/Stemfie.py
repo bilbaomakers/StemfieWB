@@ -357,6 +357,14 @@ class PLT_HEX(BaseCommand):
 
 
 # Shafts
+class SFT_IDX(BaseCommand):
+    NAME = "SFT_IDX"
+    FUNCTION = Shafts.SFT_IDX
+    pixmap = "SFT_IDX"
+    menutext = "SFT IDX"
+    tooltip = QT_TRANSLATE_NOOP("STEMFIE_Shaft_SFT_IDX", "Shaft - Indexing")
+
+
 class SFT_PLN(BaseCommand):
     NAME = "SFT_PLN"
     FUNCTION = Shafts.SFT_PLN
@@ -422,5 +430,6 @@ FreeCADGui.addCommand("STEMFIE_Plate_SQR", PLT_SQR())
 FreeCADGui.addCommand("STEMFIE_Plate_HEX", PLT_HEX())
 # Shafts
 FreeCADGui.addCommand("STEMFIE_Shaft_SFT_PLN", SFT_PLN())
+FreeCADGui.addCommand("STEMFIE_Shaft_SFT_IDX", SFT_IDX())
 # Utilities
 FreeCADGui.addCommand("STEMFIE_PartsList", PartsList())

@@ -60,7 +60,7 @@ class StemfieWorkbench(Workbench):
             "STEMFIE_Plate_SQR",
             "STEMFIE_Plate_HEX",
         ]
-        self.list_shafts = ["STEMFIE_Shaft_SFT_PLN"]
+        self.list_shafts = ["STEMFIE_Shaft_SFT_IDX", "STEMFIE_Shaft_SFT_PLN"]
         self.list_springs = []
         self.list_commands = ["STEMFIE_PartsList"]
 
