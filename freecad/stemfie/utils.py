@@ -52,3 +52,54 @@ def make_chamfered_hole(diameter: float, height: float, z_offset: float = 0) -> 
     hole = face.revolve(Vector(0, 0, 0), Vector(0, 0, 1))
     hole.Placement = Placement(Vector(0, 0, z_offset), Rotation())
     return hole
+
+
+def make_slot_wire_rr(length: float, radius: float) -> Part.Wire:
+    """
+    Create slot shape on X axis, left circumference at origin, size given by
+    - length (distance between circumferences)
+    - radius
+    """
+    if length == 0:
+        raise ValueError("Length must not be zero.")
+
+    #  ---- Genero puntos de los contornos
+    p1 = Vector(0, -radius, 0)
+    p2 = Vector(length, -radius, 0)
+    p3 = Vector(length, radius, 0)
+    p4 = Vector(0, radius, 0)
+    #  ---- Genero puntos para círculos
+    pc2 = Vector(length + radius, 0, 0)
+    pc4 = Vector(-radius, 0, 0)
+    #  ---- Creamos lineas y arcos
+    l1 = Part.LineSegment(p1, p2)  # down
+    c2 = Part.Arc(p2, pc2, p3)  # left
+    l3 = Part.LineSegment(p3, p4)  # up
+    c4 = Part.Arc(p4, pc4, p1)  # right
+    #  ---- Creo el contorno
+    s = Part.Shape([l1, c2, l3, c4])
+    return Part.Wire(s.Edges)
+
+
+def make_slot_wire_sr(length: float, radius: float) -> Part.Wire:
+    """
+    Create slot shape on X axis, left circumference at origin, size given by
+    - length (distance between circumferences)
+    - radius
+    """
+    if length == 0:
+        raise ValueError("Length must not be zero.")
+
+    p1 = Vector(0, -radius, 0)
+    p2 = Vector(length, -radius, 0)
+    p3 = Vector(length, radius, 0)
+    p4 = Vector(0, radius, 0)
+    #  ---- Genero punto para arco
+    pc2 = Vector(length + radius, 0, 0)
+    #  ---- Creamos lineas y arcos
+    l1 = Part.LineSegment(p1, p2)
+    c2 = Part.Arc(p2, pc2, p3)  # left
+    l3 = Part.LineSegment(p3, p4)
+    l4 = Part.LineSegment(p4, p1)
+    s = Part.Shape([l1, c2, l3, l4])
+    return Part.Wire(s.Edges)

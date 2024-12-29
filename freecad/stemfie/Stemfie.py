@@ -4,7 +4,14 @@ import random
 import FreeCAD
 import FreeCADGui
 
-from freecad.stemfie import ICONPATH, Connectors, Piezas, Plates, Shafts, get_icon_path
+from freecad.stemfie import (
+    ICONPATH,
+    Braces,
+    Connectors,
+    Plates,
+    Shafts,
+    get_icon_path,
+)
 
 QT_TRANSLATE_NOOP = FreeCAD.Qt.QT_TRANSLATE_NOOP
 
@@ -155,7 +162,7 @@ class STR_BXS_ESS_C(BaseCommand):
 # Braces
 class STR_STD_ERR(BaseCommand):
     NAME = "STR_STD_ERR"
-    FUNCTION = Piezas.STR_STD_ERR
+    FUNCTION = Braces.STR_STD_ERR
     pixmap = "STR_STD_ERR"
     menutext = "STR STD ERR"
     tooltip = QT_TRANSLATE_NOOP(
@@ -165,7 +172,7 @@ class STR_STD_ERR(BaseCommand):
 
 class CRN_ERR_ASYM(BaseCommand):
     NAME = "CRN_ERR_ASYM"
-    FUNCTION = Piezas.CRN_ERR_ASYM
+    FUNCTION = Braces.CRN_ERR_ASYM
     pixmap = "CRN_ERR_ASYM"
     menutext = "CRN ERR ASYM"
     tooltip = QT_TRANSLATE_NOOP(
@@ -175,7 +182,7 @@ class CRN_ERR_ASYM(BaseCommand):
 
 class STR_STD_SQR_AY(BaseCommand):
     NAME = "STR_STD_SQR_AY"
-    FUNCTION = Piezas.STR_STD_SQR_AY
+    FUNCTION = Braces.STR_STD_SQR_AY
     pixmap = "STR_STD_SQR_AY"
     menutext = "STR STD SQR AY"
     tooltip = QT_TRANSLATE_NOOP(
@@ -186,7 +193,7 @@ class STR_STD_SQR_AY(BaseCommand):
 # TODO: One slotted missing
 class STR_SLT_BE_SYM_ERR(BaseCommand):
     NAME = "STR_SLT_BE_SYM_ERR"
-    FUNCTION = Piezas.STR_SLT_BE_SYM_ERR
+    FUNCTION = Braces.STR_SLT_BE_SYM_ERR
     pixmap = "STR_SLT_BE_SYM_ERR"
     menutext = "STR SLT BE SYM ERR"
     tooltip = QT_TRANSLATE_NOOP(
@@ -197,7 +204,7 @@ class STR_SLT_BE_SYM_ERR(BaseCommand):
 
 class STR_SLT_CNT_ERR(BaseCommand):
     NAME = "STR_SLT_CNT_ERR"
-    FUNCTION = Piezas.STR_SLT_CNT_ERR
+    FUNCTION = Braces.STR_SLT_CNT_ERR
     pixmap = "STR_SLT_CNT_ERR"
     menutext = "STR SLT CNT ERR"
     tooltip = QT_TRANSLATE_NOOP(
@@ -207,7 +214,7 @@ class STR_SLT_CNT_ERR(BaseCommand):
 
 class STR_SLT_FL_ERR(BaseCommand):
     NAME = "STR_SLT_FL_ERR"
-    FUNCTION = Piezas.STR_SLT_FL_ERR
+    FUNCTION = Braces.STR_SLT_FL_ERR
     pixmap = "STR_SLT_FL_ERR"
     menutext = "STR SLT FL ERR"
     tooltip = QT_TRANSLATE_NOOP(
@@ -217,7 +224,7 @@ class STR_SLT_FL_ERR(BaseCommand):
 
 class STR_SLT_SE_ERR(BaseCommand):
     NAME = "STR_SLT_SE_ERR"
-    FUNCTION = Piezas.STR_SLT_SE_ERR
+    FUNCTION = Braces.STR_SLT_SE_ERR
     pixmap = "STR_SLT_SE_ERR"
     menutext = "STR SLT SE ERR"
     tooltip = QT_TRANSLATE_NOOP(
@@ -227,7 +234,7 @@ class STR_SLT_SE_ERR(BaseCommand):
 
 class STR_STD_DBL_AZ(BaseCommand):
     NAME = "STR_STD_DBL_AZ"
-    FUNCTION = Piezas.STR_STD_DBL_AZ
+    FUNCTION = Braces.STR_STD_DBL_AZ
     pixmap = "STR_STD_DBL_AZ"
     menutext = "STR STD DBL AZ"
     tooltip = QT_TRANSLATE_NOOP(
@@ -237,7 +244,7 @@ class STR_STD_DBL_AZ(BaseCommand):
 
 class STR_STD_DBL_AY(BaseCommand):
     NAME = "STR_STD_DBL_AY"
-    FUNCTION = Piezas.STR_STD_DBL_AY
+    FUNCTION = Braces.STR_STD_DBL_AY
     pixmap = "STR_STD_DBL_AY"
     menutext = "STR STD DBL AY"
     tooltip = QT_TRANSLATE_NOOP(
@@ -247,7 +254,7 @@ class STR_STD_DBL_AY(BaseCommand):
 
 class STR_STD_TRPL_AZ(BaseCommand):
     NAME = "STR_STD_TRPL_AZ"
-    FUNCTION = Piezas.STR_STD_TRPL_AZ
+    FUNCTION = Braces.STR_STD_TRPL_AZ
     pixmap = "STR_STD_TRPL_AZ"
     menutext = "STR STD TRPL AZ"
     tooltip = QT_TRANSLATE_NOOP(
@@ -257,7 +264,7 @@ class STR_STD_TRPL_AZ(BaseCommand):
 
 class STR_STD_TRPL_AY(BaseCommand):
     NAME = "STR_STD_TRPL_AY"
-    FUNCTION = Piezas.STR_STD_TRPL_AY
+    FUNCTION = Braces.STR_STD_TRPL_AY
     pixmap = "STR_STD_TRPL_AY"
     menutext = "STR STD TRPL AY"
     tooltip = QT_TRANSLATE_NOOP(
@@ -267,7 +274,7 @@ class STR_STD_TRPL_AY(BaseCommand):
 
 class STR_STD_CRS(BaseCommand):
     NAME = "STR_STD_CRS"
-    FUNCTION = Piezas.STR_STD_CRS
+    FUNCTION = Braces.STR_STD_CRS
     pixmap = "STR_STD_CRS"
     menutext = "STR STD CRS"
     tooltip = QT_TRANSLATE_NOOP("STEMFIE_Brace_STR_STD_CRS", "Brace - Straight - Standard - Cross")
