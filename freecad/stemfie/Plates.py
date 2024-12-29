@@ -19,12 +19,22 @@ from freecad.stemfie.utils import (
     make_hole,
 )
 
+translate = FreeCAD.Qt.translate
 QT_TRANSLATE_NOOP = FreeCAD.Qt.QT_TRANSLATE_NOOP
 
 simple_hole = Part.makeCylinder(
     HOLE_DIAMETER_STANDARD / 2, BLOCK_UNIT_QUARTER, Vector(0, 0, 0), Vector(0, 0, 1)
 )
 chamf_hole = make_hole(HOLE_DIAMETER_STANDARD, BLOCK_UNIT_QUARTER)
+
+# NOTE: There is a migration code for files using old version of plate classes
+# The migration method used is:
+# "Method 3. Migration when restoring the document, manually handling the properties"
+# from: https://wiki.freecad.org/Scripted_objects_migration
+
+migration_msg = translate(
+    "Log", "Plate migration was successful, using new constrained properties.\n"
+)
 
 
 class PLT:
@@ -38,6 +48,9 @@ class PLT:
             obj: The FreeCAD object to which this connector is attached.
         """
         obj.Proxy = self  # Stores a reference to the Python instance in the FeaturePython object
+        self.base_initialization(obj)
+
+    def base_initialization(self, obj):
         self.inset_wire = None
         self.wire_holes = []
         obj.addProperty(
@@ -75,13 +88,33 @@ class PLT_TRI(PLT):
 
     def __init__(self, obj):
         super().__init__(obj)
-        self.minimum = 2
+        self.tri_initialization(obj)
+
+    def tri_initialization(self, obj):
         obj.addProperty(
-            "App::PropertyInteger",
+            "App::PropertyIntegerConstraint",
             QT_TRANSLATE_NOOP("App::Property", "RowsNumber"),
             QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
-            QT_TRANSLATE_NOOP("App::Property", "Number of horizontal rows in X\nMinimum = 2"),
-        ).RowsNumber = 3
+            QT_TRANSLATE_NOOP("App::Property", "Number of horizontal rows\nMinimum = 2"),
+        ).RowsNumber = (
+            3,
+            2,
+            50,
+            1,
+        )  # (Default, Minimum, Maximum, Step size)
+
+    def onDocumentRestored(self, obj):
+        """Implement migration for old version of shaft plain."""
+        if not hasattr(obj, "SimpleShape"):  # old version
+            old_props = dict()
+            old_props["RowsNumber"] = obj.RowsNumber
+            obj.removeProperty("Code")
+            obj.removeProperty("RowsNumber")
+
+            self.base_initialization(obj)
+            self.tri_initialization(obj)
+            obj.RowsNumber = old_props["RowsNumber"]
+            FreeCAD.Console.PrintWarning(migration_msg)
 
     def execute(self, obj):
         #  ---- Genero puntos de los contornos, simetría en eje Y
@@ -179,23 +212,51 @@ class PLT_SQR(PLT):
 
     def __init__(self, obj):
         super().__init__(obj)
-        self.minimum = 2
+        self.sqr_initialization(obj)
+
+    def sqr_initialization(self, obj):
         obj.addProperty(
-            "App::PropertyInteger",
+            "App::PropertyIntegerConstraint",
             QT_TRANSLATE_NOOP("App::Property", "HolesNumberX"),
             QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
             QT_TRANSLATE_NOOP(
                 "App::Property", "Number of holes in the X direction of the object\nMinimum = 2"
             ),
-        ).HolesNumberX = 4
+        ).HolesNumberX = (
+            4,
+            2,
+            50,
+            1,
+        )  # (Default, Minimum, Maximum, Step size)
         obj.addProperty(
-            "App::PropertyInteger",
+            "App::PropertyIntegerConstraint",
             QT_TRANSLATE_NOOP("App::Property", "HolesNumberY"),
             QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
             QT_TRANSLATE_NOOP(
                 "App::Property", "Number of holes in the Y direction of the object\nMinimum = 2"
             ),
-        ).HolesNumberY = 4
+        ).HolesNumberY = (
+            3,
+            2,
+            50,
+            1,
+        )  # (Default, Minimum, Maximum, Step size)
+
+    def onDocumentRestored(self, obj):
+        """Implement migration for old version of shaft plain."""
+        if not hasattr(obj, "SimpleShape"):  # old version
+            old_props = dict()
+            old_props["HolesNumberX"] = obj.HolesNumberX
+            old_props["HolesNumberY"] = obj.HolesNumberY
+            obj.removeProperty("Code")
+            obj.removeProperty("HolesNumberX")
+            obj.removeProperty("HolesNumberY")
+
+            self.base_initialization(obj)
+            self.sqr_initialization(obj)
+            obj.HolesNumberX = old_props["HolesNumberX"]
+            obj.HolesNumberY = old_props["HolesNumberY"]
+            FreeCAD.Console.PrintWarning(migration_msg)
 
     def execute(self, obj):
         #  ---- Genero puntos de los contornos
@@ -284,15 +345,35 @@ class PLT_HEX(PLT):
 
     def __init__(self, obj):
         super().__init__(obj)
-        self.minimum = 1
+        self.hex_initialization(obj)
+
+    def hex_initialization(self, obj):
         obj.addProperty(
-            "App::PropertyInteger",
+            "App::PropertyIntegerConstraint",
             QT_TRANSLATE_NOOP("App::Property", "RingsNumber"),
             QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
             QT_TRANSLATE_NOOP(
                 "App::Property", "Number of rings around the central hole\nMinimum = 1"
             ),
-        ).RingsNumber = 2
+        ).RingsNumber = (
+            2,
+            1,
+            50,
+            1,
+        )  # (Default, Minimum, Maximum, Step size)
+
+    def onDocumentRestored(self, obj):
+        """Implement migration for old version of shaft plain."""
+        if not hasattr(obj, "SimpleShape"):  # old version
+            old_props = dict()
+            old_props["RingsNumber"] = obj.RingsNumber
+            obj.removeProperty("Code")
+            obj.removeProperty("RingsNumber")
+
+            self.base_initialization(obj)
+            self.hex_initialization(obj)
+            obj.RingsNumber = old_props["RingsNumber"]
+            FreeCAD.Console.PrintWarning(migration_msg)
 
     def execute(self, obj):
         #  ---- Genero puntos de los contornos
