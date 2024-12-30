@@ -6,6 +6,7 @@ import FreeCADGui
 
 from freecad.stemfie import (
     ICONPATH,
+    Beams,
     Braces,
     Connectors,
     Plates,
@@ -86,10 +87,16 @@ class BaseCommand:
         }
 
 
-# Beams
+# NOTE: we try to follow as close as possible the naming convention
+# https://www.stemfie.org/filenames
+
+
+# NOTE: Beams section
+
+
 class STR_ESS(BaseCommand):
     NAME = "STR_ESS"
-    FUNCTION = Piezas.STR_ESS
+    FUNCTION = Beams.STR_ESS
     pixmap = "STR_ESS"
     menutext = "STR ESS"
     tooltip = QT_TRANSLATE_NOOP("STEMFIE_Beam_STR_ESS", "Beam - Straight - End Square Square")
@@ -97,7 +104,7 @@ class STR_ESS(BaseCommand):
 
 class STR_ERR(BaseCommand):
     NAME = "STR_ERR"
-    FUNCTION = Piezas.STR_ERR
+    FUNCTION = Beams.STR_ERR
     pixmap = "STR_ERR"
     menutext = "STR ERR"
     tooltip = QT_TRANSLATE_NOOP("STEMFIE_Beam_STR_ERR", "Beam - Straight - End Round Round")
@@ -105,25 +112,25 @@ class STR_ERR(BaseCommand):
 
 class STR_BEM(BaseCommand):
     NAME = "STR_BEM"
-    FUNCTION = Piezas.STR_BEM
+    FUNCTION = Beams.STR_BEM
     pixmap = "STR_BEM"
     menutext = "STR BEM"
     tooltip = QT_TRANSLATE_NOOP("STEMFIE_Beam_STR_BEM", "Beam - Block")
 
 
-class AGD_ESS_USH_SYM(BaseCommand):
-    NAME = "AGD_ESS_USH_SYM"
-    FUNCTION = Piezas.AGD_ESS_USH_SYM
+class AGD_USH_SYM_ESS(BaseCommand):
+    NAME = "AGD_USH_SYM_ESS"
+    FUNCTION = Beams.AGD_USH_SYM_ESS
     pixmap = "AGD_ESS_USH_SYM"
-    menutext = "AGD ESS USH SYM"
+    menutext = "AGD USH SYM ESS"
     tooltip = QT_TRANSLATE_NOOP(
-        "STEMFIE_Beam_AGD_ESS_USH_SYM", "Beam - Angled - End Square Square - U-shaped - Symmetric"
+        "STEMFIE_Beam_AGD_USH_SYM_ESS", "Beam - Angled - U-shaped - Symmetric - End Square Square"
     )
 
 
 class STR_DBL(BaseCommand):
     NAME = "STR_DBL"
-    FUNCTION = Piezas.STR_DBL
+    FUNCTION = Beams.STR_DBL
     pixmap = "STR_DBL"
     menutext = "STR DBL"
     tooltip = QT_TRANSLATE_NOOP("STEMFIE_Beam_STR_DBL", "Beam - Straight - Double")
@@ -131,7 +138,7 @@ class STR_DBL(BaseCommand):
 
 class STR_TRPL(BaseCommand):
     NAME = "STR_TRPL"
-    FUNCTION = Piezas.STR_TRPL
+    FUNCTION = Beams.STR_TRPL
     pixmap = "STR_TRPL"
     menutext = "STR TRPL"
     tooltip = QT_TRANSLATE_NOOP("STEMFIE_Beam_STR_TRPL", "Beam - Straight - Triple")
@@ -139,7 +146,7 @@ class STR_TRPL(BaseCommand):
 
 class STR_BXS_ESS_H(BaseCommand):
     NAME = "STR_BXS_ESS_H"
-    FUNCTION = Piezas.STR_BXS_ESS_H
+    FUNCTION = Beams.STR_BXS_ESS_H
     pixmap = "STR_BXS_ESS_H"
     menutext = "STR BXS ESS H"
     tooltip = QT_TRANSLATE_NOOP(
@@ -150,7 +157,7 @@ class STR_BXS_ESS_H(BaseCommand):
 
 class STR_BXS_ESS_C(BaseCommand):
     NAME = "STR_BXS_ESS_C"
-    FUNCTION = Piezas.STR_BXS_ESS_C
+    FUNCTION = Beams.STR_BXS_ESS_C
     pixmap = "STR_BXS_ESS_C"
     menutext = "STR BXS ESS C"
     tooltip = QT_TRANSLATE_NOOP(
@@ -160,6 +167,8 @@ class STR_BXS_ESS_C(BaseCommand):
 
 
 # Braces
+
+
 class STR_STD_ERR(BaseCommand):
     NAME = "STR_STD_ERR"
     FUNCTION = Braces.STR_STD_ERR
@@ -339,6 +348,8 @@ class BEM_TRH_H_SFT_4W(BaseCommand):
 
 
 # Plates
+
+
 class PLT_TRI(BaseCommand):
     NAME = "PLT_TRI"
     FUNCTION = Plates.PLT_TRI
@@ -364,6 +375,8 @@ class PLT_HEX(BaseCommand):
 
 
 # Shafts
+
+
 class SFT_IDX(BaseCommand):
     NAME = "SFT_IDX"
     FUNCTION = Shafts.SFT_IDX
@@ -381,6 +394,8 @@ class SFT_PLN(BaseCommand):
 
 
 # Utilities
+
+
 class PartsList:
     def IsActive(self):
         if FreeCAD.ActiveDocument is None:
@@ -407,7 +422,7 @@ class PartsList:
 FreeCADGui.addCommand("STEMFIE_Beam_STR_ESS", STR_ESS())
 FreeCADGui.addCommand("STEMFIE_Beam_STR_ERR", STR_ERR())
 FreeCADGui.addCommand("STEMFIE_Beam_STR_BEM", STR_BEM())
-FreeCADGui.addCommand("STEMFIE_Beam_AGD_ESS_USH_SYM", AGD_ESS_USH_SYM())
+FreeCADGui.addCommand("STEMFIE_Beam_AGD_USH_SYM_ESS", AGD_USH_SYM_ESS())
 FreeCADGui.addCommand("STEMFIE_Beam_STR_DBL", STR_DBL())
 FreeCADGui.addCommand("STEMFIE_Beam_STR_TRPL", STR_TRPL())
 FreeCADGui.addCommand("STEMFIE_Beam_STR_BXS_ESS_H", STR_BXS_ESS_H())
@@ -426,11 +441,11 @@ FreeCADGui.addCommand("STEMFIE_Brace_STR_STD_TRPL_AZ", STR_STD_TRPL_AZ())
 FreeCADGui.addCommand("STEMFIE_Brace_STR_STD_TRPL_AY", STR_STD_TRPL_AY())
 FreeCADGui.addCommand("STEMFIE_Brace_STR_STD_CRS", STR_STD_CRS())
 # Connectors
-FreeCADGui.addCommand("STEMFIE_Connector_TRH_H_BEM_SFT_1W", TRH_H_BEM_SFT_1W())
-FreeCADGui.addCommand("STEMFIE_Connector_TRH_H_BEM_SFT_2W_90", TRH_H_BEM_SFT_2W_90())
-FreeCADGui.addCommand("STEMFIE_Connector_TRH_H_BEM_SFT_2W_180", TRH_H_BEM_SFT_2W_180())
-FreeCADGui.addCommand("STEMFIE_Connector_TRH_H_BEM_SFT_3W", TRH_H_BEM_SFT_3W())
-FreeCADGui.addCommand("STEMFIE_Connector_TRH_H_BEM_SFT_4W", TRH_H_BEM_SFT_4W())
+FreeCADGui.addCommand("STEMFIE_Connector_BEM_TRH_H_SFT_1W", BEM_TRH_H_SFT_1W())
+FreeCADGui.addCommand("STEMFIE_Connector_BEM_TRH_H_SFT_2W_90", BEM_TRH_H_SFT_2W_90())
+FreeCADGui.addCommand("STEMFIE_Connector_BEM_TRH_H_SFT_2W_180", BEM_TRH_H_SFT_2W_180())
+FreeCADGui.addCommand("STEMFIE_Connector_BEM_TRH_H_SFT_3W", BEM_TRH_H_SFT_3W())
+FreeCADGui.addCommand("STEMFIE_Connector_BEM_TRH_H_SFT_4W", BEM_TRH_H_SFT_4W())
 # Plates
 FreeCADGui.addCommand("STEMFIE_Plate_TRI", PLT_TRI())
 FreeCADGui.addCommand("STEMFIE_Plate_SQR", PLT_SQR())

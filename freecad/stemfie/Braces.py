@@ -21,7 +21,7 @@ QT_TRANSLATE_NOOP = FreeCAD.Qt.QT_TRANSLATE_NOOP
 simple_hole = Part.makeCylinder(
     HOLE_DIAMETER_STANDARD / 2, BLOCK_UNIT_QUARTER, Vector(0, 0, 0), Vector(0, 0, 1)
 )
-chamf_hole = make_hole(HOLE_DIAMETER_STANDARD, BLOCK_UNIT_QUARTER)
+chamf_hole = make_chamfered_hole(HOLE_DIAMETER_STANDARD, BLOCK_UNIT_QUARTER)
 
 # NOTE: general approach is to generate a cheese wire (sketch with internal holes),
 # then extrude it and simple shape is done; brace in a single step done.

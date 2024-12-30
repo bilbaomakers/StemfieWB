@@ -16,7 +16,7 @@ from freecad.stemfie.utils import (
     SIN_30,
     SIN_45,
     SIN_60,
-    make_hole,
+    make_chamfered_hole,
 )
 
 translate = FreeCAD.Qt.translate
@@ -25,7 +25,7 @@ QT_TRANSLATE_NOOP = FreeCAD.Qt.QT_TRANSLATE_NOOP
 simple_hole = Part.makeCylinder(
     HOLE_DIAMETER_STANDARD / 2, BLOCK_UNIT_QUARTER, Vector(0, 0, 0), Vector(0, 0, 1)
 )
-chamf_hole = make_hole(HOLE_DIAMETER_STANDARD, BLOCK_UNIT_QUARTER)
+chamf_hole = make_chamfered_hole(HOLE_DIAMETER_STANDARD, BLOCK_UNIT_QUARTER)
 
 # NOTE: There is a migration code for files using old version of plate classes
 # The migration method used is:

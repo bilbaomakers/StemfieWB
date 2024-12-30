@@ -9,7 +9,7 @@ from freecad.stemfie.utils import (
     BLOCK_UNIT_QUARTER,
     DOWEL_SHAFT_HOLE_DIAMETER,
     DOWEL_SHAFT_THICKNESS,
-    make_hole,
+    make_chamfered_hole,
 )
 
 translate = FreeCAD.Qt.translate

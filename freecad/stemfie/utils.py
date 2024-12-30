@@ -103,3 +103,50 @@ def make_slot_wire_sr(length: float, radius: float) -> Part.Wire:
     l4 = Part.LineSegment(p4, p1)
     s = Part.Shape([l1, c2, l3, l4])
     return Part.Wire(s.Edges)
+
+
+def make_slot_wire_rs(length: float, radius: float) -> Part.Wire:
+    """
+    Create slot shape on X axis, left circumference at origin, size given by
+    - length (distance between circumferences)
+    - radius
+    """
+    if length == 0:
+        raise ValueError("Length must not be zero.")
+
+    p1 = Vector(0, -radius, 0)
+    p2 = Vector(length, -radius, 0)
+    p3 = Vector(length, radius, 0)
+    p4 = Vector(0, radius, 0)
+    #  ---- Genero punto para arco
+    pc4 = Vector(-radius, 0, 0)
+    #  ---- Creamos lineas y arcos
+    l1 = Part.LineSegment(p1, p2)
+    l2 = Part.LineSegment(p2, p3)
+    l3 = Part.LineSegment(p3, p4)
+    c4 = Part.Arc(p4, pc4, p1)  # right
+    s = Part.Shape([l1, l2, l3, c4])
+    return Part.Wire(s.Edges)
+
+
+def make_rectangle_wire(length: float, width: float, dx: float = 0, dy: float = 0) -> Part.Wire:
+    """
+    Create rectangle shape on X-Y plane, with given length and width, and offsets dx and dy.
+    """
+    if length <= 0 or width <= 0:
+        raise ValueError("Length and width must be greater than zero.")
+
+    p1 = Vector(dx, dy, 0)
+    p2 = Vector(dx + length, dy, 0)
+    p3 = Vector(dx + length, dy + width, 0)
+    p4 = Vector(dx, dy + width, 0)
+
+    rectangle_shape = Part.Shape(
+        [
+            Part.LineSegment(p1, p2),
+            Part.LineSegment(p2, p3),
+            Part.LineSegment(p3, p4),
+            Part.LineSegment(p4, p1),
+        ]
+    )
+    return Part.Wire(rectangle_shape.Edges)
