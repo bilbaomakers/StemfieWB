@@ -421,6 +421,44 @@ class AGD_USH_SYM_ESS(STR_ESS):
         obj.Shape = p.removeSplitter()
 
 
+class AGD_TSH_SYM_ESS(STR_ESS):
+    """Viga STEMFIE con un brazo a 90º en el centro"""
+
+    def __init__(self, obj):
+        super().__init__(obj)
+        obj.removeProperty("HolesNumber")
+        obj.addProperty(
+            "App::PropertyIntegerConstraint",
+            QT_TRANSLATE_NOOP("App::Property", "HolesNumberX"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
+            QT_TRANSLATE_NOOP("App::Property", "Holes number for part in X\nMinimum = 3"),
+        ).HolesNumberX = (3, 3, 50, 1)
+        obj.addProperty(
+            "App::PropertyIntegerConstraint",
+            QT_TRANSLATE_NOOP("App::Property", "HolesNumberY"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
+            QT_TRANSLATE_NOOP("App::Property", "Holes number in left vertical bar\nMinimum = 1"),
+        ).HolesNumberY = (2, 1, 50, 1)
+
+    def onChanged(self, obj, prop: str):
+        if prop == "HolesNumberX":
+            if obj.HolesNumberX % 2 == 0:
+                obj.HolesNumberX = obj.HolesNumberX + 1
+
+    def execute(self, obj):
+        # Genero el cuerpo exterior
+
+        px = self.make_beam(obj.HolesNumberX, obj.SimpleShape)
+        py = self.make_beam(obj.HolesNumberY + 1, obj.SimpleShape)
+        py.rotate(Vector(0, 0, 0), Vector(0, 0, 1), 90)
+        py.translate(Vector(((obj.HolesNumberX + 1) / 2 - 1) * BLOCK_UNIT, 0, 0))
+        p = px.fuse(py)
+        #  ---- Ponemos Nombre a la pieza con las variables de la misma
+        obj.Code = f"Beam AGD TSH SYM ESS BU{obj.HolesNumberX:02}x{obj.HolesNumberY:02}x01"
+
+        obj.Shape = p.removeSplitter()
+
+
 class STR_DBL(BEAM):
     """Viga Angular STEMFIE"""
 

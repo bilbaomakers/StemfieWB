@@ -118,6 +118,16 @@ class STR_BEM(BaseCommand):
     tooltip = QT_TRANSLATE_NOOP("STEMFIE_Beam_STR_BEM", "Beam - Block")
 
 
+class AGD_TSH_SYM_ESS(BaseCommand):
+    NAME = "AGD_TSH_SYM_ESS"
+    FUNCTION = Beams.AGD_TSH_SYM_ESS
+    pixmap = "AGD_ESS_TSH_SYM"
+    menutext = "AGD TSH SYM ESS"
+    tooltip = QT_TRANSLATE_NOOP(
+        "STEMFIE_Beam_AGD_TSH_SYM_ESS", "Beam - Angled - T-shaped - Symmetric - End Square Square"
+    )
+
+
 class AGD_USH_SYM_ESS(BaseCommand):
     NAME = "AGD_USH_SYM_ESS"
     FUNCTION = Beams.AGD_USH_SYM_ESS
@@ -422,6 +432,7 @@ class PartsList:
 FreeCADGui.addCommand("STEMFIE_Beam_STR_ESS", STR_ESS())
 FreeCADGui.addCommand("STEMFIE_Beam_STR_ERR", STR_ERR())
 FreeCADGui.addCommand("STEMFIE_Beam_STR_BEM", STR_BEM())
+FreeCADGui.addCommand("STEMFIE_Beam_AGD_TSH_SYM_ESS", AGD_TSH_SYM_ESS())
 FreeCADGui.addCommand("STEMFIE_Beam_AGD_USH_SYM_ESS", AGD_USH_SYM_ESS())
 FreeCADGui.addCommand("STEMFIE_Beam_STR_DBL", STR_DBL())
 FreeCADGui.addCommand("STEMFIE_Beam_STR_TRPL", STR_TRPL())

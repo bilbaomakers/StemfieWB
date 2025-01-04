@@ -27,6 +27,7 @@ class StemfieWorkbench(Workbench):
             "STEMFIE_Beam_STR_ESS",
             "STEMFIE_Beam_STR_ERR",
             "STEMFIE_Beam_STR_BEM",
+            "STEMFIE_Beam_AGD_TSH_SYM_ESS",
             "STEMFIE_Beam_AGD_USH_SYM_ESS",
             "STEMFIE_Beam_STR_DBL",
             "STEMFIE_Beam_STR_TRPL",
