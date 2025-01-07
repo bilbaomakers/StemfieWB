@@ -379,8 +379,6 @@ class STR_STD_SQR_AY(STR_STD_DBL_AZ):
 
 # TODO: add chamfered slot cutter
 
-# TODO: Braces - Straight - Slotted - Sequential - Round Ends
-
 
 class STR_SLT_BE_SYM_ERR(BRACE):
     """Brazo STEMFIE con agujeros rasgados en extremos y simples en el centro"""
@@ -678,6 +676,67 @@ class STR_SLT_SE_ERR(BRACE):
         obj.Code = (
             f"Brace STR SLT SE ERR BU{obj.HolesNumber:02}x01x00.25x{obj.HolesNumberSlotted:02}"
         )
+        obj.Shape = p
+
+
+class STR_SLT_SQT_ERR(BRACE):
+    """Brazo STEMFIE con secuencia de agujeros rasgados"""
+
+    def __init__(self, obj):
+        super().__init__(obj)
+        obj.addProperty(
+            "App::PropertyIntegerConstraint",
+            QT_TRANSLATE_NOOP("App::Property", "SlotsNumber"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
+            QT_TRANSLATE_NOOP("App::Property", "Total number of slots\nMinimum 2"),
+        ).SlotsNumber = (
+            3,
+            2,
+            50,
+            1,
+        )  # (Default, Minimum, Maximum, Step size)
+        obj.addProperty(
+            "App::PropertyIntegerConstraint",
+            QT_TRANSLATE_NOOP("App::Property", "SlotSize"),
+            QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
+            QT_TRANSLATE_NOOP(
+                "App::Property", "Slotted holes number\nSame on both sides\nMinimum 2"
+            ),
+        ).SlotSize = (2, 2, 50, 1)
+
+    def execute(self, obj):
+        main_wire = self.make_brace_rr_wire(obj.SlotSize * obj.SlotsNumber)
+
+        wire_holes = []
+
+        #  ---- Bucle para agujeros
+        for x in range(obj.SlotsNumber):
+            pos = Vector(x * obj.SlotSize * BLOCK_UNIT, 0, 0)
+            slot = make_slot_wire_rr((obj.SlotSize - 1) * BLOCK_UNIT, HOLE_DIAMETER_STANDARD / 2)
+            slot.Placement = Placement(pos, Rotation())
+            wire_holes.append(Part.Wire(slot))
+
+        face = Part.Face([main_wire] + wire_holes, "Part::FaceMakerCheese")
+        p = face.extrude(Vector(0, 0, BLOCK_UNIT_QUARTER))
+
+        if not obj.SimpleShape:
+            inset_wire = main_wire.makeOffset2D(-PLATE_BORDER_OFFSET)  # Offset -1.1mm (inside)
+            wire_holes_up = []
+
+            for x in range(obj.SlotsNumber):
+                pos = Vector(x * obj.SlotSize * BLOCK_UNIT, 0, 0)
+                slot_up = make_slot_wire_rr(
+                    (obj.SlotSize - 1) * BLOCK_UNIT, PLATE_UPPER_FACE_DIAMETER / 2
+                )
+                slot_up.Placement = Placement(pos, Rotation())
+                wire_holes_up.append(Part.Wire(slot_up))
+
+            p = self.detail_face(p, inset_wire, wire_holes_up)
+        #  ---- Ponemos Nombre a la pieza con las variables de la misma
+        obj.Code = (
+            f"Brace STR SLT SQT ERR BU{obj.SlotsNumber*obj.SlotSize:02}x01x00.25x{obj.SlotSize}"
+        )
+
         obj.Shape = p
 
 

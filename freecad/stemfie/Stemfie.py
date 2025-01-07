@@ -209,7 +209,6 @@ class STR_STD_SQR_AY(BaseCommand):
     )
 
 
-# TODO: One slotted missing
 class STR_SLT_BE_SYM_ERR(BaseCommand):
     NAME = "STR_SLT_BE_SYM_ERR"
     FUNCTION = Braces.STR_SLT_BE_SYM_ERR
@@ -238,6 +237,17 @@ class STR_SLT_FL_ERR(BaseCommand):
     menutext = "STR SLT FL ERR"
     tooltip = QT_TRANSLATE_NOOP(
         "STEMFIE_Brace_STR_SLT_FL_ERR", "Brace - Straight - Slotted - Full Length - End Round Round"
+    )
+
+
+class STR_SLT_SQT_ERR(BaseCommand):
+    NAME = "STR SLT SQT ERR"
+    FUNCTION = Braces.STR_SLT_SQT_ERR
+    pixmap = "STR_SLT_SQT_ERR"
+    menutext = "STR SLT SQT ERR"
+    tooltip = QT_TRANSLATE_NOOP(
+        "STEMFIE_Brace_STR_SLT_SQT_ERR",
+        "Brace - Straight - Slotted - Sequential - End Round Round",
     )
 
 
@@ -445,6 +455,7 @@ FreeCADGui.addCommand("STEMFIE_Brace_STR_STD_SQR_AY", STR_STD_SQR_AY())
 FreeCADGui.addCommand("STEMFIE_Brace_STR_SLT_BE_SYM_ERR", STR_SLT_BE_SYM_ERR())
 FreeCADGui.addCommand("STEMFIE_Brace_STR_SLT_CNT_ERR", STR_SLT_CNT_ERR())
 FreeCADGui.addCommand("STEMFIE_Brace_STR_SLT_FL_ERR", STR_SLT_FL_ERR())
+FreeCADGui.addCommand("STEMFIE_Brace_STR_SLT_SQT_ERR", STR_SLT_SQT_ERR())
 FreeCADGui.addCommand("STEMFIE_Brace_STR_SLT_SE_ERR", STR_SLT_SE_ERR())
 FreeCADGui.addCommand("STEMFIE_Brace_STR_STD_DBL_AZ", STR_STD_DBL_AZ())
 FreeCADGui.addCommand("STEMFIE_Brace_STR_STD_DBL_AY", STR_STD_DBL_AY())

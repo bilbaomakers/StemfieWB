@@ -41,6 +41,7 @@ class StemfieWorkbench(Workbench):
             "STEMFIE_Brace_STR_SLT_BE_SYM_ERR",
             "STEMFIE_Brace_STR_SLT_CNT_ERR",
             "STEMFIE_Brace_STR_SLT_FL_ERR",
+            "STEMFIE_Brace_STR_SLT_SQT_ERR",
             "STEMFIE_Brace_STR_SLT_SE_ERR",
             "STEMFIE_Brace_STR_STD_DBL_AZ",
             "STEMFIE_Brace_STR_STD_DBL_AY",
