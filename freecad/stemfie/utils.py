@@ -54,6 +54,34 @@ def make_chamfered_hole(diameter: float, height: float, z_offset: float = 0) -> 
     return hole
 
 
+def make_chamfered_ring(
+    diameter_i: float, diameter_o: float, height: float, z_offset: float = 0
+) -> Part.Shape:
+    """Creates the shape of a hole with chamfered edges at origin"""
+    p0 = Vector(0, diameter_i / 2 + CHAMFER, 0)
+    p1 = Vector(0, diameter_o / 2 - CHAMFER, 0)
+    p2 = Vector(0, diameter_o / 2, CHAMFER)
+    p3 = Vector(0, diameter_o / 2, height - CHAMFER)
+    p4 = Vector(0, diameter_o / 2 - CHAMFER, height)
+    p5 = Vector(0, diameter_i / 2 + CHAMFER, height)
+    p6 = Vector(0, diameter_i / 2, height - CHAMFER)
+    p7 = Vector(0, diameter_i / 2, CHAMFER)
+    lines = [
+        Part.makeLine(p0, p1),
+        Part.makeLine(p1, p2),
+        Part.makeLine(p2, p3),
+        Part.makeLine(p3, p4),
+        Part.makeLine(p4, p5),
+        Part.makeLine(p5, p6),
+        Part.makeLine(p6, p7),
+        Part.makeLine(p7, p0),
+    ]
+    face = Part.Face(Part.Wire(lines))
+    ring = face.revolve(Vector(0, 0, 0), Vector(0, 0, 1))
+    ring.Placement = Placement(Vector(0, 0, z_offset), Rotation())
+    return ring
+
+
 def make_slot_wire_rr(length: float, radius: float) -> Part.Wire:
     """
     Create slot shape on X axis, left circumference at origin, size given by

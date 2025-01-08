@@ -11,6 +11,7 @@ from freecad.stemfie import (
     Connectors,
     Plates,
     Shafts,
+    Spacers,
     get_icon_path,
 )
 
@@ -367,6 +368,17 @@ class BEM_TRH_H_SFT_4W(BaseCommand):
     )
 
 
+# Fasteners
+
+
+class FRE(BaseCommand):
+    NAME = "FRE"
+    FUNCTION = Spacers.FRE
+    pixmap = "Spacer_FRE"
+    menutext = "FRE"
+    tooltip = QT_TRANSLATE_NOOP("STEMFIE_Spacer_FRE", "Spacer - Free")
+
+
 # Plates
 
 
@@ -468,6 +480,8 @@ FreeCADGui.addCommand("STEMFIE_Connector_BEM_TRH_H_SFT_2W_90", BEM_TRH_H_SFT_2W_
 FreeCADGui.addCommand("STEMFIE_Connector_BEM_TRH_H_SFT_2W_180", BEM_TRH_H_SFT_2W_180())
 FreeCADGui.addCommand("STEMFIE_Connector_BEM_TRH_H_SFT_3W", BEM_TRH_H_SFT_3W())
 FreeCADGui.addCommand("STEMFIE_Connector_BEM_TRH_H_SFT_4W", BEM_TRH_H_SFT_4W())
+# Fasteners
+FreeCADGui.addCommand("STEMFIE_Spacer_FRE", FRE())
 # Plates
 FreeCADGui.addCommand("STEMFIE_Plate_TRI", PLT_TRI())
 FreeCADGui.addCommand("STEMFIE_Plate_SQR", PLT_SQR())

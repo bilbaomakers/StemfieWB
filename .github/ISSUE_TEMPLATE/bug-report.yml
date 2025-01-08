@@ -43,6 +43,7 @@ body:
         - Connectors
         - Plates
         - Shafts
+        - Spacers
         - Utilities
         - Icons
         - Translations
