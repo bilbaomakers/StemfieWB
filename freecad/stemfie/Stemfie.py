@@ -379,6 +379,14 @@ class FRE(BaseCommand):
     tooltip = QT_TRANSLATE_NOOP("STEMFIE_Spacer_FRE", "Spacer - Free")
 
 
+class FXD(BaseCommand):
+    NAME = "FXD"
+    FUNCTION = Spacers.FXD
+    pixmap = "Spacer_FXD"
+    menutext = "FXD"
+    tooltip = QT_TRANSLATE_NOOP("STEMFIE_Spacer_FXD", "Spacer - Fixed")
+
+
 # Plates
 
 
@@ -482,6 +490,7 @@ FreeCADGui.addCommand("STEMFIE_Connector_BEM_TRH_H_SFT_3W", BEM_TRH_H_SFT_3W())
 FreeCADGui.addCommand("STEMFIE_Connector_BEM_TRH_H_SFT_4W", BEM_TRH_H_SFT_4W())
 # Fasteners
 FreeCADGui.addCommand("STEMFIE_Spacer_FRE", FRE())
+FreeCADGui.addCommand("STEMFIE_Spacer_FXD", FXD())
 # Plates
 FreeCADGui.addCommand("STEMFIE_Plate_TRI", PLT_TRI())
 FreeCADGui.addCommand("STEMFIE_Plate_SQR", PLT_SQR())

@@ -8,6 +8,7 @@ from freecad.stemfie.utils import (
     BLOCK_UNIT,
     HOLE_DIAMETER_STANDARD,
     make_chamfered_ring,
+    make_stemfie_shape,
 )
 
 QT_TRANSLATE_NOOP = FreeCAD.Qt.QT_TRANSLATE_NOOP
@@ -49,5 +50,16 @@ class FRE(SPACER):
         obj.Code = f"Spacer FRE BU01.00x{obj.Height:05.02}"
 
         obj.Shape = p
+
+
+class FXD(SPACER):
+    def __init__(self, obj):
+        super().__init__(obj)
+
+    def execute(self, obj):
+        #  ---- Bucle para agujeros
+        p = make_stemfie_shape(obj.Height * BLOCK_UNIT)
+        #  ---- Ponemos Nombre a la pieza con las variables de la misma
+        obj.Code = f"Spacer FXD BU01.00x{obj.Height:05.02}"
 
         obj.Shape = p

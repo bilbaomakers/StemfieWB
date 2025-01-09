@@ -82,6 +82,24 @@ def make_chamfered_ring(
     return ring
 
 
+def make_stemfie_shape(height: float) -> Part.Shape:
+    # TODO: replace boolean operation with single extrusion
+    p = Part.makeCylinder(
+        BLOCK_UNIT_HALF + 0.1,
+        height,
+        Vector(0, 0, 0),
+        Vector(0, 0, 1),
+    )  # radius, height, position, rotation
+    p = p.cut(
+        Part.makeCylinder(HOLE_DIAMETER_STANDARD / 2, height, Vector(0, 0, 0), Vector(0, 0, 1))
+    )
+    p = p.cut(Part.makeCylinder(4.9, height, Vector(10, 0, 0), Vector(0, 0, 1)))
+    p = p.cut(Part.makeCylinder(4.9, height, Vector(-10, 0, 0), Vector(0, 0, 1)))
+    p = p.cut(Part.makeCylinder(4.9, height, Vector(0, 10, 0), Vector(0, 0, 1)))
+    p = p.cut(Part.makeCylinder(4.9, height, Vector(0, -10, 0), Vector(0, 0, 1)))
+    return p
+
+
 def make_slot_wire_rr(length: float, radius: float) -> Part.Wire:
     """
     Create slot shape on X axis, left circumference at origin, size given by
