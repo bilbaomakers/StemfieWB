@@ -55,17 +55,21 @@ def make_chamfered_hole(diameter: float, height: float, z_offset: float = 0) -> 
 
 
 def make_chamfered_ring(
-    diameter_i: float, diameter_o: float, height: float, z_offset: float = 0
+    diameter_i: float,
+    diameter_o: float,
+    height: float,
+    chamfer: float = CHAMFER,
+    z_offset: float = 0,
 ) -> Part.Shape:
     """Creates the shape of a hole with chamfered edges at origin"""
-    p0 = Vector(0, diameter_i / 2 + CHAMFER, 0)
-    p1 = Vector(0, diameter_o / 2 - CHAMFER, 0)
-    p2 = Vector(0, diameter_o / 2, CHAMFER)
-    p3 = Vector(0, diameter_o / 2, height - CHAMFER)
-    p4 = Vector(0, diameter_o / 2 - CHAMFER, height)
-    p5 = Vector(0, diameter_i / 2 + CHAMFER, height)
-    p6 = Vector(0, diameter_i / 2, height - CHAMFER)
-    p7 = Vector(0, diameter_i / 2, CHAMFER)
+    p0 = Vector(0, diameter_i / 2 + chamfer, 0)
+    p1 = Vector(0, diameter_o / 2 - chamfer, 0)
+    p2 = Vector(0, diameter_o / 2, chamfer)
+    p3 = Vector(0, diameter_o / 2, height - chamfer)
+    p4 = Vector(0, diameter_o / 2 - chamfer, height)
+    p5 = Vector(0, diameter_i / 2 + chamfer, height)
+    p6 = Vector(0, diameter_i / 2, height - chamfer)
+    p7 = Vector(0, diameter_i / 2, chamfer)
     lines = [
         Part.makeLine(p0, p1),
         Part.makeLine(p1, p2),

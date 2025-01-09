@@ -329,6 +329,14 @@ class FRE(BaseCommand):
     tooltip = get_tooltip(["SPR", "FRE"])
 
 
+class BUD_FRE(BaseCommand):
+    NAME = "BUD_FRE"
+    FUNCTION = Spacers.BUD_FRE
+    pixmap = "Spacer_BUD_FRE"
+    menutext = "BUD FRE"
+    tooltip = get_tooltip(["SPR", "BUD", "FRE"])
+
+
 class FXD(BaseCommand):
     NAME = "FXD"
     FUNCTION = Spacers.FXD
@@ -440,6 +448,7 @@ FreeCADGui.addCommand("STEMFIE_Connector_BEM_TRH_H_SFT_3W", BEM_TRH_H_SFT_3W())
 FreeCADGui.addCommand("STEMFIE_Connector_BEM_TRH_H_SFT_4W", BEM_TRH_H_SFT_4W())
 # Fasteners
 FreeCADGui.addCommand("STEMFIE_Spacer_FRE", FRE())
+FreeCADGui.addCommand("STEMFIE_Spacer_BUD_FRE", BUD_FRE())
 FreeCADGui.addCommand("STEMFIE_Spacer_FXD", FXD())
 # Plates
 FreeCADGui.addCommand("STEMFIE_Plate_TRI", PLT_TRI())

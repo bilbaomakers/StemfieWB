@@ -56,7 +56,7 @@ class StemfieWorkbench(Workbench):
             "STEMFIE_Connector_BEM_TRH_H_SFT_3W",
             "STEMFIE_Connector_BEM_TRH_H_SFT_4W",
         ]
-        self.list_fasteners = ["STEMFIE_Spacer_FRE", "STEMFIE_Spacer_FXD"]
+        self.list_fasteners = ["STEMFIE_Spacer_FRE", "STEMFIE_Spacer_BUD_FRE", "STEMFIE_Spacer_FXD"]
         self.list_plates = [
             "STEMFIE_Plate_TRI",
             "STEMFIE_Plate_SQR",
