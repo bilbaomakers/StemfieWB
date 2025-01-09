@@ -1,0 +1,125 @@
+import FreeCAD
+
+
+translate = FreeCAD.Qt.translate
+
+stemfie_type = {
+    "ADT": translate("Abbreviations", "Adapter"),
+    "BTR": translate("Abbreviations", "Battery"),
+    "BEM": translate("Abbreviations", "Beam"),
+    "BRN": translate("Abbreviations", "Bearing"),
+    "BRC": translate("Abbreviations", "Brace"),
+    "BRK": translate("Abbreviations", "Bracket"),
+    "CON": translate("Abbreviations", "Connector"),
+    "DGB": translate("Abbreviations", "Dogbone"),
+    "ELS": translate("Abbreviations", "Electronics"),
+    "GRK": translate("Abbreviations", "Gear Rack"),
+    "GWH": translate("Abbreviations", "Gear Wheel"),
+    "HNG": translate("Abbreviations", "Hinge"),
+    "HLD": translate("Abbreviations", "Holder"),
+    "KNB": translate("Abbreviations", "Knob"),
+    "MSC": translate("Abbreviations", "Miscellaneous"),
+    "MTR": translate("Abbreviations", "Motor"),
+    "NPH": translate("Abbreviations", "Non-printed Hardware"),
+    "NUT": translate("Abbreviations", "Nut"),
+    "ORN": translate("Abbreviations", "Ornament"),
+    "PIN": translate("Abbreviations", "Pin"),
+    "PLT": translate("Abbreviations", "Plate"),
+    "PTH": translate("Abbreviations", "Power-Transmission Hub"),
+    "PLY": translate("Abbreviations", "Pulley"),
+    "RCT": translate("Abbreviations", "Rectangular"),
+    "RRG": translate("Abbreviations", "Retaining Ring"),
+    "SCR": translate("Abbreviations", "Screw"),
+    "SFT": translate("Abbreviations", "Shaft"),
+    "SCL": translate("Abbreviations", "Shaft Collar"),
+    "SSC": translate("Abbreviations", "Shoulder Screw"),
+    "SGN": translate("Abbreviations", "Sign"),
+    "SPR": translate("Abbreviations", "Spacer"),
+    "SPG": translate("Abbreviations", "Spring"),
+    "SPP": translate("Abbreviations", "Spring Pin"),
+    "STN": translate("Abbreviations", "Stand"),
+    "TRG": translate("Abbreviations", "Target"),
+    "THR": translate("Abbreviations", "Threaded Rod"),
+    "TOL": translate("Abbreviations", "Tool"),
+    "TGR": translate("Abbreviations", "Trigger"),
+    "WSR": translate("Abbreviations", "Washer"),
+    "WDG": translate("Abbreviations", "Wedge"),
+    "WHL": translate("Abbreviations", "Wheel"),
+    # "WRG": translate("Abbreviations", "Wire Grind"),
+}
+
+description = {
+    "1W": translate("Abbreviations", "One-Way"),
+    "2W": translate("Abbreviations", "Two-Way"),
+    "3W": translate("Abbreviations", "Three-Way"),
+    "4W": translate("Abbreviations", "Four-Way"),
+    "AAA": translate("Abbreviations", "Triple A Battery"),
+    "ADHM": translate("Abbreviations", "Adhesive Mount"),
+    "ALT": translate("Abbreviations", "Alterning"),
+    "AGL": translate("Abbreviations", "Angle"),
+    "AGD": translate("Abbreviations", "Angled"),
+    "ASYM": translate("Abbreviations", "Asymmetric"),
+    "AXL": translate("Abbreviations", "Axial"),
+    # "BRD": translate("Abbreviations", "Barbed"),
+    "BRL": translate("Abbreviations", "Barrel"),
+    "BRNS": translate("Abbreviations", "Bearing Shaft"),
+    "BVD": translate("Abbreviations", "Beveled"),
+    "BDR": translate("Abbreviations", "Bidirectional"),
+    "BU": translate("Abbreviations", "Block Unit"),
+    "BUD": translate("Abbreviations", "Block Unit Diameter"),
+    "BUH": translate("Abbreviations", "Block Unit Hole"),
+    "BE": translate("Abbreviations", "Both Ends"),
+    "BOX": translate("Abbreviations", "Box"),
+    "BXS": translate("Abbreviations", "Box Section"),
+    "CNT": translate("Abbreviations", "Centered"),
+    "CRN": translate("Abbreviations", "Corner"),
+    "CRNR": translate("Abbreviations", "Corner Round"),
+    "CRNS": translate("Abbreviations", "Corner Sharp"),
+    "CRS": translate("Abbreviations", "Cross"),
+    "DE": translate("Abbreviations", "Double-Ended"),
+    "ERR": translate("Abbreviations", "Ending Round Round"),
+    "ERS": translate("Abbreviations", "Ending Round Square"),
+    "ESS": translate("Abbreviations", "Ending Square Square"),
+    "FRE": translate("Abbreviations", "Free"),
+    "FXD": translate("Abbreviations", "Fixed"),
+    "FL": translate("Abbreviations", "Full Length"),
+    "GER": translate("Abbreviations", "Gear"),
+    "H": translate("Abbreviations", "Height"),
+    "HEX": translate("Abbreviations", "Hexagonal"),
+    "IDX": translate("Abbreviations", "Indexing"),
+    "L": translate("Abbreviations", "Length"),
+    "MNT": translate("Abbreviations", "Mount"),
+    "OPN": translate("Abbreviations", "Open"),
+    "PLN": translate("Abbreviations", "Plain"),
+    "SE": translate("Abbreviations", "Single-Ended"),
+    "SLT": translate("Abbreviations", "Slotted"),
+    "SQR": translate("Abbreviations", "Square"),
+    "SQT": translate("Abbreviations", "Sequential"),
+    "STD": translate("Abbreviations", "Standard"),
+    "STR": translate("Abbreviations", "Straight"),
+    "SYM": translate("Abbreviations", "Symmetric"),
+    "TSH": translate("Abbreviations", "T-shaped"),
+    "TRH-H": translate("Abbreviations", "Through-Hole"),
+    "TRI": translate("Abbreviations", "Triangular"),
+    "USH": translate("Abbreviations", "U-shaped"),
+    # "": translate("Abbreviations", ""),
+}
+
+custom = {
+    "AY": translate("Abbreviations", "Axis Y"),
+    "AZ": translate("Abbreviations", "Axis Z"),
+    "BLK": translate("Abbreviations", "Block"),
+    "DBL": translate("Abbreviations", "Double"),
+    "TRPL": translate("Abbreviations", "Triple"),
+    "BEH": translate("Abbreviations", "Both Ends Holes"),  # XXX: maybe change it
+    "NTFH": translate("Abbreviations", "No Top/Front Holes"),  # XXX: maybe change it
+}
+
+all = {**stemfie_type, **description, **custom}
+
+
+def get_tooltip(keys: list) -> str:
+    try:
+        return " - ".join(all[key] for key in keys)
+    except KeyError as e:
+        raise ValueError(f"Key not found on STEMFIE abbreviations dictionary: {e}")
