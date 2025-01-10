@@ -5,7 +5,6 @@ import FreeCAD
 import FreeCADGui
 
 from freecad.stemfie import (
-    ICONPATH,
     Beams,
     Braces,
     Connectors,
@@ -16,6 +15,7 @@ from freecad.stemfie import (
 )
 from freecad.stemfie.abbreviations import get_tooltip
 
+translate = FreeCAD.Qt.translate
 QT_TRANSLATE_NOOP = FreeCAD.Qt.QT_TRANSLATE_NOOP
 
 
@@ -343,6 +343,47 @@ class FXD(BaseCommand):
     pixmap = "Spacer_FXD"
     menutext = "FXD"
     tooltip = get_tooltip(["SPR", "FXD"])
+
+
+# NOTE: Gears section
+
+
+try:
+    import freecad.gears.basegear
+
+    gears_available = True
+
+except ImportError:
+    gears_available = False
+
+if gears_available:
+    from freecad.stemfie import Gears
+
+    class GWH_PLN(BaseCommand):
+        NAME = "GWH_PLN"
+        FUNCTION = Gears.GWH
+        pixmap = "GWH"
+        menutext = "GWH PLN"
+        tooltip = get_tooltip(["GWH", "PLN", "TTH"])
+
+    class GRB(BaseCommand):
+        NAME = "GRB"
+        FUNCTION = Gears.GRB
+        pixmap = "GRB"
+        menutext = "GRB"
+        tooltip = get_tooltip(["GRB", "TTH"])
+
+    FreeCADGui.addCommand("STEMFIE_Gear_Involute", GWH_PLN())
+    FreeCADGui.addCommand("STEMFIE_Gear_Bevel", GRB())
+else:
+    FreeCAD.Console.PrintError(
+        translate(
+            "Log",
+            "STEMFIE: No gears for you! UnU\n"
+            "It seems you don't have the Gear WB installed on your system. "
+            "Open the Addon Manager, search for 'gears' and install it.\n",
+        )
+    )
 
 
 # NOTE: Plates section

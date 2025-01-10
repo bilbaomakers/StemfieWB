@@ -57,11 +57,8 @@ class StemfieWorkbench(Workbench):
             "STEMFIE_Connector_BEM_TRH_H_SFT_4W",
         ]
         self.list_fasteners = ["STEMFIE_Spacer_FRE", "STEMFIE_Spacer_BUD_FRE", "STEMFIE_Spacer_FXD"]
-        self.list_plates = [
-            "STEMFIE_Plate_TRI",
-            "STEMFIE_Plate_SQR",
-            "STEMFIE_Plate_HEX",
-        ]
+        self.list_gears = ["STEMFIE_Gear_Involute", "STEMFIE_Gear_Bevel"]
+        self.list_plates = ["STEMFIE_Plate_TRI", "STEMFIE_Plate_SQR", "STEMFIE_Plate_HEX"]
         self.list_shafts = ["STEMFIE_Shaft_SFT_IDX", "STEMFIE_Shaft_SFT_PLN"]
         self.list_springs = []
         self.list_commands = ["STEMFIE_PartsList"]
@@ -92,6 +89,10 @@ class StemfieWorkbench(Workbench):
         self.appendMenu(["STEMFIE", QT_TRANSLATE_NOOP("Workbench", "Plates")], self.list_plates)
         self.appendMenu(["STEMFIE", QT_TRANSLATE_NOOP("Workbench", "Shafts")], self.list_shafts)
         # self.appendMenu(["STEMFIE", QT_TRANSLATE_NOOP("Workbench", "Springs")], self.list_springs)
+
+        if Stemfie.gears_available:
+            self.appendToolbar(QT_TRANSLATE_NOOP("Workbench", "STEMFIE Gears"), self.list_gears)
+            self.appendMenu(["STEMFIE", QT_TRANSLATE_NOOP("Workbench", "Gears")], self.list_gears)
 
     def Activated(self):
         """
