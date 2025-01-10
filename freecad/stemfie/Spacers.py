@@ -94,7 +94,7 @@ class FXD(SPACER):
 
     def execute(self, obj):
         #  ---- Bucle para agujeros
-        p = make_stemfie_shape(obj.Height * BLOCK_UNIT)
+        p = make_stemfie_shape(obj.Height * BLOCK_UNIT, HOLE_DIAMETER_STANDARD / 2)
         #  ---- Ponemos Nombre a la pieza con las variables de la misma
         obj.Code = f"Spacer FXD BU01.00x{obj.Height:05.02}"
 

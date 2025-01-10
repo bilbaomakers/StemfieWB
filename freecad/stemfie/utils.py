@@ -33,7 +33,7 @@ COS_60 = cos(pi / 3)
 
 # Based on Fasteners WB
 def make_chamfered_hole(diameter: float, height: float, z_offset: float = 0) -> Part.Shape:
-    """Creates the shape of a hole with chamfered edges at origin"""
+    """Create the shape of a hole with chamfered edges at origin"""
     p0 = Vector(0, 0, 0)
     p1 = Vector(0, diameter / 2 + CHAMFER, 0)
     p2 = Vector(0, diameter / 2, CHAMFER)
@@ -61,7 +61,7 @@ def make_chamfered_ring(
     chamfer: float = CHAMFER,
     z_offset: float = 0,
 ) -> Part.Shape:
-    """Creates the shape of a hole with chamfered edges at origin"""
+    """Create the shape of a hole with chamfered edges at origin"""
     p0 = Vector(0, diameter_i / 2 + chamfer, 0)
     p1 = Vector(0, diameter_o / 2 - chamfer, 0)
     p2 = Vector(0, diameter_o / 2, chamfer)
@@ -86,17 +86,14 @@ def make_chamfered_ring(
     return ring
 
 
-def make_stemfie_shape(height: float) -> Part.Shape:
+def make_stemfie_shape(height: float, hole_radius: float = 0.0) -> Part.Shape:
+    """Create a shape of the STEMFIE logo, could include a circular hole."""
     # TODO: replace boolean operation with single extrusion
     p = Part.makeCylinder(
-        BLOCK_UNIT_HALF + 0.1,
-        height,
-        Vector(0, 0, 0),
-        Vector(0, 0, 1),
+        BLOCK_UNIT_HALF + 0.1, height, Vector(0, 0, 0), Vector(0, 0, 1)
     )  # radius, height, position, rotation
-    p = p.cut(
-        Part.makeCylinder(HOLE_DIAMETER_STANDARD / 2, height, Vector(0, 0, 0), Vector(0, 0, 1))
-    )
+    if hole_radius > 0:
+        p = p.cut(Part.makeCylinder(hole_radius, height, Vector(0, 0, 0), Vector(0, 0, 1)))
     p = p.cut(Part.makeCylinder(4.9, height, Vector(10, 0, 0), Vector(0, 0, 1)))
     p = p.cut(Part.makeCylinder(4.9, height, Vector(-10, 0, 0), Vector(0, 0, 1)))
     p = p.cut(Part.makeCylinder(4.9, height, Vector(0, 10, 0), Vector(0, 0, 1)))
