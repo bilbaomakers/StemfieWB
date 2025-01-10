@@ -413,10 +413,23 @@ class STR_SLT_BE_SYM_ERR(BRACE):
             ),
         ).SlotSize = (2, 2, 50, 1)
 
+    def onChanged(self, obj, prop: str):
+        """Update properties"""
+        if hasattr(self, "_updating") and self._updating:
+            return  # Prevent recursion if already updating
+
+        self._updating = True  #  update in progress
+        try:
+            if prop == "HolesNumberTotal" and hasattr(obj, "SlotSize"):
+                while (obj.SlotSize * 2) + 1 > obj.HolesNumberTotal:
+                    obj.SlotSize -= 1
+            if prop == "SlotSize":
+                if (obj.SlotSize * 2) + 1 > (obj.HolesNumberTotal):
+                    obj.HolesNumberTotal = (obj.SlotSize * 2) + 1
+        finally:
+            self._updating = False  # Reset the flag after the update is done
+
     def execute(self, obj):
-        if (obj.SlotSize * 2) + 1 > (obj.HolesNumberTotal):
-            obj.HolesNumberTotal = (obj.SlotSize * 2) + 1
-        # ----------------------------
         #  ---- Genero Cuerpo exterior
         main_wire = self.make_brace_rr_wire(obj.HolesNumberTotal)
         slot_1 = make_slot_wire_rr((obj.SlotSize - 1) * BLOCK_UNIT, HOLE_DIAMETER_STANDARD / 2)
@@ -493,22 +506,30 @@ class STR_SLT_CNT_ERR(BRACE):
             QT_TRANSLATE_NOOP("App::Property", "Slot size in terms of number of holes\nMinimum 2"),
         ).SlotSize = (2, 2, 50, 1)
 
-    def execute(self, obj):
-        # Compruebo que HolesNumberTotal y SlotSize
-        if (obj.HolesNumberTotal < 4) or (
-            obj.SlotSize < 2
-        ):  # Si alguno es menor no modificar pieza
-            if obj.HolesNumberTotal < 4:  # si Numero Total de Agujeros es menor 4
-                obj.HolesNumberTotal = 4  # dejarlo en 4
-            else:  # si no
-                obj.SlotSize = 2  # dejar Numero Agujeros del coliso en 2
-            # return
-        # Ahora compuebo que la longitud total no sea menor de lo necesario
-        if obj.SlotSize + 2 > obj.HolesNumberTotal:
-            obj.HolesNumberTotal = obj.SlotSize + 2
+    def onChanged(self, obj, prop: str):
+        """Update properties"""
+        if hasattr(self, "_updating") and self._updating:
+            return  # Prevent recursion if already updating
 
-        if ((obj.HolesNumberTotal - obj.SlotSize) % 2) != 0:
-            obj.HolesNumberTotal = (obj.HolesNumberTotal) + 1
+        self._updating = True  #  update in progress
+        try:
+            # Ahora compruebo que la longitud total no sea menor de lo necesario
+            if prop == "HolesNumberTotal" and hasattr(obj, "SlotSize"):
+                if obj.SlotSize + 2 > obj.HolesNumberTotal:
+                    obj.SlotSize = obj.HolesNumberTotal - 2
+
+                if ((obj.HolesNumberTotal - obj.SlotSize) % 2) != 0:
+                    obj.HolesNumberTotal += 1
+            if prop == "SlotSize":
+                if obj.SlotSize + 2 > obj.HolesNumberTotal:
+                    obj.HolesNumberTotal = obj.SlotSize + 2
+
+                if ((obj.HolesNumberTotal - obj.SlotSize) % 2) != 0:
+                    obj.HolesNumberTotal += 1
+        finally:
+            self._updating = False  # Reset the flag after the update is done
+
+    def execute(self, obj):
         # ----------------------------
         main_wire = self.make_brace_rr_wire(obj.HolesNumberTotal)
         slot = make_slot_wire_rr((obj.SlotSize - 1) * BLOCK_UNIT, HOLE_DIAMETER_STANDARD / 2)
