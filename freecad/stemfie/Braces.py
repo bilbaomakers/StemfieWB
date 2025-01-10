@@ -35,6 +35,7 @@ chamf_hole = make_chamfered_hole(HOLE_DIAMETER_STANDARD, BLOCK_UNIT_QUARTER)
 class BRACE:
     def __init__(self, obj):
         obj.Proxy = self  # Stores a reference to the Python instance in the FeaturePython object
+        self._updating = False
         # to update old unconstrained  property
         if hasattr(obj, "Code"):
             obj.removeProperty("Code")
@@ -404,34 +405,31 @@ class STR_SLT_BE_SYM_ERR(BRACE):
         )  # (Default, Minimum, Maximum, Step size)
         obj.addProperty(
             "App::PropertyIntegerConstraint",
-            QT_TRANSLATE_NOOP("App::Property", "HolesNumberSlotted"),
+            QT_TRANSLATE_NOOP("App::Property", "SlotSize"),
             QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
             QT_TRANSLATE_NOOP(
-                "App::Property", "Number of slotted holes\nSame on both sides\nMinimum 2"
+                "App::Property",
+                "Slot size in terms of number of holes\nSame on both sides\nMinimum 2",
             ),
-        ).HolesNumberSlotted = (2, 2, 50, 1)
+        ).SlotSize = (2, 2, 50, 1)
 
     def execute(self, obj):
-        if (obj.HolesNumberSlotted * 2) + 1 > (obj.HolesNumberTotal):
-            obj.HolesNumberTotal = (obj.HolesNumberSlotted * 2) + 1
+        if (obj.SlotSize * 2) + 1 > (obj.HolesNumberTotal):
+            obj.HolesNumberTotal = (obj.SlotSize * 2) + 1
         # ----------------------------
         #  ---- Genero Cuerpo exterior
         main_wire = self.make_brace_rr_wire(obj.HolesNumberTotal)
-        slot_1 = make_slot_wire_rr(
-            (obj.HolesNumberSlotted - 1) * BLOCK_UNIT, HOLE_DIAMETER_STANDARD / 2
-        )
-        slot_2 = make_slot_wire_rr(
-            (obj.HolesNumberSlotted - 1) * BLOCK_UNIT, HOLE_DIAMETER_STANDARD / 2
-        )
+        slot_1 = make_slot_wire_rr((obj.SlotSize - 1) * BLOCK_UNIT, HOLE_DIAMETER_STANDARD / 2)
+        slot_2 = make_slot_wire_rr((obj.SlotSize - 1) * BLOCK_UNIT, HOLE_DIAMETER_STANDARD / 2)
         slot2_place = Placement(
-            Vector((obj.HolesNumberTotal - obj.HolesNumberSlotted) * BLOCK_UNIT, 0, 0), Rotation()
+            Vector((obj.HolesNumberTotal - obj.SlotSize) * BLOCK_UNIT, 0, 0), Rotation()
         )
         slot_2.Placement = slot2_place
 
         wire_holes = [slot_1, slot_2]
 
         #  ---- Bucle para agujeros
-        for x in range(obj.HolesNumberSlotted, obj.HolesNumberTotal - obj.HolesNumberSlotted, 1):
+        for x in range(obj.SlotSize, obj.HolesNumberTotal - obj.SlotSize, 1):
             pos = Vector(x * BLOCK_UNIT, 0, 0)
             circle = Part.Circle(
                 pos, Vector(0, 0, 1), HOLE_DIAMETER_STANDARD / 2
@@ -444,18 +442,16 @@ class STR_SLT_BE_SYM_ERR(BRACE):
         if not obj.SimpleShape:
             inset_wire = main_wire.makeOffset2D(-PLATE_BORDER_OFFSET)  # Offset -1.1mm (inside)
             slot1_up = make_slot_wire_rr(
-                (obj.HolesNumberSlotted - 1) * BLOCK_UNIT, PLATE_UPPER_FACE_DIAMETER / 2
+                (obj.SlotSize - 1) * BLOCK_UNIT, PLATE_UPPER_FACE_DIAMETER / 2
             )
             slot2_up = make_slot_wire_rr(
-                (obj.HolesNumberSlotted - 1) * BLOCK_UNIT, PLATE_UPPER_FACE_DIAMETER / 2
+                (obj.SlotSize - 1) * BLOCK_UNIT, PLATE_UPPER_FACE_DIAMETER / 2
             )
             slot2_up.Placement = slot2_place
             wire_holes_up = [slot1_up, slot2_up]
 
             hole = simple_hole if obj.SimpleShape else chamf_hole
-            for x in range(
-                obj.HolesNumberSlotted, obj.HolesNumberTotal - obj.HolesNumberSlotted, 1
-            ):
+            for x in range(obj.SlotSize, obj.HolesNumberTotal - obj.SlotSize, 1):
                 pos = Vector(x * BLOCK_UNIT, 0, 0)
                 hole.Placement = Placement(pos, Rotation())
                 p = p.cut(hole)
@@ -466,7 +462,9 @@ class STR_SLT_BE_SYM_ERR(BRACE):
 
             p = self.detail_face(p, inset_wire, wire_holes_up)
         #  ---- Ponemos Nombre a la pieza con las variables de la misma
-        obj.Code = f"Brace STR SLT BE SYM ERR BU{obj.HolesNumberTotal:02}x01x00.25x{obj.HolesNumberSlotted:02}"
+        obj.Code = (
+            f"Brace STR SLT BE SYM ERR BU{obj.HolesNumberTotal:02}x01x00.25x{obj.SlotSize:02}"
+        )
 
         obj.Shape = p
 
@@ -490,41 +488,39 @@ class STR_SLT_CNT_ERR(BRACE):
         ).HolesNumberTotal = (4, 4, 50, 1)
         obj.addProperty(
             "App::PropertyIntegerConstraint",
-            QT_TRANSLATE_NOOP("App::Property", "HolesNumberSlotted"),
+            QT_TRANSLATE_NOOP("App::Property", "SlotSize"),
             QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
-            QT_TRANSLATE_NOOP("App::Property", "Number of slotted holes\nMinimum 2"),
-        ).HolesNumberSlotted = (2, 2, 50, 1)
+            QT_TRANSLATE_NOOP("App::Property", "Slot size in terms of number of holes\nMinimum 2"),
+        ).SlotSize = (2, 2, 50, 1)
 
     def execute(self, obj):
-        # Compruebo que HolesNumberTotal y HolesNumberSlotted
+        # Compruebo que HolesNumberTotal y SlotSize
         if (obj.HolesNumberTotal < 4) or (
-            obj.HolesNumberSlotted < 2
+            obj.SlotSize < 2
         ):  # Si alguno es menor no modificar pieza
             if obj.HolesNumberTotal < 4:  # si Numero Total de Agujeros es menor 4
                 obj.HolesNumberTotal = 4  # dejarlo en 4
             else:  # si no
-                obj.HolesNumberSlotted = 2  # dejar Numero Agujeros del coliso en 2
+                obj.SlotSize = 2  # dejar Numero Agujeros del coliso en 2
             # return
         # Ahora compuebo que la longitud total no sea menor de lo necesario
-        if obj.HolesNumberSlotted + 2 > obj.HolesNumberTotal:
-            obj.HolesNumberTotal = obj.HolesNumberSlotted + 2
+        if obj.SlotSize + 2 > obj.HolesNumberTotal:
+            obj.HolesNumberTotal = obj.SlotSize + 2
 
-        if ((obj.HolesNumberTotal - obj.HolesNumberSlotted) % 2) != 0:
+        if ((obj.HolesNumberTotal - obj.SlotSize) % 2) != 0:
             obj.HolesNumberTotal = (obj.HolesNumberTotal) + 1
         # ----------------------------
         main_wire = self.make_brace_rr_wire(obj.HolesNumberTotal)
-        slot = make_slot_wire_rr(
-            (obj.HolesNumberSlotted - 1) * BLOCK_UNIT, HOLE_DIAMETER_STANDARD / 2
-        )
+        slot = make_slot_wire_rr((obj.SlotSize - 1) * BLOCK_UNIT, HOLE_DIAMETER_STANDARD / 2)
         slot_place = Placement(
-            Vector((obj.HolesNumberTotal - obj.HolesNumberSlotted) / 2 * BLOCK_UNIT, 0, 0),
+            Vector((obj.HolesNumberTotal - obj.SlotSize) / 2 * BLOCK_UNIT, 0, 0),
             Rotation(),
         )
         slot.Placement = slot_place
         wire_holes = [slot]
 
         #  ---- Bucle para agujeros
-        for x in range(int((obj.HolesNumberTotal - obj.HolesNumberSlotted) / 2)):
+        for x in range(int((obj.HolesNumberTotal - obj.SlotSize) / 2)):
             pos1 = Vector(x * BLOCK_UNIT, 0, 0)
             pos2 = Vector((obj.HolesNumberTotal - x - 1) * BLOCK_UNIT, 0, 0)
             circle1 = Part.Circle(
@@ -542,13 +538,13 @@ class STR_SLT_CNT_ERR(BRACE):
         if not obj.SimpleShape:
             inset_wire = main_wire.makeOffset2D(-PLATE_BORDER_OFFSET)  # Offset -1.1mm (inside)
             slot_up = make_slot_wire_rr(
-                (obj.HolesNumberSlotted - 1) * BLOCK_UNIT, PLATE_UPPER_FACE_DIAMETER / 2
+                (obj.SlotSize - 1) * BLOCK_UNIT, PLATE_UPPER_FACE_DIAMETER / 2
             )
             slot_up.Placement = slot_place
             wire_holes_up = [slot_up]
 
             hole = simple_hole if obj.SimpleShape else chamf_hole
-            for x in range(int((obj.HolesNumberTotal - obj.HolesNumberSlotted) / 2)):
+            for x in range(int((obj.HolesNumberTotal - obj.SlotSize) / 2)):
                 pos1 = Vector(x * BLOCK_UNIT, 0, 0)
                 pos2 = Vector((obj.HolesNumberTotal - x - 1) * BLOCK_UNIT, 0, 0)
                 hole.Placement = Placement(pos1, Rotation())
@@ -566,7 +562,7 @@ class STR_SLT_CNT_ERR(BRACE):
 
             p = self.detail_face(p, inset_wire, wire_holes_up)
         #  ---- Ponemos Nombre a la pieza con las variables de la misma
-        obj.Code = f"Brace STR SLT CNT ERR BU{obj.HolesNumberTotal:02}x01x00.25x{obj.HolesNumberSlotted:02}"
+        obj.Code = f"Brace STR SLT CNT ERR BU{obj.HolesNumberTotal:02}x01x00.25x{obj.SlotSize:02}"
 
         obj.Shape = p
 
@@ -623,22 +619,17 @@ class STR_SLT_SE_ERR(BRACE):
         ).HolesNumber = (1, 1, 50, 1)
         obj.addProperty(
             "App::PropertyIntegerConstraint",
-            QT_TRANSLATE_NOOP("App::Property", "HolesNumberSlotted"),
+            QT_TRANSLATE_NOOP("App::Property", "SlotSize"),
             QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
-            QT_TRANSLATE_NOOP(
-                "App::Property",
-                "Slotted holes number\nMinimum 2",
-            ),
-        ).HolesNumberSlotted = (2, 2, 50, 1)
+            QT_TRANSLATE_NOOP("App::Property", "Slot size in terms of number of holes\nMinimum 2"),
+        ).SlotSize = (2, 2, 50, 1)
 
     def execute(self, obj):
         # Creo la variable de total agujeros
-        HolesNumberTotal = obj.HolesNumber + obj.HolesNumberSlotted
+        HolesNumberTotal = obj.HolesNumber + obj.SlotSize
 
         main_wire = self.make_brace_rr_wire(HolesNumberTotal)
-        slot = make_slot_wire_rr(
-            (obj.HolesNumberSlotted - 1) * BLOCK_UNIT, HOLE_DIAMETER_STANDARD / 2
-        )
+        slot = make_slot_wire_rr((obj.SlotSize - 1) * BLOCK_UNIT, HOLE_DIAMETER_STANDARD / 2)
         slot.Placement = Placement(Vector(obj.HolesNumber * BLOCK_UNIT, 0, 0), Rotation())
         wire_holes = [slot]
 
@@ -656,7 +647,7 @@ class STR_SLT_SE_ERR(BRACE):
         if not obj.SimpleShape:
             inset_wire = main_wire.makeOffset2D(-PLATE_BORDER_OFFSET)  # Offset -1.1mm (inside)
             slot_up = make_slot_wire_rr(
-                (obj.HolesNumberSlotted - 1) * BLOCK_UNIT, PLATE_UPPER_FACE_DIAMETER / 2
+                (obj.SlotSize - 1) * BLOCK_UNIT, PLATE_UPPER_FACE_DIAMETER / 2
             )
             slot_up.Placement = Placement(Vector(obj.HolesNumber * BLOCK_UNIT, 0, 0), Rotation())
             wire_holes_up = [slot_up]
@@ -673,9 +664,7 @@ class STR_SLT_SE_ERR(BRACE):
 
             p = self.detail_face(p, inset_wire, wire_holes_up)
         #  ---- Ponemos Nombre a la pieza con las variables de la misma
-        obj.Code = (
-            f"Brace STR SLT SE ERR BU{obj.HolesNumber:02}x01x00.25x{obj.HolesNumberSlotted:02}"
-        )
+        obj.Code = f"Brace STR SLT SE ERR BU{obj.HolesNumber:02}x01x00.25x{obj.SlotSize:02}"
         obj.Shape = p
 
 
@@ -700,7 +689,8 @@ class STR_SLT_SQT_ERR(BRACE):
             QT_TRANSLATE_NOOP("App::Property", "SlotSize"),
             QT_TRANSLATE_NOOP("App::Property", "Part parameters"),
             QT_TRANSLATE_NOOP(
-                "App::Property", "Slotted holes number\nSame on both sides\nMinimum 2"
+                "App::Property",
+                "Slot size in terms of number of holes\nSame on both sides\nMinimum 2",
             ),
         ).SlotSize = (2, 2, 50, 1)
 
