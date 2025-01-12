@@ -1,15 +1,5 @@
 # Contributing
 
-<!--toc:start-->
-- [Contributing](#contributing)
-  - [Ideas](#ideas)
-  - [Translators](#translators)
-  - [Designers](#designers)
-  - [Accessibility / Usability](#accessibility-usability)
-  - [Testers](#testers)
-  - [Developers](#developers)
-<!--toc:end-->
-
 Contributing can take many forms, and it's not just for developers.
 
 ## Ideas
@@ -38,9 +28,7 @@ on the translations directory.
 
 ## Designers
 
-Do our icons make you cringe too? Think you can do better?
-
-As of now we still need 20 icons for commands that use `.png` images.
+Some beam icons may need to be improved to be easier to identify.
 
 Here are FreeCAD guidelines for icons: <https://wiki.freecad.org/Artwork_Guidelines>
 
@@ -54,9 +42,12 @@ but it's often easy to accommodate once the issue is known.
 
 See a bug? Open an issue on GitHub: <https://github.com/bilbaomakers/StemfieWB/issues>
 
+You can test latest changes on: <https://github.com/bilbaomakers/StemfieWB/tree/develop>
+
 If you have QA experience consider writing test cases.
 
 ## Developers
 
-Feel like adding a new feature? Open a ticket to use as a basis for discussion.
+Feel like adding a new feature/part? Open a ticket to use as a basis for discussion.
+
 Describe your idea. Discuss with the other developers and start coding!
