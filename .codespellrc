@@ -5,4 +5,4 @@ check-hidden = true
 # camel-cased
 ignore-regex = (\b[A-Za-z][a-z]*[A-Z]\S+\b|\.edn\b|\S+…|\\nd\b)
 # Still there are some Spanish comments
-ignore-words-list = vertexes,funcion,conector,comandos
+ignore-words-list = vertexes,funcion,conector,comandos,BU

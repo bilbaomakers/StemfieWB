@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="64"
+   height="64"
+   viewBox="0 0 64 64"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   sodipodi:docname="FRE.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <title
+     id="title6">Spacer - Free</title>
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#323232"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#191919"
+     inkscape:document-units="px"
+     showgrid="true"
+     inkscape:zoom="5.6568539"
+     inkscape:cx="39.686371"
+     inkscape:cy="25.367457"
+     inkscape:window-width="1894"
+     inkscape:window-height="999"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1"
+     showguides="true"
+     inkscape:lockguides="false"
+     guidecolor="#ffff00"
+     guideopacity="0.6"
+     guidehicolor="#ff00ff"
+     guidehiopacity="0.50196078">
+    <inkscape:grid
+       id="grid1"
+       units="px"
+       originx="0"
+       originy="0"
+       spacingx="2"
+       spacingy="2"
+       empcolor="#0099e5"
+       empopacity="0.30196078"
+       color="#0099e5"
+       opacity="0.14901961"
+       empspacing="4"
+       enabled="true"
+       visible="true" />
+    <sodipodi:guide
+       position="-2,62"
+       orientation="0,1"
+       id="guide5"
+       inkscape:locked="false"
+       inkscape:label="top margin"
+       inkscape:color="rgb(255,255,0)" />
+    <sodipodi:guide
+       position="64,2"
+       orientation="0,1"
+       id="guide6"
+       inkscape:locked="false"
+       inkscape:label="bottom margin"
+       inkscape:color="rgb(255,255,0)" />
+    <sodipodi:guide
+       position="2,-2"
+       orientation="-1,0"
+       id="guide7"
+       inkscape:locked="false"
+       inkscape:label="right margin"
+       inkscape:color="rgb(255,255,0)" />
+    <sodipodi:guide
+       position="62,64"
+       orientation="-1,0"
+       id="guide8"
+       inkscape:locked="false"
+       inkscape:label="left margin"
+       inkscape:color="rgb(255,255,0)" />
+    <sodipodi:guide
+       position="64,64"
+       orientation="0.70710678,-0.70710678"
+       id="guide1"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="0,64"
+       orientation="0.70710678,0.70710678"
+       id="guide2"
+       inkscape:label=""
+       inkscape:locked="false"
+       inkscape:color="rgb(255,255,0)" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1">
+    <linearGradient
+       id="linearGradient22"
+       inkscape:collect="always"
+       inkscape:label="Scarlet red gradient">
+      <stop
+         style="stop-color:#ef2929;stop-opacity:1;"
+         offset="0"
+         id="stop22" />
+      <stop
+         style="stop-color:#cc0000;stop-opacity:1;"
+         offset="1"
+         id="stop23" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient22"
+       id="linearGradient6"
+       x1="13.543408"
+       y1="13.543408"
+       x2="50.456593"
+       y2="50.456593"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <metadata
+     id="metadata1">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <cc:license
+           rdf:resource="http://creativecommons.org/licenses/by-nc-sa/4.0/" />
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>hasecilu</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>FreeCAD</rdf:li>
+            <rdf:li>command</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+        <dc:description>Template file to create icons for FreeCAD commands.</dc:description>
+        <dc:date>2025</dc:date>
+        <dc:rights>
+          <cc:Agent>
+            <dc:title>FreeCAD LGPL2+</dc:title>
+          </cc:Agent>
+        </dc:rights>
+        <dc:identifier>FreeCAD/src/</dc:identifier>
+        <dc:publisher>
+          <cc:Agent>
+            <dc:title>FreeCAD</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:relation>https://wiki.freecad.org/Artwork</dc:relation>
+        <dc:title>Spacer FRE</dc:title>
+      </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Notice" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Attribution" />
+        <cc:prohibits
+           rdf:resource="http://creativecommons.org/ns#CommercialUse" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#ShareAlike" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+  <path
+     id="path3"
+     style="fill:#ef2929;stroke:#a40000;stroke-width:1.99993;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
+     d="M 32 3 A 29.000034 29.000034 0 0 0 3 32 A 29.000034 29.000034 0 0 0 32 61 A 29.000034 29.000034 0 0 0 61 32 A 29.000034 29.000034 0 0 0 32 3 z M 32 16 A 16 16 0 0 1 48 32 A 16 16 0 0 1 32 48 A 16 16 0 0 1 16 32 A 16 16 0 0 1 32 16 z "
+     inkscape:label="main" />
+  <path
+     id="path4"
+     style="fill:url(#linearGradient6);stroke:none;stroke-width:1.99993;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
+     inkscape:label="gradient"
+     sodipodi:type="inkscape:offset"
+     inkscape:radius="-2.8978024"
+     inkscape:original="M 32 3 A 29.000034 29.000034 0 0 0 3 32 A 29.000034 29.000034 0 0 0 32 61 A 29.000034 29.000034 0 0 0 61 32 A 29.000034 29.000034 0 0 0 32 3 z M 32 16 A 16 16 0 0 1 48 32 A 16 16 0 0 1 32 48 A 16 16 0 0 1 16 32 A 16 16 0 0 1 32 16 z "
+     d="m 32,5.8984375 c -6.833538,8e-6 -13.62499,2.8124901 -18.457031,7.6445315 C 8.7109276,18.37501 5.8984455,25.166462 5.8984375,32 c 8e-6,6.833538 2.8124901,13.62499 7.6445315,18.457031 4.832041,4.832041 11.623493,7.644523 18.457031,7.644531 6.833538,-8e-6 13.62499,-2.81249 18.457031,-7.644531 C 55.289072,45.62499 58.101554,38.833538 58.101562,32 58.101554,25.166462 55.289072,18.37501 50.457031,13.542969 45.62499,8.7109276 38.833538,5.8984455 32,5.8984375 Z m 0,7.2031255 c 1.855287,0 0.0052,-0.09005 1.851562,0.0918 1.846354,0.18185 0.0163,-0.09046 1.835938,0.271485 1.819639,0.361948 0.02343,-0.08739 1.798828,0.451172 1.775399,0.538561 0.03203,-0.08499 1.746094,0.625 1.714062,0.709987 0.03956,-0.08161 1.675781,0.792968 1.636218,0.874577 0.04918,-0.07762 1.591797,0.953125 1.542615,1.030743 0.05412,-0.07151 1.488281,1.105469 1.434157,1.176982 0.06311,-0.06775 1.375,1.244141 1.311887,1.311886 0.06716,-0.05916 1.244141,1.375 1.176982,1.434156 0.07473,-0.05433 1.105469,1.488281 1.030742,1.542615 0.07855,-0.04442 0.953125,1.591797 0.874576,1.636217 0.08298,-0.03828 0.792968,1.675781 0.709988,1.714062 0.08644,-0.02931 0.625,1.746094 0.538562,1.775399 0.08922,-0.02081 0.451172,1.798828 0.361949,1.819639 0.08964,-0.01042 0.271485,1.835937 0.18185,1.846354 0.0918,-0.0037 0.0918,1.851563 0,1.855287 0.09005,0.0052 -0.0918,1.851562 -0.18185,1.846354 0.09046,0.0163 -0.271485,1.835938 -0.361948,1.819639 0.08739,0.02343 -0.451172,1.798828 -0.538561,1.775399 0.08499,0.03203 -0.625,1.746094 -0.709987,1.714062 0.08161,0.03956 -0.792968,1.675781 -0.874577,1.636218 0.07762,0.04918 -0.953125,1.591797 -1.030743,1.542615 0.07151,0.05412 -1.105469,1.488281 -1.176982,1.434157 0.06775,0.06311 -1.244141,1.375 -1.311886,1.311887 0.05916,0.06716 -1.375,1.244141 -1.434156,1.176982 0.05433,0.07473 -1.488281,1.105469 -1.542615,1.030742 0.04442,0.07855 -1.591797,0.953125 -1.636217,0.874576 0.03828,0.08298 -1.675781,0.792968 -1.714062,0.709988 0.02931,0.08644 -1.746094,0.625 -1.775399,0.538562 0.02081,0.08922 -1.798828,0.451172 -1.819639,0.361949 0.01042,0.08964 -1.835938,0.271485 -1.846353,0.18185 0.0037,0.0918 -1.851562,0.0918 -1.855287,0 -0.0052,0.09005 -1.851563,-0.0918 -1.846353,-0.18185 -0.0163,0.09046 -1.835937,-0.271485 -1.819639,-0.361948 -0.02343,0.08739 -1.798828,-0.451172 -1.775399,-0.538561 -0.03203,0.08499 -1.746094,-0.625 -1.714062,-0.709987 -0.03956,0.08161 -1.675781,-0.792968 -1.636218,-0.874577 -0.04918,0.07762 -1.591797,-0.953125 -1.542615,-1.030743 -0.05412,0.07151 -1.488281,-1.105469 -1.434157,-1.176982 -0.06311,0.06775 -1.375,-1.244141 -1.311887,-1.311886 -0.06716,0.05916 -1.244141,-1.375 -1.176982,-1.434156 -0.07473,0.05433 -1.105469,-1.488281 -1.030742,-1.542615 -0.07855,0.04442 -0.953125,-1.591797 -0.874576,-1.636217 -0.08298,0.03828 -0.792968,-1.675781 -0.709988,-1.714062 -0.08644,0.02931 -0.625,-1.746094 -0.538562,-1.775399 -0.08922,0.02081 -0.451172,-1.798828 -0.361949,-1.819639 -0.08963,0.01042 -0.271485,-1.835938 -0.18185,-1.846353 -0.0918,0.0037 -0.0918,-1.851562 0,-1.855287 -0.09005,-0.0052 0.0918,-1.851563 0.18185,-1.846353 -0.09046,-0.0163 0.271485,-1.835937 0.361948,-1.819639 -0.08739,-0.02343 0.451172,-1.798828 0.538561,-1.775399 -0.08499,-0.03203 0.625,-1.746094 0.709987,-1.714062 -0.08161,-0.03956 0.792968,-1.675781 0.874577,-1.636218 -0.07762,-0.04918 0.953125,-1.591797 1.030743,-1.542615 -0.07151,-0.05412 1.105469,-1.488281 1.176982,-1.434157 -0.06775,-0.06311 1.244141,-1.375 1.311886,-1.311887 -0.05916,-0.06716 1.375,-1.244141 1.434156,-1.176982 -0.05433,-0.07473 1.488281,-1.105469 1.542615,-1.030742 -0.04442,-0.07855 1.591797,-0.953125 1.636217,-0.874576 -0.03828,-0.08298 1.675781,-0.792968 1.714062,-0.709988 -0.02931,-0.08644 1.746094,-0.625 1.775399,-0.538562 -0.02081,-0.08922 1.798828,-0.451172 1.819639,-0.361949 -0.01042,-0.08963 1.835937,-0.271485 1.846354,-0.18185 -0.0037,-0.0918 1.851563,-0.0918 z" />
+</svg>

@@ -8,11 +8,17 @@
 > `lupdate` and `lrelease` from Qt6 version. Using the versions from
 > Qt5 is not advised because they're buggy.
 
+| language | translated strings | completion |
+|:----|:----:|:-----:|
+|es-AR|201|100%|
+|es-ES|201|100%|
+|pl|63|32%|
+
 ## Updating translations template file
 
 To update the template file from source files you should use this command:
 
-```shell
+```sh
 ./update_translation.sh -U
 ```
 
@@ -27,7 +33,7 @@ project.
 To create a file for a new language with all **STEMFIE** translatable strings execute
 the script with `-u` flag plus your locale:
 
-```shell
+```sh
 ./update_translation.sh -u es-ES
 ```
 
@@ -74,18 +80,29 @@ Alternatively you can visit the **FreeCAD-addons** project on CrowdIn platform
 at <https://crowdin.com/project/freecad-addons> webpage and find your language,
 once done, look for the **STEMFIE** project.
 
+## Finding potential typos
+
+You can use the `aspell` command along with `awk` to potentially find some typos on the translation.
+Also you need to install the language package, `aspell-es` for Spanish.
+
+```sh
+awk 'BEGIN { RS="</translation>" } /<translation>/ { sub(/.*<translation>/, ""); print }' \
+  STEMFIE_es-ES.ts | aspell --lang=es list | sort | uniq
+
+```
+
 ## Compiling translations
 
 To convert all `.ts` files to `.qm` files (merge) you can use this command:
 
-```shell
+```sh
 ./update_translation.sh -R
 ```
 
 If you are a translator that wants to update only their language file
 to test it on **FreeCAD** before doing a PR you can use this command:
 
-```shell
+```sh
 ./update_translation.sh -r es-ES
 ```
 

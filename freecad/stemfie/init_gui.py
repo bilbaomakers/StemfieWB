@@ -27,7 +27,8 @@ class StemfieWorkbench(Workbench):
             "STEMFIE_Beam_STR_ESS",
             "STEMFIE_Beam_STR_ERR",
             "STEMFIE_Beam_STR_BEM",
-            "STEMFIE_Beam_AGD_ESS_USH_SYM",
+            "STEMFIE_Beam_AGD_TSH_SYM_ESS",
+            "STEMFIE_Beam_AGD_USH_SYM_ESS",
             "STEMFIE_Beam_STR_DBL",
             "STEMFIE_Beam_STR_TRPL",
             "STEMFIE_Beam_STR_BXS_ESS_H",
@@ -40,6 +41,7 @@ class StemfieWorkbench(Workbench):
             "STEMFIE_Brace_STR_SLT_BE_SYM_ERR",
             "STEMFIE_Brace_STR_SLT_CNT_ERR",
             "STEMFIE_Brace_STR_SLT_FL_ERR",
+            "STEMFIE_Brace_STR_SLT_SQT_ERR",
             "STEMFIE_Brace_STR_SLT_SE_ERR",
             "STEMFIE_Brace_STR_STD_DBL_AZ",
             "STEMFIE_Brace_STR_STD_DBL_AY",
@@ -48,19 +50,16 @@ class StemfieWorkbench(Workbench):
             "STEMFIE_Brace_STR_STD_CRS",
         ]
         self.list_connectors = [
-            "STEMFIE_Connector_TRH_H_BEM_SFT_1W",
-            "STEMFIE_Connector_TRH_H_BEM_SFT_2W_90",
-            "STEMFIE_Connector_TRH_H_BEM_SFT_2W_180",
-            "STEMFIE_Connector_TRH_H_BEM_SFT_3W",
-            "STEMFIE_Connector_TRH_H_BEM_SFT_4W",
+            "STEMFIE_Connector_BEM_TRH_H_SFT_1W",
+            "STEMFIE_Connector_BEM_TRH_H_SFT_2W_90",
+            "STEMFIE_Connector_BEM_TRH_H_SFT_2W_180",
+            "STEMFIE_Connector_BEM_TRH_H_SFT_3W",
+            "STEMFIE_Connector_BEM_TRH_H_SFT_4W",
         ]
-        self.list_fasteners = []
-        self.list_plates = [
-            "STEMFIE_Plate_TRI",
-            "STEMFIE_Plate_SQR",
-            "STEMFIE_Plate_HEX",
-        ]
-        self.list_shafts = ["STEMFIE_Shaft_SFT_PLN"]
+        self.list_fasteners = ["STEMFIE_Spacer_FRE", "STEMFIE_Spacer_BUD_FRE", "STEMFIE_Spacer_FXD"]
+        self.list_gears = ["STEMFIE_Gear_Involute", "STEMFIE_Gear_Bevel"]
+        self.list_plates = ["STEMFIE_Plate_TRI", "STEMFIE_Plate_SQR", "STEMFIE_Plate_HEX"]
+        self.list_shafts = ["STEMFIE_Shaft_SFT_IDX", "STEMFIE_Shaft_SFT_PLN"]
         self.list_springs = []
         self.list_commands = ["STEMFIE_PartsList"]
 
@@ -69,7 +68,7 @@ class StemfieWorkbench(Workbench):
         self.appendToolbar(
             QT_TRANSLATE_NOOP("Workbench", "STEMFIE Connectors"), self.list_connectors
         )
-        # self.appendToolbar(QT_TRANSLATE_NOOP("Workbench", "STEMFIE Fasteners"), self.list_fasteners)
+        self.appendToolbar(QT_TRANSLATE_NOOP("Workbench", "STEMFIE Fasteners"), self.list_fasteners)
         self.appendToolbar(QT_TRANSLATE_NOOP("Workbench", "STEMFIE Plates"), self.list_plates)
         self.appendToolbar(QT_TRANSLATE_NOOP("Workbench", "STEMFIE Shafts"), self.list_shafts)
         # self.appendToolbar(QT_TRANSLATE_NOOP("Workbench", "STEMFIE Springs"), self.list_springs)
@@ -84,12 +83,16 @@ class StemfieWorkbench(Workbench):
             ["STEMFIE", QT_TRANSLATE_NOOP("Workbench", "Connectors")],
             self.list_connectors,
         )
-        # self.appendMenu(
-        #     ["STEMFIE", QT_TRANSLATE_NOOP("Workbench", "Fasteners")], self.list_fasteners
-        # )
+        self.appendMenu(
+            ["STEMFIE", QT_TRANSLATE_NOOP("Workbench", "Fasteners")], self.list_fasteners
+        )
         self.appendMenu(["STEMFIE", QT_TRANSLATE_NOOP("Workbench", "Plates")], self.list_plates)
         self.appendMenu(["STEMFIE", QT_TRANSLATE_NOOP("Workbench", "Shafts")], self.list_shafts)
         # self.appendMenu(["STEMFIE", QT_TRANSLATE_NOOP("Workbench", "Springs")], self.list_springs)
+
+        if Stemfie.gears_available:
+            self.appendToolbar(QT_TRANSLATE_NOOP("Workbench", "STEMFIE Gears"), self.list_gears)
+            self.appendMenu(["STEMFIE", QT_TRANSLATE_NOOP("Workbench", "Gears")], self.list_gears)
 
     def Activated(self):
         """

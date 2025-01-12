@@ -41,8 +41,10 @@ body:
         - Beams
         - Braces
         - Connectors
+        - Gears
         - Plates
         - Shafts
+        - Spacers
         - Utilities
         - Icons
         - Translations
