@@ -1,6 +1,6 @@
 import os
 
-__version__ = "0.2.4"
+__version__ = "0.3.0"
 
 path = os.path.join(os.path.dirname(__file__), "resources")
 

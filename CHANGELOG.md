@@ -1,5 +1,27 @@
 # Changelog
 
+## [0.3.0] - 2025-01-12
+
+### Added
+
+- Add new shaft
+- Add Beam AGS TSH SYM ESS
+- Add Brace STR SLT SQT ERR
+- Add Spacer FRE
+- Add Spacer FXD
+- Add Spacer BUD FRE
+- Add bevel and involute gears
+
+### Changed
+
+- **Breaking:** Migration of beams, braces and connectors code, old parts properties values are reset.
+- Refine objects' shape, still can use simple shape
+- Update translations
+
+### Fixed
+
+- Set limits on integer properties preventing entering bad data
+
 ## [0.2.4] - 2024-11-08
 
 ### Fixed
@@ -64,3 +86,4 @@
 [0.2.2]: https://github.com/bilbaomakers/StemfieWB/releases/tag/0.2.2
 [0.2.3]: https://github.com/bilbaomakers/StemfieWB/releases/tag/0.2.3
 [0.2.4]: https://github.com/bilbaomakers/StemfieWB/releases/tag/0.2.4
+[0.3.0]: https://github.com/bilbaomakers/StemfieWB/releases/tag/0.3.0
