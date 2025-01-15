@@ -745,7 +745,7 @@ class STR_SLT_SQT_ERR(BRACE):
             p = self.detail_face(p, inset_wire, wire_holes_up)
         #  ---- Ponemos Nombre a la pieza con las variables de la misma
         obj.Code = (
-            f"Brace STR SLT SQT ERR BU{obj.SlotsNumber*obj.SlotSize:02}x01x00.25x{obj.SlotSize}"
+            f"Brace STR SLT SQT ERR BU{obj.SlotsNumber * obj.SlotSize:02}x01x00.25x{obj.SlotSize}"
         )
 
         obj.Shape = p

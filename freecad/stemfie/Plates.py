@@ -464,6 +464,6 @@ class PLT_HEX(PLT):
             p = self.detail_face(p)
 
         #  ---- Ponemos Nombre a la pieza con las variables de la misma
-        obj.Code = f"Plate HEX CRNR BU{obj.RingsNumber*2+1:02}x00.25"
+        obj.Code = f"Plate HEX CRNR BU{obj.RingsNumber * 2 + 1:02}x00.25"
 
         obj.Shape = p

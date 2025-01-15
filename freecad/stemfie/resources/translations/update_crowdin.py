@@ -320,8 +320,7 @@ def applyTranslations():
     dst = os.path.join(tempfolder, "freecad-addons.zip")
     if not os.path.exists(src):
         print(
-            "freecad-addons.zip file not found! Aborting.\n"
-            'Run "download" command before this one.'
+            'freecad-addons.zip file not found! Aborting.\nRun "download" command before this one.'
         )
         sys.exit()
     shutil.copyfile(src, dst)
@@ -376,8 +375,8 @@ if __name__ == "__main__":
                     print("\nOther languages:\n")
                     sep = True
                 print(
-                    f"{GREEN}{item["languageId"]}{NC} {str(item["translationProgress"])}% "
-                    f"({str(item["approvalProgress"])}% approved)"
+                    f"{GREEN}{item['languageId']}{NC} {str(item['translationProgress'])}% "
+                    f"({str(item['approvalProgress'])}% approved)"
                 )
 
     elif command == "build-status":

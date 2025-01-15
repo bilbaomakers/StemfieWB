@@ -1,4 +1,3 @@
-import os
 import random
 
 import FreeCAD
@@ -349,7 +348,7 @@ class FXD(BaseCommand):
 
 
 try:
-    import freecad.gears.basegear
+    import freecad.gears.basegear  # noqa: F401
 
     gears_available = True
 
