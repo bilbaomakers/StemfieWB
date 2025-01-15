@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.3.1] - 2025-01-15
+
+### Fixed
+
+- Replace f-string with concatenation on tooltips
+
 ## [0.3.0] - 2025-01-12
 
 ### Added
@@ -87,3 +93,4 @@
 [0.2.3]: https://github.com/bilbaomakers/StemfieWB/releases/tag/0.2.3
 [0.2.4]: https://github.com/bilbaomakers/StemfieWB/releases/tag/0.2.4
 [0.3.0]: https://github.com/bilbaomakers/StemfieWB/releases/tag/0.3.0
+[0.3.1]: https://github.com/bilbaomakers/StemfieWB/releases/tag/0.3.1
