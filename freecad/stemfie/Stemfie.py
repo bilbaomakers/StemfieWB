@@ -291,7 +291,7 @@ class BEM_TRH_H_SFT_2W_90(BaseCommand):
     FUNCTION = Connectors.BEM_TRH_H_SFT_2W_90
     pixmap = "TRH-H_BEM_SFT_2W_90"
     menutext = "BEM TRH-H SFT 2W 90º"
-    tooltip = f"{get_tooltip(["CON", "BEM", "TRH-H", "SFT", "2W"])} - 90°"
+    tooltip = get_tooltip(["CON", "BEM", "TRH-H", "SFT", "2W"]) + " - 90°"
 
 
 class BEM_TRH_H_SFT_2W_180(BaseCommand):
@@ -299,7 +299,7 @@ class BEM_TRH_H_SFT_2W_180(BaseCommand):
     FUNCTION = Connectors.BEM_TRH_H_SFT_2W_180
     pixmap = "TRH-H_BEM_SFT_2W_180"
     menutext = "BEM TRH-H SFT 2W 180º"
-    tooltip = f"{get_tooltip(["CON", "BEM", "TRH-H", "SFT", "2W"])} - 180°"
+    tooltip = get_tooltip(["CON", "BEM", "TRH-H", "SFT", "2W"]) + " - 180°"
 
 
 class BEM_TRH_H_SFT_3W(BaseCommand):
