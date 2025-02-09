@@ -19,7 +19,7 @@
 To update the template file from source files you should use this command:
 
 ```sh
-./update_translation.sh -U
+./update_translation.sh -u
 ```
 
 Once done you can commit the changes and upload the new file to CrowdIn platform
