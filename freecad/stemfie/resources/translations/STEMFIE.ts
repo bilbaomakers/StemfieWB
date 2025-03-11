@@ -1092,7 +1092,7 @@ Minimum = 1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Stemfie.py" line="386"/>
+        <location filename="../../Stemfie.py" line="385"/>
         <source>STEMFIE: No gears for you! UnU
 It seems you don&apos;t have the Gear WB installed on your system. Open the Addon Manager, search for &apos;gears&apos; and install it.
 </source>
@@ -1102,12 +1102,12 @@ It seems you don&apos;t have the Gear WB installed on your system. Open the Addo
 <context>
     <name>STEMFIE_PartsList</name>
     <message>
-        <location filename="../../Stemfie.py" line="453"/>
+        <location filename="../../Stemfie.py" line="452"/>
         <source>Parts list</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Stemfie.py" line="456"/>
+        <location filename="../../Stemfie.py" line="455"/>
         <source>Print a list of the STEMFIE parts on the tree to the console</source>
         <translation type="unfinished"></translation>
     </message>

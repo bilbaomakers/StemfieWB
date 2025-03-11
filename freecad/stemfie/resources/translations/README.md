@@ -9,10 +9,10 @@
 > Qt5 is not advised because they're buggy.
 
 | language | translated strings | completion |
-|:----|:----:|:-----:|
-|es-AR|201|100%|
-|es-ES|201|100%|
-|pl|63|32%|
+|:---------|:------------------:|:----------:|
+| es-AR    | 201                | 100%       |
+| es-ES    | 201                | 100%       |
+| pl       | 120                | 50%        |
 
 ## Updating translations template file
 

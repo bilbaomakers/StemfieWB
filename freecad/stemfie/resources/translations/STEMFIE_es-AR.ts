@@ -641,6 +641,36 @@
         <translation>Ángulo</translation>
     </message>
     <message>
+        <location filename="../../Braces.py" line="187"/>
+        <source>Angle
+Minimum = 60°
+Maximum = 180°</source>
+        <translation>Ángulo
+Mínimo = 60°
+Máximo = 180°</translation>
+    </message>
+    <message>
+        <location filename="../../Braces.py" line="239"/>
+        <location filename="../../Braces.py" line="773"/>
+        <source>HolesNumberSloping</source>
+        <translation>NúmeroAgujerosInclinado</translation>
+    </message>
+    <message>
+        <location filename="../../Braces.py" line="782"/>
+        <source>Angle
+Minimum = 0
+Maximum = 180</source>
+        <translation>Ángulo
+Mínimo = 0°
+Máximo = 180°</translation>
+    </message>
+    <message>
+        <location filename="../../Braces.py" line="397"/>
+        <location filename="../../Braces.py" line="498"/>
+        <source>HolesNumberTotal</source>
+        <translation>NúmeroDeAgujerosTotales</translation>
+    </message>
+    <message>
         <location filename="../../Braces.py" line="136"/>
         <source>Number of holes along the brace
 Minimum = 2</source>
@@ -662,21 +692,19 @@ Minimum = 2</source>
 Mínimo = 2</translation>
     </message>
     <message>
-        <location filename="../../Braces.py" line="187"/>
-        <source>Angle
-Minimum = 60°
-Maximum = 180°</source>
-        <translation>Ángulo
-Mínimo = 60°
-Máximo = 180°</translation>
-    </message>
-    <message>
         <location filename="../../Braces.py" line="241"/>
         <location filename="../../Braces.py" line="775"/>
         <source>Number of holes in sloping part
 Minimum 1</source>
         <translation>Número de agujeros en la parte inclinada
 Mínimo = 1</translation>
+    </message>
+    <message>
+        <location filename="../../Braces.py" line="399"/>
+        <source>Total number of holes
+Minimum 5</source>
+        <translation>Número total de agujeros
+Mínimo = 5</translation>
     </message>
     <message>
         <location filename="../../Braces.py" line="408"/>
@@ -801,11 +829,60 @@ Minimum = 1</source>
 Mínimo = 1</translation>
     </message>
     <message>
+        <location filename="../../Braces.py" line="500"/>
+        <source>Total number of holes
+Minimum 4</source>
+        <translation>Número total de agujeros
+Mínimo = 4</translation>
+    </message>
+    <message>
+        <location filename="../../Beams.py" line="391"/>
+        <location filename="../../Beams.py" line="580"/>
+        <location filename="../../Braces.py" line="897"/>
+        <source>HolesNumberY1</source>
+        <translation>NúmeroDeAgujerosY1</translation>
+    </message>
+    <message>
+        <location filename="../../Beams.py" line="393"/>
+        <location filename="../../Beams.py" line="440"/>
+        <source>Holes number in left vertical bar
+Minimum = 1</source>
+        <translation>Número de agujeros en barra vertical
+Mínimo = 1</translation>
+    </message>
+    <message>
+        <location filename="../../Beams.py" line="397"/>
+        <location filename="../../Beams.py" line="586"/>
+        <location filename="../../Braces.py" line="903"/>
+        <source>HolesNumberY2</source>
+        <translation>NúmeroDeAgujerosY2</translation>
+    </message>
+    <message>
         <location filename="../../Beams.py" line="399"/>
         <source>Holes number in right vertical bar
 Minimum = 1</source>
         <translation>Número de agujeros en barra vertical
 Mínimo = 1</translation>
+    </message>
+    <message>
+        <location filename="../../Beams.py" line="490"/>
+        <location filename="../../Braces.py" line="914"/>
+        <source>Angle
+Minimum = 90°
+Maximum = 180°</source>
+        <translation>Ángulo
+Mínimo = 90°
+Máximo = 180°</translation>
+    </message>
+    <message>
+        <location filename="../../Braces.py" line="957"/>
+        <source>HolesNumberSloping1</source>
+        <translation>NúmeroAgujerosInclinado1</translation>
+    </message>
+    <message>
+        <location filename="../../Braces.py" line="963"/>
+        <source>HolesNumberSloping2</source>
+        <translation>NúmeroAgujerosInclinado2</translation>
     </message>
     <message>
         <location filename="../../Braces.py" line="1072"/>
@@ -826,125 +903,6 @@ Mínimo = 1</translation>
         <location filename="../../Braces.py" line="1090"/>
         <source>HolesNumberYNegative</source>
         <translation>NúmeroAgujerosYNegativo</translation>
-    </message>
-    <message>
-        <location filename="../../Beams.py" line="205"/>
-        <source>Holes number for part
-Minimum = 1</source>
-        <translation>Número de agujeros para pieza
-Mínimo = 1</translation>
-    </message>
-    <message>
-        <location filename="../../Beams.py" line="483"/>
-        <source>Holes number in angular bar
-Minimum = 1</source>
-        <translation>Número de agujeros em barra angular
-Mínimo = 1</translation>
-    </message>
-    <message>
-        <location filename="../../Beams.py" line="582"/>
-        <source>Holes number in left angular bar
-Minimum = 1</source>
-        <translation>Número de agujeros em barra angular izquierda
-Mínimo = 1</translation>
-    </message>
-    <message>
-        <location filename="../../Beams.py" line="588"/>
-        <source>Holes number in right angular bar
-Minimum = 1</source>
-        <translation>Número de agujeros em barra angular derecha
-Mínimo = 1</translation>
-    </message>
-    <message>
-        <location filename="../../Beams.py" line="711"/>
-        <source>Holes number
-Minimum = 1</source>
-        <translation>Número de agujeros
-Mínimo = 1</translation>
-    </message>
-    <message>
-        <location filename="../../Beams.py" line="751"/>
-        <source>Holes number
-Minimum = 3</source>
-        <translation>Número de agujeros
-Mínimo = 3</translation>
-    </message>
-    <message>
-        <location filename="../../Braces.py" line="239"/>
-        <location filename="../../Braces.py" line="773"/>
-        <source>HolesNumberSloping</source>
-        <translation>NúmeroAgujerosInclinado</translation>
-    </message>
-    <message>
-        <location filename="../../Braces.py" line="782"/>
-        <source>Angle
-Minimum = 0
-Maximum = 180</source>
-        <translation>Ángulo
-Mínimo = 0°
-Máximo = 180°</translation>
-    </message>
-    <message>
-        <location filename="../../Braces.py" line="399"/>
-        <source>Total number of holes
-Minimum 5</source>
-        <translation>Número total de agujeros
-Mínimo = 5</translation>
-    </message>
-    <message>
-        <location filename="../../Beams.py" line="391"/>
-        <location filename="../../Beams.py" line="580"/>
-        <location filename="../../Braces.py" line="897"/>
-        <source>HolesNumberY1</source>
-        <translation>NúmeroDeAgujerosY1</translation>
-    </message>
-    <message>
-        <location filename="../../Beams.py" line="397"/>
-        <location filename="../../Beams.py" line="586"/>
-        <location filename="../../Braces.py" line="903"/>
-        <source>HolesNumberY2</source>
-        <translation>NúmeroDeAgujerosY2</translation>
-    </message>
-    <message>
-        <location filename="../../Beams.py" line="490"/>
-        <location filename="../../Braces.py" line="914"/>
-        <source>Angle
-Minimum = 90°
-Maximum = 180°</source>
-        <translation>Ángulo
-Mínimo = 90°
-Máximo = 180°</translation>
-    </message>
-    <message>
-        <location filename="../../Braces.py" line="397"/>
-        <location filename="../../Braces.py" line="498"/>
-        <source>HolesNumberTotal</source>
-        <translation>NúmeroDeAgujerosTotales</translation>
-    </message>
-    <message>
-        <location filename="../../Braces.py" line="500"/>
-        <source>Total number of holes
-Minimum 4</source>
-        <translation>Número total de agujeros
-Mínimo = 4</translation>
-    </message>
-    <message>
-        <location filename="../../Beams.py" line="393"/>
-        <location filename="../../Beams.py" line="440"/>
-        <source>Holes number in left vertical bar
-Minimum = 1</source>
-        <translation>Número de agujeros en barra vertical
-Mínimo = 1</translation>
-    </message>
-    <message>
-        <location filename="../../Braces.py" line="957"/>
-        <source>HolesNumberSloping1</source>
-        <translation>NúmeroAgujerosInclinado1</translation>
-    </message>
-    <message>
-        <location filename="../../Braces.py" line="963"/>
-        <source>HolesNumberSloping2</source>
-        <translation>NúmeroAgujerosInclinado2</translation>
     </message>
     <message>
         <location filename="../../Beams.py" line="47"/>
@@ -972,6 +930,13 @@ Mínimo = 1</translation>
         <location filename="../../Spacers.py" line="39"/>
         <source>Create simplified shape, holes are not chamfered and upper face is totally flush</source>
         <translation>Crear forma simple, los agujeros no están biselados y la cara superior está totalmente plana</translation>
+    </message>
+    <message>
+        <location filename="../../Beams.py" line="205"/>
+        <source>Holes number for part
+Minimum = 1</source>
+        <translation>Número de agujeros para pieza
+Mínimo = 1</translation>
     </message>
     <message>
         <location filename="../../Beams.py" line="248"/>
@@ -1020,6 +985,41 @@ Mínimo = 3</translation>
 Minimum = 2</source>
         <translation>Número de agujeros para pieza en X
 Mínimo = 2</translation>
+    </message>
+    <message>
+        <location filename="../../Beams.py" line="483"/>
+        <source>Holes number in angular bar
+Minimum = 1</source>
+        <translation>Número de agujeros em barra angular
+Mínimo = 1</translation>
+    </message>
+    <message>
+        <location filename="../../Beams.py" line="582"/>
+        <source>Holes number in left angular bar
+Minimum = 1</source>
+        <translation>Número de agujeros em barra angular izquierda
+Mínimo = 1</translation>
+    </message>
+    <message>
+        <location filename="../../Beams.py" line="588"/>
+        <source>Holes number in right angular bar
+Minimum = 1</source>
+        <translation>Número de agujeros em barra angular derecha
+Mínimo = 1</translation>
+    </message>
+    <message>
+        <location filename="../../Beams.py" line="711"/>
+        <source>Holes number
+Minimum = 1</source>
+        <translation>Número de agujeros
+Mínimo = 1</translation>
+    </message>
+    <message>
+        <location filename="../../Beams.py" line="751"/>
+        <source>Holes number
+Minimum = 3</source>
+        <translation>Número de agujeros
+Mínimo = 3</translation>
     </message>
     <message>
         <location filename="../../Plates.py" line="96"/>
@@ -1146,7 +1146,7 @@ Mínimo = 1</translation>
 </translation>
     </message>
     <message>
-        <location filename="../../Stemfie.py" line="386"/>
+        <location filename="../../Stemfie.py" line="385"/>
         <source>STEMFIE: No gears for you! UnU
 It seems you don&apos;t have the Gear WB installed on your system. Open the Addon Manager, search for &apos;gears&apos; and install it.
 </source>
@@ -1158,28 +1158,18 @@ Tal parece que no tienes el banco de trabajo Gear instalado en tu sistema. Abre 
 <context>
     <name>STEMFIE_PartsList</name>
     <message>
-        <location filename="../../Stemfie.py" line="453"/>
+        <location filename="../../Stemfie.py" line="452"/>
         <source>Parts list</source>
         <translation>Lista de partes</translation>
     </message>
     <message>
-        <location filename="../../Stemfie.py" line="456"/>
+        <location filename="../../Stemfie.py" line="455"/>
         <source>Print a list of the STEMFIE parts on the tree to the console</source>
         <translation>Imprimir una lista de partes STEMFIE del árbol en la consola</translation>
     </message>
 </context>
 <context>
     <name>Workbench</name>
-    <message>
-        <location filename="../../init_gui.py" line="81"/>
-        <source>Braces</source>
-        <translation>Brazos</translation>
-    </message>
-    <message>
-        <location filename="../../init_gui.py" line="80"/>
-        <source>Beams</source>
-        <translation>Vigas</translation>
-    </message>
     <message>
         <location filename="../../init_gui.py" line="19"/>
         <source>Workbench for STEMFIE</source>
@@ -1224,6 +1214,16 @@ Tal parece que no tienes el banco de trabajo Gear instalado en tu sistema. Abre 
         <location filename="../../init_gui.py" line="75"/>
         <source>STEMFIE Utilities</source>
         <translation>STEMFIE Utilidades</translation>
+    </message>
+    <message>
+        <location filename="../../init_gui.py" line="80"/>
+        <source>Beams</source>
+        <translation>Vigas</translation>
+    </message>
+    <message>
+        <location filename="../../init_gui.py" line="81"/>
+        <source>Braces</source>
+        <translation>Brazos</translation>
     </message>
     <message>
         <location filename="../../init_gui.py" line="83"/>
